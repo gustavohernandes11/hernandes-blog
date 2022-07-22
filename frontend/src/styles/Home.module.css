@@ -1,0 +1,12 @@
+.container {
+    background-color: #121212;
+    color: #e3e3e3;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "asidemenu content";
+    height: 100vh;
+}
+
+@media (max-width: 600px) {
+    /*  */
+}

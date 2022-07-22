@@ -1,0 +1,15 @@
+    "@storybook/react": "^6.5.9",
+    "@styled-icons/fa-brands": "^10.38.0",
+    @styled-icons/fa-regular": "^10.34.0",
+    @styled-icons/fa-solid": "^10.34.0",
+    @testing-library/jest-dom": "^5.16.4",
+    @testing-library/react": "^13.3.0",
+    @testing-library/user-event": "^13.5.0",
+    axios": "^0.27.2",
+    core-js": "^3.23.3",
+    jest-styled-components": "^7.0.8",
+    netlify-cli": "^10.10.0",
+    "react-toastify": "^9.0.5",
+
+
+    commitizen init cz-conventional-changelog --save-dev --save-exact
