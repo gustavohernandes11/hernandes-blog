@@ -28,6 +28,20 @@ const About: NextPage = () => {
                     quisquam. Distinctio laborum dolore exercitationem aperiam
                     reiciendis.
                 </Typography>
+                <Typography paragraph>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptas quod harum accusantium quam illum dignissimos
+                    fugiat, doloribus ullam, laborum id ipsa est. Debitis,
+                    quisquam. Distinctio laborum dolore exercitationem aperiam
+                    reiciendis.
+                </Typography>
+                <Typography paragraph>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptas quod harum accusantium quam illum dignissimos
+                    fugiat, doloribus ullam, laborum id ipsa est. Debitis,
+                    quisquam. Distinctio laborum dolore exercitationem aperiam
+                    reiciendis.
+                </Typography>
             </Content>
         </>
     );

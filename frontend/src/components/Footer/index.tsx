@@ -1,9 +1,12 @@
 import * as Styled from "./styles.js";
+import { Typography } from "@mui/material";
 
-export const Footer = () => {
+export const Footer = ({children}: any) => {
     return (
         <Styled.Container>
-            <p>Footer</p>
+            <Typography id="footer" variant="overline" mt={3} align="center">
+                { children }
+            </Typography>
         </Styled.Container>
     );
 };

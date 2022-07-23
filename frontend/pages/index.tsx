@@ -7,7 +7,6 @@ import { PostDescription } from "./../src/components/PostWrapper/PostDescription
 import { PostWrapperList } from "./../src/components/PostWrapperList/";
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../src/styles/Home.module.css";
 
 const Home: NextPage = () => {
     return (
