@@ -1,11 +1,16 @@
 import * as Styled from "./styles.js";
-import { NavLink } from "./NavLink";
 import { Button } from "@mui/material";
+import Link from "next/link";
+
 export const Nav = () => {
     return (
         <Styled.Container>
-            <Button>Home</Button>
-            <Button>About</Button>
+            <Link href="/">
+                <Button color="inherit">Home</Button>
+            </Link>
+            <Link href="/about">
+                <Button color="inherit">About</Button>
+            </Link>
         </Styled.Container>
     );
 };

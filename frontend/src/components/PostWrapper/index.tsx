@@ -1,5 +1,15 @@
 import * as Styled from "./styles.js";
+import Link from "next/link";
 
-export const PostWrapper = ({ children }: any) => {
-    return <Styled.Wrapper>{children}</Styled.Wrapper>;
+interface PostWrapperProps {
+    children: any;
+    slug: string;
+}
+
+export const PostWrapper = ({ children, slug }: PostWrapperProps) => {
+    return (
+        <Link href={`/posts/${slug}`}>
+            <Styled.Wrapper>{children}</Styled.Wrapper>
+        </Link>
+    );
 };

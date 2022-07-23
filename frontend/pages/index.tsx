@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Hernandes.blog</title>
+                <title>.blog</title>
                 <meta
                     name="description"
                     content="Blog to share develevopment tips and ticks of Javascript, Typscript, Html, Node, CSS"
@@ -21,11 +21,9 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Content>
-                <Heading mb={5} className="main-heading">
-                    Home
-                </Heading>
-                <PostWrapperList>
-                    <PostWrapper>
+                <Heading className="main-heading">Home</Heading>
+                <PostWrapperList mt={3}>
+                    <PostWrapper slug="slug">
                         <PostDate>12 de março de 1976</PostDate>
                         <PostTitle>
                             Lorem ipsum dolor sit amet consectetur adipisicing
@@ -38,7 +36,7 @@ const Home: NextPage = () => {
                             perferendis?
                         </PostDescription>
                     </PostWrapper>
-                    <PostWrapper>
+                    <PostWrapper slug="slug">
                         <PostDate>12 de março de 1976</PostDate>
                         <PostTitle>
                             Lorem ipsum dolor sit amet consectetur adipisicing
@@ -51,7 +49,7 @@ const Home: NextPage = () => {
                             perferendis?
                         </PostDescription>
                     </PostWrapper>
-                    <PostWrapper>
+                    <PostWrapper slug="slug">
                         <PostDate>12 de março de 1976</PostDate>
                         <PostTitle>
                             Lorem ipsum dolor sit amet consectetur adipisicing
