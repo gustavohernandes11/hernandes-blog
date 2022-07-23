@@ -17,25 +17,25 @@ const About: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Content>
+            <Content >
                 <Heading className="main-heading">
                     About
                 </Heading>
-                <Typography mt={3} paragraph>
+                <Typography mt={3} paragraph >
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Voluptas quod harum accusantium quam illum dignissimos
                     fugiat, doloribus ullam, laborum id ipsa est. Debitis,
                     quisquam. Distinctio laborum dolore exercitationem aperiam
                     reiciendis.
                 </Typography>
-                <Typography paragraph>
+                <Typography paragraph >
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Voluptas quod harum accusantium quam illum dignissimos
                     fugiat, doloribus ullam, laborum id ipsa est. Debitis,
                     quisquam. Distinctio laborum dolore exercitationem aperiam
                     reiciendis.
                 </Typography>
-                <Typography paragraph>
+                <Typography paragraph >
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Voluptas quod harum accusantium quam illum dignissimos
                     fugiat, doloribus ullam, laborum id ipsa est. Debitis,
