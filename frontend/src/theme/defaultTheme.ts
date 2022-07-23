@@ -1,6 +1,7 @@
-export const theme = {
+
+export const theme: object = {
     colors: {
-        primary: "#03dac6",
+        primary:"#03dac6",
         primaryVariant: "#664b86",
         secondary: "#03dac6",
         secondaryVariant: "",
