@@ -11,6 +11,9 @@ export const Nav = () => {
             <Link href="/about">
                 <Button color="inherit">About</Button>
             </Link>
+            <Link href="/postexemple">
+                <Button color="inherit">PostMock</Button>
+            </Link>
         </Styled.Container>
     );
 };

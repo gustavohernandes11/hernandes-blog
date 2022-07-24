@@ -5,7 +5,7 @@ export const Content = ({ children }: any) => {
     return (
         <Styled.Container id="content">
             {children}
-            <Footer>Criado com Next.js </Footer>
+            <Footer>Criado com Next.js</Footer>
         </Styled.Container>
     );
 };

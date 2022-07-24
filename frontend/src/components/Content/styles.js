@@ -12,8 +12,5 @@ export const Container = styled.main`
             text-align: justify;
         }
 }
-        .main-heading {
-            font-size: ${theme.fontSizes.md};
-        }
     `}
 `;

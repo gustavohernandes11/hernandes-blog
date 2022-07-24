@@ -20,8 +20,8 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Content>
-                <Heading className="main-heading">Home</Heading>
-                <PostWrapperList mt={3}>
+                <Heading>Home</Heading>
+                <PostWrapperList>
                     <PostWrapper slug="slug">
                         <PostDate>12 de março de 1976</PostDate>
                         <PostTitle>

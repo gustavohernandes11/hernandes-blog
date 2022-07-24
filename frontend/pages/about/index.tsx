@@ -3,7 +3,6 @@ import { Heading } from "../../src/components/Heading";
 
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../src/styles/About.module.css";
 import { Typography } from "@mui/material";
 
 const About: NextPage = () => {
@@ -18,7 +17,7 @@ const About: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Content >
-                <Heading className="main-heading">
+                <Heading>
                     About
                 </Heading>
                 <Typography mt={3} paragraph >
