@@ -1,6 +1,10 @@
-import * as Styled from "./styles.js";
-import type { AppProps } from "next/app";
+import { Button } from "@mui/material";
+import Link from "next/link";
 
-export function NavLink({ children }: any) {
-    return <Styled.Container>{children}</Styled.Container>;
+export function NavLink({ children, href }: any) {
+    return (
+        <Link href={href}>
+            <Button color="inherit">{children}</Button>
+        </Link>
+    );
 }
