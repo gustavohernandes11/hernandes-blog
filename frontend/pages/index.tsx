@@ -12,13 +12,8 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>.blog</title>
-                <meta
-                    name="description"
-                    content="Blog to share develevopment tips and ticks of Javascript, Typscript, Html, Node, CSS"
-                />
-                <link rel="icon" href="/favicon.ico" />
-                <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css"></link>
+                <title>H!</title>
+                
             </Head>
             <Content>
                 <Heading>Home</Heading>
