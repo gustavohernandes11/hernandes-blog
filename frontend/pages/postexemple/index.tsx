@@ -6,7 +6,6 @@ import { Code } from "../../src/components/Code";
 
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../src/styles/PostExemple.module.css";
 import { Typography } from "@mui/material";
 
 const PostExemple: NextPage = () => {
@@ -22,8 +21,7 @@ const PostExemple: NextPage = () => {
             </Head>
             <Content>
                 <PostTitle>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptas quod harum accusantium quam illum dignissimos
+                    Typescript: principais usos em projetos reais.
                 </PostTitle>
                 <PostSubtitle>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.

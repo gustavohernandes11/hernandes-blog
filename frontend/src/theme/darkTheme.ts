@@ -1,8 +1,8 @@
 export const darkTheme: object = {
     colors: {
-        primary:"#03dac6",
+        primary:"#2d1ed1",
         primaryVariant: "#664b86",
-        secondary: "#03dac6",
+        secondary: "#9762b5",
         secondaryVariant: "",
         background: "#121212",
         surface: "#1d1d1d",
