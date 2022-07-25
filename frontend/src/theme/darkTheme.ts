@@ -1,5 +1,4 @@
-
-export const theme: object = {
+export const darkTheme: object = {
     colors: {
         primary:"#03dac6",
         primaryVariant: "#664b86",
