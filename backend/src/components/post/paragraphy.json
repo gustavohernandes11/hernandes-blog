@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_post_paragraphies",
+  "info": {
+    "displayName": "paragraphy",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraphy": {
+      "type": "richtext",
+      "required": false,
+      "maxLength": 10000,
+      "minLength": 3
+    }
+  }
+}
