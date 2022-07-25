@@ -18,6 +18,7 @@ const Home: NextPage = () => {
                     content="Blog to share develevopment tips and ticks of Javascript, Typscript, Html, Node, CSS"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css"></link>
             </Head>
             <Content>
                 <Heading>Home</Heading>
