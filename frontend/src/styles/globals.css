@@ -18,3 +18,8 @@ a {
 path {
     fill: url('#my-cool-gradient');
 }
+.lading-page-spin {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+}
