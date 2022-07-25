@@ -17,7 +17,7 @@ export function Code({ children }: any) {
                     aria-label="copy-code-button"
                     className="copy-code-button"
                 >
-                    <ClipboardCopy width={25} height={25} />
+                    <ClipboardCopy width={20} height={20} />
                 </IconButton>
             )}
         </Styled.Container>
