@@ -1,12 +1,10 @@
 {
   "collectionName": "components_post_quotes",
   "info": {
-    "displayName": "quote"
+    "displayName": "code",
+    "description": "",
+    "icon": "code"
   },
   "options": {},
-  "attributes": {
-    "quote": {
-      "type": "richtext"
-    }
-  }
+  "attributes": {}
 }

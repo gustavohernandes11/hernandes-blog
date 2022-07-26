@@ -36,13 +36,15 @@
       },
       "type": "dynamiczone",
       "components": [
+        "post.code",
         "post.image",
         "post.paragraphy",
-        "post.quote"
+        "post.subtitle",
+        "post.subtitle-h3"
       ],
       "required": false
     },
-    "Title": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -53,7 +55,7 @@
       "unique": true,
       "minLength": 3
     },
-    "Meta": {
+    "meta": {
       "displayName": "meta",
       "type": "component",
       "repeatable": false,
@@ -63,6 +65,24 @@
         }
       },
       "component": "meta.meta"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "date": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "date",
+      "required": true,
+      "unique": false
     }
   }
 }

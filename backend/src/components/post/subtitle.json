@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_post_subtitles",
+  "info": {
+    "displayName": "subtitle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subtitle": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 3
+    }
+  }
+}

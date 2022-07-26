@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_post_subtitle_h3s",
+  "info": {
+    "displayName": "subtitle_h3",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subtitle_h3": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 3
+    }
+  }
+}
