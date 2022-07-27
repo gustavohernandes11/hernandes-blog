@@ -5,6 +5,7 @@ export const Container = styled.code`
         padding: ${theme.spacings[5]};
         width: 100%;
         border: 1px solid ${theme.colors.border};
+        border-radius: 5px;
         background: ${theme.colors.surface};
         margin: ${theme.spacings[5]} 0;
         position: relative;
