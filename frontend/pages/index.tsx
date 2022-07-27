@@ -7,56 +7,36 @@ import { PostDescription } from "./../src/components/PostWrapper/PostDescription
 import { PostWrapperList } from "./../src/components/PostWrapperList/";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Key, useState } from "react";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ data = [] }): JSX.Element => {
+    const [posts, setPosts] = useState(data);
+
+    interface PostWrapperTypes {
+        id: Key | null | undefined;
+        attributes: {
+            slug: string;
+            date: string;
+            title: string;
+            Post_description: string;
+        };
+    }
+
     return (
         <>
             <Head>
                 <title>H!</title>
-                
             </Head>
             <Content>
                 <Heading>Home</Heading>
                 <PostWrapperList>
-                    <PostWrapper slug="slug">
-                        <PostDate>12 de março de 1976</PostDate>
-                        <PostTitle>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit.{" "}
-                        </PostTitle>
-                        <PostDescription>
-                            Ullam quos hic ratione reiciendis porro voluptas
-                            nisi dolorem quibusdam minima soluta, reprehenderit,
-                            nobis id deserunt eius quasi veniam excepturi, eum
-                            perferendis?
-                        </PostDescription>
-                    </PostWrapper>
-                    <PostWrapper slug="slug">
-                        <PostDate>12 de março de 1976</PostDate>
-                        <PostTitle>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit.{" "}
-                        </PostTitle>
-                        <PostDescription>
-                            Ullam quos hic ratione reiciendis porro voluptas
-                            nisi dolorem quibusdam minima soluta, reprehenderit,
-                            nobis id deserunt eius quasi veniam excepturi, eum
-                            perferendis?
-                        </PostDescription>
-                    </PostWrapper>
-                    <PostWrapper slug="slug">
-                        <PostDate>12 de março de 1976</PostDate>
-                        <PostTitle>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit.{" "}
-                        </PostTitle>
-                        <PostDescription>
-                            Ullam quos hic ratione reiciendis porro voluptas
-                            nisi dolorem quibusdam minima soluta, reprehenderit,
-                            nobis id deserunt eius quasi veniam excepturi, eum
-                            perferendis?
-                        </PostDescription>
-                    </PostWrapper>
+                    {posts.map((e: PostWrapperTypes) => (
+                        <PostWrapper key={e.id} slug={e.attributes.slug}>
+                            <PostDate>{e.attributes.date}</PostDate>
+                            <PostTitle>{e.attributes.title}</PostTitle>
+                            <PostDescription>{e.attributes.Post_description}</PostDescription>
+                        </PostWrapper>
+                    ))}
                 </PostWrapperList>
             </Content>
         </>
@@ -64,3 +44,18 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+    const res = await fetch(`http://localhost:1337/api/posts`);
+    const { data } = await res.json();
+
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+    return {
+        props: { data },
+        revalidate: 180,
+    };
+}
