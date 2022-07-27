@@ -3,7 +3,7 @@ import { Heading } from "../../src/components/Heading";
 import { PostTitle } from "../../src/components/PostTitle";
 import { PostSubtitle } from "../../src/components/PostSubtitle";
 import { Code } from "../../src/components/Code";
-
+ 
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Typography } from "@mui/material";
