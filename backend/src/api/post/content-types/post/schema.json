@@ -28,7 +28,7 @@
       "maxLength": 200,
       "minLength": 3
     },
-    "Post_content_zone": {
+    "post_content_zone": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -72,7 +72,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "date": {
       "pluginOptions": {
