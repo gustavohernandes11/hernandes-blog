@@ -30,7 +30,7 @@ export default class MyDocument extends Document {
     }
     render() {
         return (
-            <Html>
+            <Html lang="pt-BR">
                 <Head>
                     <meta name="title" content="Hernandes - Blog" />
                     <meta
