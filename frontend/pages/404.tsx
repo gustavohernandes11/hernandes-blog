@@ -27,8 +27,8 @@ const Error404: NextPage = (): JSX.Element => {
                     <Typography>
                         A página que você procura não foi encontrada.
                     </Typography>
-                    <Link href="/">
-                        <Button variant="contained">Voltar para home</Button>
+                    <Link href="/" className="go-home-button" aria-label="go-home-button">
+                        <Button variant="contained" >Voltar para home</Button>
                     </Link>
                 </Stack>
             </Content>

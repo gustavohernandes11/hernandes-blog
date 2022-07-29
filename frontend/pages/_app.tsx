@@ -10,11 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <div className={styles.container}>
             <GlobalContextProvider>
-            <Hidden />
-            <Theme>
-                <AsideMenu />
-                <Component {...pageProps} />
-            </Theme>
+                <Hidden />
+                <Theme>
+                    <AsideMenu />
+                    <Component {...pageProps} />
+                </Theme>
             </GlobalContextProvider>
         </div>
     );

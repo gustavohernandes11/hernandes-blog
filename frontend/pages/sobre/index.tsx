@@ -1,5 +1,6 @@
 import { Content } from "../../src/components/Content";
 import { Heading } from "../../src/components/Heading";
+import { Footer } from "../../src/components/Footer";
 
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -41,6 +42,7 @@ const About: NextPage = () => {
                     quisquam. Distinctio laborum dolore exercitationem aperiam
                     reiciendis.
                 </Typography>
+            <Footer/>
             </Content>
         </>
     );

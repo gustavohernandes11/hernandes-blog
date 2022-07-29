@@ -1,4 +1,5 @@
 import { Content } from "../src/components/Content";
+import { Footer } from "../src/components/Footer";
 import { Heading } from "../src/components/Heading";
 import { PostWrapper } from "./../src/components/PostWrapper/";
 import { PostDate } from "./../src/components/PostWrapper/PostDate/";
@@ -9,7 +10,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Key, useState } from "react";
 
-const Home: NextPage = ({ data = [] }): JSX.Element => {
+const Home: NextPage = ({ data = [] }: any): JSX.Element => {
     const [posts] = useState(data);
 
     interface PostWrapperTypes {
@@ -41,6 +42,8 @@ const Home: NextPage = ({ data = [] }): JSX.Element => {
                     ))}
                 </PostWrapperList>
             </Content>
+            <Footer />
+
         </>
     );
 };
@@ -59,7 +62,6 @@ export async function getStaticProps() {
         }
         return {
             props: { data },
-            revalidate: 180,
         };
     } catch (e) {
         return {
