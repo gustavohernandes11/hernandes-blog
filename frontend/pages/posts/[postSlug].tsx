@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Content } from "../../src/components/Content";
 import { PostDate } from "./../../src/components/PostWrapper/PostDate/";
-import { PostTitle } from "./../../src/components/PostTitle/";
+import { Title } from "../../src/components/Title";
 import { PostDescription } from "./../../src/components/PostWrapper/PostDescription/";
 import { RenderContentZone } from "components/RenderContentZone";
 
@@ -12,7 +12,7 @@ const Post = ({ data = {} }: any) => {
     return (
         <Content>
             <PostDate>{post.attributes.date}</PostDate>
-            <PostTitle>{post.attributes.title}</PostTitle>
+            <Title>{post.attributes.title}</Title>
             <PostDescription>
                 {post.attributes.Post_description}
             </PostDescription>
