@@ -24,6 +24,7 @@ module.exports = {
     coverageProvider: "v8",
     collectCoverageFrom: [
         "**/*.{js,jsx,ts,tsx}",
+        "!<rootDir>/src/components/*.{js,jsx,ts,tsx}",
         "!**/*.d.ts",
         "!**/node_modules/**",
         "!<rootDir>/out/**",
