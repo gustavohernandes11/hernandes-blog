@@ -6,8 +6,9 @@ import "@testing-library/jest-dom";
 import { Footer } from "./index";
 
 describe("<Footer />", () => {
-    it("should render  the component", () => {
+    it("should render the Footer component", () => {
         customRender(<Footer />);
-        expect(screen.getByText(/footer/i)).toBeInTheDocument();
+        const footer = screen.getByLabelText("footer");
+        expect(footer).toBeInTheDocument();
     });
 });
