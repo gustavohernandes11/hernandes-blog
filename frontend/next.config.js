@@ -6,6 +6,9 @@ const nextConfig = {
         styledComponents: true,
     },
     trailingSlash: true,
+    images: {
+        domains: ["res.cloudinary.com"],
+    },
 };
 
 module.exports = nextConfig;
