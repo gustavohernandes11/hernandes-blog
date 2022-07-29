@@ -10,7 +10,7 @@ import Head from "next/head";
 import { Key, useState } from "react";
 
 const Home: NextPage = ({ data = [] }): JSX.Element => {
-    const [posts, setPosts] = useState(data);
+    const [posts] = useState(data);
 
     interface PostWrapperTypes {
         id: Key | null | undefined;
@@ -25,7 +25,7 @@ const Home: NextPage = ({ data = [] }): JSX.Element => {
     return (
         <>
             <Head>
-                <title>H!</title>
+                <title>Hernandes.blog</title>
             </Head>
             <Content>
                 <Heading>Home</Heading>

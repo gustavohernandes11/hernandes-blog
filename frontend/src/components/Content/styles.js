@@ -8,9 +8,6 @@ export const Container = styled.main`
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        p {
-            text-align: justify;
-        }
 }
     `}
 `;

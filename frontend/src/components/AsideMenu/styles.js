@@ -13,10 +13,11 @@ export const Container = styled.aside`
 
         #logo {
             font-size: ${theme.fontSizes.xxl};
+        
             white-space: pre-line;
             text-align: center;
             text-align-last: justify;
-            font-family: century-gothic, sans-serif;
-        }
+            font-family: "Raleway", sans-serif;
+                }
     `}
 `;

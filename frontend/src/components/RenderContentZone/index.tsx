@@ -6,11 +6,8 @@ import {
     ReactPortal,
 } from "react";
 import Image from "next/image";
-import * as Styled from "./styles.js";
 import { Heading } from "../Heading";
-import { PostTitle } from "../PostTitle";
-import { PostSubtitle } from "../PostSubtitle";
-import { ImageWrapper } from '../ImageWrapper';
+import { ImageWrapper } from "../ImageWrapper";
 import { Code } from "../Code";
 import { Typography } from "@mui/material";
 
@@ -42,18 +39,10 @@ export const RenderContentZone = ({ content = [] }: any): JSX.Element => {
                     return <Typography mb={3}>{el.paragraphy}</Typography>;
                 }
                 if (el.__component === "post.subtitle") {
-                    return (
-                        <Heading as="h2">
-                            {el.subtitle}
-                        </Heading>
-                    );
+                    return <Heading as="h2">{el.subtitle}</Heading>;
                 }
                 if (el.__component === "post.subtitle-h3") {
-                    return (
-                        <Heading as="h3">
-                            {el.subtitle_h3}
-                        </Heading>
-                    );
+                    return <Heading as="h3">{el.subtitle_h3}</Heading>;
                 }
                 if (el.__component === "post.code") {
                     return <Code>{el.code}</Code>;
