@@ -47,7 +47,7 @@ export async function getStaticProps({ params }: any) {
 
     // getting the data using the id
     const postRes = await fetch(`
-    http://localhost:1337/api/posts/${id}?populate=post_content_zone
+    http://localhost:1337/api/posts/${id}?populate[post_content_zone][populate]=*
     `);
     const { data } = await postRes.json();
 
