@@ -3,10 +3,11 @@
     color: #e3e3e3;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-areas: "asidemenu content";
+    grid-template-rows: 1fr;
+    grid-template-areas: "asidemenu content"
+    "asidemenu footer";
     height: 100vh;
 }
-
 @media (max-width: 600px) {
     /*  */
 }
