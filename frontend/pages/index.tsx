@@ -30,11 +30,13 @@ const Home: NextPage = ({ data = [] }): JSX.Element => {
             <Content>
                 <Heading>Home</Heading>
                 <PostWrapperList>
-                    {posts.map((e: PostWrapperTypes) => (
+                    {posts?.map((e: PostWrapperTypes) => (
                         <PostWrapper key={e.id} slug={e.attributes.slug}>
                             <PostDate>{e.attributes.date}</PostDate>
                             <PostTitle>{e.attributes.title}</PostTitle>
-                            <PostDescription>{e.attributes.Post_description}</PostDescription>
+                            <PostDescription>
+                                {e.attributes.Post_description}
+                            </PostDescription>
                         </PostWrapper>
                     ))}
                 </PostWrapperList>
@@ -46,16 +48,23 @@ const Home: NextPage = ({ data = [] }): JSX.Element => {
 export default Home;
 
 export async function getStaticProps() {
-    const res = await fetch(`http://localhost:1337/api/posts`);
-    const { data } = await res.json();
+    try {
+        const res = await fetch(`http://localhost:1337/api/posts`);
+        const { data } = await res.json();
 
-    if (!data) {
+        if (!data) {
+            return {
+                notFound: true,
+            };
+        }
         return {
+            props: { data },
+            revalidate: 180,
+        };
+    } catch (e) {
+        return {
+            props: { data: null },
             notFound: true,
         };
     }
-    return {
-        props: { data },
-        revalidate: 180,
-    };
 }
