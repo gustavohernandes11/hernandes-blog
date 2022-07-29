@@ -8,8 +8,8 @@ interface PostWrapperProps {
 
 export const PostWrapper = ({ children, slug }: PostWrapperProps) => {
     return (
-        <Link href={`/posts/${slug}`}>
-            <Styled.Wrapper>{children}</Styled.Wrapper>
+        <Link aria-label='post-wrapper-link' href={`/posts/${slug}`}>
+            <Styled.Wrapper aria-label='post-wrapper'>{children}</Styled.Wrapper>
         </Link>
     );
 };

@@ -7,14 +7,16 @@ export const Title = ({
     className = "title",
     fontWeight = "bold",
     mb = 5,
-}: any) => (
-    <Typography
-        variant={variant}
-        component={component}
-        className={className}
-        fontWeight={fontWeight}
-        mb={mb}
-    >
-        {children}
-    </Typography>
-);
+}: any): JSX.Element => {
+        return (
+            <Typography
+                variant={variant}
+                component={component}
+                className={className}
+                fontWeight={fontWeight}
+                mb={mb}
+            >
+                {children}
+            </Typography>
+        );
+    };
