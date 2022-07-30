@@ -11,5 +11,9 @@ describe("<PostWrapper />", () => {
         const postWrapper = screen.getByLabelText("post-wrapper");
         expect(postWrapper).toBeInTheDocument();
     });
+    it('', () => {
+        
+    });
+    
     
 });
