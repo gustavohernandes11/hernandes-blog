@@ -1,4 +1,4 @@
-export const reducer = (state: any, action: { type: any; payload: string; }): object => {
+export const reducer = (state: any, action: { type: any; payload: string | undefined | null }): object => {
     switch (action.type) {
         case "CHANGE_THEME":
             if (action.payload === "dark" || action.payload === "light") {
