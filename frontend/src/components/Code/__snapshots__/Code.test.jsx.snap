@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Code /> should render the component <Code /> 1`] = `
+<div>
+  <code
+    aria-label="code-container"
+    class="styles__Container-sc-1bplcdl-0 kpcwjJ"
+  >
+    Texto para teste
+  </code>
+</div>
+`;

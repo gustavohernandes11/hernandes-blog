@@ -8,6 +8,7 @@ export function Code({ children }: any) {
 
     return (
         <Styled.Container
+            aria-label="code-container"
             onMouseOver={() => setisHover(() => true)}
             onMouseLeave={() => setisHover(() => false)}
         >
