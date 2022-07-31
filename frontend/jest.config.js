@@ -26,6 +26,11 @@ module.exports = {
         "**/*.{js,jsx,ts,tsx}",
         "!<rootDir>/src/components/*.{js,jsx,ts,tsx}",
         "!**/*.d.ts",
+
+        "!<rootDir>/*.setup.js",
+        "!<rootDir>/.prettierrc.js",
+        "!<rootDir>/pages/**",
+
         "!**/node_modules/**",
         "!<rootDir>/out/**",
         "!<rootDir>/.next/**",
