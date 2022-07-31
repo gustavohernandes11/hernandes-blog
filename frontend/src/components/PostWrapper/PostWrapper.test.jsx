@@ -12,8 +12,5 @@ describe("<PostWrapper />", () => {
         expect(postWrapper).toBeInTheDocument();
     });
 
-        
-    });
-    
     
 });

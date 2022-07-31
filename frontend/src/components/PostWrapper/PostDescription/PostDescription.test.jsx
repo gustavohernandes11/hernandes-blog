@@ -8,7 +8,6 @@ import { PostDescription } from "./index";
 describe("<PostDescription />", () => {
     it("should render the PostDescription component", () => {
         customRender(<PostDescription>PostDescription text</PostDescription>);
-        screen.logTestingPlaygroundURL();
         const element = screen.getByText(/postdescription text/i);
         expect(element).toMatchInlineSnapshot(`
             <p

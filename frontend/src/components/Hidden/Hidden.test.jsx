@@ -10,6 +10,5 @@ describe("<Hidden />", () => {
         const {container} = customRender(<Hidden />);
         const hiddenElement = container.querySelector('#sandbox > div > svg')
         expect(hiddenElement).not.toBeInTheDocument()
-        screen.logTestingPlaygroundURL();
     });
 });

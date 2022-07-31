@@ -8,7 +8,6 @@ import { PostDate } from "./index";
 describe("<PostDate />", () => {
     it("should render the PostDate component", () => {
         customRender(<PostDate>PostDate text</PostDate>);
-        screen.logTestingPlaygroundURL();
 
         const element = screen.getByText(/postdate text/i);
         expect(element).toMatchInlineSnapshot(`

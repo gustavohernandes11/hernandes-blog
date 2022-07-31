@@ -34,5 +34,9 @@ describe("<Code />", () => {
             fireEvent.mouseLeave(codeContainer);
             expect(copyButton).not.toBeInTheDocument();
         });
+        it('should copy the correct content of the code container', () => {
+            // to do
+        });
+        
     });
 });
