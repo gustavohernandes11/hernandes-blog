@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AsideMenu /> should render the AsideMenu component 1`] = `
+<aside
+  class="styles__Container-sc-1ahqw77-0 ekbJSS"
+  id="asidemenu"
+>
+  <h1
+    class="styles__Element-sc-f7plp0-0 dQmDPh"
+    id="logo"
+  >
+    H E R 
+ N A N 
+ D E S
+  </h1>
+  <nav
+    class="styles__Container-sc-11jf2zk-0 bcrsLW"
+  >
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-1y942vo-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      Início
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-1y942vo-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      Sobre
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </nav>
+  <button
+    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+    tabindex="0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      aria-label="toggle-theme-button"
+      class="StyledIconBase-ea9ulj-0 lbJwfL"
+      fill="currentColor"
+      focusable="false"
+      height="25"
+      viewBox="0 0 20 20"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11 3a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0V3zm4.657 2.757a1 1 0 0 0-1.414-1.414l-.707.707a1 1 0 0 0 1.414 1.414l.707-.707zM18 10a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zM5.05 6.464A1 1 0 1 0 6.464 5.05l-.707-.707a1 1 0 0 0-1.414 1.414l.707.707zM5 10a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zm3 6v-1h4v1a2 2 0 1 1-4 0zm4-2c.015-.34.208-.646.477-.859a4 4 0 1 0-4.954 0c.27.213.462.519.476.859h4.002z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</aside>
+`;
