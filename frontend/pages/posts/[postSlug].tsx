@@ -7,7 +7,7 @@ import { PostDescription } from "./../../src/components/PostWrapper/PostDescript
 import { RenderContentZone } from "components/RenderContentZone";
 
 const Post = ({ data = {} }: any) => {
-    const [post, setPost] = useState(data);
+    const [post] = useState(data);
 
     return (
         <Content>
