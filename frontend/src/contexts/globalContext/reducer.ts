@@ -1,4 +1,7 @@
-export const reducer = (state: any, action: { type: any; payload: string | undefined | null }): object => {
+export const reducer = (
+    state: any,
+    action: { type: any; payload: any  }
+): object => {
     switch (action.type) {
         case "CHANGE_THEME":
             if (action.payload === "dark" || action.payload === "light") {
@@ -14,6 +17,17 @@ export const reducer = (state: any, action: { type: any; payload: string | undef
             }
             return { ...state, activeTheme: newTheme };
 
+        case "CHANGE_MENU":
+            if (action.payload === "open" || action.payload === "closed") {
+                return { ...state, menuCondition: action.payload };
+            }
+            let newMenuState = state.menuCondition;
+            if (state.menuCondition === "open") {
+                newMenuState = "closed";
+            } else if (state.menuCondition === "closed") {
+                newMenuState = "open";
+            }
+            return { ...state, menuCondition: newMenuState };
         default:
             return { ...state };
     }
