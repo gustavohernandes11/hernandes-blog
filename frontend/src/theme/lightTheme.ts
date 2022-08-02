@@ -1,11 +1,11 @@
 export const lightTheme: object = {
     colors: {
-        primary:"#03dac6",
+        primary: "#03dac6",
         primaryVariant: "#664b86",
         secondary: "#03dac6",
         secondaryVariant: "",
         background: "#f1f1f1",
-        surface: "#f5f6f7",
+        surface: "linear-gradient(180deg, #ebebeb 0%, #dbdbdb 100%)",
         border: "#b5b8bd",
         text: "#121212",
     },

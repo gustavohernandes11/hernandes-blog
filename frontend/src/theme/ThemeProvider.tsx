@@ -1,14 +1,16 @@
 import { ThemeProvider } from "styled-components";
-import { createTheme } from "@mui/material";
 import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
 import { lightTheme } from "./lightTheme";
 import { darkTheme } from "./darkTheme";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 
-const darkMUITheme = createTheme(darkTheme);
-const lightMUITheme = createTheme(lightTheme);
+let darkMUITheme = createTheme(darkTheme);
+darkMUITheme = responsiveFontSizes(darkMUITheme);
+let lightMUITheme = createTheme(lightTheme);
+lightMUITheme = responsiveFontSizes(lightMUITheme);
 
 export function Theme({ children }: any): JSX.Element {
     const [state, actions] = useGlobalContext();
@@ -29,13 +31,15 @@ export function Theme({ children }: any): JSX.Element {
     }, []);
 
     function getTheme() {
-         return state.activeTheme === "dark"
-            ? darkMUITheme
-            : lightMUITheme;
+        return state.activeTheme === "dark" ? darkMUITheme : lightMUITheme;
     }
     return (
         <ThemeProvider theme={getTheme}>
-            {loading ? <CircularProgress className="lading-page-spin" /> : children}
+            {loading ? (
+                <CircularProgress className="lading-page-spin" />
+            ) : (
+                children
+            )}
         </ThemeProvider>
     );
 }

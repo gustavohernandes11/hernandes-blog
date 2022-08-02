@@ -5,7 +5,7 @@ export const darkTheme: object = {
         secondary: "#9762b5",
         secondaryVariant: "",
         background: "#121212",
-        surface: "#1d1d1d",
+        surface: "linear-gradient(0deg, #0f0f0f 0%, #2d2d2d 100%)",
         border: "#1d1d1d",
         text: "#e3e3e3",
     },
