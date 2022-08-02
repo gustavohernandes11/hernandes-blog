@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
-import { createTheme, responsiveFontSizes } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 import { lightTheme } from "./lightTheme";
 import { darkTheme } from "./darkTheme";
@@ -9,8 +9,7 @@ import { useGlobalContext } from "../hooks/useGlobalContext";
 
 let darkMUITheme = createTheme(darkTheme);
 darkMUITheme = responsiveFontSizes(darkMUITheme);
-let lightMUITheme = createTheme(lightTheme);
-lightMUITheme = responsiveFontSizes(lightMUITheme);
+let lightMUITheme = responsiveFontSizes(createTheme(lightTheme));
 
 export function Theme({ children }: any): JSX.Element {
     const [state, actions] = useGlobalContext();
