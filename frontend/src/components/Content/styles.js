@@ -8,6 +8,11 @@ export const Container = styled.main`
         overflow-y: auto;
         display: flex;
         flex-direction: column;
+
+        @media (max-width: 425px) {
+            padding: ${theme.spacings[14]} 10%;
+        }
+
 }
     `}
 `;

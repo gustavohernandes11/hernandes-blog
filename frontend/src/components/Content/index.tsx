@@ -5,6 +5,7 @@ export const Content = ({ children }: any) => {
     return (
         <Styled.Container id="content">
             {children}
+
         </Styled.Container>
     );
 };

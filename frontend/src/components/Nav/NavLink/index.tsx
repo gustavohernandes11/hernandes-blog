@@ -1,10 +1,17 @@
 import { Button } from "@mui/material";
 import Link from "next/link";
+import { useGlobalContext } from "../../../hooks/useGlobalContext";
 
 export function NavLink({ children, href }: any) {
+    const [, actions] = useGlobalContext();
     return (
         <Link href={href}>
-            <Button color="inherit">{children}</Button>
+            <Button
+                onClick={() => actions.setOrToggleMenu("closed")}
+                color="inherit"
+            >
+                {children}
+            </Button>
         </Link>
     );
 }

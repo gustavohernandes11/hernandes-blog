@@ -28,11 +28,23 @@ path {
     font-family: "Raleway", sans-serif;
 }
 
-.go-home-button {
+#floating-action-button {
+    display: flex;
+    position: fixed;
+    right: 50%;
+    bottom: 2rem;
+    transform: translateX(50%);
+    border-radius: 10px;
+
     background: rgb(45, 30, 209);
     background: linear-gradient(
         45deg,
         rgba(45, 30, 209, 1) 0%,
         rgba(151, 98, 181, 1) 100%
     );
+}
+* > #floating-action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
