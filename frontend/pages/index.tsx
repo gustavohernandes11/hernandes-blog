@@ -41,9 +41,8 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
                         </PostWrapper>
                     ))}
                 </PostWrapperList>
+                <Footer />
             </Content>
-            <Footer />
-
         </>
     );
 };

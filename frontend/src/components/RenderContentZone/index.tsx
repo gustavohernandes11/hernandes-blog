@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 import { Heading } from "../Heading";
 import { ImageWrapper } from "../ImageWrapper";
-import { Code } from "../Code";
+import { CodeContainer } from "../CodeContainer";
 import { Typography } from "@mui/material";
 
 export const RenderContentZone = ({ content = [] }: any): JSX.Element => {
@@ -45,7 +45,7 @@ export const RenderContentZone = ({ content = [] }: any): JSX.Element => {
                     return <Heading as="h3">{el.subtitle_h3}</Heading>;
                 }
                 if (el.__component === "post.code") {
-                    return <Code>{el.code}</Code>;
+                    return <CodeContainer>{el.code}</CodeContainer>;
                 }
                 if (el.__component === "post.image") {
                     return (

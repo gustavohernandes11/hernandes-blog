@@ -3,16 +3,16 @@ import "@testing-library/jest-dom/extend-expect";
 import "@testing-library/jest-dom";
 
 import { customRender } from "../../utils/test-utils";
-import { Code } from "./index";
+import { CodeContainer } from "./index";
 
-describe("<Code />", () => {
-    it("should render the component <Code />", () => {
-        const { container } = customRender(<Code>Texto para teste</Code>);
+describe("<CodeContainer />", () => {
+    it("should render the component <CodeContainer />", () => {
+        const { container } = customRender(<CodeContainer>Texto para teste</CodeContainer>);
 
         expect(container).toMatchSnapshot();
     });
     it("should render the content in the screen", () => {
-        customRender(<Code>Texto para teste</Code>);
+        customRender(<CodeContainer>Texto para teste</CodeContainer>);
 
         const text = screen.getByText(/texto para teste/i);
         expect(text).toBeInTheDocument();
@@ -20,7 +20,7 @@ describe("<Code />", () => {
     describe('<IconButton aria-label="copy-button" />', () => {
         let codeContainer = null;
         beforeAll(() => {
-            customRender(<Code>Texto para teste</Code>);
+            customRender(<CodeContainer>Texto para teste</CodeContainer>);
             codeContainer = screen.getByText(/texto para teste/i);
         });
         it("should render the copy-button on mouseover event", () => {
