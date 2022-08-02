@@ -9,8 +9,14 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
 
+        @media (max-width: 769px) {
+            z-index: 100;
+            position: relative;
+        }
         @media (max-width: 425px) {
             padding: ${theme.spacings[14]} 10%;
+            z-index: 0;
+
         }
 
 }
