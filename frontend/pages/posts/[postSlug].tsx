@@ -5,6 +5,7 @@ import { PostDate } from "./../../src/components/PostWrapper/PostDate/";
 import { Title } from "../../src/components/Title";
 import { PostDescription } from "./../../src/components/PostWrapper/PostDescription/";
 import { RenderContentZone } from "components/RenderContentZone";
+import { Footer } from "components/Footer";
 
 const Post = ({ data = {} }: any) => {
     const [post] = useState(data);
@@ -18,6 +19,7 @@ const Post = ({ data = {} }: any) => {
             </PostDescription>
 
             <RenderContentZone content={post.attributes.post_content_zone} />
+            <Footer/>
         </Content>
     );
 };
