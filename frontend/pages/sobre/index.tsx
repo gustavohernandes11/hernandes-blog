@@ -13,7 +13,7 @@ const About: NextPage = () => {
                 <title>.blog</title>
                 <meta
                     name="description"
-                    content="Blog to share develevopment tips and ticks of Javascript, Typscript, Html, Node, CSS"
+                    content="Página sobre o autor do blog"
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
