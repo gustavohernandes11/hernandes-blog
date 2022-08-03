@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { useState } from "react";
+
 import { Content } from "../../src/components/Content";
 import { PostDate } from "./../../src/components/PostWrapper/PostDate/";
 import { Title } from "../../src/components/Title";
@@ -10,10 +11,12 @@ import { Footer } from "components/Footer";
 
 const Post = ({ data = {} }: any) => {
     const [post] = useState(data);
+    console.log(post);
 
     return (
         <Content>
-            <Seo />
+            <Seo metadata={post.attributes.metadata} />
+
             <PostDate>{post.attributes.date}</PostDate>
             <Title>{post.attributes.post_title}</Title>
             <PostDescription>
@@ -51,7 +54,7 @@ export async function getStaticProps({ params }: any) {
 
     // getting the data using the id
     const postRes = await fetch(`
-    http://localhost:1337/api/posts/${id}?populate[post_content_zone][populate]=*
+    http://localhost:1337/api/posts/${id}?populate=deep
     `);
     const { data } = await postRes.json();
 

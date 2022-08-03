@@ -10,7 +10,7 @@ const About: NextPage = () => {
     return (
         <>
             <Head>
-                <title>.blog</title>
+                <title>H.blog | Sobre</title>
                 <meta
                     name="description"
                     content="Página sobre o autor do blog"

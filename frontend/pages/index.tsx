@@ -27,6 +27,19 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
         <>
             <Head>
                 <title>Hernandes.blog</title>
+                <meta
+                    name="description"
+                    content="Blog para compartilhar dicas, teorias e códigos de desenvolvimento frontend: React, Typescript, Strapi, etc. "
+                />
+                <meta
+                    name="keywords"
+                    content="blog, javascript, strapi, typescript, html, css, snippets, tips, desenvolvimento, react, nextjs, frontend, web, github"
+                />
+                <meta name="robots" content="index, follow" />
+                <meta
+                    httpEquiv="Content-Type"
+                    content="text/html; charset=utf-8"
+                />
             </Head>
             <Content>
                 <Heading>Home</Heading>

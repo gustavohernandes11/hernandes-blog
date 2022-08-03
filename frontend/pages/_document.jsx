@@ -32,23 +32,9 @@ export default class MyDocument extends Document {
         return (
             <Html lang="pt-BR">
                 <Head>
-                    <meta name="title" content="Hernandes - Blog" />
-                    <meta
-                        name="description"
-                        content="Blog para compartilhar dicas, teorias e códigos de desenvolvimento frontend: React, Typescript, Strapi, etc. "
-                    />
-                    <meta
-                        name="keywords"
-                        content="blog, javascript, strapi, typescript, html, css, snippets, tips, desenvolvimento, react, nextjs, frontend, web, github"
-                    />
-                    <meta name="robots" content="index, follow" />
-                    <meta
-                        httpEquiv="Content-Type"
-                        content="text/html; charset=utf-8"
-                    />
                     <meta name="language" content="Portuguese" />
                     <meta name="revisit-after" content="3 days" />
-                    <meta name="author" content="Gustavo Hernandes " />
+                    <meta name="author" content="Gustavo Hernandes" />
                     <link rel="icon" href="/favicon.ico" />
                     {/* Fonte Century Gothic */}
                     <link
