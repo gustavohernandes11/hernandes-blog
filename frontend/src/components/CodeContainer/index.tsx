@@ -6,10 +6,14 @@ import { IconButton, Tooltip } from "@mui/material";
 export function CodeContainer({ children }: any) {
     const [isHover, setisHover] = useState(false);
 
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(codeRef.current.innerText);
+    const codeRef = useRef<HTMLBodyElement>(null);
+
+    const copyToClipboard = (): void => {
+        if (codeRef.current != null && codeRef.current.innerText) {
+            let codeElement = codeRef.current.innerText;
+            navigator.clipboard.writeText(codeElement);
+        }
     };
-    const codeRef = useRef(null);
 
     return (
         <Styled.Container
