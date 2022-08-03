@@ -55,7 +55,7 @@
       "unique": true,
       "minLength": 3
     },
-    "meta": {
+    "metadata": {
       "displayName": "meta",
       "type": "component",
       "repeatable": false,
