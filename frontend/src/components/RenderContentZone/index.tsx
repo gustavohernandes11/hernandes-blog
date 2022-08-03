@@ -12,7 +12,6 @@ import { CodeContainer } from "../CodeContainer";
 import { Typography } from "@mui/material";
 
 export const RenderContentZone = ({ content = [] }: any): JSX.Element => {
-    console.log(content);
     interface ComponentType {
         subtitle_h3: string;
         alt: string;

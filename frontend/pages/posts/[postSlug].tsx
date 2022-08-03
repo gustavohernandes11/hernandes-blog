@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Content } from "../../src/components/Content";
 import { PostDate } from "./../../src/components/PostWrapper/PostDate/";
 import { Title } from "../../src/components/Title";
+import { Seo } from "../../src/components/Seo";
 import { PostDescription } from "./../../src/components/PostWrapper/PostDescription/";
 import { RenderContentZone } from "components/RenderContentZone";
 import { Footer } from "components/Footer";
@@ -12,6 +13,7 @@ const Post = ({ data = {} }: any) => {
 
     return (
         <Content>
+            <Seo />
             <PostDate>{post.attributes.date}</PostDate>
             <Title>{post.attributes.post_title}</Title>
             <PostDescription>
@@ -19,7 +21,7 @@ const Post = ({ data = {} }: any) => {
             </PostDescription>
 
             <RenderContentZone content={post.attributes.post_content_zone} />
-            <Footer/>
+            <Footer />
         </Content>
     );
 };
