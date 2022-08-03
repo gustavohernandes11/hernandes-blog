@@ -13,9 +13,9 @@ const Post = ({ data = {} }: any) => {
     return (
         <Content>
             <PostDate>{post.attributes.date}</PostDate>
-            <Title>{post.attributes.title}</Title>
+            <Title>{post.attributes.post_title}</Title>
             <PostDescription>
-                {post.attributes.Post_description}
+                {post.attributes.post_description}
             </PostDescription>
 
             <RenderContentZone content={post.attributes.post_content_zone} />

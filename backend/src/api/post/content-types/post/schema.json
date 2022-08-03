@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Post_description": {
+    "post_description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -44,7 +44,7 @@
       ],
       "required": false
     },
-    "title": {
+    "post_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -64,7 +64,8 @@
           "localized": true
         }
       },
-      "component": "meta.meta"
+      "component": "meta.meta",
+      "required": true
     },
     "slug": {
       "pluginOptions": {

@@ -18,8 +18,8 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
         attributes: {
             slug: string;
             date: string;
-            title: string;
-            Post_description: string;
+            post_title: string;
+            post_description: string;
         };
     }
 
@@ -34,9 +34,9 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
                     {posts?.map((e: PostWrapperTypes) => (
                         <PostWrapper key={e.id} slug={e.attributes.slug}>
                             <PostDate>{e.attributes.date}</PostDate>
-                            <PostTitle>{e.attributes.title}</PostTitle>
+                            <PostTitle>{e.attributes.post_title}</PostTitle>
                             <PostDescription>
-                                {e.attributes.Post_description}
+                                {e.attributes.post_description}
                             </PostDescription>
                         </PostWrapper>
                     ))}
