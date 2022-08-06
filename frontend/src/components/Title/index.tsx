@@ -1,5 +1,14 @@
 import { Typography } from "@mui/material";
 
+interface TitleType {
+    children: React.ReactNode;
+    variant: any;
+    component: any;
+    className: string;
+    fontWeight: string | number;
+    mb: any;
+}
+
 export const Title = ({
     children,
     variant = "h4",
@@ -7,7 +16,7 @@ export const Title = ({
     className = "title",
     fontWeight = "800",
     mb = 5,
-}: any): JSX.Element => (
+}: TitleType): JSX.Element => (
     <Typography
         component={component}
         className={className}

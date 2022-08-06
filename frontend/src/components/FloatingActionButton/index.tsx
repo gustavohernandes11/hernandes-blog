@@ -2,7 +2,7 @@ import { Fab } from "@mui/material";
 import { Menu, X } from "@styled-icons/heroicons-outline";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 
-export const FloatingActionButton = () => {
+export const FloatingActionButton = (): JSX.Element => {
     const [state, actions] = useGlobalContext();
     return (
         <>

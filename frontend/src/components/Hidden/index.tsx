@@ -1,4 +1,4 @@
-export const Hidden = () => {
+export const Hidden = (): JSX.Element => {
     return (
         <>
             {/* Gradient to apply in svg */}

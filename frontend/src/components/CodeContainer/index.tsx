@@ -3,7 +3,11 @@ import { ClipboardCopy } from "@styled-icons/heroicons-solid";
 import { useState, useRef } from "react";
 import { IconButton, Tooltip } from "@mui/material";
 
-export function CodeContainer({ children }: any) {
+interface CodeContainerType {
+    children: React.ReactNode
+}
+
+export function CodeContainer({ children }: CodeContainerType) {
     const [isHover, setisHover] = useState(false);
 
     const codeRef = useRef<HTMLBodyElement>(null);

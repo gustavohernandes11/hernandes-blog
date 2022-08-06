@@ -2,7 +2,7 @@ import * as Styled from "./styles.js";
 import Link from "next/link";
 
 interface PostWrapperProps {
-    children: any;
+    children: React.ReactNode;
     slug: string;
 }
 

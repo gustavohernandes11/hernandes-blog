@@ -2,7 +2,12 @@ import { Button } from "@mui/material";
 import Link from "next/link";
 import { useGlobalContext } from "../../../hooks/useGlobalContext";
 
-export function NavLink({ children, href }: any) {
+interface NavLinkType {
+    children: React.ReactNode,
+    href: string
+}
+
+export function NavLink({ children, href }: NavLinkType): JSX.Element {
     const [, actions] = useGlobalContext();
     return (
         <Link href={href}>

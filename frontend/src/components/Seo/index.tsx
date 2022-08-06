@@ -8,7 +8,7 @@ interface MetaType {
 }
 
 export const Seo = ({ metadata = {} }: any) => {
-    const [metaState] = useState(metadata);
+    const [metaState] = useState<MetaType>(metadata);
     return (
         <Head>
             {metaState.meta_title && (
