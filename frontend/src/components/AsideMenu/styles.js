@@ -4,7 +4,6 @@ export const Container = styled.aside`
     ${({ theme }) => css`
         background: ${theme.colors.surfaceGradient};
         color: ${theme.colors.text};
-        box-shadow: 4px 0px 10px rgb(0, 0, 0, 0.1);
         z-index: ${theme.zIndices.docked};
         display: flex;
         flex-direction: column;
