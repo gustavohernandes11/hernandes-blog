@@ -5,5 +5,6 @@ export const Container = styled.div`
         background-color: ${theme.colors.background};
         color: ${theme.colors.text};
         font-size: ${theme.fontSizes.sm};
+        margin: 0;
     `}
 `;
