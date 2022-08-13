@@ -2,11 +2,11 @@ import { Typography } from "@mui/material";
 
 interface TitleType {
     children: React.ReactNode;
-    variant: any;
-    component: any;
-    className: string;
-    fontWeight: string | number;
-    mb: any;
+    variant?: any;
+    component?: any;
+    className?: string;
+    fontWeight?: string | number;
+    mb?: any;
 }
 
 export const Title = ({
