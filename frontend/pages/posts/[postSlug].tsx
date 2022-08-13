@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { useState } from "react";
 
 import { Content } from "../../src/components/Content";
@@ -11,7 +10,6 @@ import { Footer } from "components/Footer";
 
 const Post = ({ data = {} }: any) => {
     const [post] = useState(data);
-    console.log(post);
 
     return (
         <Content>
