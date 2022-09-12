@@ -1,6 +1,6 @@
-import { Content } from "../../src/components/Content";
-import { Heading } from "../../src/components/Heading";
-import { Footer } from "../../src/components/Footer";
+import { Content } from "../src/components/Content";
+import { Heading } from "../src/components/Heading";
+import { Footer } from "../src/components/Footer";
 
 import type { NextPage } from "next";
 import Head from "next/head";

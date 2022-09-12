@@ -7,21 +7,19 @@ import { PostTitle } from "./../src/components/PostWrapper/PostTitle/";
 import { PostDescription } from "./../src/components/PostWrapper/PostDescription/";
 import { PostWrapperList } from "./../src/components/PostWrapperList/";
 import type { NextPage } from "next";
+import { Button } from "@mui/material";
 import Head from "next/head";
+import { loadPosts } from "api/loadPosts";
 import { Key, useState } from "react";
 
 const Home: NextPage = ({ data = [] }: any): JSX.Element => {
-    const [posts] = useState(data);
+    const [posts, setPosts] = useState(data);
 
-    interface PostWrapperTypes {
-        id: Key | null | undefined;
-        attributes: {
-            slug: string;
-            date: string;
-            post_title: string;
-            post_description: string;
-        };
-    }
+    const handleClick = async () => {
+        setPosts(() => []);
+        let resp = await loadPosts();
+        setPosts(() => resp);
+    };
 
     return (
         <>
@@ -43,13 +41,14 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
             </Head>
             <Content>
                 <Heading>Home</Heading>
+                <Button onClick={handleClick}>LoadPosts</Button>
                 <PostWrapperList>
-                    {posts?.map((e: PostWrapperTypes) => (
-                        <PostWrapper key={e.id} slug={e.attributes.slug}>
-                            <PostDate>{e.attributes.date}</PostDate>
-                            <PostTitle>{e.attributes.post_title}</PostTitle>
+                    {posts?.map((e) => (
+                        <PostWrapper key={e.id} slug={e.attributes.Slug}>
+                            <PostDate>now?</PostDate>
+                            <PostTitle>{e.attributes.Title}</PostTitle>
                             <PostDescription>
-                                {e.attributes.post_description}
+                                {e.attributes.Excerpt}
                             </PostDescription>
                         </PostWrapper>
                     ))}
