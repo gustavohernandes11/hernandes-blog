@@ -4,7 +4,7 @@ export const Container = styled.main`
     ${({ theme }) => css`
         background-color: ${theme.colors.background};
         color: ${theme.colors.text};
-        padding: ${theme.spacings[14]} 10%;
+        padding: ${theme.spacings[8]} 10%;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -14,7 +14,7 @@ export const Container = styled.main`
             position: relative;
         }
         @media (max-width: 425px) {
-            padding: ${theme.spacings[14]} 10%;
+            padding: ${theme.spacings[8]} 10%;
             z-index: 0;
 
         }

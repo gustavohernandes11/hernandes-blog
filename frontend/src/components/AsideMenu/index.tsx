@@ -13,7 +13,7 @@ export const AsideMenu = () => {
             {(window.screen.width >= 425 || state.menuCondition === "open") && (
                 <Styled.Container id="asidemenu">
                     <Heading aria-label="aside-logo" id="logo">
-                        {`H E R \n N A N \n D E S`}
+                        {`L O R \n E M I \n P S U`}
                     </Heading>
                     <Nav aria-label="aside-nav" />
                     <ToggleThemeButton onClick={() => actions.changeTheme()} />

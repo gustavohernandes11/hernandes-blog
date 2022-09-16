@@ -7,19 +7,13 @@ import { PostTitle } from "./../src/components/PostWrapper/PostTitle/";
 import { PostDescription } from "./../src/components/PostWrapper/PostDescription/";
 import { PostWrapperList } from "./../src/components/PostWrapperList/";
 import type { NextPage } from "next";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Head from "next/head";
 import { loadPosts } from "api/loadPosts";
-import { Key, useState } from "react";
+import { useState } from "react";
 
 const Home: NextPage = ({ data = [] }: any): JSX.Element => {
     const [posts, setPosts] = useState(data);
-
-    const handleClick = async () => {
-        setPosts(() => []);
-        let resp = await loadPosts();
-        setPosts(() => resp);
-    };
 
     return (
         <>
@@ -41,11 +35,10 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
             </Head>
             <Content>
                 <Heading>Home</Heading>
-                <Button onClick={handleClick}>LoadPosts</Button>
                 <PostWrapperList>
-                    {posts?.map((e) => (
+                    {posts?.map((e: any) => (
                         <PostWrapper key={e.id} slug={e.attributes.Slug}>
-                            <PostDate>now?</PostDate>
+                            <PostDate>{e.attributes.createdAt}</PostDate>
                             <PostTitle>{e.attributes.Title}</PostTitle>
                             <PostDescription>
                                 {e.attributes.Excerpt}
@@ -63,8 +56,7 @@ export default Home;
 
 export async function getStaticProps() {
     try {
-        const res = await fetch(`http://localhost:1337/api/posts`);
-        const { data } = await res.json();
+        const data = await loadPosts();
 
         if (!data) {
             return {

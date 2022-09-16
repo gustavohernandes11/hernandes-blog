@@ -1,56 +1,30 @@
 import { config } from "../config";
-import "graphql-request";
-export const loadPosts = async () => {
-    const payload = {
-        query: `
-        query GET_POSTS {
-            posts {
-              data {
-                id
-                attributes {
-                  Title
-                  Slug
-                  Cape {
-                    data {
-                      attributes {
-                        width
-                        height
-                        url
-                      }
-                    }
-                  }
-                  Content
-                  Reference
-                  Excerpt
-                  Category
-                  Meta {
-                    Title
-                    Description
-                    Keywords
-                  }
-                }
-              }
-            }
-          }
-          
-        `,
+import { request } from "graphql-request";
+import { GRAPHQL_QUERY } from "../graphql/queries";
+
+export type loadPostsVariables = {
+    titleContains?: string;
+    category?: string;
+    postSlug?: string;
+    postSearch?: string;
+    sort?: string;
+    limit?: number;
+    start?: number;
+};
+
+export const loadPosts = async (
+    variables: loadPostsVariables = {}
+): any => {
+    const defaultVariables = {
+        sort: "createdAt:desc",
+        limit: 10,
+        start: 0,
     };
 
-    const url = `${config.hostname}/graphql`;
-    let response: object[] = [];
-
-    await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-    })
-        .then((r) => r)
-        .then((r) => r.json())
-        .then(({ data }) => {
-            console.log(data.posts.data);
-            response = data.posts.data;
-        })
-        .catch((e) => console.log("Houve um erro: " + e));
-
-    return response;
+    const data = await request(config.graphqlUrl, GRAPHQL_QUERY, {
+        ...variables,
+        ...defaultVariables,
+    });
+    console.log(variables)
+    return data.posts.data;
 };

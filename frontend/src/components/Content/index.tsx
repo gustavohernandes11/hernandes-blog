@@ -1,5 +1,4 @@
-import { Footer } from "../Footer/index";
-import * as Styled from "./styles.js";
+import * as Styled from "./styles";
 
 export const Content = ({ children }: any): JSX.Element => {
     return (
