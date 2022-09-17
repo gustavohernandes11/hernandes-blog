@@ -1,4 +1,4 @@
 export const config = {
-    hostname: 'http://localhost:1337',
-    graphqlUrl: 'http://localhost:1337/graphql'
+    hostname: 'https://hernandes-blog-server-production.up.railway.app',
+    graphqlUrl: 'https://hernandes-blog-server-production.up.railway.app/graphql'
 }

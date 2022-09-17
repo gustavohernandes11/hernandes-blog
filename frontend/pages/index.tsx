@@ -1,6 +1,7 @@
 import { Content } from "../src/components/Content";
 import { Footer } from "../src/components/Footer";
 import { Header } from "../src/components/Header";
+import { Header } from "../src/components/Header";
 import { Heading } from "../src/components/Heading";
 import { PostWrapper } from "./../src/components/PostWrapper/";
 import { PostDate } from "../src/components/PostDate";
