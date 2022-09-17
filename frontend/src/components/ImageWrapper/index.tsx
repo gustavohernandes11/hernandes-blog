@@ -1,4 +1,4 @@
-import * as Styled from "./styles.js";
+import * as Styled from "./styles";
 
 interface ImageWrapperType {
     children: React.ReactNode

@@ -28,6 +28,7 @@ export const GRAPHQL_FRAGMENTS = gql`
         Excerpt
         Slug
         Category
+        publishedAt
     }
 
 `;
