@@ -2,14 +2,19 @@ import { ThemeProvider } from "styled-components";
 import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { deepmerge } from '@mui/utils'
 
-import { lightTheme } from "./lightTheme";
-import { darkTheme } from "./darkTheme";
+import { lightPallete } from "./lightPallete";
+import { darkPallete } from "./darkPallete";
+import { sharedThemeProps } from "./sharedThemeProps";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 
-let darkMUITheme = createTheme(darkTheme);
-darkMUITheme = responsiveFontSizes(darkMUITheme);
-let lightMUITheme = responsiveFontSizes(createTheme(lightTheme));
+export let darkMUITheme = responsiveFontSizes(
+    createTheme(deepmerge(darkPallete, sharedThemeProps))
+);
+export let lightMUITheme = responsiveFontSizes(
+    createTheme(deepmerge(lightPallete, sharedThemeProps))
+);
 
 export function Theme({ children }: any): JSX.Element {
     const [state, actions] = useGlobalContext();

@@ -1,17 +1,17 @@
-import "../src/styles/globals.css";
 import type { AppProps } from "next/app";
 
 import { AsideMenu } from "../src/components/AsideMenu";
 import { Hidden } from "../src/components/Hidden";
 import { Theme } from "../src/theme/ThemeProvider";
-import styles from "../src/styles/Home.module.css";
+import GlobalStyles from '../src/styles/GlobalStyles'
 import { GlobalContextProvider } from "../src/contexts/globalContext/GlobalContextProvider";
 import { FloatingActionButton } from "../src/components/FloatingActionButton";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <div className={styles.container}>
+        <main id="layout-container">
             <GlobalContextProvider>
+                <GlobalStyles />
                 <Hidden />
                 <Theme>
                     <AsideMenu />
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <FloatingActionButton />
                 </Theme>
             </GlobalContextProvider>
-        </div>
+        </main>
     );
 }
 

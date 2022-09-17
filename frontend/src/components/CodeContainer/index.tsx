@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import * as Styled from "./styles.js";
+import * as Styled from "./styles";
 
 
 import { IconButton, Tooltip } from "@mui/material";

@@ -1,4 +1,4 @@
-import * as Styled from "./styles.js";
+import * as Styled from "./styles";
 import { Typography } from "@mui/material";
 
 export const Footer = ({ children }: any): JSX.Element => {

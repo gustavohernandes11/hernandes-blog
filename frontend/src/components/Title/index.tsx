@@ -15,7 +15,7 @@ export const Title = ({
     component = "h1",
     className = "title",
     fontWeight = "800",
-    mb = 5,
+    mb = 2,
 }: TitleType): JSX.Element => (
     <Typography
         component={component}

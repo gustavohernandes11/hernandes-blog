@@ -1,5 +1,5 @@
 import { NavLink } from "./NavLink";
-import * as Styled from "./styles.js";
+import * as Styled from "./styles";
 
 export const Nav = () => {
     return (

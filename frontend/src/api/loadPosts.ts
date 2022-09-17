@@ -25,6 +25,5 @@ export const loadPosts = async (
         ...variables,
         ...defaultVariables,
     });
-    console.log(variables)
     return data.posts.data;
 };

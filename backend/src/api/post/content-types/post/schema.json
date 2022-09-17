@@ -76,7 +76,7 @@
       },
       "type": "text",
       "required": true,
-      "maxLength": 1024
+      "maxLength": 266
     },
     "Category": {
       "pluginOptions": {
@@ -105,6 +105,12 @@
         }
       },
       "component": "meta.meta"
+    },
+    "Author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "Posts"
     }
   }
 }
