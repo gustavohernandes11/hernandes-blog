@@ -1,20 +1,14 @@
 import { config } from "../config";
 import { request } from "graphql-request";
 import { GRAPHQL_QUERY } from "../graphql/queries";
+import type { Posts } from "../utils/commonTypes";
+import type { loadPostsVariables } from "../utils/commonTypes";
 
-export type loadPostsVariables = {
-    titleContains?: string;
-    category?: string;
-    postSlug?: string;
-    postSearch?: string;
-    sort?: string;
-    limit?: number;
-    start?: number;
-};
+
 
 export const loadPosts = async (
     variables: loadPostsVariables = {}
-): any => {
+): Promise<Posts> => {
     const defaultVariables = {
         sort: "createdAt:desc",
         limit: 10,

@@ -3,11 +3,13 @@ import { Footer } from "../src/components/Footer";
 import { Header } from "../src/components/Header";
 import { Heading } from "../src/components/Heading";
 import { PostWrapper } from "./../src/components/PostWrapper/";
-import { PostDate } from "./../src/components/PostWrapper/PostDate/";
-import { PostTitle } from "./../src/components/PostWrapper/PostTitle/";
-import { PostDescription } from "./../src/components/PostWrapper/PostDescription/";
+import { PostDate } from "../src/components/PostDate";
+import { PostTitle } from "../src/components/PostTitle";
+import { ArticleWrapperList } from "components/ArticleWrapperList";
+import { ArticleModal } from "components/ArticleModal";
+import { PostDescription } from "../src/components/PostDescription";
 import { PostWrapperList } from "./../src/components/PostWrapperList/";
-import { getDate } from '../src/utils/handlingFunctions'
+import { getDate } from "../src/utils/handlingFunctions";
 
 import type { NextPage } from "next";
 import Link from "next/link";
@@ -23,10 +25,10 @@ import {
 import Head from "next/head";
 import { loadPosts } from "api/loadPosts";
 import { useState } from "react";
+import { Post } from "utils/commonTypes";
 
 const Home: NextPage = ({ data = [] }: any): JSX.Element => {
     const [posts, setPosts] = useState(data);
-
     return (
         <>
             <Head>
@@ -49,46 +51,12 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
                 <Header>
                     <Heading>Início</Heading>
                 </Header>
-                <Grid container direction="row" xs={12}>
-                    {posts?.map((e: any) => (
-                        <Grid p={1} key={e.id} container xs={12} md={6} xl={4}>
-                            <Link href={`/posts/${e.attributes.Slug}`}>
-                                <Card elevation={8} color="inherit">
-                                    <CardActionArea sx={{ heigth: "100%" }}>
-                                    <CardHeader action={getDate(e?.attributes.publishedAt)} />
-                                        <CardMedia>
-                                            <Image
-                                                src={
-                                                    e?.attributes.Cape?.data
-                                                        ?.attributes?.url
-                                                }
-                                                height={
-                                                    e?.attributes.Cape?.data
-                                                        ?.attributes?.heigth ||
-                                                    720
-                                                }
-                                                width={
-                                                    e?.attributes.Cape?.data
-                                                        ?.attributes?.width ||
-                                                    1200
-                                                }
-                                                layout="intrinsic"
-                                            />
-                                        </CardMedia>
-                                        <CardContent>
-                                            <PostTitle>
-                                                {e.attributes.Title}
-                                            </PostTitle>
-                                            <PostDescription>
-                                                {e.attributes.Excerpt}
-                                            </PostDescription>
-                                        </CardContent>
-                                    </CardActionArea>
-                                </Card>
-                            </Link>
-                        </Grid>
-                    ))}
-                </Grid>
+                <ArticleWrapperList>
+                    {posts?.map((e: Post) => {
+                            return <ArticleModal key={e.id} element={e} />
+
+                    })}
+                </ArticleWrapperList>
 
                 <Footer />
             </Content>

@@ -1,22 +1,33 @@
 import { useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { ArrowLeft } from "@styled-icons/heroicons-solid";
 import Image from "next/image";
 import { Content } from "../../src/components/Content";
-import { PostDate } from "../../src/components/PostWrapper/PostDate";
+import { PostDate } from "../../src/components/PostDate";
 import { Title } from "../../src/components/Title";
 import { Seo } from "../../src/components/Seo";
-import { PostDescription } from "../../src/components/PostWrapper/PostDescription";
+import { PostDescription } from "../../src/components/PostDescription";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Footer } from "components/Footer";
 import { loadPosts } from "../../src/api/loadPosts";
 import { Button } from "@mui/material";
 import { ImageWrapper } from "components/ImageWrapper";
 import { Header } from "components/Header";
-import { getDate } from '../../src/utils/handlingFunctions'
+import { getDate } from "../../src/utils/handlingFunctions";
+import {
+    GraphqlResponse,
+    Posts,
+    Post as IPost,
+} from "../../src/utils/commonTypes";
 
-const Post = ({ data = {} }: any) => {
-    const router = useRouter()
+type ArticlePageProps = {
+    data: IPost
+};
+
+const Post = ({
+    data 
+}: ArticlePageProps) => {
+    const router = useRouter();
     const [post] = useState(data);
 
     return (
@@ -31,13 +42,13 @@ const Post = ({ data = {} }: any) => {
                 >
                     Voltar
                 </Button>
-            <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
+                <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
             </Header>
             <ImageWrapper>
                 <Image
                     src={post?.attributes.Cape?.data?.attributes?.url}
                     height={
-                        post?.attributes.Cape?.data?.attributes?.heigth || 720
+                        post?.attributes.Cape?.data?.attributes?.height || 720
                     }
                     width={
                         post?.attributes.Cape?.data?.attributes?.width || 1200
@@ -57,7 +68,7 @@ const Post = ({ data = {} }: any) => {
 export async function getStaticPaths() {
     const data = await loadPosts();
 
-    const paths = data.map((e: any) => {
+    const paths = data.map((e: IPost) => {
         return {
             params: { slug: e.attributes.Slug },
         };
@@ -70,7 +81,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
     const data = await loadPosts({ postSlug: params.slug }).then(
-        (d: object[]) => d[0]
+        (d: Posts): IPost => d[0]
     );
     if (!data) {
         return {

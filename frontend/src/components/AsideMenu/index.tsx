@@ -1,5 +1,5 @@
 import { Nav } from "../Nav/";
-import * as Styled from "./styles.js";
+import * as Styled from "./styles";
 import { Heading } from "./../Heading/";
 
 import { ToggleThemeButton } from "./ToggleThemeButton";
