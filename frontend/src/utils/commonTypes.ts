@@ -37,10 +37,11 @@ export interface Post {
     attributes: PostAttributes;
 }
 
-export interface Posts {
-    map(arg0: (e: Post) => { params: { slug: string; }; }): unknown;
-    data: Post[];
-}
+export type Posts = Post[]
+// export interface Posts {
+//     map(arg0: (e: Post) => { params: { slug: string; }; }): unknown;
+//     data: Post[];
+// }
 
 export interface Data {
     posts: Posts;

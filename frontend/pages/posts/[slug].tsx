@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { ArrowLeft } from "@styled-icons/heroicons-solid";
 import Image from "next/image";
+import defaultImage from '../../src/assets/imgs/default-image-programmer.jpg'
 import { Content } from "../../src/components/Content";
 import { PostDate } from "../../src/components/PostDate";
 import { Title } from "../../src/components/Title";
@@ -14,11 +15,7 @@ import { Button } from "@mui/material";
 import { ImageWrapper } from "components/ImageWrapper";
 import { Header } from "components/Header";
 import { getDate } from "../../src/utils/handlingFunctions";
-import {
-    GraphqlResponse,
-    Posts,
-    Post as IPost,
-} from "../../src/utils/commonTypes";
+import { Post as IPost } from "../../src/utils/commonTypes";
 
 type ArticlePageProps = {
     data: IPost;
@@ -44,15 +41,13 @@ const Post = ({ data }: ArticlePageProps) => {
             </Header>
             <ImageWrapper>
                 <Image
-                    loader={({ src, width, quality = 75 }) =>
-                        `${src}?w=${width}`
-                    }
-                    src={post?.attributes.Cape?.data?.attributes?.url}
+                    loader={({ src, width }) => `${src}?w=${width}`}
+                    src={post?.attributes?.Cape?.data?.attributes?.url || defaultImage}
                     height={
-                        post?.attributes.Cape?.data?.attributes?.height || 720
+                        post?.attributes?.Cape?.data?.attributes?.height || 720
                     }
                     width={
-                        post?.attributes.Cape?.data?.attributes?.width || 1200
+                        post?.attributes?.Cape?.data?.attributes?.width || 1200
                     }
                     layout="intrinsic"
                 />
@@ -81,7 +76,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-    const data = await loadPosts({ postSlug: params.slug });
+    const data = await loadPosts({ postSlug: params.slug }).then(d => d[0]);
+
     if (!data) {
         return {
             notFound: true,
