@@ -20,7 +20,6 @@ type ArticleModalType = {
     key?: string | number;
 };
 export const ArticleModal = ({ element, key }: ArticleModalType) => {
-
     return (
         <Grid key={key} p={1} container xs={12} md={6} xl={4}>
             <Link href={`/posts/${element.attributes.Slug}`}>
@@ -36,6 +35,9 @@ export const ArticleModal = ({ element, key }: ArticleModalType) => {
                         />
                         <CardMedia>
                             <Image
+                                loader={({ src, width, quality = 75 }) =>
+                                    `${src}?w=${width}`
+                                }
                                 src={
                                     element?.attributes.Cape?.data?.attributes
                                         ?.url

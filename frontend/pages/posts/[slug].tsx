@@ -1,9 +1,5 @@
 import { useState } from "react";
-<<<<<<< HEAD
 import { useRouter } from "next/router";
-=======
-import { useRouter } from 'next/router'
->>>>>>> f00f036cef81a05ae5ad3e82a7d2d8bde4b79858
 import { ArrowLeft } from "@styled-icons/heroicons-solid";
 import Image from "next/image";
 import { Content } from "../../src/components/Content";
@@ -17,7 +13,6 @@ import { loadPosts } from "../../src/api/loadPosts";
 import { Button } from "@mui/material";
 import { ImageWrapper } from "components/ImageWrapper";
 import { Header } from "components/Header";
-<<<<<<< HEAD
 import { getDate } from "../../src/utils/handlingFunctions";
 import {
     GraphqlResponse,
@@ -26,19 +21,11 @@ import {
 } from "../../src/utils/commonTypes";
 
 type ArticlePageProps = {
-    data: IPost
+    data: IPost;
 };
 
-const Post = ({
-    data 
-}: ArticlePageProps) => {
+const Post = ({ data }: ArticlePageProps) => {
     const router = useRouter();
-=======
-import { getDate } from '../../src/utils/handlingFunctions'
-
-const Post = ({ data = {} }: any) => {
-    const router = useRouter()
->>>>>>> f00f036cef81a05ae5ad3e82a7d2d8bde4b79858
     const [post] = useState(data);
 
     return (
@@ -53,14 +40,13 @@ const Post = ({ data = {} }: any) => {
                 >
                     Voltar
                 </Button>
-<<<<<<< HEAD
                 <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
-=======
-            <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
->>>>>>> f00f036cef81a05ae5ad3e82a7d2d8bde4b79858
             </Header>
             <ImageWrapper>
                 <Image
+                    loader={({ src, width, quality = 75 }) =>
+                        `${src}?w=${width}`
+                    }
                     src={post?.attributes.Cape?.data?.attributes?.url}
                     height={
                         post?.attributes.Cape?.data?.attributes?.height || 720
@@ -95,13 +81,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-    const data = await loadPosts({ postSlug: params.slug }).then(
-<<<<<<< HEAD
-        (d: Posts): IPost => d[0]
-=======
-        (d: object[]) => d[0]
->>>>>>> f00f036cef81a05ae5ad3e82a7d2d8bde4b79858
-    );
+    const data = await loadPosts({ postSlug: params.slug });
     if (!data) {
         return {
             notFound: true,

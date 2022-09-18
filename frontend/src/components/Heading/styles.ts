@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.h1`
-    ${({ theme, as }) => css`
+    ${({ theme, as }: any) => css`
         color: ${theme.colors.text};
         font-size: ${as === 'h1' && theme.fontSizes.lg};
         font-size: ${as === 'h2' && theme.fontSizes.md};

@@ -38,6 +38,7 @@ export interface Post {
 }
 
 export interface Posts {
+    map(arg0: (e: Post) => { params: { slug: string; }; }): unknown;
     data: Post[];
 }
 
