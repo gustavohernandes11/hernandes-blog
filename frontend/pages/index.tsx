@@ -26,7 +26,7 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
 
             <Content>
                 <Header>
-                    <Heading size="small">Início</Heading>
+                    <Heading size="small">Todos os artigos</Heading>
                 </Header>
                 <ArticleWrapperList>
                     {posts?.map((e: Post) => {

@@ -40,7 +40,7 @@ export function Theme({ children }: any): JSX.Element {
     return (
         <ThemeProvider theme={getTheme}>
             {loading ? (
-                <CircularProgress className="lading-page-spin" />
+                <CircularProgress className="loading-page-spin" />
             ) : (
                 children
             )}

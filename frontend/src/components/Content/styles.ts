@@ -12,10 +12,11 @@ export const Container = styled.main`
 
         @media (max-width: 769px) {
             z-index: 100;
+        padding: ${theme.spacings[8]} 4%;
+
             position: relative;
         }
         @media (max-width: 425px) {
-            padding: ${theme.spacings[8]} 6%;
             z-index: 0;
 
         }

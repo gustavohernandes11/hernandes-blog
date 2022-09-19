@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
 import { PostDescription } from "../PostDescription/index";
 import { PostTitle } from "../PostTitle/index";
 import { getDate } from "../../utils/handlingFunctions";

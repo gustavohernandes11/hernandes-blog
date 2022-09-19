@@ -80,9 +80,8 @@ path {
 }
 @media (max-width: 425px) {
     #asidemenu {
-
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
     }
 }
 
