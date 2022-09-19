@@ -11,6 +11,7 @@ export const lightPallete: object = {
         surface: "#dbdbdb",
         border: "#b5b8bd",
         text: "#121212",
+        textSecondary: "#121212",
     } ,
 
   

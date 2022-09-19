@@ -29,18 +29,20 @@ export const Container = styled.aside`
             position: sticky;
             top: 0;
             left: 0;
+            z-index: ${theme.zIndices.base};
         }
         @media (max-width: 425px) {
             flex-direction: column;
+            justify-content: space-around;
             position: fixed;
             top: unset;
             left: unset;
             height: 100vh;
             width: 100vw;
-            justify-content: center;
             align-items: center;
             gap: 1rem;
             background: ${theme.colors.surfaceGradient};
+            z-index: ${theme.zIndices.docked};
         }
     `}
 `;

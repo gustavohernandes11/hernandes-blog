@@ -31,7 +31,7 @@ path {
     fill: url("#my-cool-gradient");
 }
 
-.lading-page-spin {
+.loading-page-spin {
     position: absolute;
     align-self: center;
     justify-self: center;
@@ -75,13 +75,17 @@ path {
         width: 100vw;
     }
     #asidemenu {
-        flex-direction: row;
         padding: 3.5rem 15%;
-        justify-content: space-between;
-
-
     }
 }
+@media (max-width: 425px) {
+    #asidemenu {
+
+            flex-direction: column;
+            justify-content: space-around;
+    }
+}
+
     `;
 
 export default GlobalStyle;

@@ -9,6 +9,7 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
 
+
         @media (max-width: 769px) {
             z-index: 100;
             position: relative;

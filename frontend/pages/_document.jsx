@@ -35,6 +35,11 @@ export default class MyDocument extends Document {
                     <meta name="language" content="Portuguese" />
                     <meta name="revisit-after" content="3 days" />
                     <meta name="author" content="Gustavo Hernandes" />
+                    <meta name="robots" content="index, follow" />
+                    <meta
+                        httpEquiv="Content-Type"
+                        content="text/html; charset=utf-8"
+                    />
 
                     {/* Fonte Century Gothic */}
                     <link

@@ -9,6 +9,7 @@ export const darkPallete: object = {
         surface: "#191919",
         border: "#1d1d1d",
         text: "#e3e3e3",
-    } ,
+        textSecondary: "#c8c8c8",
+    },
     
 };

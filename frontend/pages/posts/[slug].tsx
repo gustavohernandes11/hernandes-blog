@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { ArrowLeft } from "@styled-icons/heroicons-solid";
 import Image from "next/image";
-import defaultImage from '../../src/assets/imgs/default-image-programmer.jpg'
+import defaultImage from "../../src/assets/imgs/default-image-programmer.jpg";
 import { Content } from "../../src/components/Content";
 import { PostDate } from "../../src/components/PostDate";
 import { Title } from "../../src/components/Title";
@@ -27,7 +27,11 @@ const Post = ({ data }: ArticlePageProps) => {
 
     return (
         <Content>
-            <Seo />
+            <Seo
+                title={post?.attributes?.Meta?.Title}
+                description={post?.attributes?.Meta?.Description}
+                keywords={post?.attributes?.Meta?.Keywords}
+            />
             <Header>
                 <Button
                     startIcon={<ArrowLeft height={12} width={12} />}
@@ -42,7 +46,10 @@ const Post = ({ data }: ArticlePageProps) => {
             <ImageWrapper>
                 <Image
                     loader={({ src, width }) => `${src}?w=${width}`}
-                    src={post?.attributes?.Cape?.data?.attributes?.url || defaultImage}
+                    src={
+                        post?.attributes?.Cape?.data?.attributes?.url ||
+                        defaultImage
+                    }
                     height={
                         post?.attributes?.Cape?.data?.attributes?.height || 720
                     }
@@ -76,7 +83,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-    const data = await loadPosts({ postSlug: params.slug }).then(d => d[0]);
+    const data = await loadPosts({ postSlug: params.slug }).then((d) => d[0]);
 
     if (!data) {
         return {
