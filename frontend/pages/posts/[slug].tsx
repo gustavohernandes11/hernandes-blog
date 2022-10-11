@@ -13,7 +13,7 @@ import { Footer } from "components/Footer";
 import { loadPosts } from "../../src/api/loadPosts";
 import { Button } from "@mui/material";
 import { ImageWrapper } from "components/ImageWrapper";
-import { Header } from "components/MobileHeader";
+import { MobileHeader } from "components/MobileHeader";
 import { getDate } from "../../src/utils/handlingFunctions";
 import { Post as IPost } from "../../src/utils/commonTypes";
 
@@ -32,7 +32,7 @@ const Post = ({ data }: ArticlePageProps) => {
                 description={post?.attributes?.Meta?.Description}
                 keywords={post?.attributes?.Meta?.Keywords}
             />
-            <Header>
+            <MobileHeader>
                 <Button
                     startIcon={<ArrowLeft height={12} width={12} />}
                     size="small"
@@ -42,7 +42,7 @@ const Post = ({ data }: ArticlePageProps) => {
                     Voltar
                 </Button>
                 <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
-            </Header>
+            </MobileHeader>
             <ImageWrapper>
                 <Image
                     loader={({ src, width }) => `${src}?w=${width}`}

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-    ${({ theme, size = "large" }) => css`
+    ${({ theme, size }: any) => css`
         .logo {
             font-size: ${size === "large" && theme.fontSizes.xxl};
             font-size: ${size === "medium" && theme.fontSizes.md};

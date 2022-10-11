@@ -10,11 +10,12 @@ export const ArticleModalFooter = ({
     articleCategory = null,
     categoryColor,
 }: ArticleModalFooterType) => {
+    const props = {
+        categoryColor: categoryColor,
+    };
     return (
-        <Styled.Footer>
-            <p className="category" categoryColor={categoryColor}>
-                {articleCategory}
-            </p>
+        <Styled.Footer {...props}>
+            <p className="category">{articleCategory}</p>
             <time>{articleDate}</time>
         </Styled.Footer>
     );

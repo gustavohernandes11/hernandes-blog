@@ -5,7 +5,7 @@ interface CardInterface {
 }
 interface FooterInterface {
     theme: any;
-    categoryColor: string;
+    categoryColor?: string;
 }
 
 export const Card = styled.div`
