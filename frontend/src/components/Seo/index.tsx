@@ -7,7 +7,7 @@ interface MetaType {
 }
 
 export const Seo = ({
-    title = "Hernandes.blog",
+    title = "Hernandes",
     keywords,
     description,
 }: MetaType) => {
