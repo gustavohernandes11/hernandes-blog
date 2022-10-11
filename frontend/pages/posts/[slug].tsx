@@ -13,7 +13,7 @@ import { Footer } from "components/Footer";
 import { loadPosts } from "../../src/api/loadPosts";
 import { Button } from "@mui/material";
 import { ImageWrapper } from "components/ImageWrapper";
-import { Header } from "components/Header";
+import { Header } from "components/MobileHeader";
 import { getDate } from "../../src/utils/handlingFunctions";
 import { Post as IPost } from "../../src/utils/commonTypes";
 

@@ -27,7 +27,7 @@ p {
     letter-spacing: 0.00938em;
 }
 
-path {
+path, circle {
     fill: url("#my-cool-gradient");
 }
 

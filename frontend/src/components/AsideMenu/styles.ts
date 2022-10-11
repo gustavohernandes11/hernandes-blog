@@ -10,14 +10,6 @@ export const Container = styled.aside`
         justify-content: space-around;
         align-items: center;
 
-        #logo {
-            font-size: ${theme.fontSizes.xxl};
-            white-space: pre-line;
-            text-align: center;
-            text-align-last: justify;
-            font-family: "Raleway", sans-serif;
-        }
-
         @media (max-width: 769px) {
             #logo {
                 font-size: ${theme.fontSizes.lg};
@@ -33,14 +25,14 @@ export const Container = styled.aside`
         }
         @media (max-width: 425px) {
             flex-direction: column;
-            justify-content: space-around;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
             position: fixed;
             top: unset;
             left: unset;
             height: 100vh;
             width: 100vw;
-            align-items: center;
-            gap: 1rem;
             background: ${theme.colors.surfaceGradient};
             z-index: ${theme.zIndices.docked};
         }

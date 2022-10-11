@@ -16,7 +16,7 @@ export const sharedThemeProps = {
     },
     fontSizes: {
         xxs: "0.4rem",
-        xs: "0.65rem",
+        xs: "0.85rem",
         sm: "1.15rem",
         md: "1.5rem",
         lg: "1.95rem",

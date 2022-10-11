@@ -1,8 +1,9 @@
 import { Content } from "../src/components/Content";
 import { Footer } from "../src/components/Footer";
-import { Header } from "../src/components/Header";
 import { Seo } from "../src/components/Seo";
 import { Heading } from "../src/components/Heading";
+import { MobileHeader } from "../src/components/MobileHeader";
+import { Logo } from "../src/components/Logo";
 
 import { ArticleWrapperList } from "components/ArticleWrapperList";
 import { ArticleModal } from "components/ArticleModal";
@@ -19,15 +20,16 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
     return (
         <>
             <Seo
-                title="Hernandes.blog"
+                title="Hernandes"
                 description="Blog para compartilhar dicas, teorias e códigos de desenvolvimento frontend: React, Typescript, Strapi, e outros."
                 keywords="blog, javascript, strapi, typescript, html, css, snippets, dicas, desenvolvimento, react, nextjs, frontend, web, github"
             />
 
             <Content>
-                <Header>
-                    <Heading size="small">Todos os artigos</Heading>
-                </Header>
+                    <MobileHeader>
+                        <Logo size="small" />
+                    </MobileHeader>
+                
                 <ArticleWrapperList>
                     {posts?.map((e: Post) => {
                         return <ArticleModal key={e.id} element={e} />;
