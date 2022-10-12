@@ -10,6 +10,7 @@ export const Container = styled.code`
         margin: ${theme.spacings[5]} 0;
         position: relative;
         white-space: pre-line;
+        overflow-x: auto;
 
         .copy-code-button {
             position: absolute;

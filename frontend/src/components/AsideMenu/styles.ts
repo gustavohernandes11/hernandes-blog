@@ -34,7 +34,7 @@ export const Container = styled.aside`
             height: 100vh;
             width: 100vw;
             background: ${theme.colors.surfaceGradient};
-            z-index: ${theme.zIndices.docked};
+            z-index: 100;
         }
     `}
 `;

@@ -12,11 +12,10 @@ export const Container = styled.header`
         position: sticky;
         left: 0;
         top: 0;
-        z-index: 100;
+        z-index: 50;
         width: 100%;
 
         padding: 10px;
-        border-radius: 0 0 15px 15px;
 
         h1 {
             color: ${theme.colors.textSecondary};

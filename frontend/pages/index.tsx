@@ -25,11 +25,11 @@ const Home: NextPage = ({ data = [] }: any): JSX.Element => {
                 keywords="blog, javascript, strapi, typescript, html, css, snippets, dicas, desenvolvimento, react, nextjs, frontend, web, github"
             />
 
+            <MobileHeader>
+                <Logo size="small" />
+            </MobileHeader>
             <Content>
-                    <MobileHeader>
-                        <Logo size="small" />
-                    </MobileHeader>
-                
+
                 <ArticleWrapperList>
                     {posts?.map((e: Post) => {
                         return <ArticleModal key={e.id} element={e} />;

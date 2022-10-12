@@ -15,6 +15,8 @@ export const Card = styled.div`
         border-radius: 5px;
         flex-direction: column;
         overflow: hidden;
+            align-self: flex-start;
+
         
         :hover {
             img {
@@ -50,8 +52,8 @@ export const Footer = styled.footer`
         }
         .category {
             color: ${categoryColor
-                ? categoryColor
-                : theme.colors.primaryVariant};
+            ? categoryColor
+            : theme.colors.primaryVariant};
         }
         p {
             margin: 0;
