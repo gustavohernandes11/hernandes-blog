@@ -4,6 +4,8 @@ import { ArrowLeft } from "@styled-icons/heroicons-solid";
 import Image from "next/image";
 import defaultImage from "../../src/assets/imgs/default-image-programmer.jpg";
 import { Content } from "../../src/components/Content";
+import { MobileHeader } from "../../src/components/MobileHeader";
+import { Logo } from "../../src/components/Logo";
 import { PostDate } from "../../src/components/PostDate";
 import { Title } from "../../src/components/Title";
 import { Seo } from "../../src/components/Seo";
@@ -25,45 +27,50 @@ const Post = ({ data }: ArticlePageProps) => {
     const [post] = useState(data);
 
     return (
-        <Content>
-            <Seo
-                title={post?.attributes?.Meta?.Title}
-                description={post?.attributes?.Meta?.Description}
-                keywords={post?.attributes?.Meta?.Keywords}
-            />
-            <Grid container justifyContent="space-between">
-                <Button
-                    startIcon={<ArrowLeft height={12} width={12} />}
-                    size="small"
-                    variant="text"
-                    onClick={() => router.back()}
-                >
-                    Voltar
-                </Button>
-                <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
-            </Grid>
-            <ImageWrapper>
-                <Image
-                    loader={({ src, width }) => `${src}?w=${width}`}
-                    src={
-                        post?.attributes?.Cape?.data?.attributes?.url ||
-                        defaultImage
-                    }
-                    height={
-                        post?.attributes?.Cape?.data?.attributes?.height || 720
-                    }
-                    width={
-                        post?.attributes?.Cape?.data?.attributes?.width || 1200
-                    }
-                    layout="intrinsic"
+        <>
+            <MobileHeader>
+                <Logo size="small" />
+            </MobileHeader>
+            <Content>
+                <Seo
+                    title={post?.attributes?.Meta?.Title}
+                    description={post?.attributes?.Meta?.Description}
+                    keywords={post?.attributes?.Meta?.Keywords}
                 />
-            </ImageWrapper>
-            <Title>{post?.attributes?.Title}</Title>
-            <PostDescription>{post?.attributes?.Excerpt}</PostDescription>
+                <Grid container justifyContent="space-between">
+                    <Button
+                        startIcon={<ArrowLeft height={12} width={12} />}
+                        size="small"
+                        variant="text"
+                        onClick={() => router.back()}
+                    >
+                        Voltar
+                    </Button>
+                    <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
+                </Grid>
+                <ImageWrapper>
+                    <Image
+                        loader={({ src, width }) => `${src}?w=${width}`}
+                        src={
+                            post?.attributes?.Cape?.data?.attributes?.url ||
+                            defaultImage
+                        }
+                        height={
+                            post?.attributes?.Cape?.data?.attributes?.height || 720
+                        }
+                        width={
+                            post?.attributes?.Cape?.data?.attributes?.width || 1200
+                        }
+                        layout="intrinsic"
+                    />
+                </ImageWrapper>
+                <Title>{post?.attributes?.Title}</Title>
+                <PostDescription>{post?.attributes?.Excerpt}</PostDescription>
 
-            <MarkDownContent>{post?.attributes?.Content}</MarkDownContent>
-            <Footer />
-        </Content>
+                <MarkDownContent>{post?.attributes?.Content}</MarkDownContent>
+                <Footer />
+            </Content>
+        </>
     );
 };
 

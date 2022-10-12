@@ -18,23 +18,23 @@ export const ArticleModal = ({ element, key }: ArticleModalType) => {
         <Grid key={key} p={1} container xs={12} md={6} xl={4}>
             <Link href={`/posts/${element.attributes.Slug}`}>
                 <Styled.Card>
-                        <Image
-                            loader={({ src, width, quality = 75 }) =>
-                                `${src}?w=${width}`
-                            }
-                            src={
-                                element?.attributes.Cape?.data?.attributes?.url
-                            }
-                            height={
-                                element?.attributes.Cape?.data?.attributes
-                                    ?.height || 720
-                            }
-                            width={
-                                element?.attributes.Cape?.data?.attributes
-                                    ?.width || 1200
-                            }
-                            layout="intrinsic"
-                        />
+                    <Image
+                        loader={({ src, width, quality = 75 }) =>
+                            `${src}?w=${width}`
+                        }
+                        src={
+                            element?.attributes.Cape?.data?.attributes?.url
+                        }
+                        height={
+                            element?.attributes.Cape?.data?.attributes
+                                ?.height || 720
+                        }
+                        width={
+                            element?.attributes.Cape?.data?.attributes
+                                ?.width || 1200
+                        }
+                        layout="intrinsic"
+                    />
                     <Styled.Content>
                         <Styled.ModalHeader>
                             <PostTitle>{element.attributes.Title}</PostTitle>
@@ -43,7 +43,7 @@ export const ArticleModal = ({ element, key }: ArticleModalType) => {
                             </PostDescription>
                         </Styled.ModalHeader>
                         <ArticleModalFooter
-                            articleCategory="Node"
+                            articleCategory={element.attributes.Category}
                             articleDate={getDate(
                                 element?.attributes.publishedAt
                             )}
