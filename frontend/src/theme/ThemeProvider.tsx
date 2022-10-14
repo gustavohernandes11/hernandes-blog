@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { useState, useEffect } from "react";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Container } from "@mui/material";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { deepmerge } from '@mui/utils'
 
@@ -40,7 +40,9 @@ export function Theme({ children }: any): JSX.Element {
     return (
         <ThemeProvider theme={getTheme}>
             {loading ? (
-                <CircularProgress className="loading-page-spin" />
+                <Container sx={{ display: "flex", width: '100%', height: "100%", justifyContent: "center", alignItems: "center" }}>
+                    <CircularProgress className="loading-page-spin" />
+                </Container>
             ) : (
                 children
             )}
