@@ -1,4 +1,5 @@
 import { Content } from "../src/components/Content";
+import { MobileHeader } from "../src/components/MobileHeader";
 import { Whatsapp } from '@styled-icons/boxicons-logos'
 import { Title } from "../src/components/Title";
 import { ContactButton } from "../src/components/ContactButton";
@@ -20,6 +21,7 @@ const About: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Content>
+                <MobileHeader />
                 <Container maxWidth="sm" sx={{ flex: 1 }}>
                     <Title>
                         Sobre

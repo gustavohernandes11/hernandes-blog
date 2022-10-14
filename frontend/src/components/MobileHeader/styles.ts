@@ -7,19 +7,22 @@ export const Container = styled.header`
 
         display: none;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
 
-        position: sticky;
+        position: fixed;
         left: 0;
         top: 0;
         z-index: 50;
         width: 100%;
 
-        padding: 10px;
+        padding: 15px;
 
         h1 {
             color: ${theme.colors.textSecondary};
         }
+
+
 
         @media (max-width: 425px) {
             display: flex;

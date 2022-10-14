@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
- 
 * {
     box-sizing: border-box;
    
@@ -38,37 +37,33 @@ path, circle {
 }
 
 #floating-action-button {
-    display: flex;
+    color: #7640e3;
+    display: none;
     position: fixed;
-    right: 50%;
-    bottom: 2rem;
-    transform: translateX(50%);
+    right: 15px;
+    top: 15px;
     border-radius: 10px;
+    box-shadow: none;
+    background: transparent;
 
-    background: rgb(45, 30, 209);
-    background: linear-gradient(
-        45deg,
-        rgba(45, 30, 209, 1) 0%,
-        rgba(151, 98, 181, 1) 100%
-        );
-    }
     * > #floating-action-button {
         display: flex;
         align-items: center;
         justify-content: center;
     }
+}
 
     #layout-container {
-    background-color: #121212;
-    color: #e3e3e3;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-        "asidemenu content"
-        "asidemenu footer";
-    height: 100vh;
-}
+        background-color: #121212;
+        color: #e3e3e3;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:"asidemenu content"
+                            "asidemenu footer";
+        height: 100vh;
+    }
+
 @media (max-width: 769px) {
     #layout-container {
         display: inline-block;
@@ -79,12 +74,16 @@ path, circle {
     }
 }
 @media (max-width: 425px) {
+    #floating-action-button {
+        display: fixed;
+    }
     #asidemenu {
             flex-direction: column;
             justify-content: space-evenly;
+        }
     }
-}
 
-    `;
+
+`;
 
 export default GlobalStyle;

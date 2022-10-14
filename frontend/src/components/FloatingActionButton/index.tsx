@@ -6,20 +6,18 @@ export const FloatingActionButton = (): JSX.Element => {
     const [state, actions] = useGlobalContext();
     return (
         <>
-            {window.screen.width <= 425 && (
-                <Fab
-                    onClick={() => actions.setOrToggleMenu()}
-                    size="medium"
-                    color="primary"
-                    id="floating-action-button"
-                >
-                    {state.menuCondition === "open" ? (
-                        <X width={25} height={25} />
-                    ) : (
-                        <Menu width={25} height={25} />
-                    )}
-                </Fab>
-            )}
+            <Fab
+                onClick={() => actions.setOrToggleMenu()}
+                size="medium"
+                // color="primary"
+                id="floating-action-button"
+            >
+                {state.menuCondition === "open" ? (
+                    <X width={25} height={25} />
+                ) : (
+                    <Menu width={25} height={25} />
+                )}
+            </Fab>
         </>
     );
 };

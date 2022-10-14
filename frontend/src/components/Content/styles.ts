@@ -14,14 +14,15 @@ export const Container = styled.main`
 
         @media (max-width: 769px) {
             z-index: 100;
-            padding:10px;
+            padding: 10px;
             position: relative;
-        height: min-content;
+            height: min-content;
 
         }
         @media (max-width: 425px) {
             z-index: 0;
-
+            height: 100%;
+            margin-top: 69px;
         }
 
 }

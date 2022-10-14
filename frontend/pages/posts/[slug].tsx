@@ -1,20 +1,24 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+
 import { ArrowLeft } from "@styled-icons/heroicons-solid";
+
 import Image from "next/image";
 import defaultImage from "../../src/assets/imgs/default-image-programmer.jpg";
+import { ImageWrapper } from "components/ImageWrapper";
+
 import { Content } from "../../src/components/Content";
 import { MobileHeader } from "../../src/components/MobileHeader";
-import { Logo } from "../../src/components/Logo";
 import { PostDate } from "../../src/components/PostDate";
 import { Title } from "../../src/components/Title";
 import { Seo } from "../../src/components/Seo";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Footer } from "components/Footer";
-import { loadPosts } from "../../src/api/loadPosts";
+
 import { Button, Grid, Container } from "@mui/material";
-import { ImageWrapper } from "components/ImageWrapper";
+
 import { getDate } from "../../src/utils/handlingFunctions";
+import { loadPosts } from "../../src/api/loadPosts";
 import { Post as IPost } from "../../src/utils/commonTypes";
 
 type ArticlePageProps = {
@@ -27,16 +31,14 @@ const Post = ({ data }: ArticlePageProps) => {
 
     return (
         <>
-            <MobileHeader>
-                <Logo size="small" />
-            </MobileHeader>
+            <MobileHeader />
             <Content>
                 <Seo
                     title={post?.attributes?.Meta?.Title}
                     description={post?.attributes?.Meta?.Description}
                     keywords={post?.attributes?.Meta?.Keywords}
                 />
-                <Grid container justifyContent="space-between">
+                <Grid container justifyContent="space-between" p={1} alignItems="center">
                     <Button
                         startIcon={<ArrowLeft height={12} width={12} />}
                         size="small"
@@ -48,7 +50,6 @@ const Post = ({ data }: ArticlePageProps) => {
                     <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
                 </Grid>
                 <Container maxWidth="md">
-
                     <ImageWrapper>
                         <Image
                             loader={({ src, width }) => `${src}?w=${width}`}

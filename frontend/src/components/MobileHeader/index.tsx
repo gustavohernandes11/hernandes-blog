@@ -1,8 +1,10 @@
 import * as Styled from './styles'
-export const MobileHeader = ({children}: any) => {
+import { Logo } from "../Logo";
+export const MobileHeader = () => {
     return (
         <Styled.Container>
-            {children}
+            <Logo size="small" />
+
         </Styled.Container>
     )
 }
