@@ -2,14 +2,15 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.code`
     ${({ theme }) => css`
-        padding: ${theme.spacings[5]};
+    display: block;
+        /* padding: ${theme.spacings[5]}; */
         width: 100%;
-        border: 1px solid ${theme.colors.border};
+        /* border: 1px solid ${theme.colors.border}; */
         border-radius: 5px;
-        background: ${theme.colors.surface};
+        /* background: ${theme.colors.surface}; */
         margin: ${theme.spacings[5]} 0;
         position: relative;
-        white-space: pre-line;
+        white-space: break-spaces;
         overflow-x: auto;
 
         .copy-code-button {

@@ -6,7 +6,7 @@ import { IconButton, Tooltip } from "@mui/material";
 import { ClipboardCopy } from "@styled-icons/heroicons-solid";
 
 interface CodeContainerType {
-    children: React.ReactNode;
+    children: React.ReactNode | React.ReactNode[];
 }
 
 export function CodeContainer({ children }: CodeContainerType) {
@@ -28,7 +28,8 @@ export function CodeContainer({ children }: CodeContainerType) {
             onMouseOver={() => setisHover(() => true)}
             onMouseLeave={() => setisHover(() => false)}
         >
-                {children}
+            {children}
+
             {isHover && (
                 <Tooltip arrow placement="left" title="Copy">
                     <IconButton

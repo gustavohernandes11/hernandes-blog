@@ -24,7 +24,6 @@ export const GRAPHQL_FRAGMENTS = gql`
         ...cape
         Title
         Content
-        Reference
         Excerpt
         Slug
         Category

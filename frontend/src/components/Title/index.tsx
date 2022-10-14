@@ -11,7 +11,7 @@ interface TitleType {
 
 export const Title = ({
     children,
-    variant = "h4",
+    variant = "h2",
     component = "h1",
     className = "title",
     fontWeight = "800",

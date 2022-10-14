@@ -9,11 +9,10 @@ import { Logo } from "../../src/components/Logo";
 import { PostDate } from "../../src/components/PostDate";
 import { Title } from "../../src/components/Title";
 import { Seo } from "../../src/components/Seo";
-import { PostDescription } from "../../src/components/PostDescription";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Footer } from "components/Footer";
 import { loadPosts } from "../../src/api/loadPosts";
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Container } from "@mui/material";
 import { ImageWrapper } from "components/ImageWrapper";
 import { getDate } from "../../src/utils/handlingFunctions";
 import { Post as IPost } from "../../src/utils/commonTypes";
@@ -48,26 +47,27 @@ const Post = ({ data }: ArticlePageProps) => {
                     </Button>
                     <PostDate>{getDate(post?.attributes?.publishedAt)}</PostDate>
                 </Grid>
-                <ImageWrapper>
-                    <Image
-                        loader={({ src, width }) => `${src}?w=${width}`}
-                        src={
-                            post?.attributes?.Cape?.data?.attributes?.url ||
-                            defaultImage
-                        }
-                        height={
-                            post?.attributes?.Cape?.data?.attributes?.height || 720
-                        }
-                        width={
-                            post?.attributes?.Cape?.data?.attributes?.width || 1200
-                        }
-                        layout="intrinsic"
-                    />
-                </ImageWrapper>
-                <Title>{post?.attributes?.Title}</Title>
-                <PostDescription>{post?.attributes?.Excerpt}</PostDescription>
+                <Container maxWidth="md">
 
-                <MarkDownContent>{post?.attributes?.Content}</MarkDownContent>
+                    <ImageWrapper>
+                        <Image
+                            loader={({ src, width }) => `${src}?w=${width}`}
+                            src={
+                                post?.attributes?.Cape?.data?.attributes?.url ||
+                                defaultImage
+                            }
+                            height={
+                                post?.attributes?.Cape?.data?.attributes?.height || 720
+                            }
+                            width={
+                                post?.attributes?.Cape?.data?.attributes?.width || 1200
+                            }
+                            layout="intrinsic"
+                        />
+                    </ImageWrapper>
+                    <Title>{post?.attributes?.Title}</Title>
+                    <MarkDownContent>{post?.attributes?.Content}</MarkDownContent>
+                </Container>
                 <Footer />
             </Content>
         </>
