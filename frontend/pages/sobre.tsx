@@ -22,17 +22,17 @@ const About: NextPage = () => {
             </Head>
             <Content>
                 <MobileHeader />
-                <Container maxWidth="sm" sx={{ flex: 1 }}>
+                <Container maxWidth="sm" sx={{ flex: 1, padding: '20px' }}>
                     <Title>
                         Sobre
                     </Title>
 
                     <Typography paragraph>
-                        Me chamo Gustavo Hernandes, tenho 19 anos, sou do interior de São paulo e durante os ultimos
-                        anos desenvolvi um grande interesse pela programação e todo o seu ecosistema.
+                        Me chamo <b> Gustavo Hernandes</b>, tenho 19 anos, sou do interior de São paulo e durante os últimos
+                        anos fiz da <b>programação web</b> o meu cotidiano.
                     </Typography>
                     <Typography paragraph>
-                        Esse blog foi criado com o intúito de ensinar algumas coisas que estou aprendendo. Eu realmente espero poder te ajudar em algumas dúvidas ou dicas por aqui.
+                        Esse blog foi criado com o intúito de poder compartilhar conteúdo sobre assuntos que julgo útil, que estou aprendendo ou já tive experiência.
                     </Typography>
                     <Typography paragraph>
                         Fique à vontade para entrar em contato comigo.
