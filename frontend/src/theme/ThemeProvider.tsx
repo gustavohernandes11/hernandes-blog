@@ -40,7 +40,7 @@ export function Theme({ children }: any): JSX.Element {
     return (
         <ThemeProvider theme={getTheme}>
             {loading ? (
-                <Container sx={{ display: "flex", width: '100%', height: "100%", justifyContent: "center", alignItems: "center" }}>
+                <Container sx={{ display: "flex", position: "absolute", width: '100%', height: "100%", justifyContent: "center", alignItems: "center" }}>
                     <CircularProgress className="loading-page-spin" />
                 </Container>
             ) : (
