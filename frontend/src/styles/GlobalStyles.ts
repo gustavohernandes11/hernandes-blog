@@ -15,7 +15,14 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
 }
-
+.MuiTypography-root, .MuiButton-root{
+    font-family: "Raleway", sans-serif, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
+}
+.MuiButton-root {
+text-transform: unset;
+}
 a {
     color: inherit;
     text-decoration: none;
