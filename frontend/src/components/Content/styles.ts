@@ -21,7 +21,7 @@ export const Container = styled.main`
         }
         @media (max-width: 425px) {
             z-index: 0;
-            height: 100%;
+            /* height: 100%; */
             margin-top: 69px;
         }
 
