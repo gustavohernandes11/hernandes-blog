@@ -28,7 +28,7 @@ const About: NextPage = () => {
                     </Title>
 
                     <Typography paragraph>
-                        Me chamo <b> Gustavo Hernandes</b>, tenho 19 anos, sou do interior de São paulo e durante os últimos
+                        Me chamo <b> Gustavo Hernandes</b>, tenho 19 anos, sou do interior de São Paulo e durante os últimos
                         anos fiz da <b>programação web</b> o meu cotidiano.
                     </Typography>
                     <Typography paragraph>
