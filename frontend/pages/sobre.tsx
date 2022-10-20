@@ -28,10 +28,11 @@ const About: NextPage = () => {
                     </Title>
 
                     <Typography paragraph>
-                        Me chamo <b> Gustavo Hernandes</b>, tenho 19 anos, sou do interior de São Paulo. Desde sempre tive interesse na tecnologia e como ela pode mudar o mundo.
+                        Me chamo <b> Gustavo Hernandes</b>, tenho 19 anos, sou do interior de São Paulo e durante os últimos
+                        anos fiz da <b>programação web</b> o meu cotidiano.
                     </Typography>
                     <Typography paragraph>
-                        Esse blog foi criado com o intúito de poder compartilhar conteúdo sobre assuntos que julgo útil, que estou aprendendo ou que já tive experiência.
+                        Esse blog foi criado com o intúito de poder compartilhar conteúdo sobre assuntos que julgo útil, que estou aprendendo ou já tive experiência.
                     </Typography>
                     <Typography paragraph>
                         Fique à vontade para entrar em contato comigo.
