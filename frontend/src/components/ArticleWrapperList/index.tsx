@@ -10,4 +10,3 @@ export const ArticleWrapperList = ({ children }: ArticleWrapperListType) => {
         </Grid>
     );
 };
-        

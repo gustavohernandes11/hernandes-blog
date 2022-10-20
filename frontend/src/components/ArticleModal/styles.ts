@@ -11,6 +11,7 @@ interface FooterInterface {
 export const Card = styled.div`
     ${({ theme }: CardInterface) => css`
         background-color: ${theme.colors.surface};
+        /* height: -webkit-fill-available; */
         display: flex;
         border-radius: 5px;
         flex-direction: column;
@@ -62,11 +63,15 @@ export const Footer = styled.footer`
 `;
 
 export const Content = styled.div`
-    ${() => css`
-        margin: 10px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    `}
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
+
+export const ImageContainer = styled.div`
+    height: 180px;
+    display: grid;
+
+`
