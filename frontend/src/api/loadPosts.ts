@@ -4,6 +4,8 @@ import { GRAPHQL_QUERY } from "../graphql/queries";
 import type { Posts } from "../utils/commonTypes";
 import type { loadPostsVariables } from "../utils/commonTypes";
 
+
+
 export const loadPosts = async (
     variables: loadPostsVariables = {}
 ): Promise<Posts> => {
