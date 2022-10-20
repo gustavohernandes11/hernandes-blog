@@ -12,6 +12,7 @@ export const Card = styled.div`
     ${({ theme }: CardInterface) => css`
         background-color: ${theme.colors.surface};
         display: flex;
+        width: -webkit-fill-available;
         border-radius: 5px;
         flex-direction: column;
         overflow: hidden;
@@ -62,11 +63,15 @@ export const Footer = styled.footer`
 `;
 
 export const Content = styled.div`
-    ${() => css`
         margin: 10px;
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-    `}
 `;
+
+export const ImageWrapper = styled.div`
+    height: 180px;
+    display: grid;
+
+`
