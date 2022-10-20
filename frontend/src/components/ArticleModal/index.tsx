@@ -15,30 +15,26 @@ type ArticleModalType = {
 };
 export const ArticleModal = ({ element, key }: ArticleModalType) => {
     return (
-        <Grid key={key} p={1} sx={{ flex: 1 }} container xs={12} md={6} lg={4}>
+        <Grid key={key} p={1} container xs={12} md={6} xl={4}>
             <Link href={`/posts/${element.attributes.Slug}`}>
                 <Styled.Card>
-                    <Styled.ImageContainer>
-
-                        <Image
-                            loader={({ src, width, quality = 75 }) =>
-                                `${src}?w=${width}`
-                            }
-                            src={
-                                element?.attributes.Cape?.data?.attributes?.url
-                            }
-                            height={
-                                element?.attributes.Cape?.data?.attributes
-                                    ?.height || 720
-                            }
-                            width={
-                                element?.attributes.Cape?.data?.attributes
-                                    ?.width || 1200
-                            }
-                            layout="intrinsic"
-
-                        />
-                    </Styled.ImageContainer>
+                    <Image
+                        loader={({ src, width, quality = 75 }) =>
+                            `${src}?w=${width}`
+                        }
+                        src={
+                            element?.attributes.Cape?.data?.attributes?.url
+                        }
+                        height={
+                            element?.attributes.Cape?.data?.attributes
+                                ?.height || 720
+                        }
+                        width={
+                            element?.attributes.Cape?.data?.attributes
+                                ?.width || 1200
+                        }
+                        layout="intrinsic"
+                    />
                     <Styled.Content>
                         <Styled.ModalHeader>
                             <PostTitle>{element.attributes.Title}</PostTitle>
