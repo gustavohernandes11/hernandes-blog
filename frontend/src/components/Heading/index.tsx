@@ -15,11 +15,11 @@ export const Heading = ({
     size,
     className,
 }: HeadingType) => {
-    const properties = {
+    const props = {
         as: as,
         id: id,
         size: size,
         className: className,
     };
-    return <Styled.Wrapper {...properties}>{children}</Styled.Wrapper>;
+    return <Styled.Wrapper {...props}>{children}</Styled.Wrapper>;
 };

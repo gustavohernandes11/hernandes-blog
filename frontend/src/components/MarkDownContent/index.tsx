@@ -3,7 +3,6 @@ import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 
 import { Heading } from "../Heading";
-import { ImageWrapper } from "../ImageWrapper";
 import { CodeContainer } from "../CodeContainer";
 import { BlockQuote } from "../BlockQuote";
 import ReactMarkdown from "react-markdown";
