@@ -1,58 +1,13 @@
-import { Content } from "../src/components/Content";
-import { Footer } from "../src/components/Footer";
-import { Seo } from "../src/components/Seo";
-import { MobileHeader } from "../src/components/MobileHeader";
-
-import { ArticleWrapperList } from "components/ArticleWrapperList";
-import { ArticleModal } from "components/ArticleModal";
-
 import type { NextPage } from "next";
-
-import { loadPosts } from "api/loadPosts";
-import { useState } from "react";
-import { Post } from "utils/commonTypes";
-
-const Home: NextPage = ({ data = [] }: any): JSX.Element => {
-    const [posts] = useState(data);
+import { Logo } from '../src/components/Logo'
+import { Header } from '../src/components/Header'
+const Home: NextPage = (): any => {
     return (
         <>
-            <Seo
-                title="Hernandes"
-                description="Blog para compartilhar dicas, teorias e códigos de desenvolvimento frontend: React, Typescript, Strapi, e outros."
-                keywords="blog, javascript, strapi, typescript, html, css, snippets, dicas, desenvolvimento, react, nextjs, frontend, web, github"
-            />
-
-            <MobileHeader />
-            <Content>
-                <ArticleWrapperList>
-                    {posts?.map((e: Post) => {
-                        return <ArticleModal key={e.id} element={e} />;
-                    })}
-                </ArticleWrapperList>
-                <Footer />
-            </Content>
+            <Header />
         </>
     );
 };
 
 export default Home;
 
-export async function getStaticProps() {
-    try {
-        const data = await loadPosts();
-
-        if (!data) {
-            return {
-                notFound: true,
-            };
-        }
-        return {
-            props: { data },
-        };
-    } catch (e) {
-        return {
-            props: { data: null },
-            notFound: true,
-        };
-    }
-}
