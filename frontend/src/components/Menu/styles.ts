@@ -1,0 +1,21 @@
+import styled from "styled-components";
+
+export const Container = styled.menu`
+    height: 3rem;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+
+    background-color: rgba(18, 18, 18, 0.7);
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
