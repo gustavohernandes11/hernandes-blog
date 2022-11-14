@@ -1,3 +1,4 @@
+import { Menu } from "components/Menu";
 import type { AppProps } from "next/app";
 import GlobalStyles from '../src/styles/GlobalStyles'
 
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <div className="content">
                 <Component {...pageProps} />
             </div>
+            <Menu />
         </main>
     );
 }
