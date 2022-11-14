@@ -16,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
     --gradient-horizontal: linear-gradient(270deg, #4915B8 0%, rgba(165, 51, 255, 0.93) 100%);
     --gradient-vertical: linear-gradient(180deg, rgba(165, 51, 255, 0.93) 0%, #4915B8 100%);
 
+    --shadow: 0px 3.32468px 3.32468px rgba(0, 0, 0, 0.25);
+
     --sm: 768px;
     --xs: 425px;
  
@@ -51,13 +53,17 @@ input {
   background: url(background-galaxy.svg)  no-repeat top center;
   background-size: contain;
     .content {
-        margin: 0 1rem;
         padding-bottom: 3rem;
     }
 }
+.margin {
+  margin: 0 1rem;
 
-
-
+}
+hr {
+  border:1px solid var(--border);
+  margin: 2rem 0;
+}
 `;
 
 export default GlobalStyle;
