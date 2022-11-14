@@ -1,14 +1,32 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-export const Header = styled.header`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+export const Container = styled.div`
+    position: block;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-        padding: 2rem 0;
+    border-bottom: 1px solid var(--gray-800);
 
-    p {
-        font-weight: 300;
+    span {
+        display: block;
+        margin: 0.5rem;
+        margin-right: auto;
+
     }
+    p {
+        margin: 0rem;
+        font-size: 0.8rem;
+
+    }
+    button {
+        position: fixed;
+        right: 1rem;
+    }
+
 `;

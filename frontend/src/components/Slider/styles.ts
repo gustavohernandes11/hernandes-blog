@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    margin: 2rem 0;
+    margin: 1rem 0 2rem;
 
  
     .slider {
@@ -9,8 +9,6 @@ export const Container = styled.div`
         direction: row;
         align-items: center;
         justify-content:center;
-        /* width: 100%; */
-        /* margin: 0 1rem; */
 
         .button-control-next, .button-control-prev {
             position: absolute;

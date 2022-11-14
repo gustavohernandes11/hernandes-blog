@@ -17,5 +17,27 @@ export const Container = styled.menu`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+
 `;
+
+export const Button = styled.button`
+background: var(--gradient-vertical);
+color: var(--white);
+
+border: none;
+border-radius: 6px;
+
+height: 2.4rem;
+width: 2.4rem;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+
+&:hover {
+    cursor: pointer;
+    filter: brightness(0.9)
+}
+`

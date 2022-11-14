@@ -8,11 +8,16 @@ type ArticleProps = {
     readingTime: string | number;
     date: string | number;
     color: string;
+    vertical?: boolean;
 }
 
-export const Article = ({ categoryInitial, title, excerpt, readingTime, date, color }: ArticleProps) => {
+export const Article = ({ categoryInitial, title, excerpt, readingTime, date, color, vertical = false }: ArticleProps) => {
+    const props = {
+        vertical: vertical,
+        color: color,
+    }
     return (
-        <S.Container color={color}>
+        <S.Container {...props}>
             <Link href="/">
                 <span className='category'>{categoryInitial}</span>
                 <header>
