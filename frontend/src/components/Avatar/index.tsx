@@ -1,8 +1,10 @@
 import Image, { StaticImageData } from 'next/image';
 import * as S from './styles'
 import AuthorImage from '../../assets/imgs/gustavo-picture.png'
+export type SizeOptions = "large" | "small";
+
 type AvatarProps = {
-    size?: "large" | "small";
+    size?: SizeOptions;
     alt?: string;
     src?: string | StaticImageData;
 }

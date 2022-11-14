@@ -1,7 +1,10 @@
 import { Article } from "components/Article";
 import { Header } from "components/Header";
+import { Image } from "components/Image";
 import { Heading } from "components/Heading";
 import { SliderComponent } from "components/Slider";
+import capeIMG from '../../src/assets/imgs/cape-exemple.png'
+
 
 const items = [
     <Article
@@ -38,10 +41,12 @@ const Post = () => {
     return (
         <>
             <Header />
+            <Image src={capeIMG} cape={true} alt="imagem de capa do artigo" />
             <div className="margin">
                 <section>
                     <Heading>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore.</Heading>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
+                    <Image src={capeIMG} cape={false} alt="imagem de capa do artigo" />
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
