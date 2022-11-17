@@ -1,10 +1,8 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-
 import { Heading } from "../Heading";
 import { CodeContainer } from "../CodeContainer";
-import { BlockQuote } from "../BlockQuote";
 import ReactMarkdown from "react-markdown";
 
 export const MarkDownContent = ({ children }: any): JSX.Element => {
@@ -14,8 +12,6 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
             components={{
                 h1: Heading,
                 pre: CodeContainer,
-                image: ImageWrapper,
-                blockquote: BlockQuote,
                 code({ node, inline, className, style, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '')
                     return !inline && match ? (

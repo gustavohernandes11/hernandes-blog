@@ -1,22 +1,23 @@
-import { Button } from "@mui/material";
-import Link from "next/link";
-import { useGlobalContext } from "../../../hooks/useGlobalContext";
+import { useMenuContext } from 'hooks/useMenuContext';
+import { useScreen } from 'hooks/useScreen';
+import * as S from './styles'
 
 interface NavLinkType {
     children: React.ReactNode,
-    href: string
+    href: string;
 }
 
 export function NavLink({ children, href }: NavLinkType): JSX.Element {
-    const [, actions] = useGlobalContext();
+    const [, setIsMenuOpen] = useMenuContext();
+    const { isTablet } = useScreen()
+
+    const handleClick = () => {
+        isTablet && setIsMenuOpen(false);
+    }
     return (
-        <Link href={href}>
-            <Button
-                onClick={() => actions.setOrToggleMenu("closed")}
-                color="inherit"
-            >
-                {children}
-            </Button>
-        </Link>
+        <S.StyledLink onClick={handleClick} href={href}
+            color="inherit" >
+            {children}
+        </S.StyledLink>
     );
 }
