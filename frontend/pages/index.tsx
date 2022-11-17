@@ -1,22 +1,20 @@
 import type { NextPage } from "next";
-import { HomeHeader } from '../src/components/HomeHeader'
 import { ArticleList } from '../src/components/ArticleList'
 import { Article } from "components/Article";
 import { Pagination } from "components/Pagination";
+import { useScreen } from "hooks/useScreen";
+import { Header } from "components/_mobile/Header";
+import { SocialBar } from "components/SocialBar";
+
 const Home: NextPage = (): any => {
+    const { isTablet } = useScreen()
     return (
         <>
-            <HomeHeader />
-            <section className="margin">
+            {isTablet && <Header goBackButton={false} />}
+            {isTablet && <SocialBar />}
+            <section className="wrapper-content">
+
                 <ArticleList>
-                    <Article
-                        categoryInitial="JS"
-                        title="Orientação a Objetos com Javascript"
-                        color="#F6E653"
-                        date="12 de março de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="3min"
-                        key={1} />
                     <Article
                         categoryInitial="EX"
                         title="Vantagens e desvantagens da linguagem Elixir."
