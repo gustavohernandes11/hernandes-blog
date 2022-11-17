@@ -1,61 +1,62 @@
 import { Article } from "components/Article";
-import { Header } from "components/Header";
+import { Header } from "components/_mobile/Header";
 import { Image } from "components/Image";
 import { Heading } from "components/Heading";
-import { SliderComponent } from "components/Slider";
+import { SliderComponent } from "components/_mobile/Slider";
 import capeIMG from '../../src/assets/imgs/cape-exemple.png'
+import { Container } from "components/Container";
+import ReactMarkdown from "react-markdown";
+import { Title } from "components/Title";
+import { RecommendedArticles } from "components/RecommendedArticles";
+import { IconButton } from "components/IconButton";
+import { ArrowLeft } from "@styled-icons/feather";
+import { useScreen } from "hooks/useScreen";
+import { GoTopButton } from "components/GoTopButton";
+import { useRouter } from "next/router";
 
-
-const items = [
-    <Article
-        categoryInitial="TS"
-        title="Typescript: principais conceitos"
-        color="#6181F1"
-        date="5 de julho de 2022"
-        excerpt="lorem ipsum bla bla bla"
-        readingTime="10min"
-        key={3}
-        vertical={true}
-    />,
-    <Article
-        categoryInitial="JS"
-        title="Orientação a Objetos com Javascript"
-        color="#F6E653"
-        date="12 de março de 2022"
-        excerpt="lorem ipsum bla bla bla"
-        readingTime="3min"
-        key={1}
-        vertical={true} />,
-    <Article
-        categoryInitial="EX"
-        title="Vantagens e desvantagens da linguagem Elixir."
-        color="#BA49FF"
-        date="12 de fevereiro de 2022"
-        excerpt="lorem ipsum bla bla bla"
-        readingTime="12min"
-        key={2}
-        vertical={true} />
-]
 
 const Post = () => {
+    const { isTablet, isDesktopOrLaptop } = useScreen()
+    const router = useRouter()
+
     return (
         <>
-            <Header />
-            <Image src={capeIMG} cape={true} alt="imagem de capa do artigo" />
-            <div className="margin">
+            {isTablet && <Header />}
+            <div className="post-wrapper-content">
+                {isDesktopOrLaptop &&
+                    <Container as="header">
+                        <IconButton onClick={() => router.back()} className="go-back">
+                            <ArrowLeft size={20} /> Voltar
+                        </IconButton>
+                    </Container>
+                }
+                <Image src={capeIMG} cape={true} alt="imagem de capa do artigo" />
+                <Container as="span" align="center"><p className="post-info-paragraph">3min de leitura - Nodejs</p></Container>
+
                 <section>
-                    <Heading>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore.</Heading>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
-                    <Image src={capeIMG} cape={false} alt="imagem de capa do artigo" />
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iusto qui asperiores ut dolorem aliquam maxime! Adipisci, quia tempore at neque sint cumque quisquam fuga rerum, veritatis sunt soluta atque!</p>
+                    <Title>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore.</Title>
+                    <ReactMarkdown>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+
+                        # heading
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
+                    </ReactMarkdown>
                     <hr />
-                    <Heading as="h2" size="small">Recomendações</Heading>
-                    <SliderComponent items={items} />
+                    <Heading as="h1" size="medium" align="center">Recomendações</Heading>
+                    <RecommendedArticles />
+                    {!isTablet && (<Container align="end">
+                        <GoTopButton />
+                    </Container>)}
                 </section>
             </div>
         </>
