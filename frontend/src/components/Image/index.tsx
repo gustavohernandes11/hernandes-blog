@@ -1,19 +1,17 @@
 import * as S from './styles'
-import { StaticImageData } from 'next/image'
+import { StaticImageData, ImageProps } from 'next/image'
 
-type CapeProps = {
-    alt: string;
-    src: string | StaticImageData;
+type CustomImageProps = {
     cape?: boolean;
 
 }
-export const Image = ({ alt, src, cape }: CapeProps) => {
+export const Image = ({ alt, src, cape }: CustomImageProps & ImageProps) => {
     const props = {
         cape: cape
     }
     return (
         <S.Container {...props}>
-            <S.StyledImage alt={alt} src={src} />
+            <S.StyledImage {...props} alt={alt} src={src} />
         </S.Container>
     )
 }

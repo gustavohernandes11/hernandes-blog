@@ -18,7 +18,7 @@ export const Article = ({ categoryInitial, title, excerpt, readingTime, date, co
     }
     return (
         <S.Container {...props}>
-            <Link href="/">
+            <Link href="/posts/slug">
                 <span className='category'>{categoryInitial}</span>
                 <header>
                     <strong>{title}</strong>

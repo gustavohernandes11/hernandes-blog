@@ -1,18 +1,23 @@
 import * as S from "./styles";
-export type SizesOptions = "large" | "medium" | "small";
+import LogoIMG from '../../../public/Logo.png'
+import LogoExtensiveIMG from '../../../public/LogoExtensive.png'
+import Image from "next/image";
 
 type LogoInterface = {
-    size?: SizesOptions;
-    textAlign?: "center" | "start" | "end"
+    variant?: "small" | "extended",
+    width?: number,
+    height?: number,
 };
-export const Logo = ({ size = "large", textAlign = "center" }: LogoInterface) => {
-    const props = {
-        size: size,
-        textAlign: textAlign,
-    };
+export const Logo = ({ variant, width, height = 30 }: LogoInterface) => {
+
+
     return (
-        <S.Logo {...props}>
-            Hernandes
-        </S.Logo>
+        <>
+            {variant === "small"
+                ? <Image src={LogoIMG} width={width || 25} alt="logo" />
+                : <Image src={LogoExtensiveIMG} height={height} alt="logo" />
+            }
+        </>
+
     );
 };

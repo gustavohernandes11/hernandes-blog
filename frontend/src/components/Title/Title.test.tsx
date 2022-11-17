@@ -3,10 +3,10 @@ import { customRender } from "../../utils/test-utils";
 import "@testing-library/jest-dom/extend-expect";
 import "@testing-library/jest-dom";
 
-import { Menu } from "./index";
+import { Title } from "./index";
 
-describe("<Menu/>", () => {
-    it("should render the Menu component", () => {
-        customRender(<Menu>Texto para teste</Menu>);
+describe("<Title/>", () => {
+    it("should render the Title component", () => {
+        customRender(<Title>Texto para teste</Title>);
     });
 });

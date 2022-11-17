@@ -3,10 +3,10 @@ import { customRender } from "../../utils/test-utils";
 import "@testing-library/jest-dom/extend-expect";
 import "@testing-library/jest-dom";
 
-import { Slider } from "./index";
+import { Aside } from "./index";
 
-describe("<Slider/>", () => {
-    it("should render the Slider component", () => {
-        customRender(<Slider>Texto para teste</Slider>);
+describe("<Aside/>", () => {
+    it("should render the Aside component", () => {
+        customRender(<Aside>Texto para teste</Aside>);
     });
 });
