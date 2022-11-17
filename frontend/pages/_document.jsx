@@ -32,17 +32,35 @@ export default class MyDocument extends Document {
         return (
             <Html lang="pt-BR">
                 <Head>
-                    <link rel="preconnect" href="https://fonts.googleapis.com" />
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+                    <link
+                        rel="preconnect"
+                        href="https://fonts.googleapis.com"
+                    />
+                    <link
+                        rel="preconnect"
+                        href="https://fonts.gstatic.com"
+                        crossOrigin="true"
+                    />
                     <meta name="language" content="Portuguese" />
                     <meta name="revisit-after" content="3 days" />
                     <meta name="author" content="Gustavo Hernandes" />
                     <meta name="robots" content="index, follow" />
+                    <link
+                        rel="icon"
+                        type="image/png"
+                        sizes="30x30"
+                        href="/favicon.png"
+                    ></link>
                     <meta
                         httpEquiv="Content-Type"
                         content="text/html; charset=utf-8"
                     />
-                    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>                </Head>
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
+                        rel="stylesheet"
+                    />{" "}
+                    <title>Hernandes | Blog de desenvolvimento web</title>
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
