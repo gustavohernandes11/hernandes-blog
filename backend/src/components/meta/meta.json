@@ -6,22 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "Description": {
+    "description": {
       "type": "text",
-      "default": "Artigo sobre programação frontend: React, Typescript, Strapi. ",
       "required": true,
       "maxLength": 1000
     },
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
-      "maxLength": 100,
-      "minLength": 3,
-      "default": "H.blog | "
+      "maxLength": 266,
+      "minLength": 3
     },
-    "Keywords": {
+    "keywords": {
       "type": "text",
-      "maxLength": 255,
+      "maxLength": 266,
       "required": true
     }
   }
