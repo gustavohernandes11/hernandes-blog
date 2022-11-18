@@ -7,7 +7,7 @@ export const AuthorProfile = () => {
         <S.Container>
             <Avatar size="large" />
             <p>Desenvolvedor web</p>
-            <Logo size="large" textAlign='start' />
+            <Logo />
         </S.Container>
     )
 }

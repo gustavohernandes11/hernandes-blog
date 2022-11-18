@@ -14,6 +14,7 @@ const items = [
         readingTime="10min"
         key={3}
         vertical={true}
+        slug="qualquer-slug"
     />,
     <Article
         categoryInitial="JS"
@@ -23,7 +24,8 @@ const items = [
         excerpt="lorem ipsum bla bla bla"
         readingTime="3min"
         key={1}
-        vertical={true} />,
+        vertical={true}
+        slug="qualquer-slug" />,
     <Article
         categoryInitial="EX"
         title="Vantagens e desvantagens da linguagem Elixir."
@@ -32,7 +34,8 @@ const items = [
         excerpt="lorem ipsum bla bla bla"
         readingTime="12min"
         key={2}
-        vertical={true} />
+        vertical={true}
+        slug="qualquer-slug" />
 ]
 
 export const RecommendedArticles = () => {

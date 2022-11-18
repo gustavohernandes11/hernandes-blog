@@ -1,11 +1,8 @@
 import styled, { css } from "styled-components";
-import { AlignOptions } from "./index";
+// import { AlignOptions } from "./index";
 
-type ContainerProps = {
-    align?: AlignOptions;
-};
 export const Container = styled.div`
-    ${({ align }: ContainerProps) => css`
+    ${({ align = "start" }: any) => css`
         display: flex;
         align-items: center;
         flex-direction: row;

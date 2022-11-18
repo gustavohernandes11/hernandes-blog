@@ -5,7 +5,7 @@ import * as S from './styles'
 export const HomeHeader = () => {
     return (
         <S.Header>
-            <Logo size="medium" />
+            <Logo />
             <p>Blog de Desenvolvimento Web</p>
             <SocialBar />
         </S.Header>
