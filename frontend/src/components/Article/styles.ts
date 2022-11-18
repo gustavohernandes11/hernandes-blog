@@ -16,6 +16,7 @@ export const Container = styled.div`
 
         p {
             margin: 0;
+            text-align: ${vertical ? `center` : `start`};
             color: var(--gray-200);
         }
 
