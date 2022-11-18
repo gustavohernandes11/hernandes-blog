@@ -1,9 +1,8 @@
+// @ts-nocheck
 import { Article } from "components/Article";
 import { Header } from "components/_mobile/Header";
 import { Image } from "components/Image";
 import { Heading } from "components/Heading";
-import { SliderComponent } from "components/_mobile/Slider";
-import capeIMG from '../../src/assets/imgs/cape-exemple.png'
 import { Container } from "components/Container";
 import ReactMarkdown from "react-markdown";
 import { Title } from "components/Title";
@@ -14,8 +13,21 @@ import { useScreen } from "hooks/useScreen";
 import { GoTopButton } from "components/GoTopButton";
 import { useRouter } from "next/router";
 
+import { listArticles, readArticle } from "services/articles";
+import { PropsWithChildren, useEffect, useState } from "react";
+import { MarkDownContent } from "components/MarkDownContent";
+import { GetStaticProps } from "next";
 
-const Post = () => {
+
+const Post = ({ articleData }: any) => {
+    const [article] = useState(articleData)
+
+    useEffect(() => {
+        // listArticles().then(e => console.log(e))
+        // readArticle("bifidosque-formatus-est").then(e => console.log(e))
+        // console.log(article)
+    }, [article])
+
     const { isTablet, isDesktopOrLaptop } = useScreen()
     const router = useRouter()
 
@@ -30,27 +42,12 @@ const Post = () => {
                         </IconButton>
                     </Container>
                 }
-                <Image src={capeIMG} cape={true} alt="imagem de capa do artigo" />
-                <Container as="span" align="center"><p className="post-info-paragraph">3min de leitura - Nodejs</p></Container>
+                <Image src={article.hero.url} width={article.hero.width} height={article.hero.height} cape={true} alt="imagem de capa do artigo" />
+                <Container as="span" align="center"><p className="post-info-paragraph">3min de leitura - {article.category.name}</p></Container>
 
                 <section>
-                    <Title>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore.</Title>
-                    <ReactMarkdown>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-
-                        # heading
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio unde quae numquam placeat inventore, at debitis id voluptates ad eos nisi assumenda alias dicta saepe recusandae odit. Voluptatum, tempore eligendi.
-                    </ReactMarkdown>
+                    <Title>{article.title}</Title>
+                    <MarkDownContent>{article.content}</MarkDownContent>
                     <hr />
                     <Heading as="h1" size="medium" align="center">Recomendações</Heading>
                     <RecommendedArticles />
@@ -64,3 +61,45 @@ const Post = () => {
 };
 
 export default Post;
+
+
+export async function getStaticPaths() {
+    const articles = await listArticles()
+
+    const paths = articles.map(e => {
+        return {
+            params: { slug: e.attributes.slug },
+        };
+    });
+    console.log(paths)
+    return {
+        paths,
+        fallback: false,
+
+    }
+
+}
+
+
+export async function getStaticProps({ params }) {
+    const data = await readArticle({ postSlug: params.slug });
+
+    let articleData: { author, excerpt, publishedAt, slug, tags, title, content, meta } = data.attributes
+    const hero: { height, width, url, alternativeText } = data.attributes.hero?.data.attributes
+    const category: { name, color, acronym } = data.attributes.category.data.attributes
+    const author: { name, slug, bio } = data.attributes.author.data.attributes
+    const metadata: { title, description, keywords } = data.attributes.meta
+
+    articleData = { ...articleData, hero, category, author, metadata }
+
+
+
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+    return {
+        props: { articleData },
+    };
+}

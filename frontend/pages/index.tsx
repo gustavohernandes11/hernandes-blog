@@ -5,8 +5,16 @@ import { Pagination } from "components/Pagination";
 import { useScreen } from "hooks/useScreen";
 import { Header } from "components/_mobile/Header";
 import { SocialBar } from "components/SocialBar";
+import { listArticles } from "services/articles";
+import { useEffect, useState } from "react";
 
-const Home: NextPage = (): any => {
+
+const Home: NextPage = ({ articleList }: any) => {
+    const [articles] = useState(articleList)
+    useEffect(() => {
+        console.log(articles)
+    }, [articleList])
+
     const { isTablet } = useScreen()
     return (
         <>
@@ -15,70 +23,17 @@ const Home: NextPage = (): any => {
             <section className="wrapper-content">
 
                 <ArticleList>
-                    <Article
-                        categoryInitial="EX"
-                        title="Vantagens e desvantagens da linguagem Elixir."
-                        color="#BA49FF"
-                        date="12 de fevereiro de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="12min"
-                        key={2} />
-                    <Article
-                        categoryInitial="TS"
-                        title="Typescript: principais conceitos"
-                        color="#6181F1"
-                        date="5 de julho de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="10min"
-                        key={3} />
-                    <Article
-                        categoryInitial="JS"
-                        title="Orientação a Objetos com Javascript"
-                        color="#F6E653"
-                        date="12 de março de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="3min"
-                        key={1} />
-                    <Article
-                        categoryInitial="EX"
-                        title="Vantagens e desvantagens da linguagem Elixir."
-                        color="#BA49FF"
-                        date="12 de fevereiro de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="12min"
-                        key={2} />
-                    <Article
-                        categoryInitial="TS"
-                        title="Typescript: principais conceitos"
-                        color="#6181F1"
-                        date="5 de julho de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="10min"
-                        key={3} />
-                    <Article
-                        categoryInitial="JS"
-                        title="Orientação a Objetos com Javascript"
-                        color="#F6E653"
-                        date="12 de março de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="3min"
-                        key={1} />
-                    <Article
-                        categoryInitial="EX"
-                        title="Vantagens e desvantagens da linguagem Elixir."
-                        color="#BA49FF"
-                        date="12 de fevereiro de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="12min"
-                        key={2} />
-                    <Article
-                        categoryInitial="TS"
-                        title="Typescript: principais conceitos"
-                        color="#6181F1"
-                        date="5 de julho de 2022"
-                        excerpt="lorem ipsum bla bla bla"
-                        readingTime="10min"
-                        key={3} />
+                    {articles.map((e: { slug: string; acronym: string; title: string; color: string; publishedAt: string | number; excerpt: string; }) => {
+                        return <Article
+                            slug={e.slug}
+                            categoryInitial={e.acronym}
+                            title={e.title}
+                            color={e.color}
+                            date={e.publishedAt}
+                            excerpt={e.excerpt}
+                            readingTime="10min"
+                        />
+                    })}
                 </ArticleList>
                 <Pagination count={10} page={1} onChange={() => { }} />
             </section>
@@ -88,4 +43,29 @@ const Home: NextPage = (): any => {
 };
 
 export default Home;
+
+
+export async function getStaticProps() {
+    const data = await listArticles();
+
+    let articleList = data.map(el => {
+        let article: { title: string, excerpt: string, publishedAt: string | number, slug: string } = el.attributes
+        const category: {
+            acronym: string, color: string
+        } = el.attributes.category.data.attributes
+
+        return { ...article, ...category }
+
+    })
+
+
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+    return {
+        props: { articleList },
+    };
+}
 
