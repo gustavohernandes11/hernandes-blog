@@ -14,7 +14,6 @@ export const Container = styled.div`
 
     background-image: url(background-galaxy.svg);
     background-repeat: no-repeat;
-    background-position-y: 5rem;
     background-size: contain;
 
     .wrapper {
