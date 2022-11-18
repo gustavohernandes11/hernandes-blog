@@ -1,22 +1,19 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.code`
-    ${({ theme }) => css`
-    display: block;
-        /* padding: ${theme.spacings[5]}; */
+    ${() => css`
+        display: block;
         width: 100%;
-        /* border: 1px solid ${theme.colors.border}; */
         border-radius: 5px;
-        /* background: ${theme.colors.surface}; */
-        margin: ${theme.spacings[5]} 0;
+        margin: 1rem 0;
         position: relative;
         white-space: break-spaces;
         overflow-x: auto;
 
         .copy-code-button {
             position: absolute;
-            top: ${theme.spacings[5]};
-            right: ${theme.spacings[5]};
+            top: 1rem;
+            right: 1rem;
             transform: translate(25%, -25%);
 
             :hover {

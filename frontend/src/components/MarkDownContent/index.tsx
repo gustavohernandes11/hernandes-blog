@@ -2,8 +2,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import { Heading } from "../Heading";
-import { CodeContainer } from "../CodeContainer";
 import ReactMarkdown from "react-markdown";
+import { CodeContainer } from 'components/CodeContainer';
 
 export const MarkDownContent = ({ children }: any): JSX.Element => {
 

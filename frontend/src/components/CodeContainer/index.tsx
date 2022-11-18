@@ -1,9 +1,8 @@
 import { useState, useRef } from "react";
 import * as Styled from "./styles";
 
-
-import { IconButton, Tooltip } from "@mui/material";
-import { ClipboardCopy } from "@styled-icons/heroicons-solid";
+import { Copy } from '@styled-icons/feather'
+import { IconButton } from "components/IconButton";
 
 interface CodeContainerType {
     children: React.ReactNode | React.ReactNode[];
@@ -12,7 +11,7 @@ interface CodeContainerType {
 export function CodeContainer({ children }: CodeContainerType) {
     const [isHover, setisHover] = useState(false);
 
-    const codeRef = useRef<HTMLBodyElement>(null);
+    const codeRef = useRef<HTMLBodyElement | null>(null);
 
     const copyToClipboard = (): void => {
         if (codeRef.current != null && codeRef.current.innerText) {
@@ -31,15 +30,13 @@ export function CodeContainer({ children }: CodeContainerType) {
             {children}
 
             {isHover && (
-                <Tooltip arrow placement="left" title="Copy">
-                    <IconButton
-                        onClick={copyToClipboard}
-                        aria-label="copy-code-button"
-                        className="copy-code-button"
-                    >
-                        <ClipboardCopy width={20} height={20} />
-                    </IconButton>
-                </Tooltip>
+                <IconButton
+                    onClick={copyToClipboard}
+                    aria-label="copy-code-button"
+                    className="copy-code-button"
+                >
+                    <Copy size={20} />
+                </IconButton>
             )}
         </Styled.Container>
     );

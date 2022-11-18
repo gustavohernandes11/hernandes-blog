@@ -9,16 +9,17 @@ type ArticleProps = {
     date: string | number;
     color: string;
     vertical?: boolean;
+    slug: string;
 }
 
-export const Article = ({ categoryInitial, title, excerpt, readingTime, date, color, vertical = false }: ArticleProps) => {
+export const Article = ({ categoryInitial, title, excerpt, readingTime, date, color, vertical = false, slug }: ArticleProps) => {
     const props = {
         vertical: vertical,
         color: color,
     }
     return (
         <S.Container {...props}>
-            <Link href="/posts/slug">
+            <Link href={`/posts/${slug}`}>
                 <span className='category'>{categoryInitial}</span>
                 <header>
                     <strong>{title}</strong>

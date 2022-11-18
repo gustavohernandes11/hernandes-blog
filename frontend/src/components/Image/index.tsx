@@ -5,13 +5,13 @@ type CustomImageProps = {
     cape?: boolean;
 
 }
-export const Image = ({ alt, src, cape }: CustomImageProps & ImageProps) => {
+export const Image = ({ alt, src, cape, width, height }: CustomImageProps & ImageProps) => {
     const props = {
         cape: cape
     }
     return (
         <S.Container {...props}>
-            <S.StyledImage {...props} alt={alt} src={src} />
+            <S.StyledImage {...props} width={width} height={height} alt={alt} src={src} />
         </S.Container>
     )
 }
