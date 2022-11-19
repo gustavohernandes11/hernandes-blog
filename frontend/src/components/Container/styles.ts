@@ -1,14 +1,20 @@
 import styled, { css } from "styled-components";
-// import { AlignOptions } from "./index";
 
 export const Container = styled.div`
-    ${({ align = "start" }: any) => css`
+    ${({
+        align = "center",
+        justify = "start",
+        p = 0,
+        m = "1rem 0",
+    }: any) => css`
         display: flex;
-        align-items: center;
+        align-items: ${align};
         flex-direction: row;
-        justify-content: ${align};
+        justify-content: ${justify};
+
         position: relative;
-        margin: 1rem 0;
+        padding: ${p}
+        margin: ${m};
 
         p {
             margin: 0;
