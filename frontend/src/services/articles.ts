@@ -1,6 +1,7 @@
 import { config } from "../config";
 import { request } from "graphql-request";
-import { QUERY_LIST_ARTICLES, QUERY_READ_ARTICLE } from "../graphql/queries";
+import { QUERY_LIST_ARTICLES } from "graphql/queries/listArticles";
+import { QUERY_READ_ARTICLE } from "graphql/queries/readArticle";
 
 type listArticlesVariables = {
     start?: string;
@@ -13,7 +14,7 @@ type listArticlesVariables = {
 
 export const listArticles = async (
     variables: listArticlesVariables = {}
-): Promise<Article[]> => {
+): Promise<any> => {
     const defaultVariables = {
         sort: "createdAt:desc",
         limit: 10,
@@ -24,7 +25,7 @@ export const listArticles = async (
         ...variables,
         ...defaultVariables,
     });
-    return data.articles.data;
+    return data;
 };
 
 export const readArticle = async (slug: string): Promise<Article> => {

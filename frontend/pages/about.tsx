@@ -6,8 +6,12 @@ import { ImageContainer } from "components/ImageContainer";
 import SkyImage from '../src/assets/imgs/Sky.png'
 import { useScreen } from "hooks/useScreen";
 import { AuthorProfile } from "components/AuthorProfile";
+import { useState } from "react";
+import { getAbout } from "services/getabout";
+import { MarkDownContent } from "components/MarkDownContent";
 
-const About: NextPage = () => {
+const About: NextPage = ({ data }: any) => {
+    const [aboutmeContent] = useState(data)
     const { isTablet } = useScreen()
     return (
         <>
@@ -16,10 +20,7 @@ const About: NextPage = () => {
             {isTablet && <AuthorProfile />}
             <div className="post-wrapper-content">
                 {isTablet && <GoBackButton />}
-                <Heading as="h2">Lorem</Heading>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis iste reprehenderit molestiae modi delectus, minima culpa consectetur quae cumque? Nostrum magni delectus consectetur quam corporis deleniti voluptatibus, quia quo deserunt!</p>
-                <Heading as="h2">Lorem</Heading>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis iste reprehenderit molestiae modi delectus, minima culpa consectetur quae cumque? Nostrum magni delectus consectetur quam corporis deleniti voluptatibus, quia quo deserunt!</p>
+                <MarkDownContent>{aboutmeContent}</MarkDownContent>
                 {isTablet && <SocialBar />}
             </div>
         </>
@@ -27,3 +28,19 @@ const About: NextPage = () => {
 };
 
 export default About;
+
+
+export async function getStaticProps() {
+    const data = await getAbout()
+
+
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
+    return {
+        props: { data }
+    };
+}
+

@@ -1,8 +1,49 @@
 import { gql } from "graphql-request";
-import {
-    GRAPHQL_FRAGMENTS_LIST_ARTICLES,
-    GRAPHQL_FRAGMENTS_READ_ARTICLE,
-} from "./fragments";
+
+export const GRAPHQL_FRAGMENTS_LIST_ARTICLES = gql`
+    fragment Author on Article {
+        author {
+            data {
+                attributes {
+                    name
+                    bio
+                    avatar {
+                        data {
+                            attributes {
+                                url
+                                width
+                                height
+                                alternativeText
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    fragment Tags on Article {
+        tags {
+            data {
+                attributes {
+                    name
+                }
+            }
+        }
+    }
+
+    fragment Category on Article {
+        category {
+            data {
+                attributes {
+                    name
+                    acronym
+                    color
+                }
+            }
+        }
+    }
+`;
 
 export const QUERY_LIST_ARTICLES = gql`
     ${GRAPHQL_FRAGMENTS_LIST_ARTICLES}
@@ -42,29 +83,6 @@ export const QUERY_LIST_ARTICLES = gql`
                     slug
                     ...Author
                     ...Tags
-                    ...Category
-                    publishedAt
-                }
-            }
-        }
-    }
-`;
-
-export const QUERY_READ_ARTICLE = gql`
-    ${GRAPHQL_FRAGMENTS_READ_ARTICLE}
-    query READ_ARTICLE($postSlug: String) {
-        articles(filters: { slug: { eq: $postSlug } }) {
-            data {
-                id
-                attributes {
-                    title
-                    excerpt
-                    content
-                    slug
-                    ...Author
-                    ...Tags
-                    ...Meta
-                    ...Hero
                     ...Category
                     publishedAt
                 }

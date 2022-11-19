@@ -6,14 +6,13 @@ import { useScreen } from "hooks/useScreen";
 import { Header } from "components/_mobile/Header";
 import { SocialBar } from "components/SocialBar";
 import { listArticles } from "services/articles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
-const Home: NextPage = ({ articleList }: any) => {
-    const [articles] = useState(articleList)
-    useEffect(() => {
-        console.log(articles)
-    }, [articleList])
+const Home: NextPage = ({ pageData }: any) => {
+
+    const [articles] = useState(pageData.articleList)
+    const [pagination] = useState(pageData.pagination)
 
     const { isTablet } = useScreen()
     return (
@@ -31,11 +30,10 @@ const Home: NextPage = ({ articleList }: any) => {
                             color={e.color}
                             date={e.publishedAt}
                             excerpt={e.excerpt}
-                            readingTime="10min"
                         />
                     })}
                 </ArticleList>
-                <Pagination count={10} page={1} onChange={() => { }} />
+                {pagination.total > 10 && <Pagination count={pagination.pageCount} page={pagination.page} onChange={() => { }} />}
             </section>
 
         </>
@@ -46,17 +44,24 @@ export default Home;
 
 
 export async function getStaticProps() {
-    const data = await listArticles();
+    const data = await listArticles()
 
-    let articleList = data.map(el => {
+    let { pagination } = data.articles.meta
+
+    let articleList = data.articles.data.map((el: any): any => {
         let article: { title: string, excerpt: string, publishedAt: string | number, slug: string } = el.attributes
         const category: {
             acronym: string, color: string
         } = el.attributes.category.data.attributes
 
-        return { ...article, ...category }
+
+        const formattedData = Intl.DateTimeFormat('pt-BR', { dateStyle: "medium" }).format(new Date(article.publishedAt))
+
+        return { ...article, ...category, publishedAt: formattedData }
 
     })
+
+    const pageData = { articleList, pagination }
 
 
     if (!data) {
@@ -65,7 +70,7 @@ export async function getStaticProps() {
         };
     }
     return {
-        props: { articleList },
+        props: { pageData }
     };
 }
 

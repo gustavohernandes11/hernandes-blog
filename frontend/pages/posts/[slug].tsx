@@ -4,7 +4,6 @@ import { Header } from "components/_mobile/Header";
 import { Image } from "components/Image";
 import { Heading } from "components/Heading";
 import { Container } from "components/Container";
-import ReactMarkdown from "react-markdown";
 import { Title } from "components/Title";
 import { RecommendedArticles } from "components/RecommendedArticles";
 import { IconButton } from "components/IconButton";
@@ -14,25 +13,27 @@ import { GoTopButton } from "components/GoTopButton";
 import { useRouter } from "next/router";
 
 import { listArticles, readArticle } from "services/articles";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
-import { GetStaticProps } from "next";
+import { Meta } from "components/Meta";
 
 
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData)
 
-    useEffect(() => {
-        // listArticles().then(e => console.log(e))
-        // readArticle("bifidosque-formatus-est").then(e => console.log(e))
-        // console.log(article)
-    }, [article])
+
 
     const { isTablet, isDesktopOrLaptop } = useScreen()
     const router = useRouter()
 
     return (
         <>
+            <Meta
+                description={article.metadata.description}
+                keywords={article.metadata.keywords}
+                title={article.metadata.description}
+            />
+
             {isTablet && <Header />}
             <div className="post-wrapper-content">
                 {isDesktopOrLaptop &&
@@ -43,7 +44,7 @@ const Post = ({ articleData }: any) => {
                     </Container>
                 }
                 <Image src={article.hero.url} width={article.hero.width} height={article.hero.height} cape={true} alt="imagem de capa do artigo" />
-                <Container as="span" align="center"><p className="post-info-paragraph">3min de leitura - {article.category.name}</p></Container>
+                <Container as="span" align="center"><p className="post-info-paragraph">{article.updatedAt} - {article.category.name}</p></Container>
 
                 <section>
                     <Title>{article.title}</Title>
@@ -66,7 +67,7 @@ export default Post;
 export async function getStaticPaths() {
     const articles = await listArticles()
 
-    const paths = articles.map(e => {
+    const paths = data.articles.data.map(e => {
         return {
             params: { slug: e.attributes.slug },
         };
