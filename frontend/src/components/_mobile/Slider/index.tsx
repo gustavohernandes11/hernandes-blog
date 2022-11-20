@@ -5,6 +5,8 @@ import { ChevronLeft, ChevronRight } from '@styled-icons/feather'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Article } from 'components/Article';
+import { ArticleData } from 'services/articles';
 
 export const NextButton = ({ onClick }: any) => {
     return <IconButton
@@ -21,7 +23,7 @@ export const PrevButton = ({ onClick }: any) => {
 }
 
 type SliderProps = {
-    items: React.ReactNode[]
+    items: ArticleData[]
 }
 export const SliderComponent = ({ items }: SliderProps) => {
     return (
@@ -40,7 +42,19 @@ export const SliderComponent = ({ items }: SliderProps) => {
             >
 
                 {items.map(e => {
-                    return <div className="slide-container">{e}</div>
+                    return <Article
+                        imageSrc={e.hero?.url}
+                        imageHeight={e.hero?.height}
+                        imageWidth={e.hero?.width}
+                        imageAlt={e.hero?.alternativeText}
+                        slug={e.slug}
+                        categoryInitial={e.category.acronym}
+                        title={e.title}
+                        color={e.category.color}
+                        date={e.publishedAt}
+                        excerpt={e.excerpt}
+                        key={e.slug}
+                    />
                 })}
 
             </Slider>

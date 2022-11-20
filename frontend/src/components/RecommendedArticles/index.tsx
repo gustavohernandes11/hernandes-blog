@@ -1,10 +1,11 @@
 import { Article } from 'components/Article'
 import { SliderComponent } from 'components/_mobile/Slider'
 import { useScreen } from 'hooks/useScreen'
+import { ArticleData } from 'services/articles'
 import * as S from './styles'
 
 type RecommendedArticlesProps = {
-    items: React.ReactNode[];
+    items: ArticleData[];
 }
 
 export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
@@ -14,7 +15,22 @@ export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
             {isTablet
                 ? <SliderComponent items={items} />
                 : <S.Grid className="recommended-grid">
-                    {items}
+                    {items.map((e: any) => {
+                        return <Article
+                            imageSrc={e.hero.url}
+                            imageHeight={e.hero.height}
+                            imageWidth={e.hero.width}
+                            imageAlt={e.hero.alternativeText}
+                            slug={e.slug}
+                            categoryInitial={e.acronym}
+                            title={e.title}
+                            color={e.color}
+                            date={e.publishedAt}
+                            excerpt={e.excerpt}
+                            key={e.slug}
+
+                        />
+                    })}
                 </S.Grid>
             }
         </S.Container>
