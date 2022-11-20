@@ -37,6 +37,7 @@ export const listArticles = async (
         const category: {
             acronym: string;
             color: string;
+            name: string;
         } = el.attributes.category.data.attributes;
         const hero: {
             height: any;
@@ -49,7 +50,7 @@ export const listArticles = async (
             dateStyle: "medium",
         }).format(new Date(article.publishedAt));
 
-        return { ...article, ...category, publishedAt: formattedData, hero };
+        return { ...article, category, publishedAt: formattedData, hero };
     });
 
     const pageData = { articleList, pagination };

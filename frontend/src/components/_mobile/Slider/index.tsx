@@ -48,7 +48,7 @@ export const SliderComponent = ({ items }: SliderProps) => {
                         imageWidth={e.hero?.width}
                         imageAlt={e.hero?.alternativeText}
                         slug={e.slug}
-                        categoryInitial={e.category.acronym}
+                        category={e.category.name}
                         title={e.title}
                         color={e.category.color}
                         date={e.publishedAt}

@@ -11,6 +11,7 @@ import { Footer } from "components/Footer";
 
 
 type ElementArticleType = {
+    category: any;
     hero: any; slug: string; acronym: string; title: string; color: string; publishedAt: string | number; excerpt: string;
 }
 const Home: NextPage = ({ pageData }: any) => {
@@ -21,6 +22,7 @@ const Home: NextPage = ({ pageData }: any) => {
     const { isTablet } = useScreen()
     return (
         <>
+            <title>Hernandes | Blog de desenvolvimento web</title>
             {isTablet && <Header goBackButton={false} />}
             {isTablet && <SocialBar />}
             <section className="wrapper-content">
@@ -33,11 +35,12 @@ const Home: NextPage = ({ pageData }: any) => {
                             imageWidth={e.hero.width}
                             imageAlt={e.hero.alternativeText}
                             slug={e.slug}
-                            categoryInitial={e.acronym}
+                            category={e.category.name}
                             title={e.title}
-                            color={e.color}
+                            color={e.category.color}
                             date={e.publishedAt}
                             excerpt={e.excerpt}
+                            key={e.slug}
                         />
                     })}
                 </ArticleList>

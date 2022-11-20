@@ -59,7 +59,6 @@ export default class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
                         rel="stylesheet"
                     />{" "}
-                    <title>Hernandes | Blog de desenvolvimento web</title>
                 </Head>
                 <body>
                     <Main />

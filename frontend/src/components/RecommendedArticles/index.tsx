@@ -22,9 +22,9 @@ export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
                             imageWidth={e.hero.width}
                             imageAlt={e.hero.alternativeText}
                             slug={e.slug}
-                            categoryInitial={e.acronym}
+                            category={e.category.name}
                             title={e.title}
-                            color={e.color}
+                            color={e.category.color}
                             date={e.publishedAt}
                             excerpt={e.excerpt}
                             key={e.slug}

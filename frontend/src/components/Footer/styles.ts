@@ -9,4 +9,5 @@ export const Container = styled.footer`
     font-family: monospace;
     padding-top: 1rem;
     color: grey;
+    margin-top: auto;
 `;

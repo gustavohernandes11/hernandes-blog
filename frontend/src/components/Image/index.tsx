@@ -2,7 +2,7 @@ import * as S from './styles'
 import { StaticImageData, ImageProps } from 'next/image'
 
 type CustomImageProps = {
-    cape?: boolean;
+    cape?: boolean | "true" | "false";
 
 }
 export const Image = ({ alt, src, cape, width, height }: CustomImageProps & ImageProps) => {
