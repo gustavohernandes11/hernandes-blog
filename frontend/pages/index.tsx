@@ -7,6 +7,7 @@ import { Header } from "components/_mobile/Header";
 import { SocialBar } from "components/SocialBar";
 import { listArticles } from "services/articles";
 import { useState } from "react";
+import { Footer } from "components/Footer";
 
 
 type ElementArticleType = {
@@ -41,6 +42,7 @@ const Home: NextPage = ({ pageData }: any) => {
                     })}
                 </ArticleList>
                 {pagination.total > 10 && <Pagination count={pagination.pageCount} page={pagination.page} onChange={() => { }} />}
+                <Footer />
             </section>
 
         </>
@@ -51,28 +53,9 @@ export default Home;
 
 
 export async function getStaticProps() {
-    const data = await listArticles()
+    const pageData = await listArticles()
 
-    let { pagination } = data.articles.meta
-
-    let articleList = data.articles.data.map((el: any): any => {
-        let article: { title: string, excerpt: string, publishedAt: string | number, slug: string } = el.attributes
-        const category: {
-            acronym: string, color: string
-        } = el.attributes.category.data.attributes
-        const hero: { height: any, width: any, url: any, alternativeText: any } = el.attributes.hero?.data.attributes
-
-
-        const formattedData = Intl.DateTimeFormat('pt-BR', { dateStyle: "medium" }).format(new Date(article.publishedAt))
-
-        return { ...article, ...category, publishedAt: formattedData, hero }
-
-    })
-
-    const pageData = { articleList, pagination }
-
-
-    if (!data) {
+    if (!pageData) {
         return {
             notFound: true,
         };

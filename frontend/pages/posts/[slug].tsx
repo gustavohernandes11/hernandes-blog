@@ -1,5 +1,4 @@
-// @ts-nocheck
-import { Article } from "components/Article";
+import { Footer } from "components/Footer";
 import { Header } from "components/_mobile/Header";
 import { Image } from "components/Image";
 import { Heading } from "components/Heading";
@@ -21,7 +20,7 @@ import { Meta } from "components/Meta";
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData)
 
-    const { isTablet, isDesktopOrLaptop } = useScreen()
+    const { isTablet } = useScreen()
     const router = useRouter()
 
     return (
@@ -42,19 +41,20 @@ const Post = ({ articleData }: any) => {
                     </Container>
                 }
                 <Image src={article.hero.url} width={article.hero.width} height={article.hero.height} cape={true} alt="imagem de capa do artigo" />
-                <Container as="span" align="center"><p className="post-info-paragraph">{article.updatedAt} - {article.category.name}</p></Container>
+                <Container as="span" align="center" justify="center"><time>{article.publishedAt}</time><p style={{ marginInline: "1rem" }}>•</p><b>{article.category.name}</b></Container>
 
                 <section>
                     <Title>{article.title}</Title>
                     <MarkDownContent>{article.content}</MarkDownContent>
                     <hr />
                     <Heading as="h1" size="medium" align="center">Recomendações</Heading>
-                    <RecommendedArticles items={[]} />
+                    <RecommendedArticles items={article.recommendedArticles.articleList} />
                     {!isTablet && (<Container align="center" justify="end" m="1rem 0">
                         <GoTopButton />
                     </Container>)}
                 </section>
             </div>
+            <Footer />
         </>
     );
 };
@@ -65,9 +65,9 @@ export default Post;
 export async function getStaticPaths() {
     const response = await listArticles()
 
-    const paths = response.articles.data.map(e => {
+    const paths = response.articleList.map((e: { slug: any; }) => {
         return {
-            params: { slug: e.attributes.slug },
+            params: { slug: e.slug },
         };
     });
 
@@ -79,32 +79,17 @@ export async function getStaticPaths() {
 
 }
 
-
-export async function getStaticProps({ params }) {
+type getStaticPropsType = {
+    params: {
+        slug: string
+    }
+}
+export async function getStaticProps({ params }: getStaticPropsType) {
     try {
-        const data = await readArticle({ postSlug: params.slug });
-
-        let articleData: {
-            author;
-            excerpt;
-            publishedAt;
-            slug;
-            tags;
-            title;
-            content;
-            meta;
-        } = data.attributes;
-        const hero: { height; width; url; alternativeText } =
-            data.attributes?.hero?.data.attributes;
-        const category: { name; color; acronym } =
-            data.attributes.category.data.attributes;
-        const author: { name; slug; bio } = data.attributes.author.data.attributes;
-        const metadata: { title; description; keywords } = data.attributes.meta;
-
-        articleData = { ...articleData, hero, category, author, metadata };
+        const articleData = await readArticle(params.slug);
 
 
-        if (!data) {
+        if (!articleData) {
             return {
                 notFound: true,
             };
