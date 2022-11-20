@@ -50,7 +50,7 @@ export const listArticles = async (
             dateStyle: "medium",
         }).format(new Date(article.publishedAt));
 
-        return { ...article, ...category, publishedAt: formattedData, hero };
+        return { ...article, category, publishedAt: formattedData, hero };
     });
 
     const pageData = { articleList, pagination };
@@ -59,7 +59,7 @@ export const listArticles = async (
 
 export const readArticle = async (slug: string): Promise<ArticleData> => {
     const data = await request(config.graphqlUrl, QUERY_READ_ARTICLE, {
-        slug,
+        postSlug: slug,
     }).then((r) => r.articles.data[0]);
 
     let articleData: {

@@ -16,12 +16,11 @@ import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
 
-
 const Post = ({ articleData }: any) => {
-    const [article] = useState(articleData)
+    const [article] = useState(articleData);
 
-    const { isTablet } = useScreen()
-    const router = useRouter()
+    const { isTablet } = useScreen();
+    const router = useRouter();
 
     return (
         <>
@@ -33,25 +32,49 @@ const Post = ({ articleData }: any) => {
 
             {isTablet && <Header />}
             <div className="post-wrapper-content">
-                {!isTablet &&
-                    <Container as="header" align="center" justify="start" m="1rem 0">
-                        <IconButton onClick={() => router.back()} className="go-back">
+                {!isTablet && (
+                    <Container
+                        as="header"
+                        align="center"
+                        justify="start"
+                        m="1rem 0"
+                    >
+                        <IconButton
+                            onClick={() => router.back()}
+                            className="go-back"
+                        >
                             <ArrowLeft size={20} /> Voltar
                         </IconButton>
                     </Container>
-                }
-                <Image src={article.hero.url} width={article.hero.width} height={article.hero.height} cape={true} alt="imagem de capa do artigo" />
-                <Container as="span" align="center" justify="center"><time>{article.publishedAt}</time><p style={{ marginInline: "1rem" }}>•</p><b>{article.category.name}</b></Container>
+                )}
+                <Image
+                    src={article.hero.url}
+                    width={article.hero.width}
+                    height={article.hero.height}
+                    cape={true}
+                    alt="imagem de capa do artigo"
+                />
+                <Container as="span" align="center" justify="center">
+                    <time>{article.publishedAt}</time>
+                    <p style={{ marginInline: "1rem" }}>•</p>
+                    <b>{article.category.name}</b>
+                </Container>
 
                 <section>
                     <Title>{article.title}</Title>
                     <MarkDownContent>{article.content}</MarkDownContent>
                     <hr />
-                    <Heading as="h1" size="medium" align="center">Recomendações</Heading>
-                    <RecommendedArticles items={article.recommendedArticles.articleList} />
-                    {!isTablet && (<Container align="center" justify="end" m="1rem 0">
-                        <GoTopButton />
-                    </Container>)}
+                    <Heading as="h1" size="medium" align="center">
+                        Recomendações
+                    </Heading>
+                    <RecommendedArticles
+                        items={article.recommendedArticles.articleList}
+                    />
+                    {!isTablet && (
+                        <Container align="center" justify="end" m="1rem 0">
+                            <GoTopButton />
+                        </Container>
+                    )}
                 </section>
             </div>
             <Footer />
@@ -61,11 +84,10 @@ const Post = ({ articleData }: any) => {
 
 export default Post;
 
-
 export async function getStaticPaths() {
-    const response = await listArticles()
+    const response = await listArticles();
 
-    const paths = response.articleList.map((e: { slug: any; }) => {
+    const paths = response.articleList.map((e: { slug: any }) => {
         return {
             params: { slug: e.slug },
         };
@@ -74,20 +96,17 @@ export async function getStaticPaths() {
     return {
         paths,
         fallback: false,
-    }
-
-
+    };
 }
 
 type getStaticPropsType = {
     params: {
-        slug: string
-    }
-}
+        slug: string;
+    };
+};
 export async function getStaticProps({ params }: getStaticPropsType) {
     try {
         const articleData = await readArticle(params.slug);
-
 
         if (!articleData) {
             return {
@@ -102,5 +121,4 @@ export async function getStaticProps({ params }: getStaticPropsType) {
             notFound: true,
         };
     }
-
 }

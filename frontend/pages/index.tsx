@@ -15,7 +15,6 @@ type ElementArticleType = {
     hero: any; slug: string; acronym: string; title: string; color: string; publishedAt: string | number; excerpt: string;
 }
 const Home: NextPage = ({ pageData }: any) => {
-
     const [articles] = useState(pageData.articleList)
     const [pagination] = useState(pageData.pagination)
 
