@@ -50,7 +50,7 @@ export const listArticles = async (
             dateStyle: "medium",
         }).format(new Date(article.publishedAt));
 
-        return { ...article, category, publishedAt: formattedData, hero };
+        return { ...article, ...category, publishedAt: formattedData, hero };
     });
 
     const pageData = { articleList, pagination };
