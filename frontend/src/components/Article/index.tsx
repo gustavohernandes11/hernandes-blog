@@ -21,7 +21,6 @@ export const Article = ({
     category,
     title,
     excerpt,
-    readingTime,
     date,
     color,
     slug,
@@ -35,7 +34,7 @@ export const Article = ({
     }
     return (
         <S.Container {...props}>
-            <Link href={`/posts/${slug}`}>
+            <Link href={`/posts/${slug}`} replace>
                 <Image alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
                 <div className="card-content">
                     <header>
@@ -48,7 +47,7 @@ export const Article = ({
                     </footer>
                 </div>
 
-            </Link>
+            </Link >
         </S.Container>
     )
 }
