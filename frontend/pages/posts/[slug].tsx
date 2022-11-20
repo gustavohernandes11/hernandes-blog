@@ -21,8 +21,6 @@ import { Meta } from "components/Meta";
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData)
 
-
-
     const { isTablet, isDesktopOrLaptop } = useScreen()
     const router = useRouter()
 
@@ -36,8 +34,8 @@ const Post = ({ articleData }: any) => {
 
             {isTablet && <Header />}
             <div className="post-wrapper-content">
-                {isDesktopOrLaptop &&
-                    <Container as="header">
+                {!isTablet &&
+                    <Container as="header" align="center" justify="start" m="1rem 0">
                         <IconButton onClick={() => router.back()} className="go-back">
                             <ArrowLeft size={20} /> Voltar
                         </IconButton>
@@ -51,8 +49,8 @@ const Post = ({ articleData }: any) => {
                     <MarkDownContent>{article.content}</MarkDownContent>
                     <hr />
                     <Heading as="h1" size="medium" align="center">Recomendações</Heading>
-                    <RecommendedArticles />
-                    {!isTablet && (<Container align="end">
+                    <RecommendedArticles items={[]} />
+                    {!isTablet && (<Container align="center" justify="end" m="1rem 0">
                         <GoTopButton />
                     </Container>)}
                 </section>
@@ -65,42 +63,59 @@ export default Post;
 
 
 export async function getStaticPaths() {
-    const articles = await listArticles()
+    const response = await listArticles()
 
-    const paths = data.articles.data.map(e => {
+    const paths = response.articles.data.map(e => {
         return {
             params: { slug: e.attributes.slug },
         };
     });
-    console.log(paths)
+
     return {
         paths,
         fallback: false,
-
     }
+
 
 }
 
 
 export async function getStaticProps({ params }) {
-    const data = await readArticle({ postSlug: params.slug });
+    try {
+        const data = await readArticle({ postSlug: params.slug });
 
-    let articleData: { author, excerpt, publishedAt, slug, tags, title, content, meta } = data.attributes
-    const hero: { height, width, url, alternativeText } = data.attributes.hero?.data.attributes
-    const category: { name, color, acronym } = data.attributes.category.data.attributes
-    const author: { name, slug, bio } = data.attributes.author.data.attributes
-    const metadata: { title, description, keywords } = data.attributes.meta
+        let articleData: {
+            author;
+            excerpt;
+            publishedAt;
+            slug;
+            tags;
+            title;
+            content;
+            meta;
+        } = data.attributes;
+        const hero: { height; width; url; alternativeText } =
+            data.attributes?.hero?.data.attributes;
+        const category: { name; color; acronym } =
+            data.attributes.category.data.attributes;
+        const author: { name; slug; bio } = data.attributes.author.data.attributes;
+        const metadata: { title; description; keywords } = data.attributes.meta;
 
-    articleData = { ...articleData, hero, category, author, metadata }
+        articleData = { ...articleData, hero, category, author, metadata };
 
 
-
-    if (!data) {
+        if (!data) {
+            return {
+                notFound: true,
+            };
+        }
+        return {
+            props: { articleData },
+        };
+    } catch {
         return {
             notFound: true,
         };
     }
-    return {
-        props: { articleData },
-    };
+
 }

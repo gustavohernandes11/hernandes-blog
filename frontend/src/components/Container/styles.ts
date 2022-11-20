@@ -13,7 +13,7 @@ export const Container = styled.div`
         justify-content: ${justify};
 
         position: relative;
-        padding: ${p}
+        padding: ${p};
         margin: ${m};
 
         p {

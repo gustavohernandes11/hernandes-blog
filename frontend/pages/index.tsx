@@ -9,6 +9,9 @@ import { listArticles } from "services/articles";
 import { useState } from "react";
 
 
+type ElementArticleType = {
+    hero: any; slug: string; acronym: string; title: string; color: string; publishedAt: string | number; excerpt: string;
+}
 const Home: NextPage = ({ pageData }: any) => {
 
     const [articles] = useState(pageData.articleList)
@@ -22,8 +25,12 @@ const Home: NextPage = ({ pageData }: any) => {
             <section className="wrapper-content">
 
                 <ArticleList>
-                    {articles.map((e: { slug: string; acronym: string; title: string; color: string; publishedAt: string | number; excerpt: string; }) => {
+                    {articles.map((e: ElementArticleType) => {
                         return <Article
+                            imageSrc={e.hero.url}
+                            imageHeight={e.hero.height}
+                            imageWidth={e.hero.width}
+                            imageAlt={e.hero.alternativeText}
                             slug={e.slug}
                             categoryInitial={e.acronym}
                             title={e.title}
@@ -53,11 +60,12 @@ export async function getStaticProps() {
         const category: {
             acronym: string, color: string
         } = el.attributes.category.data.attributes
+        const hero: { height: any, width: any, url: any, alternativeText: any } = el.attributes.hero?.data.attributes
 
 
         const formattedData = Intl.DateTimeFormat('pt-BR', { dateStyle: "medium" }).format(new Date(article.publishedAt))
 
-        return { ...article, ...category, publishedAt: formattedData }
+        return { ...article, ...category, publishedAt: formattedData, hero }
 
     })
 

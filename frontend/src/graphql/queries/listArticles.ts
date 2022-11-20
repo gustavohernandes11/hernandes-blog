@@ -1,6 +1,18 @@
 import { gql } from "graphql-request";
 
 export const GRAPHQL_FRAGMENTS_LIST_ARTICLES = gql`
+    fragment Hero on Article {
+        hero {
+            data {
+                attributes {
+                    width
+                    height
+                    url
+                    alternativeText
+                }
+            }
+        }
+    }
     fragment Author on Article {
         author {
             data {
@@ -79,7 +91,7 @@ export const QUERY_LIST_ARTICLES = gql`
                     excerpt
                     # content
                     # ...Meta
-                    # ...Hero
+                    ...Hero
                     slug
                     ...Author
                     ...Tags

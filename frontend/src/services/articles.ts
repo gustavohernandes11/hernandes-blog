@@ -28,7 +28,7 @@ export const listArticles = async (
     return data;
 };
 
-export const readArticle = async (slug: string): Promise<Article> => {
+export const readArticle = async (slug: string): Promise<RawArticle> => {
     const data = await request(config.graphqlUrl, QUERY_READ_ARTICLE, {
         slug,
     });
@@ -64,7 +64,7 @@ export type MetaType = {
     keywords: string;
 };
 
-export type Article = {
+export type RawArticle = {
     id: number;
     attributes: {
         title: string;
