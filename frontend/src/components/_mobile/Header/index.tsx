@@ -18,7 +18,7 @@ export const Header = ({ goBackButton = true }: HeaderProps) => {
                 <p>Blog de Desenvolvimento Web</p>
             </span>
             {goBackButton &&
-                <Link href="/" replace>
+                <Link href="/" replace title="go back">
                     <IconButton>
                         <ArrowLeft size={20} />
                     </IconButton>

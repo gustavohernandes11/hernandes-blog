@@ -13,6 +13,11 @@ export const Container = styled.div`
     background: var(--gray-900);
 
     border-bottom: 1px solid var(--gray-800);
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     span {
         display: block;
@@ -26,5 +31,6 @@ export const Container = styled.div`
     button {
         position: fixed;
         right: 1rem;
+        z-index: 10;
     }
 `;
