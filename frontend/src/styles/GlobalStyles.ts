@@ -44,7 +44,10 @@ input {
   }
 }
 
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 #layout-container {
   scroll-behavior: smooth;

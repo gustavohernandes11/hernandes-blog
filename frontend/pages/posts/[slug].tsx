@@ -9,18 +9,17 @@ import { IconButton } from "components/IconButton";
 import { ArrowLeft } from "@styled-icons/feather";
 import { useScreen } from "hooks/useScreen";
 import { GoTopButton } from "components/GoTopButton";
-import { useRouter } from "next/router";
 
 import { listArticles, readArticle } from "services/articles";
 import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
+import Link from "next/link";
 
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData);
 
     const { isTablet } = useScreen();
-    const router = useRouter();
 
     return (
         <>
@@ -39,12 +38,13 @@ const Post = ({ articleData }: any) => {
                         justify="start"
                         m="1rem 0"
                     >
-                        <IconButton
-                            onClick={() => router.back()}
-                            className="go-back"
-                        >
-                            <ArrowLeft size={20} /> Voltar
-                        </IconButton>
+                        <Link href="/" replace>
+                            <IconButton
+                                className="go-back"
+                            >
+                                <ArrowLeft size={20} /> Voltar
+                            </IconButton>
+                        </Link>
                     </Container>
                 )}
                 <Image

@@ -1,6 +1,7 @@
 import { Image } from 'components/Image';
 import { StaticImageData } from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import * as S from './styles'
 
 type ArticleProps = {
@@ -29,12 +30,14 @@ export const Article = ({
     imageWidth,
     imageAlt
 }: ArticleProps) => {
+
+    const router = useRouter()
     const props = {
         color: color
     }
     return (
         <S.Container {...props}>
-            <Link href={`/posts/${slug}`} replace>
+            <a href={`/posts/${slug}`}>
                 <Image alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
                 <div className="card-content">
                     <header>
@@ -46,8 +49,7 @@ export const Article = ({
                         <time>{date}</time>
                     </footer>
                 </div>
-
-            </Link >
-        </S.Container>
+            </a>
+        </S.Container >
     )
 }

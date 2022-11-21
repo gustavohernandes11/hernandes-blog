@@ -5,10 +5,9 @@ import React from 'react'
 import * as S from './styles'
 
 export const GoBackButton = ({ className }: any) => {
-    const router = useRouter()
     return (
-        <S.Container >
-            <IconButton onClick={() => router.back()} className={className}>
+        <S.Container href="/" replace>
+            <IconButton className={className}>
                 <ArrowLeft size={20} />
             </IconButton>
         </S.Container>

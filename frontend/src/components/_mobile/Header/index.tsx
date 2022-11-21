@@ -3,6 +3,7 @@ import { ArrowLeft } from '@styled-icons/feather'
 import { IconButton } from 'components/IconButton'
 import { Logo } from 'components/Logo'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 type HeaderProps = {
     goBackButton?: boolean,
@@ -17,9 +18,11 @@ export const Header = ({ goBackButton = true }: HeaderProps) => {
                 <p>Blog de Desenvolvimento Web</p>
             </span>
             {goBackButton &&
-                <IconButton onClick={() => { router.back() }}>
-                    <ArrowLeft size={20} />
-                </IconButton>
+                <Link href="/" replace>
+                    <IconButton>
+                        <ArrowLeft size={20} />
+                    </IconButton>
+                </Link>
             }
         </S.Container>
     )
