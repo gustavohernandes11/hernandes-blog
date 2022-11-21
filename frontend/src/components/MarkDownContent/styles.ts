@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.article`
     .markdown-content {
-        p {
+        p, ul, li {
             font-size: 1.2rem;
         }
         a {
