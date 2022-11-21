@@ -26,4 +26,8 @@ export const Container = styled.aside`
         border-right: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
     }
+
+    @media (max-width: 769px) {
+        display: none;
+    }
 `;

@@ -17,8 +17,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <div className="content">
                     <Component {...pageProps} />
                 </div>
-                {isTablet && <Menu />}
-                {isTablet && <MenuModal />}
+                {!!isTablet && <Menu />}
+                {!!isTablet && <MenuModal />}
             </MenuContextProvider>
         </main>
     );
