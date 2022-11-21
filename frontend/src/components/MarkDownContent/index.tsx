@@ -5,31 +5,36 @@ import { Heading } from "../Heading";
 import ReactMarkdown from "react-markdown";
 import { CodeContainer } from 'components/CodeContainer';
 
+import * as S from './styles'
+
 export const MarkDownContent = ({ children }: any): JSX.Element => {
 
     return (
-        <ReactMarkdown
-            components={{
-                h1: Heading,
-                pre: CodeContainer,
-                code({ node, inline, className, style, children, ...props }) {
-                    const match = /language-(\w+)/.exec(className || '')
-                    return !inline && match ? (
-                        <SyntaxHighlighter
-                            children={String(children).replace(/\n$/, '')}
-                            style={atomDark}
-                            language={match[1]}
-                            {...props}
-                        />
-                    ) : (
-                        <code className={className} {...props}>
-                            {children}
-                        </code>
-                    )
-                }
-            }}
-        >
-            {children}
-        </ReactMarkdown>
+        <S.Container>
+            <ReactMarkdown
+                className='markdown-content'
+                components={{
+                    h1: Heading,
+                    pre: CodeContainer,
+                    code({ node, inline, className, style, children, ...props }) {
+                        const match = /language-(\w+)/.exec(className || '')
+                        return !inline && match ? (
+                            <SyntaxHighlighter
+                                children={String(children).replace(/\n$/, '')}
+                                style={atomDark}
+                                language={match[1]}
+                                {...props}
+                            />
+                        ) : (
+                            <code className={className} {...props}>
+                                {children}
+                            </code>
+                        )
+                    }
+                }}
+            >
+                {children}
+            </ReactMarkdown>
+        </S.Container>
     );
 };
