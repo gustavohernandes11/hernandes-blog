@@ -15,6 +15,7 @@ import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
 import Link from "next/link";
+import { GoBackButton } from "components/GoBackButton";
 
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData);
@@ -38,11 +39,7 @@ const Post = ({ articleData }: any) => {
                         justify="start"
                         m="1rem 0"
                     >
-                        <Link href="/" replace>
-                            <IconButton className="go-back">
-                                <ArrowLeft size={20} /> Voltar
-                            </IconButton>
-                        </Link>
+                        <GoBackButton />
                     </Container>
                 )}
                 <Image
