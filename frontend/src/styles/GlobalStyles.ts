@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 * {
+  scroll-behavior: smooth;
   box-sizing: border-box;
 }
 
@@ -50,7 +51,6 @@ a {
 }
 
 #layout-container {
-  scroll-behavior: smooth;
   height: 100vh;  
   background-size: contain;
     .content {

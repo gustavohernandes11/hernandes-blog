@@ -29,7 +29,7 @@ const Post = ({ articleData }: any) => {
                 title={article.metadata.description}
             />
 
-            {isTablet && <Header />}
+            {!!isTablet && <Header />}
             <div className="post-wrapper-content">
                 {!isTablet && (
                     <Container
@@ -39,9 +39,7 @@ const Post = ({ articleData }: any) => {
                         m="1rem 0"
                     >
                         <Link href="/" replace>
-                            <IconButton
-                                className="go-back"
-                            >
+                            <IconButton className="go-back">
                                 <ArrowLeft size={20} /> Voltar
                             </IconButton>
                         </Link>
