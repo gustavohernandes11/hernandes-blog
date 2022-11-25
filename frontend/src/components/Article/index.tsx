@@ -1,8 +1,7 @@
-import { Image } from 'components/Image';
-import { StaticImageData } from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/router';
-import * as S from './styles'
+import { Image } from "components/Image";
+import { StaticImageData } from "next/image";
+import Link from "next/link";
+import * as S from "./styles";
 
 type ArticleProps = {
     category: string;
@@ -16,7 +15,7 @@ type ArticleProps = {
     imageHeight: number;
     imageWidth: number;
     imageAlt: string;
-}
+};
 
 export const Article = ({
     category,
@@ -28,17 +27,20 @@ export const Article = ({
     imageSrc,
     imageHeight,
     imageWidth,
-    imageAlt
+    imageAlt,
 }: ArticleProps) => {
-
-    const router = useRouter()
     const props = {
-        color: color
-    }
+        color: color,
+    };
     return (
         <S.Container {...props}>
-            <a href={`/posts/${slug}`}>
-                <Image alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
+            <a href={`/posts/${slug}/`}>
+                <Image
+                    alt={imageAlt}
+                    src={imageSrc}
+                    width={imageWidth}
+                    height={imageHeight}
+                />
                 <div className="card-content">
                     <header>
                         <strong>{title}</strong>
@@ -50,6 +52,6 @@ export const Article = ({
                     </footer>
                 </div>
             </a>
-        </S.Container >
-    )
-}
+        </S.Container>
+    );
+};
