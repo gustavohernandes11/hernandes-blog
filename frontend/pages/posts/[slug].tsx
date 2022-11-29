@@ -59,9 +59,7 @@ const Post = ({ articleData }: any) => {
                     <Title>{article.title}</Title>
                     <MarkDownContent>{article.content}</MarkDownContent>
                     <hr />
-                    <Heading as="h1" size="medium" align="center">
-                        Recomendações
-                    </Heading>
+                   
                     <RecommendedArticles
                         items={article.recommendedArticles.articleList}
                     />
