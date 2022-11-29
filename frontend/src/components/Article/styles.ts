@@ -1,24 +1,26 @@
 import styled, { css } from "styled-components";
+import Link from "next/link";
 
 type ContainerProps = {
     color: string;
 };
 
-export const Container = styled.div`
+export const StyledA = styled.a`
     ${({ color }: ContainerProps) => css`
+        position: relative;
         background-color: var(--gray-800);
         border-radius: 6px;
         box-shadow: var(--shadow);
         transition: filter 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+        display: flex;
+        flex-direction: column;
 
         .card-content {
-            position: relative;
             padding: 1rem;
-            height: 100%;
-            display: flex;
             justify-content: space-between;
+            display: flex;
             flex-direction: column;
-}
+            height: 100%;
         }
 
         p {
@@ -26,20 +28,11 @@ export const Container = styled.div`
             color: var(--gray-200);
         }
         p.category {
-                color: ${color};
-    
-                font-weight: 900;
-                font-size: 0.8rem;
-                margin-right: auto;
-            }
+            color: ${color};
 
-        a {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-decoration: none;
-            color: var(--white);
-            height: 100%;
+            font-weight: 900;
+            font-size: 0.8rem;
+            margin-right: auto;
         }
 
         header {
@@ -62,25 +55,25 @@ export const Container = styled.div`
             gap: 0.5rem;
             justify-content: end;
             margin-top: auto;
-            
         }
-
 
         &:hover {
             cursor: pointer;
             filter: brightness(1.1);
         }
-    `}
 
-    @media (max-width: 425px) {
-        header {
-            p {
-                font-size: 0.8rem;
-            }
+        @media (max-width: 425px) {
+            header {
+                p {
+                    font-size: 0.8rem;
+                }
 
-            strong {
-                font-size: 1rem;
+                strong {
+                    font-size: 1rem;
+                }
             }
         }
-    }
+    `}
 `;
+
+export const StyledLink = styled(Link)``;

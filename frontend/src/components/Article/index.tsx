@@ -33,8 +33,8 @@ export const Article = ({
         color: color,
     };
     return (
-        <S.Container {...props}>
-            <a href={`/posts/${slug}/`}>
+        <S.StyledLink href={`/posts/${slug}/`} legacyBehavior passHref={true}>
+            <S.StyledA {...props}>
                 <Image
                     alt={imageAlt}
                     src={imageSrc}
@@ -51,7 +51,7 @@ export const Article = ({
                         <time>{date}</time>
                     </footer>
                 </div>
-            </a>
-        </S.Container>
+            </S.StyledA>
+        </S.StyledLink>
     );
 };
