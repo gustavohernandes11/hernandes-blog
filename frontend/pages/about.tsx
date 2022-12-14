@@ -1,6 +1,5 @@
 import { SocialBar } from "components/SocialBar";
 import { Heading } from "components/Heading";
-import { GoBackButton } from "components/_mobile/GoBackButton";
 import type { NextPage } from "next";
 import { ImageContainer } from "components/ImageContainer";
 import SkyImage from "../src/assets/imgs/Sky.png";
@@ -24,7 +23,6 @@ const About: NextPage = ({ data }: any) => {
             )}
             {!!isTablet && <AuthorProfile />}
             <div className="post-wrapper-content">
-                {!!isTablet && <GoBackButton />}
                 <MarkDownContent>{aboutmeContent}</MarkDownContent>
                 {!!isTablet && <SocialBar />}
             </div>

@@ -3,8 +3,8 @@ import { SliderComponent } from "components/_mobile/Slider";
 import { useScreen } from "hooks/useScreen";
 import { ArticleData } from "services/articles";
 import { useRouter } from "next/router";
-import * as S from "./styles";
 import { Heading } from "components/Heading";
+import { Container, Grid } from "@chakra-ui/react";
 
 type RecommendedArticlesProps = {
     items: ArticleData[];
@@ -23,11 +23,11 @@ export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
                     <Heading as="h1" size="medium" align="center">
                         Recomendações
                     </Heading>
-                    <S.Container>
+                    <Container m="1rem">
                         {!!isTablet ? (
                             <SliderComponent items={filteredItems} />
                         ) : (
-                            <S.Grid className="recommended-grid">
+                            <ArticleGrid>
                                 {filteredItems.map((e: any) => {
                                     return (
                                         <Article
@@ -45,11 +45,25 @@ export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
                                         />
                                     );
                                 })}
-                            </S.Grid>
+                            </ArticleGrid>
                         )}
-                    </S.Container>
+                    </Container>
                 </>
             )}
         </>
     );
 };
+
+const ArticleGrid = ({ children }: any) => {
+    return (
+        <Grid gap="0.5rem" templateColumns={"1fr 1fr 1fr"} margin="1rem 0">
+            {children}
+        </Grid>
+    );
+};
+/*
+display: grid;
+    justify-content: center;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1rem 0; */

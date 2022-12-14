@@ -30,7 +30,6 @@ const Post = ({ articleData }: any) => {
                 title={article.metadata.description}
             />
 
-            {!!isTablet && <Header />}
             <div className="post-wrapper-content">
                 {!isTablet && (
                     <Container
@@ -59,7 +58,7 @@ const Post = ({ articleData }: any) => {
                     <Title>{article.title}</Title>
                     <MarkDownContent>{article.content}</MarkDownContent>
                     <hr />
-                   
+
                     <RecommendedArticles
                         items={article.recommendedArticles.articleList}
                     />

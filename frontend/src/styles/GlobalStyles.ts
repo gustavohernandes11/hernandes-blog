@@ -83,6 +83,7 @@ hr {
     grid-area: 1 / 1 / 2 / 2;
    }
   .content { 
+
     grid-area: 1 / 2 / 2 / 3;
     overflow-y: auto;
     padding: 2rem 3rem 0 3rem;

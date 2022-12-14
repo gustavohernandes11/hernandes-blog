@@ -3,11 +3,10 @@ import { ArticleList } from "../src/components/ArticleList";
 import { Article } from "components/Article";
 import { Pagination } from "components/Pagination";
 import { useScreen } from "hooks/useScreen";
-import { Header } from "components/_mobile/Header";
-import { SocialBar } from "components/SocialBar";
 import { listArticles } from "services/articles";
 import { useState } from "react";
 import { Footer } from "components/Footer";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 
 type ElementArticleType = {
     category: any;
@@ -27,25 +26,72 @@ const Home: NextPage = ({ pageData }: any) => {
     return (
         <>
             <title>Hernandes | Blog de desenvolvimento web</title>
-            {!!isTablet && <Header goBackButton={false} />}
-            {!!isTablet && <SocialBar />}
-            <section className="wrapper-content">
+            <Container
+                bgColor="custom.background"
+                display="flex"
+                flexDirection="column"
+                padding="3rem"
+                minHeight="-moz-max-content"
+                maxW="100vw"
+                h="100%"
+            >
                 <ArticleList>
                     {articles.map((e: ElementArticleType) => {
                         return (
-                            <Article
-                                imageSrc={e.hero.url}
-                                imageHeight={e.hero.height}
-                                imageWidth={e.hero.width}
-                                imageAlt={e.hero.alternativeText}
-                                slug={e.slug}
-                                category={e.category.name}
-                                title={e.title}
-                                color={e.category.color}
-                                date={e.publishedAt}
-                                excerpt={e.excerpt}
-                                key={e.slug}
-                            />
+                            <>
+                                <Article
+                                    imageSrc={e.hero.url}
+                                    imageHeight={e.hero.height}
+                                    imageWidth={e.hero.width}
+                                    imageAlt={e.hero.alternativeText}
+                                    slug={e.slug}
+                                    category={e.category.name}
+                                    title={e.title}
+                                    color={e.category.color}
+                                    date={e.publishedAt}
+                                    excerpt={e.excerpt}
+                                    key={e.slug}
+                                />
+                                <Article
+                                    imageSrc={e.hero.url}
+                                    imageHeight={e.hero.height}
+                                    imageWidth={e.hero.width}
+                                    imageAlt={e.hero.alternativeText}
+                                    slug={e.slug}
+                                    category={e.category.name}
+                                    title={e.title}
+                                    color={e.category.color}
+                                    date={e.publishedAt}
+                                    excerpt={e.excerpt}
+                                    key={e.slug}
+                                />
+                                <Article
+                                    imageSrc={e.hero.url}
+                                    imageHeight={e.hero.height}
+                                    imageWidth={e.hero.width}
+                                    imageAlt={e.hero.alternativeText}
+                                    slug={e.slug}
+                                    category={e.category.name}
+                                    title={e.title}
+                                    color={e.category.color}
+                                    date={e.publishedAt}
+                                    excerpt={e.excerpt}
+                                    key={e.slug}
+                                />
+                                <Article
+                                    imageSrc={e.hero.url}
+                                    imageHeight={e.hero.height}
+                                    imageWidth={e.hero.width}
+                                    imageAlt={e.hero.alternativeText}
+                                    slug={e.slug}
+                                    category={e.category.name}
+                                    title={e.title}
+                                    color={e.category.color}
+                                    date={e.publishedAt}
+                                    excerpt={e.excerpt}
+                                    key={e.slug}
+                                />
+                            </>
                         );
                     })}
                 </ArticleList>
@@ -56,8 +102,7 @@ const Home: NextPage = ({ pageData }: any) => {
                         onChange={() => {}}
                     />
                 )}
-                <Footer />
-            </section>
+            </Container>
         </>
     );
 };

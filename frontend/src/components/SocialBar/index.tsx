@@ -1,25 +1,41 @@
-import * as Styled from "./styles";
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
-import { IconButton } from '../IconButton'
 import Link from "next/link";
+import { IconButton, List, ListItem } from "@chakra-ui/react";
 
-export const SocialBar = () => {
+export const SocialBar = ({ ...props }) => {
     return (
-        <Styled.List className="social-bar">
-            <li>
-                <IconButton background={false}>
-                    <Link href="https://github.com/gustavohernandes11" target="_blank">
+        <List
+            color="custom.darkPurple"
+            display="flex"
+            flexDirection="row"
+            gap="0.5rem"
+            textDecor="none"
+            listStyleType="none"
+            justifyContent="center"
+            padding="0"
+            className="social-bar"
+            {...props}
+        >
+            <ListItem>
+                <IconButton aria-label="github-social">
+                    <Link
+                        href="https://github.com/gustavohernandes11"
+                        target="_blank"
+                    >
                         <Github height={20} width={20} color="#856ABD" />
                     </Link>
                 </IconButton>
-            </li>
-            <li>
-                <IconButton background={false}>
-                    <Link href="https://www.linkedin.com/in/gustavo-hernandes11/" target="_blank">
+            </ListItem>
+            <ListItem>
+                <IconButton aria-label="linkedin-social">
+                    <Link
+                        href="https://www.linkedin.com/in/gustavo-hernandes11/"
+                        target="_blank"
+                    >
                         <Linkedin height={20} width={20} color="#856ABD" />
                     </Link>
                 </IconButton>
-            </li>
-        </Styled.List>
+            </ListItem>
+        </List>
     );
 };
