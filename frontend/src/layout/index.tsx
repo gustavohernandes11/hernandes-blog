@@ -12,9 +12,8 @@ export const Layout = ({ children }: any) => {
             h="100%"
             maxH="100vh"
             overflow="hidden"
-            gridTemplateColumns={`300px 1fr`}
-            gridTemplateAreas={`"aside main" 
-           `}
+            gridTemplateColumns={{ lg: "300px 1fr", base: "1fr" }}
+            gridTemplateAreas={{ lg: `"aside main"`, base: `"aside" "main"` }}
         >
             <GridItem area="main" overflowY="auto">
                 <GridItem area="header">

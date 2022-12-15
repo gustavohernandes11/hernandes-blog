@@ -30,7 +30,7 @@ const Home: NextPage = ({ pageData }: any) => {
                 bgColor="custom.background"
                 display="flex"
                 flexDirection="column"
-                padding="3rem"
+                padding={{ base: "2rem", lg: "3rem" }}
                 minHeight="-moz-max-content"
                 maxW="100vw"
                 h="100%"

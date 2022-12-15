@@ -58,10 +58,3 @@ export const Menu = () => {
         </Flex>
     );
 };
-export const MenuButton = ({ onClick, isMenuOpen }: any) => {
-    return (
-        <S.Button onClick={onClick}>
-            {isMenuOpen ? <X size={20} /> : <MenuIcon size={20} />}
-        </S.Button>
-    );
-};
