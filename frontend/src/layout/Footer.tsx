@@ -1,7 +1,9 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, useColorMode } from "@chakra-ui/react";
 import React from "react";
 
 export const Footer = ({ ...props }) => {
+    const { colorMode } = useColorMode();
+
     return (
         <Flex
             flexDirection="row"
@@ -10,12 +12,15 @@ export const Footer = ({ ...props }) => {
             h="100%"
             maxH="100vh"
             padding="1rem"
-            bgColor="custom.darkPurple"
+            bgColor={colorMode === "dark" ? "custom.darkPurple" : "custom.gray"}
+            color={colorMode === "dark" ? "custom.gray" : "custom.dark"}
+            borderTop="1px solid"
+            borderColor="custom.border"
             justify="center"
             align="center"
             {...props}
         >
-            <Text color="custom.white">{`Criado com Next.js`}</Text>
+            <Text color="darkgray">{`Criado com Next.js`}</Text>
         </Flex>
     );
 };

@@ -5,8 +5,7 @@ import { Pagination } from "components/Pagination";
 import { useScreen } from "hooks/useScreen";
 import { listArticles } from "services/articles";
 import { useState } from "react";
-import { Footer } from "components/Footer";
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import { Container, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react";
 
 type ElementArticleType = {
     category: any;
@@ -21,20 +20,23 @@ type ElementArticleType = {
 const Home: NextPage = ({ pageData }: any) => {
     const [articles] = useState(pageData.articleList);
     const [pagination] = useState(pageData.pagination);
+    const { colorMode } = useColorMode();
 
     const { isTablet } = useScreen();
     return (
         <>
             <title>Hernandes | Blog de desenvolvimento web</title>
             <Container
-                bgColor="custom.background"
+                bgColor={colorMode === "dark" ? "custom.background" : "white"}
+                color={colorMode === "dark" ? "custom.light" : "black"}
                 display="flex"
                 flexDirection="column"
-                padding={{ base: "2rem", lg: "3rem" }}
-                minHeight="-moz-max-content"
+                padding={{ base: "1rem 2rem", lg: "1.5rem 3rem" }}
                 maxW="100vw"
-                h="100%"
             >
+                <Heading mb="2rem" size="md">
+                    Todos os artigos
+                </Heading>
                 <ArticleList>
                     {articles.map((e: ElementArticleType) => {
                         return (
@@ -76,7 +78,7 @@ const Home: NextPage = ({ pageData }: any) => {
                                     color={e.category.color}
                                     date={e.publishedAt}
                                     excerpt={e.excerpt}
-                                    key={e.slug}
+                                    key={`${e.slug} 2`}
                                 />
                                 <Article
                                     imageSrc={e.hero.url}
@@ -89,7 +91,7 @@ const Home: NextPage = ({ pageData }: any) => {
                                     color={e.category.color}
                                     date={e.publishedAt}
                                     excerpt={e.excerpt}
-                                    key={e.slug}
+                                    key={`${e.slug} 3`}
                                 />
                             </>
                         );

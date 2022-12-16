@@ -1,4 +1,6 @@
-import { Box, Container, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
+import { MenuBar } from "components/_mobile/MenuBar";
+import { MenuModal } from "components/_mobile/MenuModal";
 import { Aside } from "layout/Aside";
 import React from "react";
 import { Footer } from "./Footer";
@@ -12,10 +14,22 @@ export const Layout = ({ children }: any) => {
             h="100%"
             maxH="100vh"
             overflow="hidden"
-            gridTemplateColumns={{ lg: "300px 1fr", base: "1fr" }}
-            gridTemplateAreas={{ lg: `"aside main"`, base: `"aside" "main"` }}
+            mb={["60px", null, null, "unset"]}
+            gridTemplateColumns={{
+                base: "1fr",
+                lg: "300px 1fr",
+            }}
+            gridTemplateAreas={{
+                base: `"aside" "main"`,
+                lg: `"aside main"`,
+            }}
         >
-            <GridItem area="main" overflowY="auto">
+            <GridItem
+                area="main"
+                overflowY="auto"
+                maxH="100vh"
+                className="content"
+            >
                 <GridItem area="header">
                     <Header />
                 </GridItem>
@@ -27,6 +41,8 @@ export const Layout = ({ children }: any) => {
             <GridItem area="aside">
                 <Aside />
             </GridItem>
+            <MenuBar />
+            <MenuModal />
         </Grid>
     );
 };

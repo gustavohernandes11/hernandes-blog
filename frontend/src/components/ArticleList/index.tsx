@@ -1,12 +1,11 @@
-import { Container, Grid } from "@chakra-ui/react";
-import * as S from "./styles";
+import { Grid } from "@chakra-ui/react";
 
 export const ArticleList = ({ children }: any) => {
     return (
         <Grid
             templateColumns="repeat(auto-fill, minmax(18rem, 1fr))"
             flexDirection="column"
-            gap="0.5rem"
+            gap={"1rem"}
             margin="0 auto"
         >
             {children}

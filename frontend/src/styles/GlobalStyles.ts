@@ -58,12 +58,6 @@ a {
         overflow-x: hidden;
     }
 }
-.post-wrapper-content, .wrapper-content {
-  .post-info-paragraph {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  margin: 1rem;
-}
 hr {
   border: 1px solid var(--border);
   margin: 2rem 0;

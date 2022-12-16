@@ -5,7 +5,6 @@ import { IconButton, List, ListItem } from "@chakra-ui/react";
 export const SocialBar = ({ ...props }) => {
     return (
         <List
-            color="custom.darkPurple"
             display="flex"
             flexDirection="row"
             gap="0.5rem"
@@ -22,7 +21,7 @@ export const SocialBar = ({ ...props }) => {
                         href="https://github.com/gustavohernandes11"
                         target="_blank"
                     >
-                        <Github height={20} width={20} color="#856ABD" />
+                        <Github height={20} width={20} color="#d9d9d9" />
                     </Link>
                 </IconButton>
             </ListItem>
@@ -32,7 +31,7 @@ export const SocialBar = ({ ...props }) => {
                         href="https://www.linkedin.com/in/gustavo-hernandes11/"
                         target="_blank"
                     >
-                        <Linkedin height={20} width={20} color="#856ABD" />
+                        <Linkedin height={20} width={20} color="#d9d9d9" />
                     </Link>
                 </IconButton>
             </ListItem>

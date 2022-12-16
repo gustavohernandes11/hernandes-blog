@@ -1,7 +1,16 @@
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Heading,
+    Text,
+    useColorMode,
+    useColorModeValue,
+} from "@chakra-ui/react";
 import { Image } from "components/Image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
-import * as S from "./styles";
 
 type ArticleProps = {
     category: string;
@@ -32,26 +41,44 @@ export const Article = ({
     const props = {
         color: color,
     };
+    const textColor = useColorModeValue("custom.darkPurple", "custom.gray");
+    const bgColor = useColorModeValue("custom.gray", "custom.darkPurple");
     return (
-        <S.StyledLink href={`/posts/${slug}/`} legacyBehavior passHref={true}>
-            <S.StyledA {...props}>
-                <Image
-                    alt={imageAlt}
-                    src={imageSrc}
-                    width={imageWidth}
-                    height={imageHeight}
-                />
-                <div className="card-content">
-                    <header>
-                        <strong>{title}</strong>
-                        <p>{excerpt}</p>
-                    </header>
-                    <footer>
-                        <p className="category">{category}</p>
-                        <time>{date}</time>
-                    </footer>
-                </div>
-            </S.StyledA>
-        </S.StyledLink>
+        <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
+            <Card
+                bgColor={bgColor}
+                transition="transform ease-in-out 0.3s"
+                {...props}
+                _hover={{
+                    transform: "scale(1.02)",
+                    cursor: "pointer",
+                }}
+            >
+                <CardHeader p={0}>
+                    <Image
+                        alt={imageAlt}
+                        src={imageSrc}
+                        width={imageWidth}
+                        height={imageHeight}
+                    />
+                </CardHeader>
+                <CardBody py={0}>
+                    <Heading size="md" my="1rem" textColor={textColor}>
+                        {title}
+                    </Heading>
+                    <Text size="md" textColor={textColor}>
+                        {excerpt}
+                    </Text>
+                </CardBody>
+                <CardFooter justify="space-between">
+                    <Text fontWeight={700} color={color}>
+                        {category}
+                    </Text>
+                    <Text as="time" fontSize="0.9rem" textColor={textColor}>
+                        {date}
+                    </Text>
+                </CardFooter>
+            </Card>
+        </Link>
     );
 };

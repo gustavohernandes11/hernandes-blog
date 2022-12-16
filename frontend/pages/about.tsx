@@ -1,5 +1,4 @@
 import { SocialBar } from "components/SocialBar";
-import { Heading } from "components/Heading";
 import type { NextPage } from "next";
 import { ImageContainer } from "components/ImageContainer";
 import SkyImage from "../src/assets/imgs/Sky.png";
@@ -8,6 +7,7 @@ import { AuthorProfile } from "components/AuthorProfile";
 import { useState } from "react";
 import { getAbout } from "services/getabout";
 import { MarkDownContent } from "components/MarkDownContent";
+import { Title } from "components/Title";
 
 const About: NextPage = ({ data }: any) => {
     const [aboutmeContent] = useState(data);
@@ -16,7 +16,7 @@ const About: NextPage = ({ data }: any) => {
         <>
             {!isTablet && (
                 <ImageContainer
-                    content={<Heading>Sobre o autor</Heading>}
+                    content={<Title>Sobre o autor</Title>}
                     src={SkyImage}
                     alt={"Imagem de uma paisagem"}
                 />

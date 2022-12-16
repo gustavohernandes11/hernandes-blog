@@ -1,12 +1,6 @@
-import { Footer } from "components/Footer";
-import { Header } from "components/_mobile/Header";
 import { Image } from "components/Image";
-import { Heading } from "components/Heading";
-import { Container } from "components/Container";
 import { Title } from "components/Title";
 import { RecommendedArticles } from "components/RecommendedArticles";
-import { IconButton } from "components/IconButton";
-import { ArrowLeft } from "@styled-icons/feather";
 import { useScreen } from "hooks/useScreen";
 import { GoTopButton } from "components/GoTopButton";
 
@@ -14,13 +8,11 @@ import { listArticles, readArticle } from "services/articles";
 import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
-import Link from "next/link";
-import { GoBackButton } from "components/GoBackButton";
+import { Container, Flex, useColorMode } from "@chakra-ui/react";
 
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData);
-
-    const { isTablet } = useScreen();
+    const { colorMode } = useColorMode();
 
     return (
         <>
@@ -29,18 +21,11 @@ const Post = ({ articleData }: any) => {
                 keywords={article.metadata.keywords}
                 title={article.metadata.description}
             />
-
-            <div className="post-wrapper-content">
-                {!isTablet && (
-                    <Container
-                        as="header"
-                        align="center"
-                        justify="start"
-                        m="1rem 0"
-                    >
-                        <GoBackButton />
-                    </Container>
-                )}
+            <Flex
+                flexDirection="column"
+                bgColor={colorMode === "dark" ? "custom.background" : "white"}
+                color={colorMode === "dark" ? "custom.light" : "black"}
+            >
                 <Image
                     src={article.hero.url}
                     width={article.hero.width}
@@ -48,28 +33,31 @@ const Post = ({ articleData }: any) => {
                     cape={true}
                     alt="imagem de capa do artigo"
                 />
-                <Container as="span" align="center" justify="center">
+                <Flex as="span" flexDirection="row" mx="auto" my="1rem">
                     <time>{article.publishedAt}</time>
                     <p style={{ marginInline: "1rem" }}>•</p>
                     <b>{article.category.name}</b>
-                </Container>
+                </Flex>
 
-                <section>
-                    <Title>{article.title}</Title>
-                    <MarkDownContent>{article.content}</MarkDownContent>
-                    <hr />
-
+                <Flex mx="2rem" mb="2rem" flexDirection="column" as="section">
+                    <Container
+                        size="lg"
+                        as="article"
+                        maxW="50rem"
+                        w="100%"
+                        p="0"
+                        flexDirection="column"
+                    >
+                        <Title>{article.title}</Title>
+                        <MarkDownContent>{article.content}</MarkDownContent>
+                    </Container>
                     <RecommendedArticles
                         items={article.recommendedArticles.articleList}
                     />
-                    {!isTablet && (
-                        <Container align="center" justify="end" m="1rem 0">
-                            <GoTopButton />
-                        </Container>
-                    )}
-                </section>
-            </div>
-            <Footer />
+
+                    <GoTopButton />
+                </Flex>
+            </Flex>
         </>
     );
 };
