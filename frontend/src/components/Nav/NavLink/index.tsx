@@ -1,6 +1,5 @@
 import { Text } from "@chakra-ui/react";
 import { useMenuContext } from "hooks/useMenuContext";
-import { useScreen } from "hooks/useScreen";
 import Link from "next/link";
 
 interface NavLinkType {
@@ -14,10 +13,9 @@ export function NavLink({
     ...props
 }: NavLinkType): JSX.Element {
     const [, setIsMenuOpen] = useMenuContext();
-    const { isTablet } = useScreen();
 
     const handleClick = () => {
-        isTablet && setIsMenuOpen(false);
+        setIsMenuOpen(false);
     };
     return (
         <Link href={href} onClick={handleClick} passHref {...props}>
