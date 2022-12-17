@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { ArticleList } from "../src/components/ArticleList";
 import { Article } from "components/Article";
 import { Pagination } from "components/Pagination";
-import { useScreen } from "hooks/useScreen";
 import { listArticles } from "services/articles";
 import { useState } from "react";
 import { Container, Heading, useColorMode } from "@chakra-ui/react";
@@ -22,7 +21,6 @@ const Home: NextPage = ({ pageData }: any) => {
     const [pagination] = useState(pageData.pagination);
     const { colorMode } = useColorMode();
 
-    const { isTablet } = useScreen();
     return (
         <>
             <title>Hernandes | Blog de desenvolvimento web</title>
