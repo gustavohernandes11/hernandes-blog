@@ -1,7 +1,7 @@
 import { Home, ChevronsUp } from "@styled-icons/feather";
 
 import Link from "next/link";
-import { Flex, Icon, IconButton, useColorMode } from "@chakra-ui/react";
+import { Flex, Icon, IconButton } from "@chakra-ui/react";
 import { ToggleThemeButton } from "components/ToggleThemeButton";
 
 export const MenuBar = () => {

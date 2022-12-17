@@ -1,16 +1,17 @@
 import * as S from "./styles";
 import Slider from "react-slick";
-import { IconButton } from "components/IconButton";
 import { ChevronLeft, ChevronRight } from "@styled-icons/feather";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Article } from "components/Article";
 import { ArticleData } from "services/articles";
+import { IconButton } from "@chakra-ui/react";
 
 export const NextButton = ({ onClick }: any) => {
     return (
         <IconButton
+            aria-label="Próximo Slide"
             className="button-control-next"
             background={"#2f2f2f"}
             onClick={onClick}
@@ -23,6 +24,7 @@ export const NextButton = ({ onClick }: any) => {
 export const PrevButton = ({ onClick }: any) => {
     return (
         <IconButton
+            aria-label="Slide Anterior"
             className="button-control-prev"
             background={"#2f2f2f"}
             onClick={onClick}

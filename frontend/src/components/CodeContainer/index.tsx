@@ -1,8 +1,6 @@
 import { useState, useRef } from "react";
-import * as Styled from "./styles";
-
-import { Copy } from '@styled-icons/feather'
-import { IconButton } from "components/IconButton";
+import { Copy } from "@styled-icons/feather";
+import { Container, IconButton, Tooltip } from "@chakra-ui/react";
 
 interface CodeContainerType {
     children: React.ReactNode | React.ReactNode[];
@@ -11,7 +9,7 @@ interface CodeContainerType {
 export function CodeContainer({ children }: CodeContainerType) {
     const [isHover, setisHover] = useState(false);
 
-    const codeRef = useRef<HTMLBodyElement | null>(null);
+    const codeRef = useRef<any>(null);
 
     const copyToClipboard = (): void => {
         if (codeRef.current != null && codeRef.current.innerText) {
@@ -21,7 +19,15 @@ export function CodeContainer({ children }: CodeContainerType) {
     };
 
     return (
-        <Styled.Container
+        <Container
+            display="block"
+            borderRadius={6}
+            margin="1rem 0"
+            position="relative"
+            whiteSpace="break-spaces"
+            overflowX="auto"
+            maxW="100vw"
+            w="100%"
             ref={codeRef}
             aria-label="code-container"
             onMouseOver={() => setisHover(() => true)}
@@ -30,14 +36,21 @@ export function CodeContainer({ children }: CodeContainerType) {
             {children}
 
             {isHover && (
-                <IconButton
-                    onClick={copyToClipboard}
-                    aria-label="copy-code-button"
-                    className="copy-code-button"
-                >
-                    <Copy size={20} />
-                </IconButton>
+                <Tooltip hasArrow label="Copiar" placement="left">
+                    <IconButton
+                        position="absolute"
+                        color="purple.500"
+                        variant="ghost"
+                        m="0"
+                        top="1rem"
+                        right="1.25rem"
+                        onClick={copyToClipboard}
+                        aria-label="copy-code-button"
+                    >
+                        <Copy size={20} />
+                    </IconButton>
+                </Tooltip>
             )}
-        </Styled.Container>
+        </Container>
     );
 }

@@ -5,7 +5,6 @@ import {
     CardHeader,
     Heading,
     Text,
-    useColorMode,
     useColorModeValue,
 } from "@chakra-ui/react";
 import { Image } from "components/Image";
@@ -71,10 +70,10 @@ export const Article = ({
                     </Text>
                 </CardBody>
                 <CardFooter justify="space-between">
-                    <Text fontWeight={700} color={color}>
+                    <Text fontWeight={700}  textColor={color}>
                         {category}
                     </Text>
-                    <Text as="time" fontSize="0.9rem" textColor={textColor}>
+                    <Text as="time" textColor={textColor}>
                         {date}
                     </Text>
                 </CardFooter>

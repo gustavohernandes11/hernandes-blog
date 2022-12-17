@@ -1,9 +1,4 @@
-import {
-    Center,
-    Container,
-    useColorMode,
-    useColorModeValue,
-} from "@chakra-ui/react";
+import { Container, useColorMode } from "@chakra-ui/react";
 import { Nav } from "../components/Nav";
 import { SocialBar } from "../components/SocialBar";
 import React from "react";

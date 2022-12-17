@@ -1,14 +1,14 @@
-import * as S from "./styles";
-import LogoIMG from "../../../public/Logo.png";
-import LogoExtensiveIMG from "../../../public/LogoExtensive.png";
+import LogoIMG from "../../public/Logo.png";
+import LogoExtensiveIMG from "../../public/LogoExtensive.png";
 import Image from "next/image";
 
-type LogoInterface = {
+type LogoProps = {
     variant?: "small" | "extended";
     width?: number;
     height?: number;
 };
-export const Logo = ({ variant, width, height = 30 }: LogoInterface) => {
+
+export const Logo = ({ variant, width, height = 30 }: LogoProps) => {
     return (
         <>
             {variant === "small" ? (

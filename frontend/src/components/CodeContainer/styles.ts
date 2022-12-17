@@ -8,8 +8,6 @@ export const Container = styled.code`
         margin: 1rem 0;
         position: relative;
         white-space: break-spaces;
-        /* padding: 1rem; */
-        /* border: 1px solid var(--border); */
         overflow-x: auto;
 
         .copy-code-button {
