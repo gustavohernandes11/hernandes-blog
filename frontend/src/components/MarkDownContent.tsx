@@ -25,7 +25,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                 },
                 p({ children, ...props }) {
                     return (
-                        <Text fontSize="1.3rem" {...props}>
+                        <Text fontSize="1.1rem" {...props}>
                             {children}
                         </Text>
                     );
@@ -76,7 +76,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                 ul: UnorderedList,
                 li({ children, ...props }) {
                     return (
-                        <ListItem {...props} fontSize="1.3rem">
+                        <ListItem {...props} fontSize="1.1rem">
                             {children}
                         </ListItem>
                     );
@@ -85,7 +85,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                     const match = /language-(\w+)/.exec(className || "");
                     return !inline && match ? (
                         <SyntaxHighlighter
-                            customStyle={{ fontSize: "1.3rem" }}
+                            customStyle={{ fontSize: "1.1rem" }}
                             children={String(children).replace(/\n$/, "")}
                             style={atomDark}
                             language={match[1]}
@@ -94,7 +94,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                     ) : (
                         <Code
                             className={className}
-                            fontSize="1.3rem"
+                            fontSize="1.1rem"
                             {...props}
                         >
                             {children}
