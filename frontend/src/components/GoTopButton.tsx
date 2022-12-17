@@ -9,9 +9,11 @@ export const GoTopButton = () => {
 
         content[0].scrollTop = 0;
     }
+
     return (
         <IconButton
             display={["none", null, null, "flex"]}
+            zIndex="overlay"
             colorScheme="gray"
             position="absolute"
             right="1.5rem"
