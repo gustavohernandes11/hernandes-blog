@@ -5,7 +5,7 @@ import { Pagination } from "components/Pagination";
 import { useScreen } from "hooks/useScreen";
 import { listArticles } from "services/articles";
 import { useState } from "react";
-import { Container, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react";
+import { Container, Heading, useColorMode } from "@chakra-ui/react";
 
 type ElementArticleType = {
     category: any;
@@ -52,46 +52,7 @@ const Home: NextPage = ({ pageData }: any) => {
                                     color={e.category.color}
                                     date={e.publishedAt}
                                     excerpt={e.excerpt}
-                                    key={e.slug}
-                                />
-                                <Article
-                                    imageSrc={e.hero.url}
-                                    imageHeight={e.hero.height}
-                                    imageWidth={e.hero.width}
-                                    imageAlt={e.hero.alternativeText}
-                                    slug={e.slug}
-                                    category={e.category.name}
-                                    title={e.title}
-                                    color={e.category.color}
-                                    date={e.publishedAt}
-                                    excerpt={e.excerpt}
-                                    key={e.slug}
-                                />
-                                <Article
-                                    imageSrc={e.hero.url}
-                                    imageHeight={e.hero.height}
-                                    imageWidth={e.hero.width}
-                                    imageAlt={e.hero.alternativeText}
-                                    slug={e.slug}
-                                    category={e.category.name}
-                                    title={e.title}
-                                    color={e.category.color}
-                                    date={e.publishedAt}
-                                    excerpt={e.excerpt}
-                                    key={`${e.slug} 2`}
-                                />
-                                <Article
-                                    imageSrc={e.hero.url}
-                                    imageHeight={e.hero.height}
-                                    imageWidth={e.hero.width}
-                                    imageAlt={e.hero.alternativeText}
-                                    slug={e.slug}
-                                    category={e.category.name}
-                                    title={e.title}
-                                    color={e.category.color}
-                                    date={e.publishedAt}
-                                    excerpt={e.excerpt}
-                                    key={`${e.slug} 3`}
+                                    key={`${e.slug}`}
                                 />
                             </>
                         );

@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import { ImageContainer } from "components/ImageContainer";
 import SkyImage from "../src/assets/imgs/Sky.png";
 import { useScreen } from "hooks/useScreen";
-import { AuthorProfile } from "components/AuthorProfile";
 import { useState } from "react";
 import { getAbout } from "services/getabout";
 import { MarkDownContent } from "components/MarkDownContent";
@@ -21,7 +20,7 @@ const About: NextPage = ({ data }: any) => {
                     alt={"Imagem de uma paisagem"}
                 />
             )}
-            {!!isTablet && <AuthorProfile />}
+
             <div className="post-wrapper-content">
                 <MarkDownContent>{aboutmeContent}</MarkDownContent>
                 {!!isTablet && <SocialBar />}

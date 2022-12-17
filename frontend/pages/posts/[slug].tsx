@@ -1,7 +1,6 @@
 import { Image } from "components/Image";
 import { Title } from "components/Title";
 import { RecommendedArticles } from "components/RecommendedArticles";
-import { useScreen } from "hooks/useScreen";
 import { GoTopButton } from "components/GoTopButton";
 
 import { listArticles, readArticle } from "services/articles";
