@@ -31,6 +31,7 @@ const Home: NextPage = ({ pageData }: any) => {
                 flexDirection="column"
                 padding={{ base: "1rem 2rem", lg: "1.5rem 3rem" }}
                 maxW="100vw"
+                minH="100%"
             >
                 <Heading mb="2rem" size="md">
                     Todos os artigos
