@@ -7,8 +7,7 @@ import {
     Text,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { Image } from "components/Image";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 type ArticleProps = {
@@ -49,7 +48,6 @@ export const Article = ({
                 transition="transform ease-in-out 0.3s"
                 {...props}
                 _hover={{
-                    transform: "scale(1.02)",
                     cursor: "pointer",
                 }}
             >
@@ -70,7 +68,7 @@ export const Article = ({
                     </Text>
                 </CardBody>
                 <CardFooter justify="space-between">
-                    <Text fontWeight={700}  textColor={color}>
+                    <Text fontWeight={700} textColor={color}>
                         {category}
                     </Text>
                     <Text as="time" textColor={textColor}>

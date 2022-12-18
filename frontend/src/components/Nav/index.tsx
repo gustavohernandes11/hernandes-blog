@@ -22,7 +22,7 @@ export const Nav = ({ ...props }) => {
                     <MenuItem value="Início" href="/" />
                     <MenuItem value="Sobre" href="/about" />
                 </MenuOptionGroup>
-                <MenuOptionGroup
+                {/* <MenuOptionGroup
                     textColor={
                         colorMode === "dark" ? "#949494" : "custom.darkPurple"
                     }
@@ -31,7 +31,7 @@ export const Nav = ({ ...props }) => {
                     <MenuItem value="Backend" href="/" />
                     <MenuItem value="Frontend" href="/" />
                     <MenuItem value="Design" href="/" />
-                </MenuOptionGroup>
+                </MenuOptionGroup> */}
             </Menu>
         </Container>
     );

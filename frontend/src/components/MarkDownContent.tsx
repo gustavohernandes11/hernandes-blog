@@ -13,6 +13,9 @@ import ReactMarkdown from "react-markdown";
 import { CodeContainer } from "components/CodeContainer";
 
 export const MarkDownContent = ({ children }: any): JSX.Element => {
+    const config = {
+        fontSize: 16,
+    };
     return (
         <ReactMarkdown
             components={{
@@ -25,7 +28,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                 },
                 p({ children, ...props }) {
                     return (
-                        <Text fontSize="1.1rem" {...props}>
+                        <Text fontSize={config.fontSize} {...props}>
                             {children}
                         </Text>
                     );
@@ -76,7 +79,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                 ul: UnorderedList,
                 li({ children, ...props }) {
                     return (
-                        <ListItem {...props} fontSize="1.1rem">
+                        <ListItem {...props} fontSize={config.fontSize}>
                             {children}
                         </ListItem>
                     );
@@ -94,7 +97,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                     ) : (
                         <Code
                             className={className}
-                            fontSize="1.1rem"
+                            fontSize={config.fontSize}
                             {...props}
                         >
                             {children}
