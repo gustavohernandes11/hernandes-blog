@@ -1,24 +1,19 @@
 import type { NextPage } from "next";
-import { ImageContainer } from "components/ImageContainer";
-import SkyImage from "../src/assets/imgs/Sky.png";
 import { useState } from "react";
 import { getAbout } from "services/getabout";
 import { MarkDownContent } from "components/MarkDownContent";
-import { Title } from "components/Title";
+import { Flex } from "@chakra-ui/react";
 
 const About: NextPage = ({ data }: any) => {
     const [aboutmeContent] = useState(data);
     return (
         <>
-            <ImageContainer
-                content={<Title>Sobre o autor</Title>}
-                src={SkyImage}
-                alt={"Imagem de uma paisagem"}
-            />
-
-            <div className="post-wrapper-content">
-                <MarkDownContent>{aboutmeContent}</MarkDownContent>
-            </div>
+            <title>Hernandes | Sobre</title>
+            <Flex m="2rem" minH="100%" flexDirection="column" as="section">
+                <div className="post-wrapper-content">
+                    <MarkDownContent>{aboutmeContent}</MarkDownContent>
+                </div>
+            </Flex>
         </>
     );
 };
