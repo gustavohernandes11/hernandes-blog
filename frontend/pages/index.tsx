@@ -4,7 +4,7 @@ import { Article } from "components/Article";
 import { Pagination } from "components/Pagination";
 import { listArticles } from "services/articles";
 import { useState } from "react";
-import { Container, Heading, useColorMode } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 
 type ElementArticleType = {
     category: any;
@@ -19,19 +19,17 @@ type ElementArticleType = {
 const Home: NextPage = ({ pageData }: any) => {
     const [articles] = useState(pageData.articleList);
     const [pagination] = useState(pageData.pagination);
-    const { colorMode } = useColorMode();
 
     return (
         <>
             <title>Hernandes | Blog de desenvolvimento web</title>
             <Container
-                bgColor={colorMode === "dark" ? "custom.background" : "white"}
-                color={colorMode === "dark" ? "custom.light" : "black"}
+                bgColor="background"
+                color="textColor"
                 display="flex"
                 flexDirection="column"
                 padding={{ base: "1rem 2rem", lg: "1.5rem 3rem" }}
                 maxW="100vw"
-                minH="100%"
             >
                 <Heading mb="2rem" size="md">
                     Todos os artigos

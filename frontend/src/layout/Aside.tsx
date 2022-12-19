@@ -12,11 +12,11 @@ export const Aside = ({ ...props }) => {
             display={["none", null, null, "flex"]}
             position="relative"
             flexDirection="column"
-            bgColor={colorMode === "dark" ? "custom.darkPurple" : "custom.gray"}
-            color="custom.text"
+            bgColor="backgroundTertiary"
+            color="textColor"
             gap="3rem"
             borderRight="1px solid"
-            borderColor="custom.border"
+            borderColor="borderColor"
             className="aside"
             padding={["2rem", null, null, "3rem"]}
             height="100vh"

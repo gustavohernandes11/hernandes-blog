@@ -6,11 +6,10 @@ import { listArticles, readArticle } from "services/articles";
 import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
-import { Container, Flex, useColorMode } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 
 const Post = ({ articleData }: any) => {
     const [article] = useState(articleData);
-    const { colorMode } = useColorMode();
 
     return (
         <>
@@ -21,8 +20,9 @@ const Post = ({ articleData }: any) => {
             />
             <Flex
                 flexDirection="column"
-                bgColor={colorMode === "dark" ? "custom.background" : "white"}
-                color={colorMode === "dark" ? "custom.light" : "black"}
+                bgColor="background"
+                color="textColor"
+                overflowY="auto"
             >
                 <Image
                     src={article.hero.url}

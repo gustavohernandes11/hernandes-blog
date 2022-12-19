@@ -9,6 +9,7 @@ import {
     DrawerBody,
     DrawerFooter,
     useColorMode,
+    Text,
 } from "@chakra-ui/react";
 import { Logo } from "components/Logo";
 
@@ -25,16 +26,13 @@ export const MenuModal = () => {
             >
                 <DrawerOverlay zIndex="99" />
                 <DrawerContent
-                    bgColor={
-                        colorMode === "dark" ? "custom.darkPurple" : "#ebebeb"
-                    }
+                    bgColor="backgroundTertiary"
                     borderRadius="0 16px 16px 0"
                 >
                     <DrawerHeader
-                        bgColor="custom.darkPurple"
                         padding="1.5rem"
                         borderBottom="1px solid"
-                        borderColor="custom.border"
+                        borderColor="borderColor"
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
@@ -48,8 +46,10 @@ export const MenuModal = () => {
                         display="flex"
                         justifyContent="center"
                         alignItems="center"
+                        flexDirection="column"
                     >
-                        <SocialBar />
+                        <SocialBar mb="1rem" />
+                        <Text color="textColorSecondary">{`Criado com Next.js`}</Text>
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>

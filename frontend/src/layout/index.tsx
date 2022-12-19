@@ -12,7 +12,7 @@ export const Layout = ({ children }: any) => {
             w="100%"
             maxW="100vw"
             h="100%"
-            maxH="100vh"
+            maxH={[null, null, null, "100vh"]}
             overflow="hidden"
             mb={["60px", null, null, "unset"]}
             gridTemplateColumns={{
@@ -27,8 +27,8 @@ export const Layout = ({ children }: any) => {
             <GridItem
                 area="main"
                 overflowY="auto"
-                maxH="100vh"
                 className="content"
+                maxH="100vh"
             >
                 <GridItem area="header">
                     <Header />

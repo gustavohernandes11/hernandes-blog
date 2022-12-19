@@ -23,7 +23,7 @@ export const MenuBar = () => {
             position="fixed"
             bottom={0}
             right={0}
-            backgroundColor="custom.backgroundSecondary"
+            backgroundColor="backgroundTertiary"
         >
             <ToggleThemeButton />
             <MenuButton

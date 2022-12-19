@@ -5,7 +5,6 @@ import {
     CardHeader,
     Heading,
     Text,
-    useColorModeValue,
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -39,12 +38,11 @@ export const Article = ({
     const props = {
         color: color,
     };
-    const textColor = useColorModeValue("custom.darkPurple", "custom.gray");
-    const bgColor = useColorModeValue("custom.gray", "custom.darkPurple");
     return (
         <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
             <Card
-                bgColor={bgColor}
+                bgColor="backgroundSecondary"
+                border="borderColor"
                 transition="transform ease-in-out 0.3s"
                 {...props}
                 _hover={{
@@ -60,10 +58,10 @@ export const Article = ({
                     />
                 </CardHeader>
                 <CardBody py={0}>
-                    <Heading size="md" my="1rem" textColor={textColor}>
+                    <Heading size="md" my="1rem" textColor="textColor">
                         {title}
                     </Heading>
-                    <Text size="md" textColor={textColor}>
+                    <Text size="md" textColor="textColor">
                         {excerpt}
                     </Text>
                 </CardBody>
@@ -71,7 +69,7 @@ export const Article = ({
                     <Text fontWeight={700} textColor={color}>
                         {category}
                     </Text>
-                    <Text as="time" textColor={textColor}>
+                    <Text as="time" textColor="textColor">
                         {date}
                     </Text>
                 </CardFooter>

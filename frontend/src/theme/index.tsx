@@ -1,6 +1,4 @@
-import { extendTheme, useColorMode } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
-import type { StyleFunctionProps } from "@chakra-ui/styled-system";
+import { extendTheme } from "@chakra-ui/react";
 
 const config = {
     initialColorMode: "dark",
@@ -61,19 +59,9 @@ const colors = {
         600: "#322743",
         700: "#2b223a",
         800: "#2b223a",
-        900: "#251d31",
+        900: "#1b1524",
     },
-    darkGray: {
-        100: "#3d3d3d",
-        200: "#3b3b3b",
-        300: "#3a3a3a",
-        400: "#313131",
-        500: "#2b2b2b",
-        600: "#202020",
-        700: "#2b2b2b",
-        800: "#202020",
-        900: "#1f1f1f",
-    },
+
     black: {
         100: "#292929",
         200: "#242424",
@@ -86,15 +74,47 @@ const colors = {
         900: "#101010",
     },
     custom: {
-        background: "#121212",
-        backgroundSecondary: "#171717",
-        backgroundTertiary: "#1A1A1A",
-        border: "#6d6d6d",
         darkPurple: "#1B1920",
         light: "#FFFFFF",
         dark: "#121212",
-        gray: "#f5f5f5",
     },
 };
 
-export const theme = extendTheme({ colors, components, config });
+const semanticTokens = {
+    colors: {
+        background: {
+            _dark: "#121212",
+            _light: "#fff",
+        },
+        backgroundSecondary: {
+            _dark: "#171717",
+            _light: "#f8f8f8",
+        },
+        backgroundTertiary: {
+            _dark: "#1A1A1A",
+            _light: "#f5f5f5",
+        },
+        textColor: {
+            _dark: "#f5f5f5",
+            _light: "#121212",
+        },
+        textColorSecondary: {
+            _dark: "#e4e4e4",
+            _light: "#242424",
+        },
+        purple: {
+            _dark: "purple.300",
+            _light: "purple.700",
+        },
+        borderColor: {
+            _dark: "#6d6d6d",
+            _light: "#c0c0c0",
+        },
+    },
+};
+export const theme = extendTheme({
+    colors,
+    semanticTokens,
+    components,
+    config,
+});

@@ -1,4 +1,4 @@
-import { Flex, Icon, IconButton, Menu, useColorMode } from "@chakra-ui/react";
+import { Flex, Icon, IconButton } from "@chakra-ui/react";
 import { Menu as MenuIcon, X } from "@styled-icons/feather";
 import { ToggleThemeButton } from "components/ToggleThemeButton";
 import { useMenuContext } from "hooks/useMenuContext";
@@ -7,17 +7,16 @@ import { Logo } from "../components/Logo";
 
 export const Header = ({ ...props }) => {
     const [isMenuOpen, setIsMenuOpen] = useMenuContext();
-    const { colorMode } = useColorMode();
 
     return (
         <Flex
             w="100%"
             maxW="100vw"
             h="100%"
-            bgColor={colorMode === "dark" ? "custom.darkGray" : "custom.gray"}
+            bgColor="backgroundTertiary"
             maxH="100vh"
             borderBottom="1px solid"
-            borderColor="custom.border"
+            borderColor="borderColor"
             padding="1rem 2rem"
             {...props}
         >
@@ -41,7 +40,9 @@ export const Header = ({ ...props }) => {
                 justifyContent="end"
             >
                 <ToggleThemeButton
-                    color={colorMode === "dark" ? "custom.gray" : "custom.dark"}
+                    colorScheme="blackAlpha"
+                    bgColor="blackAlpha.100"
+                    color="textColorSecondary"
                 />
             </Flex>
         </Flex>
@@ -54,7 +55,7 @@ const FloatingMenuButton = ({ onClick, isMenuOpen, ...props }: any) => {
             onClick={onClick}
             display="flex"
             border="1px solid"
-            borderColor="custom.border"
+            borderColor="border"
             borderRadius={6}
             aria-label={"menu"}
             colorScheme="black"
