@@ -25,7 +25,7 @@ export const MenuBar = () => {
             right={0}
             backgroundColor="backgroundTertiary"
         >
-            <ToggleThemeButton />
+            <ToggleThemeButton color="textColor" />
             <MenuButton
                 icon={Home}
                 aria-label="Go home"
@@ -51,7 +51,7 @@ export const MenuButton = ({
 }: any) => {
     return (
         <IconButton
-            color="#d9d9d9"
+            color="textColor"
             fontSize={20}
             variant={primary ? "solid" : "ghost"}
             colorScheme="darkGray"

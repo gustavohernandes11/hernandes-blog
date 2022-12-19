@@ -37,21 +37,19 @@ const Home: NextPage = ({ pageData }: any) => {
                 <ArticleList>
                     {articles.map((e: ElementArticleType) => {
                         return (
-                            <>
-                                <Article
-                                    imageSrc={e.hero.url}
-                                    imageHeight={e.hero.height}
-                                    imageWidth={e.hero.width}
-                                    imageAlt={e.hero.alternativeText}
-                                    slug={e.slug}
-                                    category={e.category.name}
-                                    title={e.title}
-                                    color={e.category.color}
-                                    date={e.publishedAt}
-                                    excerpt={e.excerpt}
-                                    key={`${e.slug}`}
-                                />
-                            </>
+                            <Article
+                                imageSrc={e.hero.url}
+                                imageHeight={e.hero.height}
+                                imageWidth={e.hero.width}
+                                imageAlt={e.hero.alternativeText}
+                                slug={e.slug}
+                                category={e.category.name}
+                                title={e.title}
+                                color={e.category.color}
+                                date={e.publishedAt}
+                                excerpt={e.excerpt}
+                                key={`${e.slug}`}
+                            />
                         );
                     })}
                 </ArticleList>
