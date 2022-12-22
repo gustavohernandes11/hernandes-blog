@@ -11,10 +11,12 @@ import {
 } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { CodeContainer } from "components/CodeContainer";
+import Image from "next/image";
 
 export const MarkDownContent = ({ children }: any): JSX.Element => {
     const config = {
         fontSize: 16,
+        my: "1rem",
     };
     return (
         <ReactMarkdown
@@ -28,7 +30,11 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                 },
                 p({ children, ...props }) {
                     return (
-                        <Text fontSize={config.fontSize} {...props}>
+                        <Text
+                            fontSize={config.fontSize}
+                            my={config.my}
+                            {...props}
+                        >
                             {children}
                         </Text>
                     );
@@ -36,47 +42,54 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                 pre: CodeContainer,
                 h1({ children }) {
                     return (
-                        <Heading my="1rem" as="h1">
+                        <Heading my={config.my} mt="3rem" as="h1" size="2xl">
                             {children}
                         </Heading>
                     );
                 },
                 h2({ children }) {
                     return (
-                        <Heading my="1rem" as="h2">
+                        <Heading my={config.my} mt="2.5rem" as="h2" size="xl">
                             {children}
                         </Heading>
                     );
                 },
                 h3({ children }) {
                     return (
-                        <Heading my="1rem" as="h3">
+                        <Heading my={config.my} mt="2rem" as="h3" size="lg">
                             {children}
                         </Heading>
                     );
                 },
                 h4({ children }) {
                     return (
-                        <Heading my="1rem" as="h4">
+                        <Heading my={config.my} as="h4" size="md">
                             {children}
                         </Heading>
                     );
                 },
                 h5({ children }) {
                     return (
-                        <Heading my="1rem" as="h5">
+                        <Heading my={config.my} as="h5" size="sm">
                             {children}
                         </Heading>
                     );
                 },
                 h6({ children }) {
                     return (
-                        <Heading my="1rem" as="h6">
+                        <Heading my={config.my} as="h6" size="xl">
                             {children}
                         </Heading>
                     );
                 },
-                ul: UnorderedList,
+
+                ul({ children, ...props }) {
+                    return (
+                        <UnorderedList my={config.my} pl={"2rem"} {...props}>
+                            {children}
+                        </UnorderedList>
+                    );
+                },
                 li({ children, ...props }) {
                     return (
                         <ListItem {...props} fontSize={config.fontSize}>
@@ -88,7 +101,10 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                     const match = /language-(\w+)/.exec(className || "");
                     return !inline && match ? (
                         <SyntaxHighlighter
-                            customStyle={{ fontSize: "1.1rem" }}
+                            customStyle={{
+                                fontSize: config.fontSize,
+                                marginInline: 0,
+                            }}
                             children={String(children).replace(/\n$/, "")}
                             style={atomDark}
                             language={match[1]}
@@ -96,6 +112,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                         />
                     ) : (
                         <Code
+                            m={0}
                             className={className}
                             fontSize={config.fontSize}
                             {...props}

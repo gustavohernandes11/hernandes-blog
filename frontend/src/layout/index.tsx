@@ -9,6 +9,7 @@ import { Header } from "./Header";
 export const Layout = ({ children }: any) => {
     return (
         <Grid
+            bgColor="background"
             w="100%"
             maxW="100vw"
             h="100%"
@@ -34,9 +35,9 @@ export const Layout = ({ children }: any) => {
                     <Header />
                 </GridItem>
                 {children}
-                <GridItem area="footer">
+                {/* <GridItem area="footer">
                     <Footer />
-                </GridItem>
+                </GridItem> */}
             </GridItem>
             <GridItem area="aside">
                 <Aside />
