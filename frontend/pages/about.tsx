@@ -6,10 +6,18 @@ import { Flex } from "@chakra-ui/react";
 
 const About: NextPage = ({ data }: any) => {
     const [aboutmeContent] = useState(data);
+    console.log(aboutmeContent);
+
     return (
         <>
             <title>Hernandes | Sobre</title>
-            <Flex m="2rem" minH="100%" flexDirection="column" as="section">
+            <Flex
+                m="2rem"
+                minH="100%"
+                flexDirection="column"
+                bgColor="background"
+                as="section"
+            >
                 <div className="post-wrapper-content">
                     <MarkDownContent>{aboutmeContent}</MarkDownContent>
                 </div>

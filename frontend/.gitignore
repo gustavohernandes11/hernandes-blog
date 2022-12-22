@@ -5,8 +5,8 @@
 /.pnp
 .pnp.js
 todo.txt
-
-
+__mocks
+pages/posts/teste.tsx
 # testing
 /coverage
 

@@ -37,7 +37,12 @@ const Post = ({ articleData }: any) => {
                     <b>{article.category.name}</b>
                 </Flex>
 
-                <Flex mx="2rem" mb="2rem" flexDirection="column" as="section">
+                <Flex
+                    mx={["1rem", null, "2rem", "5rem"]}
+                    mb="2rem"
+                    flexDirection="column"
+                    as="section"
+                >
                     <Container
                         size="lg"
                         as="article"
