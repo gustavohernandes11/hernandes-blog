@@ -5,6 +5,7 @@ import { Pagination } from "components/Pagination";
 import { listArticles } from "services/articles";
 import { useState } from "react";
 import { Container, Heading } from "@chakra-ui/react";
+import { mock_articles } from "__mocks/articles";
 
 type ElementArticleType = {
     category: any;
@@ -68,7 +69,9 @@ const Home: NextPage = ({ pageData }: any) => {
 export default Home;
 
 export async function getStaticProps() {
-    const pageData = await listArticles();
+    const pageData = await listArticles().catch(() => {
+        throw new Error("The backend server is probably down");
+    });
 
     if (!pageData) {
         return {
