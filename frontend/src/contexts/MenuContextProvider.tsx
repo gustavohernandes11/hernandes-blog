@@ -1,18 +1,16 @@
-import { createContext, useState } from "react";
+import { useDisclosure } from "@chakra-ui/react";
+import { createContext } from "react";
 
-export const MenuContext = createContext<[any, any]>([{}, {}]);
+export const MenuContext = createContext<any>({});
 
 type ContextProps = {
-    children: React.ReactNode | React.ReactNode[]
-}
+    children: React.ReactNode | React.ReactNode[];
+};
 
 export const MenuContextProvider = ({ children }: ContextProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const context = useDisclosure();
 
     return (
-        <MenuContext.Provider value={[isOpen, setIsOpen]}>
-            {children}
-        </MenuContext.Provider>
-    )
-}
-
+        <MenuContext.Provider value={context}>{children}</MenuContext.Provider>
+    );
+};

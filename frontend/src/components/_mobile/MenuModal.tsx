@@ -10,25 +10,20 @@ import {
     DrawerFooter,
     useColorMode,
     Text,
+    useDisclosure,
 } from "@chakra-ui/react";
 import { Logo } from "components/Logo";
 
 export const MenuModal = () => {
-    const [isMenuOpen, setIsMenuOpen] = useMenuContext();
+    const { isOpen, onOpen, onClose } = useMenuContext();
+    // const { isOpen, onOpen, onClose } = useDisclosure();
     const { colorMode } = useColorMode();
 
     return (
         <>
-            <Drawer
-                isOpen={isMenuOpen}
-                placement="left"
-                onClose={() => setIsMenuOpen(false)}
-            >
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
                 <DrawerOverlay zIndex="99" />
-                <DrawerContent
-                    bgColor="backgroundTertiary"
-                    borderRadius="0 16px 16px 0"
-                >
+                <DrawerContent bgColor="backgroundTertiary">
                     <DrawerHeader
                         padding="1.5rem"
                         borderBottom="1px solid"

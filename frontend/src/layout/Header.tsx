@@ -6,7 +6,8 @@ import React from "react";
 import { Logo } from "../components/Logo";
 
 export const Header = ({ ...props }) => {
-    const [isMenuOpen, setIsMenuOpen] = useMenuContext();
+    // const [isMenuOpen, setIsMenuOpen] = useMenuContext();
+    const { isOpen, onOpen, onClose, onToggle } = useMenuContext();
 
     return (
         <Flex
@@ -30,8 +31,8 @@ export const Header = ({ ...props }) => {
 
             <FloatingMenuButton
                 display={{ lg: "none", base: "flex" }}
-                isMenuOpen={isMenuOpen}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                isMenuOpen={isOpen}
+                onClick={onToggle}
             />
             <Flex
                 display={{ lg: "flex", base: "none" }}

@@ -12,13 +12,10 @@ export function NavLink({
     href,
     ...props
 }: NavLinkType): JSX.Element {
-    const [, setIsMenuOpen] = useMenuContext();
+    const { onToggle } = useMenuContext();
 
-    const handleClick = () => {
-        setIsMenuOpen(false);
-    };
     return (
-        <Link href={href} onClick={handleClick} passHref {...props}>
+        <Link href={href} onClick={onToggle} passHref {...props}>
             <Text
                 fontSize="1rem"
                 fontWeight="semibold"
