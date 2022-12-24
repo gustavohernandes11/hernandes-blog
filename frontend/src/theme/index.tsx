@@ -92,7 +92,7 @@ const semanticTokens = {
         },
         backgroundTertiary: {
             _dark: "#1A1A1A",
-            _light: "#f5f5f5",
+            _light: "#fcfcfc",
         },
         textColor: {
             _dark: "#f5f5f5",
@@ -102,9 +102,9 @@ const semanticTokens = {
             _dark: "#e4e4e4",
             _light: "#242424",
         },
-        purple: {
-            _dark: "purple.300",
-            _light: "purple.700",
+        primaryColor: {
+            _dark: "#9f3cee",
+            _light: "#6320c8",
         },
         borderColor: {
             _dark: "#6d6d6d",

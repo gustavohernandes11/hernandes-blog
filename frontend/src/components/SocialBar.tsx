@@ -16,22 +16,22 @@ export const SocialBar = ({ ...props }) => {
             {...props}
         >
             <ListItem>
-                <IconButton aria-label="github-social">
+                <IconButton aria-label="github-social" variant="ghost">
                     <Link
                         href="https://github.com/gustavohernandes11"
                         target="_blank"
                     >
-                        <Github height={20} width={20} color="#d9d9d9" />
+                        <Github height={20} width={20} color="primaryColor" />
                     </Link>
                 </IconButton>
             </ListItem>
             <ListItem>
-                <IconButton aria-label="linkedin-social">
+                <IconButton aria-label="linkedin-social" variant="ghost">
                     <Link
                         href="https://www.linkedin.com/in/gustavo-hernandes11/"
                         target="_blank"
                     >
-                        <Linkedin height={20} width={20} color="#d9d9d9" />
+                        <Linkedin height={20} width={20} color="primaryColor" />
                     </Link>
                 </IconButton>
             </ListItem>

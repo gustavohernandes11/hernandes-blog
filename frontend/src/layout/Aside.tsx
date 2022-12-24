@@ -1,12 +1,10 @@
-import { Center, Container, useColorMode } from "@chakra-ui/react";
+import { Center, Container } from "@chakra-ui/react";
 import { Nav } from "../components/Nav";
 import { SocialBar } from "../components/SocialBar";
 import React from "react";
 import { Logo } from "components/Logo";
 
 export const Aside = ({ ...props }) => {
-    const { colorMode } = useColorMode();
-
     return (
         <Container
             display={["none", null, null, "flex"]}
@@ -18,7 +16,7 @@ export const Aside = ({ ...props }) => {
             borderRight="1px solid"
             borderColor="borderColor"
             className="aside"
-            padding="2rem"
+            padding="1.5rem"
             height="100vh"
             {...props}
         >

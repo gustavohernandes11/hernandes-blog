@@ -6,7 +6,8 @@
 .pnp.js
 todo.txt
 __mocks
-pages/posts/teste.tsx
+pages/posts/test-post-page.tsx
+pages/test-home-page.tsx
 # testing
 /coverage
 
