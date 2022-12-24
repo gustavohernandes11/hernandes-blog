@@ -1,5 +1,6 @@
 import {
     Container,
+    Flex,
     Menu,
     MenuItemOption,
     MenuOptionGroup,
@@ -8,13 +9,20 @@ import { NavLink } from "./NavLink";
 
 export const Nav = ({ ...props }) => {
     return (
-        <Container as="nav">
-            <Menu {...props} size="lg">
-                <MenuOptionGroup textColor="textColorSecondary" title="Menu">
-                    <MenuItem value="Início" href="/" />
-                    <MenuItem value="Sobre" href="/about" />
-                </MenuOptionGroup>
-                {/* <MenuOptionGroup
+        <Flex
+            as="nav"
+            flexDirection="column"
+            gap="0.75rem"
+            align="center"
+            justify="center"
+            {...props}
+        >
+            {/* <MenuOptionGroup textColor="textColorSecondary" title="Menu"> */}
+
+            <NavLink href="/">Início</NavLink>
+            <NavLink href="/about">Sobre</NavLink>
+            {/* </MenuOptionGroup> */}
+            {/* <MenuOptionGroup
                     textColor="textColorSecondary"
                     title="Categorias"
                 >
@@ -22,8 +30,7 @@ export const Nav = ({ ...props }) => {
                     <MenuItem value="Frontend" href="/" />
                     <MenuItem value="Design" href="/" />
                 </MenuOptionGroup> */}
-            </Menu>
-        </Container>
+        </Flex>
     );
 };
 

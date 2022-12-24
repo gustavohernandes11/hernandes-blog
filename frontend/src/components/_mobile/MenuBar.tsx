@@ -3,15 +3,17 @@ import { Home, ChevronsUp } from "@styled-icons/feather";
 import Link from "next/link";
 import { Flex, Icon, IconButton } from "@chakra-ui/react";
 import { ToggleThemeButton } from "components/ToggleThemeButton";
+import { useMotionValue, useScroll } from "framer-motion";
+import { useEffect } from "react";
 
 export const MenuBar = () => {
-    function backToTop() {
-        const content = document.getElementsByClassName("content");
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+    const { scrollYProgress } = useScroll();
+    const finalScroll = useMotionValue(1);
 
-        content[0].scrollTop = 0;
-    }
+    useEffect(() => {
+        console.log(scrollYProgress);
+        console.log(finalScroll);
+    }, [scrollYProgress, finalScroll]);
 
     return (
         <Flex
@@ -37,6 +39,11 @@ export const MenuBar = () => {
                 icon={ChevronsUp}
                 aria-label="Go top"
                 onClick={backToTop}
+                color={
+                    scrollYProgress.get() === finalScroll.get()
+                        ? "primaryColor"
+                        : "textColor"
+                }
             />
         </Flex>
     );
@@ -63,3 +70,11 @@ export const MenuButton = ({
         </IconButton>
     );
 };
+
+function backToTop() {
+    const content = document.getElementsByClassName("content");
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
+    content[0].scrollTop = 0;
+}

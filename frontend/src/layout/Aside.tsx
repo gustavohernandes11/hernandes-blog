@@ -1,4 +1,4 @@
-import { Center, Container } from "@chakra-ui/react";
+import { Center, Container, Text } from "@chakra-ui/react";
 import { Nav } from "../components/Nav";
 import { SocialBar } from "../components/SocialBar";
 import React from "react";
@@ -12,7 +12,6 @@ export const Aside = ({ ...props }) => {
             flexDirection="column"
             bgColor="backgroundTertiary"
             color="textColor"
-            gap="3rem"
             borderRight="1px solid"
             borderColor="borderColor"
             className="aside"
@@ -23,8 +22,13 @@ export const Aside = ({ ...props }) => {
             <Center>
                 <Logo />
             </Center>
-            <Nav />
+            <Nav my="auto" />
             <SocialBar mt="auto" />
+            <Text
+                align="center"
+                fontSize="xs"
+                color="textColorSecondary"
+            >{`Criado com Next.js`}</Text>
         </Container>
     );
 };
