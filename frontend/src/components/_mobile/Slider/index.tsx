@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "@styled-icons/feather";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Article } from "components/Article";
-import { ArticleData } from "services/articles";
+import { ArticleData } from "strapi-api/strapiApiTypes";
 import { IconButton } from "@chakra-ui/react";
 
 export const NextButton = ({ onClick }: any) => {

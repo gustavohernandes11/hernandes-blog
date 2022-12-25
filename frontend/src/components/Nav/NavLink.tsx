@@ -12,16 +12,16 @@ export function NavLink({
     href,
     ...props
 }: NavLinkType): JSX.Element {
-    const { onToggle } = useMenuContext();
+    const { onClose } = useMenuContext();
 
     return (
-        <Link href={href} onClick={onToggle} passHref {...props}>
+        <Link href={href} onClick={onClose} passHref {...props}>
             <Text
                 fontSize="1rem"
                 fontWeight="semibold"
                 textDecoration="none"
                 _hover={{ cursor: "pointer" }}
-                color="white"
+                color="textColor"
             >
                 {children}
             </Text>

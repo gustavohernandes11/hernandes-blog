@@ -1,6 +1,11 @@
 import { Grid } from "@chakra-ui/react";
+import React from "react";
 
-export const ArticleList: any = ({ children }: any) => {
+type ArticleListChildren = {
+    children: React.ReactNode | React.ReactNode[];
+};
+
+export const ArticleList = ({ children }: ArticleListChildren) => {
     return (
         <Grid
             templateColumns="repeat(auto-fill, minmax(18rem, 1fr))"

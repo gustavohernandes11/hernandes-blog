@@ -10,13 +10,11 @@ import {
     DrawerFooter,
     useColorMode,
     Text,
-    useDisclosure,
 } from "@chakra-ui/react";
 import { Logo } from "components/Logo";
 
 export const MenuModal = () => {
-    const { isOpen, onOpen, onClose } = useMenuContext();
-    const { colorMode } = useColorMode();
+    const { isOpen, onClose } = useMenuContext();
 
     return (
         <>
