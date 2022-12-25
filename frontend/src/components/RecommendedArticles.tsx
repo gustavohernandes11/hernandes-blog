@@ -1,6 +1,6 @@
 import { Article } from "components/Article";
 import { SliderComponent } from "components/_mobile/Slider";
-import { ArticleData } from "services/articles";
+import { ArticleData } from "strapi-api/strapiApiTypes";
 import { useRouter } from "next/router";
 import { Container, Grid, Text } from "@chakra-ui/react";
 

@@ -17,19 +17,8 @@ export const Nav = ({ ...props }) => {
             justify="center"
             {...props}
         >
-            {/* <MenuOptionGroup textColor="textColorSecondary" title="Menu"> */}
-
             <NavLink href="/">Início</NavLink>
             <NavLink href="/about">Sobre</NavLink>
-            {/* </MenuOptionGroup> */}
-            {/* <MenuOptionGroup
-                    textColor="textColorSecondary"
-                    title="Categorias"
-                >
-                    <MenuItem value="Backend" href="/" />
-                    <MenuItem value="Frontend" href="/" />
-                    <MenuItem value="Design" href="/" />
-                </MenuOptionGroup> */}
         </Flex>
     );
 };

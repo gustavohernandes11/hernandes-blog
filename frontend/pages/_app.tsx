@@ -9,7 +9,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ChakraProvider theme={theme}>
-            <GlobalStyles />
+            {/* <GlobalStyles /> */}
             <MenuContextProvider>
                 <Layout>
                     <Component {...pageProps} />

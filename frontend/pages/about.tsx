@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { getAbout } from "services/getabout";
+import { getAbout } from "strapi-api/getAbout";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Flex } from "@chakra-ui/react";
 

@@ -2,10 +2,9 @@ import type { NextPage } from "next";
 import { ArticleList } from "../src/components/ArticleList";
 import { Article } from "components/Article";
 import { Pagination } from "components/Pagination";
-import { listArticles } from "services/articles";
+import { listArticles } from "strapi-api/listArticles";
 import { useState } from "react";
 import { Container, Heading } from "@chakra-ui/react";
-import { mock_articles } from "__mocks/articles";
 
 type ElementArticleType = {
     category: any;

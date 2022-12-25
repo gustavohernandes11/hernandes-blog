@@ -6,8 +6,7 @@ import React from "react";
 import { Logo } from "../components/Logo";
 
 export const Header = ({ ...props }) => {
-    // const [isMenuOpen, setIsMenuOpen] = useMenuContext();
-    const { isOpen, onOpen, onClose, onToggle } = useMenuContext();
+    const { isOpen, onToggle } = useMenuContext();
 
     return (
         <Flex
@@ -42,7 +41,6 @@ export const Header = ({ ...props }) => {
             >
                 <ToggleThemeButton
                     colorScheme="blackAlpha"
-                    bgColor="blackAlpha.100"
                     color="textColorSecondary"
                 />
             </Flex>
@@ -56,14 +54,14 @@ const FloatingMenuButton = ({ onClick, isMenuOpen, ...props }: any) => {
             onClick={onClick}
             display="flex"
             border="1px solid"
-            borderColor="border"
+            borderColor="borderColor"
             borderRadius={6}
             aria-label={"menu"}
             colorScheme="black"
             position="fixed"
             top="1rem"
             right="2rem"
-            zIndex="overlay"
+            zIndex="popover"
             {...props}
         >
             <Icon

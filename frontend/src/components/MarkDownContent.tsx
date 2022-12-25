@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { CodeContainer } from "components/CodeContainer";
-import Image from "next/image";
 
 export const MarkDownContent = ({ children }: any): JSX.Element => {
     const config = {

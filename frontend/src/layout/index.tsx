@@ -3,7 +3,6 @@ import { MenuBar } from "components/_mobile/MenuBar";
 import { MenuModal } from "components/_mobile/MenuModal";
 import { Aside } from "layout/Aside";
 import React from "react";
-import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 export const Layout = ({ children }: any) => {
@@ -21,7 +20,7 @@ export const Layout = ({ children }: any) => {
                 lg: "300px 1fr",
             }}
             gridTemplateAreas={{
-                base: `"aside" "main"`,
+                base: `"main"`,
                 lg: `"aside main"`,
             }}
         >
@@ -35,9 +34,6 @@ export const Layout = ({ children }: any) => {
                     <Header />
                 </GridItem>
                 {children}
-                {/* <GridItem area="footer">
-                    <Footer />
-                </GridItem> */}
             </GridItem>
             <GridItem area="aside">
                 <Aside />

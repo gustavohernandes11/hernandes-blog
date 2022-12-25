@@ -7,31 +7,37 @@ export const SocialBar = ({ ...props }) => {
         <List
             display="flex"
             flexDirection="row"
-            gap="0.5rem"
             textDecor="none"
             listStyleType="none"
             justifyContent="center"
             padding="0"
-            className="social-bar"
             {...props}
         >
             <ListItem>
-                <IconButton aria-label="github-social" variant="ghost">
+                <IconButton
+                    aria-label="github-social"
+                    textColor="primaryColor"
+                    variant="ghost"
+                >
                     <Link
                         href="https://github.com/gustavohernandes11"
                         target="_blank"
                     >
-                        <Github height={20} width={20} color="primaryColor" />
+                        <Github height={20} width={20} />
                     </Link>
                 </IconButton>
             </ListItem>
             <ListItem>
-                <IconButton aria-label="linkedin-social" variant="ghost">
+                <IconButton
+                    aria-label="linkedin-social"
+                    variant="ghost"
+                    textColor="primaryColor"
+                >
                     <Link
                         href="https://www.linkedin.com/in/gustavo-hernandes11/"
                         target="_blank"
                     >
-                        <Linkedin height={20} width={20} color="primaryColor" />
+                        <Linkedin height={20} width={20} />
                     </Link>
                 </IconButton>
             </ListItem>
