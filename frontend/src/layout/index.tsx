@@ -28,7 +28,7 @@ export const Layout = ({ children }: any) => {
                 area="main"
                 overflowY="auto"
                 className="content"
-                maxH="100vh"
+                maxH={["calc(100vh-60px)", null, null, "100vh"]}
             >
                 <GridItem area="header">
                     <Header />

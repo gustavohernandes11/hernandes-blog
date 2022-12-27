@@ -30,8 +30,8 @@ export function CodeContainer({ children }: CodeContainerType) {
             w="100%"
             ref={codeRef}
             aria-label="code-container"
-            onMouseOver={() => setisHover(() => true)}
-            onMouseLeave={() => setisHover(() => false)}
+            onMouseOver={() => setisHover(true)}
+            onMouseLeave={() => setisHover(false)}
         >
             {children}
 

@@ -28,6 +28,7 @@ export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
                         excerpt={article.excerpt}
                         date={article.date}
                         slug={article.slug}
+                        key={article.title}
                         direction={i === 1 ? "right" : "left"}
                     />
                 );

@@ -1,7 +1,6 @@
 import request from "graphql-request";
 import { QUERY_READ_ARTICLE } from "graphql/queries/readArticle";
 import { ArticleData } from "./strapiApiTypes";
-import { listArticles } from "./listArticles";
 
 export const readArticle = async (slug: string): Promise<ArticleData> => {
     const data = await request(
@@ -34,8 +33,6 @@ export const readArticle = async (slug: string): Promise<ArticleData> => {
     const metadata: { title: string; description: string; keywords: string } =
         data.attributes?.meta;
 
-    const recommendedArticles = await listArticles({ limit: 3 });
-
     const formattedData = Intl.DateTimeFormat("pt-BR", {
         dateStyle: "medium",
     }).format(new Date(articleData.publishedAt));
@@ -47,7 +44,6 @@ export const readArticle = async (slug: string): Promise<ArticleData> => {
         category,
         author,
         metadata,
-        recommendedArticles,
         publishedAt: formattedData,
     };
 

@@ -10,7 +10,6 @@ export const listArticles = async (
         limit: 10,
         start: 0,
     };
-
     const data = await request(
         `${process.env.NEXT_PUBLIC_CMS_URL_GRAPHQL}`,
         QUERY_LIST_ARTICLES,

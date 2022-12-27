@@ -5,6 +5,7 @@ import {
     CardHeader,
     Heading,
     Text,
+    Skeleton,
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -47,9 +48,15 @@ export const Article = ({
                 {...props}
                 _hover={{
                     cursor: "pointer",
+                    bgColor: "backgroundTertiary",
                 }}
             >
-                <CardHeader p={0}>
+                <CardHeader
+                    p={0}
+                    maxH="10rem"
+                    overflow="hidden"
+                    borderRadius="6px"
+                >
                     <Image
                         alt={imageAlt}
                         src={imageSrc}
