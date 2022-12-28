@@ -2,26 +2,27 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import { getAbout } from "strapi-api/getAbout";
 import { MarkDownContent } from "components/MarkDownContent";
-import { Flex } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 
 const About: NextPage = ({ data }: any) => {
     const [aboutmeContent] = useState(data);
-    console.log(aboutmeContent);
 
     return (
         <>
             <title>Hernandes | Sobre</title>
-            <Flex
-                m="2rem"
-                minH="100%"
-                flexDirection="column"
-                bgColor="background"
-                as="section"
-            >
-                <div className="post-wrapper-content">
-                    <MarkDownContent>{aboutmeContent}</MarkDownContent>
-                </div>
-            </Flex>
+            <Container size="lg" as="article" maxW="50rem">
+                <Flex
+                    m="2rem"
+                    minH="100%"
+                    flexDirection="column"
+                    bgColor="background"
+                    as="section"
+                >
+                    <div className="post-wrapper-content">
+                        <MarkDownContent>{aboutmeContent}</MarkDownContent>
+                    </div>
+                </Flex>
+            </Container>
         </>
     );
 };
