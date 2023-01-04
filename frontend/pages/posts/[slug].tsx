@@ -2,35 +2,47 @@ import { Image } from "components/Image";
 import { Title } from "components/Title";
 import { RecommendedArticles } from "components/RecommendedArticles";
 import { GoTopButton } from "components/GoTopButton";
-import { listArticles, readArticle } from "services/articles";
+import { readArticle } from "strapi-api/readArticle";
+import { listArticles } from "strapi-api/listArticles";
 import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Flex, Heading } from "@chakra-ui/react";
+import { ArticleAuthor } from "components/ArticleAuthor";
+import { listSuggestedArticles } from "strapi-api/listSuggestedArticles";
 
-const Post = ({ articleData }: any) => {
+const Post = ({ articleData, suggestedArticlesData }: any) => {
     const [article] = useState(articleData);
+    const [suggestedArticles] = useState(suggestedArticlesData);
 
     return (
         <>
             <Meta
                 description={article.metadata.description}
                 keywords={article.metadata.keywords}
-                title={article.metadata.description}
+                title={article.metadata.title}
             />
             <Flex
                 flexDirection="column"
                 bgColor="background"
                 color="textColor"
                 overflowY="auto"
+                mb={["1rem", null, "2rem"]}
             >
-                <Image
-                    src={article.hero.url}
-                    width={article.hero.width}
-                    height={article.hero.height}
-                    cape={true}
-                    alt="imagem de capa do artigo"
-                />
+                <Container
+                    w="100%"
+                    maxW="100wv"
+                    maxH="80vh"
+                    overflow="hidden"
+                    p={0}
+                >
+                    <Image
+                        src={article.hero.url}
+                        width={article.hero.width}
+                        height={article.hero.height}
+                        alt="imagem de capa do artigo"
+                    />
+                </Container>
                 <Flex as="span" flexDirection="row" mx="auto" my="1rem">
                     <time>{article.publishedAt}</time>
                     <p style={{ marginInline: "1rem" }}>•</p>
@@ -38,10 +50,10 @@ const Post = ({ articleData }: any) => {
                 </Flex>
 
                 <Flex
-                    mx={["1rem", null, "2rem", "5rem"]}
                     mb="2rem"
                     flexDirection="column"
                     as="section"
+                    px={["1rem", "2rem", null]}
                 >
                     <Container
                         size="lg"
@@ -54,12 +66,29 @@ const Post = ({ articleData }: any) => {
                         <Title>{article.title}</Title>
                         <MarkDownContent>{article.content}</MarkDownContent>
                     </Container>
-                    <RecommendedArticles
-                        items={article.recommendedArticles.articleList}
-                    />
-
-                    <GoTopButton />
                 </Flex>
+                <ArticleAuthor />
+                <Container
+                    maxW="100vw"
+                    w="100%"
+                    px={["1.75rem", "2.5rem", null]}
+                >
+                    <Heading
+                        as="h2"
+                        size="md"
+                        my={["1rem", null, null, "2rem"]}
+                        textAlign="center"
+                    >
+                        Continue lendo
+                    </Heading>
+
+                    <RecommendedArticles
+                        nextArticle={suggestedArticles.next_article}
+                        prevArticle={suggestedArticles.prev_article}
+                    />
+                </Container>
+
+                <GoTopButton />
             </Flex>
         </>
     );
@@ -88,20 +117,15 @@ type getStaticPropsType = {
     };
 };
 export async function getStaticProps({ params }: getStaticPropsType) {
-    try {
-        const articleData = await readArticle(params.slug);
+    const articleData = await readArticle(params.slug);
+    const suggestedArticlesData = await listSuggestedArticles(articleData.id);
 
-        if (!articleData) {
-            return {
-                notFound: true,
-            };
-        }
-        return {
-            props: { articleData },
-        };
-    } catch {
+    if (!articleData) {
         return {
             notFound: true,
         };
     }
+    return {
+        props: { articleData, suggestedArticlesData },
+    };
 }

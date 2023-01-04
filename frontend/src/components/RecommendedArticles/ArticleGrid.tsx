@@ -4,7 +4,8 @@ export const ArticleGrid = ({ children }: any) => {
     return (
         <SimpleGrid
             gap="1rem"
-            minChildWidth={["250px", "275px", "300px"]}
+            columns={[1, null, null, 2]}
+            order={[null, null, null, "revert"]}
             margin="1rem 0"
         >
             {children}

@@ -33,14 +33,6 @@ export const QUERY_LIST_SUGGESTED_ARTICLES = gql`
             sort: "publishedAt:asc"
             filters: { id: { lt: $actualArticleID } }
         ) {
-            meta {
-                pagination {
-                    total
-                    pageCount
-                    pageSize
-                    page
-                }
-            }
             data {
                 id
                 attributes {
@@ -59,14 +51,6 @@ export const QUERY_LIST_SUGGESTED_ARTICLES = gql`
             sort: "publishedAt:desc"
             filters: { id: { gt: $actualArticleID } }
         ) {
-            meta {
-                pagination {
-                    total
-                    pageCount
-                    pageSize
-                    page
-                }
-            }
             data {
                 id
                 attributes {

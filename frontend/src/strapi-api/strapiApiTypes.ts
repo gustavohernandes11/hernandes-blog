@@ -8,11 +8,7 @@ export type listArticlesVariables = {
 };
 
 export interface ArticleData {
-    id(
-        id: any
-    ):
-        | { prevArticleData: any; nextArticleData: any }
-        | PromiseLike<{ prevArticleData: any; nextArticleData: any }>;
+    id: number;
     title: string;
     excerpt: string;
     content?: string;
