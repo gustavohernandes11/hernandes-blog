@@ -1,6 +1,5 @@
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
-import Link from "next/link";
-import { IconButton, List, ListItem, TagLabel } from "@chakra-ui/react";
+import { IconButton, List, ListItem, Link } from "@chakra-ui/react";
 
 export const SocialBar = ({ ...props }) => {
     return (
