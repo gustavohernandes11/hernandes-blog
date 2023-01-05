@@ -41,6 +41,7 @@ const Post = ({ articleData, suggestedArticlesData }: any) => {
                         width={article.hero.width}
                         height={article.hero.height}
                         alt="imagem de capa do artigo"
+                        quality={75}
                     />
                 </Container>
                 <Flex as="span" flexDirection="row" mx="auto" my="1rem">
@@ -98,7 +99,7 @@ export default Post;
 
 export async function getStaticPaths() {
     const response = await listArticles();
-
+    console.log(response);
     const paths = response.articleList.map((e: { slug: any }) => {
         return {
             params: { slug: e.slug },

@@ -1,6 +1,6 @@
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
 import Link from "next/link";
-import { IconButton, List, ListItem } from "@chakra-ui/react";
+import { IconButton, List, ListItem, TagLabel } from "@chakra-ui/react";
 
 export const SocialBar = ({ ...props }) => {
     return (
@@ -14,35 +14,41 @@ export const SocialBar = ({ ...props }) => {
             {...props}
         >
             <ListItem>
-                <IconButton
-                    aria-label="github-social"
-                    colorScheme="blackAlpha"
-                    textColor="primaryColor"
-                    variant="ghost"
-                >
-                    <Link
-                        href="https://github.com/gustavohernandes11"
-                        target="_blank"
-                    >
-                        <Github height={20} width={20} />
-                    </Link>
-                </IconButton>
+                <SocialBarButton
+                    ariaLabel="github-social"
+                    link="https://github.com/gustavohernandes11"
+                    icon={<Github height={30} width={30} />}
+                />
             </ListItem>
             <ListItem>
-                <IconButton
-                    aria-label="linkedin-social"
-                    variant="ghost"
-                    colorScheme="blackAlpha"
-                    textColor="primaryColor"
-                >
-                    <Link
-                        href="https://www.linkedin.com/in/gustavo-hernandes11/"
-                        target="_blank"
-                    >
-                        <Linkedin height={20} width={20} />
-                    </Link>
-                </IconButton>
+                <SocialBarButton
+                    ariaLabel="linkedin-social"
+                    link="https://www.linkedin.com/in/gustavo-hernandes11/"
+                    icon={<Linkedin height={30} width={30} />}
+                />
             </ListItem>
         </List>
+    );
+};
+
+type SocialBarButtonProps = {
+    link: string;
+    ariaLabel: string;
+    icon: React.ReactNode;
+};
+
+const SocialBarButton = ({ link, ariaLabel, icon }: SocialBarButtonProps) => {
+    return (
+        <IconButton
+            aria-label={ariaLabel}
+            variant="ghost"
+            colorScheme="blackAlpha"
+            size="lg"
+            textColor="primaryColor"
+        >
+            <Link href={link} target="_blank">
+                {icon}
+            </Link>
+        </IconButton>
     );
 };

@@ -8,31 +8,44 @@ export type ArticleProps = {
         name: string;
         color: string;
     };
-    date: string;
+    publishedAt: string;
     slug: string;
     direction?: "left" | "right";
 };
 
 type RecommendedArticlesProps = {
-    items: ArticleProps[];
+    nextArticle?: ArticleProps | null;
+    prevArticle?: ArticleProps | null;
 };
 
-export const RecommendedArticles = ({ items }: RecommendedArticlesProps) => {
+export const RecommendedArticles = ({
+    nextArticle,
+    prevArticle,
+}: RecommendedArticlesProps) => {
     return (
         <ArticleGrid>
-            {items.map((article, i) => {
-                return (
-                    <SuggestedArticle
-                        category={article.category}
-                        title={article.title}
-                        excerpt={article.excerpt}
-                        date={article.date}
-                        slug={article.slug}
-                        key={article.title}
-                        direction={i === 1 ? "right" : "left"}
-                    />
-                );
-            })}
+            {!!prevArticle?.slug && (
+                <SuggestedArticle
+                    title={prevArticle?.title}
+                    category={prevArticle?.category}
+                    excerpt={prevArticle?.excerpt}
+                    publishedAt={prevArticle?.publishedAt}
+                    slug={prevArticle?.slug}
+                    key={prevArticle?.title}
+                    direction={"left"}
+                />
+            )}
+            {!!nextArticle?.slug && (
+                <SuggestedArticle
+                    category={nextArticle?.category}
+                    title={nextArticle?.title}
+                    excerpt={nextArticle?.excerpt}
+                    publishedAt={nextArticle?.publishedAt}
+                    slug={nextArticle?.slug}
+                    key={nextArticle?.title}
+                    direction={"right"}
+                />
+            )}
         </ArticleGrid>
     );
 };

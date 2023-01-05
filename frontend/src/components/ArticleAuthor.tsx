@@ -14,7 +14,7 @@ export const ArticleAuthor = ({ ...props }) => {
             <Center
                 maxW="35rem"
                 mx="auto"
-                my={["1.75rem", "2rem", "4rem"]}
+                my={["1.75rem", "2rem", null]}
                 p="1rem"
                 flexDirection="column"
                 gap="0.5rem"
@@ -27,12 +27,7 @@ export const ArticleAuthor = ({ ...props }) => {
                     src="https://github.com/gustavohernandes11.png"
                 />
 
-                <Text>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eligendi, ratione consequatur. In neque excepturi architecto
-                    nulla! Numquam libero fugit voluptate tempore totam illum,
-                    cumque necessitatibus non facilis impedit nemo accusantium!
-                </Text>
+                <Text>Eu.</Text>
                 <SocialBar />
             </Center>
         </Container>

@@ -40,47 +40,53 @@ export const Article = ({
         color: color,
     };
     return (
-        <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
-            <Card
-                bgColor="backgroundSecondary"
-                border="borderColor"
-                transition="transform ease-in-out 0.3s"
-                {...props}
-                _hover={{
-                    cursor: "pointer",
-                    bgColor: "backgroundTertiary",
-                }}
-            >
-                <CardHeader
-                    p={0}
-                    maxH="10rem"
-                    overflow="hidden"
-                    borderRadius="6px"
-                >
-                    <Image
-                        alt={imageAlt}
-                        src={imageSrc}
-                        width={imageWidth}
-                        height={imageHeight}
-                    />
-                </CardHeader>
-                <CardBody py={0}>
-                    <Heading size="md" my="1rem" textColor="textColor">
-                        {title}
-                    </Heading>
-                    <Text size="md" textColor="textColor">
-                        {excerpt}
-                    </Text>
-                </CardBody>
-                <CardFooter justify="space-between">
-                    <Text fontWeight={700} textColor={color}>
-                        {category}
-                    </Text>
-                    <Text as="time" textColor="textColor">
-                        {date}
-                    </Text>
-                </CardFooter>
-            </Card>
-        </Link>
+        <>
+            {category && (
+                <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
+                    <Card
+                        bgColor="backgroundSecondary"
+                        transition="transform ease-in-out 0.3s"
+                        border="1px solid"
+                        borderColor="borderColor"
+                        {...props}
+                        _hover={{
+                            cursor: "pointer",
+                            bgColor: "backgroundTertiary",
+                        }}
+                    >
+                        <CardHeader
+                            p={0}
+                            maxH="10rem"
+                            overflow="hidden"
+                            borderRadius="6px"
+                        >
+                            <Image
+                                alt={imageAlt}
+                                src={imageSrc}
+                                width={imageWidth}
+                                height={imageHeight}
+                                quality={25}
+                            />
+                        </CardHeader>
+                        <CardBody py={0}>
+                            <Heading size="md" my="1rem" textColor="textColor">
+                                {title}
+                            </Heading>
+                            <Text size="md" textColor="textColor">
+                                {excerpt}
+                            </Text>
+                        </CardBody>
+                        <CardFooter justify="space-between">
+                            <Text fontWeight={700} textColor={color}>
+                                {category}
+                            </Text>
+                            <Text as="time" textColor="textColor">
+                                {date}
+                            </Text>
+                        </CardFooter>
+                    </Card>
+                </Link>
+            )}
+        </>
     );
 };
