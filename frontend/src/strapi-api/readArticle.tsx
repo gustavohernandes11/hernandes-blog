@@ -33,13 +33,16 @@ export const readArticle = async (slug: string): Promise<ArticleData> => {
     const metadata: { title: string; description: string; keywords: string } =
         data.attributes?.meta;
 
+    const id = +data.id;
+
     const formattedData = Intl.DateTimeFormat("pt-BR", {
-        dateStyle: "medium",
+        dateStyle: "long",
     }).format(new Date(articleData.publishedAt));
 
     articleData = {
         ...articleData,
         // @ts-ignore
+        id: id,
         hero,
         category,
         author,

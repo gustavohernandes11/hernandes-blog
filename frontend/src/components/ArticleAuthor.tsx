@@ -27,7 +27,7 @@ export const ArticleAuthor = ({ ...props }) => {
                     src="https://github.com/gustavohernandes11.png"
                 />
 
-                <Text>Eu.</Text>
+                <Text>Estudante de Engenharia e Desenvolvedor Web. </Text>
                 <SocialBar />
             </Center>
         </Container>
