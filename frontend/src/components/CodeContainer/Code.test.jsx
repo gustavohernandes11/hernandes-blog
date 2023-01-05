@@ -7,7 +7,9 @@ import { CodeContainer } from "./index";
 
 describe("<CodeContainer />", () => {
     it("should render the component <CodeContainer />", () => {
-        const { container } = customRender(<CodeContainer>Texto para teste</CodeContainer>);
+        const { container } = customRender(
+            <CodeContainer>Texto para teste</CodeContainer>
+        );
 
         expect(container).toMatchSnapshot();
     });
@@ -34,9 +36,5 @@ describe("<CodeContainer />", () => {
             fireEvent.mouseLeave(codeContainer);
             expect(copyButton).not.toBeInTheDocument();
         });
-        it('should copy the correct content of the code container', () => {
-            // to do
-        });
-        
     });
 });
