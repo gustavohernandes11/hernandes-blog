@@ -28,7 +28,7 @@ const Home: NextPage = ({ pageData }: any) => {
                 color="textColor"
                 display="flex"
                 flexDirection="column"
-                padding={{ base: "1rem 2rem", lg: "1.5rem 3rem" }}
+                padding={{ base: "1rem", lg: "1.5rem 3rem" }}
                 maxW="100vw"
             >
                 <Heading mb="2rem" size="md">

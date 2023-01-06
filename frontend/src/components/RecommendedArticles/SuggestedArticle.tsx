@@ -23,7 +23,7 @@ export const SuggestedArticle = ({
     const articleUrl = `/posts/${slug}/`;
     return (
         <Card
-            href={articleUrl}
+            href={`${articleUrl}`}
             as={ChakraLink}
             _hover={{
                 cursor: "pointer",
@@ -35,22 +35,15 @@ export const SuggestedArticle = ({
             border="1px solid"
             borderColor="borderColor"
             borderRadius="6px"
-            gap="1rem"
             alignItems="center"
             w="100%"
+            gap="1rem"
             p={["1rem", null, null, "2rem"]}
         >
-            <IconButton
-                aria-label="prev-article"
-                variant="unstyled"
-                borderRadius="full"
-                textColor="textColor"
-            >
-                <Icon
-                    strokeWidth={2}
-                    as={direction === "right" ? ChevronRight : ChevronLeft}
-                />
-            </IconButton>
+            <Icon
+                strokeWidth={2}
+                as={direction === "right" ? ChevronRight : ChevronLeft}
+            />
             <Flex flexDirection="column" w="100%" textColor="textColor">
                 <Heading size={["md", null, null, "lg"]}>{title}</Heading>
                 <Text size={["sm", null, null, "md"]} mt="0.5rem" mb="1.5rem">
