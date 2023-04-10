@@ -1,22 +1,13 @@
 import { Home, ChevronsUp } from "@styled-icons/feather";
 
 import Link from "next/link";
-import { Flex, Icon, IconButton } from "@chakra-ui/react";
 import { ToggleThemeButton } from "components/ToggleThemeButton";
+import styled from "styled-components";
+import { MenuButton } from "./MenuButton";
 
 export const MenuBar = () => {
     return (
-        <Flex
-            display={["flex", null, null, "none"]}
-            height="60px"
-            width="100vw"
-            justify="space-evenly"
-            align="center"
-            position="fixed"
-            bottom={0}
-            right={0}
-            backgroundColor="backgroundTertiary"
-        >
+        <Wrapper>
             <ToggleThemeButton color="textColor" />
             <MenuButton
                 icon={Home}
@@ -30,29 +21,7 @@ export const MenuBar = () => {
                 aria-label="Go top"
                 onClick={backToTop}
             />
-        </Flex>
-    );
-};
-
-export const MenuButton = ({
-    icon,
-    onClick,
-    primary,
-    ariaLabel,
-    ...props
-}: any) => {
-    return (
-        <IconButton
-            color="textColor"
-            fontSize={20}
-            variant={primary ? "solid" : "ghost"}
-            colorScheme="darkGray"
-            onClick={onClick}
-            aria-label={ariaLabel}
-            {...props}
-        >
-            <Icon strokeWidth={2} as={icon} />
-        </IconButton>
+        </Wrapper>
     );
 };
 
@@ -63,3 +32,18 @@ function backToTop() {
 
     content[0].scrollTop = 0;
 }
+const Wrapper = styled.div`
+    height: 3.75rem;
+    width: 100vw;
+    justify: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #1b1920;
+    grid-area: mobile-menu-bar;
+
+    @media (min-width: ${(props) => props.theme.screen.mobile}) {
+        display: none;
+    }
+`;

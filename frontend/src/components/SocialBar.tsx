@@ -1,32 +1,24 @@
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
-import { IconButton, List, ListItem, Link } from "@chakra-ui/react";
+import Link from "next/link";
 
-export const SocialBar = ({ ...props }) => {
+export const SocialBar = () => {
     return (
-        <List
-            display="flex"
-            flexDirection="row"
-            textDecor="none"
-            listStyleType="none"
-            justifyContent="center"
-            padding="0"
-            {...props}
-        >
-            <ListItem>
+        <ul>
+            <li>
                 <SocialBarButton
                     ariaLabel="github-social"
                     link="https://github.com/gustavohernandes11"
                     icon={<Github height={30} width={30} />}
                 />
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
                 <SocialBarButton
                     ariaLabel="linkedin-social"
                     link="https://www.linkedin.com/in/gustavo-hernandes11/"
                     icon={<Linkedin height={30} width={30} />}
                 />
-            </ListItem>
-        </List>
+            </li>
+        </ul>
     );
 };
 
@@ -38,16 +30,10 @@ type SocialBarButtonProps = {
 
 const SocialBarButton = ({ link, ariaLabel, icon }: SocialBarButtonProps) => {
     return (
-        <IconButton
-            aria-label={ariaLabel}
-            variant="ghost"
-            colorScheme="blackAlpha"
-            size="lg"
-            textColor="primaryColor"
-        >
+        <button aria-label={ariaLabel}>
             <Link href={link} target="_blank">
                 {icon}
             </Link>
-        </IconButton>
+        </button>
     );
 };

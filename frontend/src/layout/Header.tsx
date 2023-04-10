@@ -1,75 +1,28 @@
-import { Flex, Icon, IconButton } from "@chakra-ui/react";
 import { Menu as MenuIcon, X } from "@styled-icons/feather";
 import { ToggleThemeButton } from "components/ToggleThemeButton";
 import { useMenuContext } from "hooks/useMenuContext";
-import React from "react";
 import { Logo } from "../components/Logo";
+import styled from "styled-components";
+import { Nav } from "components/Nav";
 
 export const Header = ({ ...props }) => {
-    const { isOpen, onToggle } = useMenuContext();
-
     return (
-        <Flex
-            w="100%"
-            maxW="100vw"
-            h="100%"
-            bgColor="backgroundTertiary"
-            maxH="100vh"
-            borderBottom="1px solid"
-            borderColor="borderColor"
-            padding="1rem 2rem"
-            {...props}
-        >
-            <Flex
-                justify="center"
-                align="center"
-                display={{ lg: "none", base: "flex" }}
-            >
-                <Logo />
-            </Flex>
-
-            <FloatingMenuButton
-                display={{ lg: "none", base: "flex" }}
-                isMenuOpen={isOpen}
-                onClick={onToggle}
-            />
-            <Flex
-                display={{ lg: "flex", base: "none" }}
-                w="100%"
-                align="center"
-                justifyContent="end"
-            >
-                <ToggleThemeButton
-                    colorScheme="blackAlpha"
-                    color="textColorSecondary"
-                />
-            </Flex>
-        </Flex>
+        <Box>
+            <Logo />
+            <Nav />
+        </Box>
     );
 };
+const Box = styled.header`
+    grid-area: header;
+    background-color: #1b1920;
+    padding: 0 calc(22.2% + 1rem);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
-const FloatingMenuButton = ({ onClick, isMenuOpen, ...props }: any) => {
-    return (
-        <IconButton
-            onClick={onClick}
-            display="flex"
-            border="1px solid"
-            borderColor="borderColor"
-            borderRadius={6}
-            aria-label={"menu"}
-            colorScheme="black"
-            position="fixed"
-            top="1rem"
-            right="2rem"
-            zIndex="popover"
-            {...props}
-        >
-            <Icon
-                color="#d9d9d9"
-                fontSize={20}
-                strokeWidth={2}
-                as={isMenuOpen ? X : MenuIcon}
-            />
-        </IconButton>
-    );
-};
+    @media (max-width: ${(props) => props.theme.screen.tablet}) {
+        padding: 1rem 0.5rem;
+    } ;
+`;

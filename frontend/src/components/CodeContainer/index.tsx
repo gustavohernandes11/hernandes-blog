@@ -22,9 +22,9 @@ export function CodeContainer({ children }: CodeContainerType) {
         <Container
             display="block"
             borderRadius={6}
-            margin="1rem 0"
             position="relative"
             whiteSpace="break-spaces"
+            p={0}
             overflowX="auto"
             maxW="100vw"
             w="100%"

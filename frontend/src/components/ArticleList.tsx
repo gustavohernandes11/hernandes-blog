@@ -1,19 +1,16 @@
-import { Grid } from "@chakra-ui/react";
 import React from "react";
+import styled from "styled-components";
 
 type ArticleListChildren = {
     children: React.ReactNode | React.ReactNode[];
 };
 
 export const ArticleList = ({ children }: ArticleListChildren) => {
-    return (
-        <Grid
-            templateColumns="repeat(auto-fill, minmax(18rem, 1fr))"
-            flexDirection="column"
-            gap={"1rem"}
-            margin="0 auto"
-        >
-            {children}
-        </Grid>
-    );
+    return <Wrapper>{children}</Wrapper>;
 };
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;

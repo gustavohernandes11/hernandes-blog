@@ -4,7 +4,7 @@ import { Article } from "components/Article";
 import { Pagination } from "components/Pagination";
 import { listArticles } from "strapi-api/listArticles";
 import { useState } from "react";
-import { Container, Heading } from "@chakra-ui/react";
+import { Container, Heading, Text } from "@chakra-ui/react";
 
 type ElementArticleType = {
     category: any;
@@ -23,44 +23,27 @@ const Home: NextPage = ({ pageData }: any) => {
     return (
         <>
             <title>Hernandes | Blog de desenvolvimento web</title>
-            <Container
-                bgColor="background"
-                color="textColor"
-                display="flex"
-                flexDirection="column"
-                padding={{ base: "1rem", lg: "1.5rem 3rem" }}
-                maxW="100vw"
-            >
-                <Heading mb="2rem" size="md">
-                    Todos os artigos
-                </Heading>
-                <ArticleList>
-                    {articles.map((e: ElementArticleType) => {
-                        return (
-                            <Article
-                                imageSrc={e.hero.url}
-                                imageHeight={e.hero.height}
-                                imageWidth={e.hero.width}
-                                imageAlt={e.hero.alternativeText}
-                                slug={e.slug}
-                                category={e.category.name}
-                                title={e.title}
-                                color={e.category.color}
-                                date={e.publishedAt}
-                                excerpt={e.excerpt}
-                                key={`${e.slug}`}
-                            />
-                        );
-                    })}
-                </ArticleList>
-                {pagination.total > 10 && (
-                    <Pagination
-                        count={pagination.pageCount}
-                        page={pagination.page}
-                        onChange={() => {}}
-                    />
-                )}
-            </Container>
+
+            <Text mb="1rem">Artigos</Text>
+            <ArticleList>
+                {articles.map((e: ElementArticleType) => {
+                    return (
+                        <Article
+                            imageSrc={e.hero.url}
+                            imageHeight={e.hero.height}
+                            imageWidth={e.hero.width}
+                            imageAlt={e.hero.alternativeText}
+                            slug={e.slug}
+                            category={e.category.name}
+                            title={e.title}
+                            color={e.category.color}
+                            date={e.publishedAt}
+                            excerpt={e.excerpt}
+                            key={`${e.slug}`}
+                        />
+                    );
+                })}
+            </ArticleList>
         </>
     );
 };

@@ -1,14 +1,6 @@
-import {
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
-    Text,
-    Skeleton,
-} from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
 
 type ArticleProps = {
     category: string;
@@ -40,53 +32,33 @@ export const Article = ({
         color: color,
     };
     return (
-        <>
-            {category && (
-                <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
-                    <Card
-                        bgColor="backgroundSecondary"
-                        transition="transform ease-in-out 0.3s"
-                        border="1px solid"
-                        borderColor="borderColor"
-                        {...props}
-                        _hover={{
-                            cursor: "pointer",
-                            bgColor: "backgroundTertiary",
-                        }}
-                    >
-                        <CardHeader
-                            p={0}
-                            maxH="10rem"
-                            overflow="hidden"
-                            borderRadius="6px"
-                        >
-                            <Image
-                                alt={imageAlt}
-                                src={imageSrc}
-                                width={imageWidth}
-                                height={imageHeight}
-                                quality={25}
-                            />
-                        </CardHeader>
-                        <CardBody py={0}>
-                            <Heading size="md" my="1rem" textColor="textColor">
-                                {title}
-                            </Heading>
-                            <Text size="md" textColor="textColor">
-                                {excerpt}
-                            </Text>
-                        </CardBody>
-                        <CardFooter justify="space-between">
-                            <Text fontWeight={700} textColor={color}>
-                                {category}
-                            </Text>
-                            <Text as="time" textColor="textColor">
-                                {date}
-                            </Text>
-                        </CardFooter>
-                    </Card>
-                </Link>
-            )}
-        </>
+        <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
+            <Wrapper>
+                <ArticleTitle>{title}</ArticleTitle>
+                <Acronym color={color}>{category.slice(0, 3)}</Acronym>
+            </Wrapper>
+        </Link>
     );
 };
+const Acronym = styled.abbr`
+    color: #a1a1a1;
+    font-weight: 500;
+`;
+const Wrapper = styled.article`
+    font-family: ${(props) => props.theme.primaryFontFamily};
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 2rem;
+
+    :hover {
+        cursor: pointer;
+        background-color: #2e2e2e;
+        abbr {
+            color: #856abd;
+        }
+    }
+`;
+const ArticleTitle = styled.h1``;

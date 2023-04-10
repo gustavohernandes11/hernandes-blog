@@ -38,7 +38,6 @@ export const MenuModal = () => {
                         alignItems="center"
                         flexDirection="column"
                     >
-                        <SocialBar mb="0.75rem" />
                         <Text color="textColorSecondary">{`Criado com Next.js`}</Text>
                     </DrawerFooter>
                 </DrawerContent>

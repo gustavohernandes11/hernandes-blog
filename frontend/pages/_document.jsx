@@ -1,8 +1,6 @@
 import Document from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import { Html, Head, Main, NextScript } from "next/document";
-import { ColorModeScript } from "@chakra-ui/react";
-import { theme } from "theme";
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -57,15 +55,13 @@ export default class MyDocument extends Document {
                         httpEquiv="Content-Type"
                         content="text/html; charset=utf-8"
                     />
+
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
                         rel="stylesheet"
                     />
                 </Head>
                 <body>
-                    <ColorModeScript
-                        initialColorMode={theme.config.initialColorMode}
-                    />
                     <Main />
                     <NextScript />
                 </body>
