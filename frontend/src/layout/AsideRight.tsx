@@ -1,7 +1,4 @@
-import { Nav } from "../components/Nav";
-import { SocialBar } from "../components/SocialBar";
 import React from "react";
-import { Logo } from "components/Logo";
 import styled from "styled-components";
 
 export const AsideRight = () => {

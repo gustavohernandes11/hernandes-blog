@@ -7,7 +7,9 @@ import styled from "styled-components";
 export const AsideLeft = () => {
     return (
         <Box>
-            <StickyBox></StickyBox>
+            <StickyBox>
+                <SocialBar />
+            </StickyBox>
         </Box>
     );
 };

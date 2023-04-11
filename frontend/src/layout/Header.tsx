@@ -15,7 +15,7 @@ export const Header = ({ ...props }) => {
 };
 const Box = styled.header`
     grid-area: header;
-    background-color: #1b1920;
+    background-color: ${({ theme }) => theme.secondaryBackgroundColor};
     padding: 0 calc(22.2% + 1rem);
     display: flex;
     flex-direction: row;
