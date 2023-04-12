@@ -8,19 +8,28 @@ import {
     DrawerHeader,
     DrawerBody,
     DrawerFooter,
-    useColorMode,
-    Text,
 } from "@chakra-ui/react";
 import { Logo } from "components/Logo";
+import { theme } from "styles/theme";
 
-export const MenuModal = () => {
+export const Menu = () => {
     const { isOpen, onClose } = useMenuContext();
 
     return (
         <>
-            <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-                <DrawerOverlay zIndex="99" />
-                <DrawerContent bgColor="backgroundTertiary" p="2rem">
+            <Drawer
+                isOpen={isOpen}
+                placement="start"
+                size={"full"}
+                onClose={onClose}
+            >
+                <DrawerOverlay />
+                <DrawerContent
+                    bgColor={theme.secondaryBackgroundColor}
+                    p="2rem"
+                    display="grid"
+                    flexDirection="column"
+                >
                     <DrawerHeader
                         p="1.5rem"
                         display="flex"
@@ -29,16 +38,15 @@ export const MenuModal = () => {
                     >
                         <Logo />
                     </DrawerHeader>
-                    <DrawerBody p="3rem">
-                        <Nav />
-                    </DrawerBody>
-                    <DrawerFooter
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
+                    <DrawerBody
                         flexDirection="column"
+                        justifyContent="center"
+                        p="3rem"
                     >
-                        <Text color="textColorSecondary">{`Criado com Next.js`}</Text>
+                        <Nav direction="column" />
+                    </DrawerBody>
+                    <DrawerFooter>
+                        <SocialBar direction="row" />
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>

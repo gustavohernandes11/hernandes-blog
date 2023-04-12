@@ -49,7 +49,7 @@ export default class MyDocument extends Document {
                         rel="icon"
                         type="image/png"
                         sizes="30x30"
-                        href="/favicon.png"
+                        href="/Logo.svg"
                     ></link>
                     <meta
                         httpEquiv="Content-Type"

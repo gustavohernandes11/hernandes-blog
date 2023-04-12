@@ -1,24 +1,33 @@
-import { Home, ChevronsUp } from "@styled-icons/feather";
+import { Home, ArrowUp, Menu, X } from "@styled-icons/feather";
 
-import Link from "next/link";
-import { ToggleThemeButton } from "components/ToggleThemeButton";
 import styled from "styled-components";
 import { MenuButton } from "./MenuButton";
+import { mixin } from "styles/mixins";
+import { useMenuContext } from "hooks/useMenuContext";
 
 export const MenuBar = () => {
+    const { isOpen, onToggle } = useMenuContext();
+    const iconProps = {
+        strokeWidth: 2,
+        size: 20,
+        color: "#F1F1F1",
+    };
     return (
         <Wrapper>
-            <ToggleThemeButton color="textColor" />
             <MenuButton
-                icon={Home}
-                aria-label="Go home"
-                as={Link}
+                icon={<Home {...iconProps} />}
+                ariaLabel="Go home"
                 href={"/"}
-                primary
             />
             <MenuButton
-                icon={ChevronsUp}
-                aria-label="Go top"
+                icon={isOpen ? <X {...iconProps} /> : <Menu {...iconProps} />}
+                onClick={onToggle}
+                ariaLabel="Menu"
+                primary={true}
+            />
+            <MenuButton
+                icon={<ArrowUp {...iconProps} />}
+                ariaLabel="Go top"
                 onClick={backToTop}
             />
         </Wrapper>
@@ -32,18 +41,22 @@ function backToTop() {
 
     content[0].scrollTop = 0;
 }
+
 const Wrapper = styled.div`
-    height: 3.75rem;
+    ${mixin.flexCenter}
+    justify-content: space-evenly;
+
+    height: 3.76rem;
     width: 100vw;
-    justify: space-between;
-    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #1b1920;
+    z-index: 100;
+    border-top: 1px solid ${({ theme }) => theme.borderColor};
+    background-color: ${({ theme }) => theme.secondaryBackgroundColor};
     grid-area: mobile-menu-bar;
 
-    @media (min-width: ${(props) => props.theme.screen.mobile}) {
+    @media (min-width: ${({ theme }) => theme.screen.mobile}) {
         display: none;
     }
 `;

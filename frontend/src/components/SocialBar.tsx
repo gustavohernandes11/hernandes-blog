@@ -1,10 +1,17 @@
 import { Github, Linkedin } from "@styled-icons/boxicons-logos";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
+import { mixin } from "styles/mixins";
 
-export const SocialBar = () => {
+type SocialBarType = {
+    direction?: "column" | "row";
+};
+export const SocialBar = ({ direction = "column" }: SocialBarType) => {
+    const socialBarProps = {
+        direction: direction,
+    };
     return (
-        <StyledUnordedList>
+        <StyledUnordedList {...socialBarProps}>
             <li>
                 <SocialBarButton
                     text="Github"
@@ -49,20 +56,22 @@ const SocialBarButton = ({
 };
 
 const StyledUnordedList = styled.ul`
+    ${({ direction }: SocialBarType) =>
+        direction === "row" &&
+        css`
+            display: flex;
+            flex-direction: ${direction};
+            gap: 1rem;
+            margin-inline: auto;
+        `};
     list-style: none;
     padding: 0;
 `;
 
 const StyledButton = styled.button`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    ${mixin.buttonStyle};
+    ${mixin.flexCenter};
     margin: 0.5rem 0;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background: ${({ theme }) => theme.surfaceColor};
-    border: none;
 
     &:hover {
         cursor: pointer;

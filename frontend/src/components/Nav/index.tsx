@@ -1,9 +1,15 @@
 import styled, { css } from "styled-components";
 import { NavLink } from "./NavLink";
 
-export const Nav = ({ ...props }: any) => {
+type NavType = {
+    direction?: "row" | "column";
+};
+export const Nav = ({ direction = "row", ...props }: NavType) => {
+    const navProps = {
+        direction: direction,
+    };
     return (
-        <Wrapper {...props}>
+        <Wrapper {...navProps} {...props}>
             <NavLink active={true} href="/">
                 Início
             </NavLink>
@@ -12,16 +18,14 @@ export const Nav = ({ ...props }: any) => {
     );
 };
 
-const MenuItem = ({ value, href }: any) => {
-    return (
-        <NavLink href={href}>
-            <p>{value}</p>
-        </NavLink>
-    );
-};
-
 const Wrapper = styled.nav`
     display: flex;
-    flex-direction: "row";
+    ${({ direction }: any) =>
+        direction === "column" &&
+        css`
+            flex-direction: ${direction};
+            gap: 1rem;
+            align-items: center;
+        `};
     gap: 1rem;
 `;

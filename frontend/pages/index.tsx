@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
 import { ArticleList } from "../src/components/ArticleList";
 import { Article } from "components/Article";
-import { Pagination } from "components/Pagination";
 import { listArticles } from "strapi-api/listArticles";
 import { useState } from "react";
-import { Container, Heading, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 
-type ElementArticleType = {
+export type ElementArticleType = {
     category: any;
     hero: any;
     slug: string;
@@ -18,11 +17,10 @@ type ElementArticleType = {
 };
 const Home: NextPage = ({ pageData }: any) => {
     const [articles] = useState(pageData.articleList);
-    const [pagination] = useState(pageData.pagination);
 
     return (
         <>
-            <title>Hernandes | Blog de desenvolvimento web</title>
+            <title>undefined | Home</title>
 
             <Text mb="1rem">Artigos</Text>
             <ArticleList>

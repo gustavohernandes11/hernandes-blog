@@ -1,11 +1,10 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { theme } from "../theme";
+import { theme } from "../styles/theme";
 import {
     Heading,
     ListItem,
-    Image,
     UnorderedList,
     Code,
     Link,
@@ -16,7 +15,7 @@ import { CodeContainer } from "components/CodeContainer";
 
 export const MarkDownContent = ({ children }: any): JSX.Element => {
     const config = {
-        fontSize: 16,
+        fontSize: "1rem",
         my: "1rem",
     };
     return (
@@ -26,6 +25,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                     return (
                         <Link
                             color={theme.primaryColor}
+                            _hover={{ textDecoration: "underline" }}
                             isExternal={true}
                             {...props}
                         >

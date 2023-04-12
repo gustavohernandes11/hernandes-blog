@@ -35,7 +35,7 @@ export const Article = ({
         <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
             <Wrapper>
                 <ArticleTitle>{title}</ArticleTitle>
-                <Acronym color={color}>{category.slice(0, 3)}</Acronym>
+                <Acronym color={color}>{category.slice(0, 4)}</Acronym>
             </Wrapper>
         </Link>
     );
@@ -51,7 +51,7 @@ const Wrapper = styled.article`
     border-radius: 0.5rem;
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 2rem;
+    grid-template-columns: 1fr 3rem;
 
     :hover {
         cursor: pointer;

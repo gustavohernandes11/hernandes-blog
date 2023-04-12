@@ -6,7 +6,7 @@ interface ContentType {
 }
 
 export const Content = ({ children }: ContentType) => {
-    return <Box>{children}</Box>;
+    return <Box className="content">{children}</Box>;
 };
 
 const Box = styled.main`

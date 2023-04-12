@@ -39,7 +39,6 @@ const Wrapper = styled.a`
         &::after {
             transform: translateX(-50%);
             position: absolute;
-            z-index: 100;
             content: "";
             background-color: #ba49ff;
             border-radius: 50%;

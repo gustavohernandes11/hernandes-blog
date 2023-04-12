@@ -1,5 +1,4 @@
 import { Menu as MenuIcon, X } from "@styled-icons/feather";
-import { ToggleThemeButton } from "components/ToggleThemeButton";
 import { useMenuContext } from "hooks/useMenuContext";
 import { Logo } from "../components/Logo";
 import styled from "styled-components";
@@ -20,9 +19,14 @@ const Box = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 3.75rem;
     justify-content: space-between;
 
     @media (max-width: ${(props) => props.theme.screen.tablet}) {
-        padding: 1rem 0.5rem;
+        padding-inline: 1rem;
+        justify-content: center;
+        nav {
+            display: none;
+        }
     } ;
 `;

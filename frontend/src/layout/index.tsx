@@ -1,5 +1,5 @@
 import { MenuBar } from "components/_mobile/MenuBar";
-import { MenuModal } from "components/_mobile/MenuModal";
+import { Menu } from "components/_mobile/Menu";
 import { AsideLeft } from "layout/AsideLeft";
 import { AsideRight } from "layout/AsideRight";
 import React from "react";
@@ -15,7 +15,7 @@ export const Layout = ({ children }: any) => {
             <AsideLeft />
             <AsideRight />
             <MenuBar />
-            <MenuModal />
+            <Menu />
         </Wrapper>
     );
 };
@@ -28,16 +28,16 @@ const Wrapper = styled.div`
     grid-template-rows: 4em 1fr;
     gap: 0px 0px;
     background-color: ${(props) => props.theme.backgroundColor};
-    min-height: 100vh;
+    min-height: 120vh;
     grid-template-areas:
         "header header header"
         "aside-left content aside-right";
 
-    @media (max-width: 769px) {
+    @media (max-width: ${({ theme }) => theme.screen.tablet}) {
         grid-template-columns: 1fr;
         grid-template-rows: 3.75em 4fr 3.75em;
         gap: 0px 0px;
-
+        min-height: 100vh;
         grid-template-areas:
             "header"
             "content"

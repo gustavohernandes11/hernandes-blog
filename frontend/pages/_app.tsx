@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { MenuContextProvider } from "contexts/MenuContextProvider";
 import { Layout } from "../src/layout";
-import { theme } from "../src/theme";
+import { theme } from "../src/styles/theme";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "styles/GlobalStyles";
 // import { ChakraProvider } from "@chakra-ui/react";

@@ -1,5 +1,6 @@
-import { ChevronsUp } from "@styled-icons/feather";
+import { ArrowUp } from "@styled-icons/feather";
 import styled from "styled-components";
+import { mixin } from "styles/mixins";
 
 export const GoTopButton = () => {
     function backToTop() {
@@ -9,30 +10,20 @@ export const GoTopButton = () => {
 
         content[0].scrollTop = 0;
     }
-
     return (
-        <StyledButton
-            onClick={backToTop}
-            // display={["none", null, null, "flex"]}
-            // zIndex="overlay"
-            // colorScheme="gray"
-            // position="absolute"
-            // right="1.5rem"
-            // bottom="5rem"
-            // aria-label="Go to top!"
-            // w="3rem"
-            // h="3rem"
-        >
-            <ChevronsUp size={20} />
+        <StyledButton onClick={backToTop}>
+            <ArrowUp size={20} />
         </StyledButton>
     );
 };
 
 const StyledButton = styled.button`
     z-index: overlay;
-    weight: 3rem;
-    bottom: 2rem;
-    right: 2rem;
+
+    ${mixin.buttonStyle};
+    ${mixin.flexCenter};
+
+    top: calc(90vh - 3rem);
+    right: 1rem;
     position: absolute;
-    background-color: gray;
 `;

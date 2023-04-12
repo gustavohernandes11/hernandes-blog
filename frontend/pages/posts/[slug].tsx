@@ -1,18 +1,16 @@
-import { Image } from "components/Image";
 import { Title } from "components/Title";
-import { GoTopButton } from "components/GoTopButton";
 import { readArticle } from "strapi-api/readArticle";
 import { listArticles } from "strapi-api/listArticles";
 import { useState } from "react";
 import { MarkDownContent } from "components/MarkDownContent";
 import { Meta } from "components/Meta";
-import { ArticleAuthor } from "components/ArticleAuthor";
 import { listSuggestedArticles } from "strapi-api/listSuggestedArticles";
 import { ArticleContent } from "components/ArticleContent";
+import Image from "next/image";
+import Link from "next/link";
 
 const Post = ({ articleData, suggestedArticlesData }: any) => {
     const [article] = useState(articleData);
-    const [suggestedArticles] = useState(suggestedArticlesData);
 
     return (
         <>
@@ -21,9 +19,20 @@ const Post = ({ articleData, suggestedArticlesData }: any) => {
                 keywords={article.metadata.keywords}
                 title={article.metadata.title}
             />
+            <p>{article.category.name}</p>
             <Title>{article.title}</Title>
             <ArticleContent>
+                <Image
+                    alt={article.hero.alt}
+                    height={article.hero.height}
+                    width={article.hero.width}
+                    src={article.hero.url}
+                />
                 <MarkDownContent>{article.content}</MarkDownContent>
+                <hr />
+                <Link href={"/"}>
+                    <p>Voltar para todos os artigos</p>
+                </Link>
             </ArticleContent>
         </>
     );

@@ -8,7 +8,7 @@ const About: NextPage = ({ data }: any) => {
 
     return (
         <>
-            <title>Hernandes | Sobre</title>
+            <title>undefined | about</title>
             <article>
                 <div>
                     <div className="post-wrapper-content">
