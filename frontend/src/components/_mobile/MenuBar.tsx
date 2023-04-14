@@ -4,9 +4,11 @@ import styled from "styled-components";
 import { MenuButton } from "./MenuButton";
 import { mixin } from "styles/mixins";
 import { useMenuContext } from "hooks/useMenuContext";
+import { useRouter } from "next/router";
 
 export const MenuBar = () => {
     const { isOpen, onToggle } = useMenuContext();
+    const router = useRouter();
     const iconProps = {
         strokeWidth: 2,
         size: 20,
@@ -15,7 +17,7 @@ export const MenuBar = () => {
     return (
         <Wrapper>
             <MenuButton
-                icon={<Home {...iconProps} />}
+                icon={<Home onClick={() => router.push("/")} {...iconProps} />}
                 ariaLabel="Go home"
                 href={"/"}
             />
