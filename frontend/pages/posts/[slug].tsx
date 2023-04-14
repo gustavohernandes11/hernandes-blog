@@ -23,7 +23,7 @@ const Post = ({ articleData, suggestedArticlesData }: any) => {
             <Title>{article.title}</Title>
             <ArticleContent>
                 <Image
-                    alt={article.hero.alt}
+                    alt={article.hero.alternativeText}
                     height={article.hero.height}
                     width={article.hero.width}
                     src={article.hero.url}
