@@ -2,6 +2,7 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { theme } from "../styles/theme";
+import remarkGfm from "remark-gfm";
 import {
     Heading,
     ListItem,
@@ -20,6 +21,7 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
     };
     return (
         <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
                 a({ children, ...props }) {
                     return (
