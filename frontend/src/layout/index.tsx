@@ -33,6 +33,10 @@ const Wrapper = styled.div`
         "header header header"
         "aside-left content aside-right";
 
+    @media (max-width: ${({ theme }) => theme.screen.laptop}) {
+        grid-template-rows: 3.75em 6fr 3.75em;
+    }
+
     @media (max-width: ${({ theme }) => theme.screen.tablet}) {
         grid-template-columns: 1fr;
         grid-template-rows: 3.75em 4fr 3.75em;
