@@ -23,6 +23,14 @@ hr {
   background-color: gray;
 }
 
+th {
+  background-color: ${({ theme }) => theme.surfaceColor}
+}
+th, td {
+  border: 1px solid #2e2e2e;
+  padding: 0.5rem;
+}
+
 
 html,
 body,
