@@ -48,7 +48,7 @@ const Wrapper = styled.article`
     font-family: ${(props) => props.theme.primaryFontFamily};
     padding: 1rem;
     background-color: #1a1a1a;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     display: grid;
 
     :hover {

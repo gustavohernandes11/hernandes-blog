@@ -37,7 +37,7 @@ export const Container = styled.header`
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 100;
+            z-index: 1;
 
             display: grid;
             grid-template-columns: 3.75rem 1fr 3.75rem;

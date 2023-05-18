@@ -29,6 +29,7 @@ export const Menu = () => {
                     p="2rem"
                     display="grid"
                     flexDirection="column"
+                    zIndex="sticky"
                 >
                     <DrawerHeader
                         p="1.5rem"

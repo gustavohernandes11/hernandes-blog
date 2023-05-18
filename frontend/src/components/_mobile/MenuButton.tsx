@@ -33,6 +33,7 @@ export const MenuButton = ({
 
 const StyledButton = styled.button`
     ${mixin.buttonStyle};
+    padding: 0.5rem;
     background: ${(props: any) =>
         props.primary ? props.theme.borderColor : "none"};
 `;

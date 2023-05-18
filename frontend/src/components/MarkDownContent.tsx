@@ -123,6 +123,8 @@ export const MarkDownContent = ({ children }: any): JSX.Element => {
                             m={0}
                             className={className}
                             fontSize={config.fontSize}
+                            bgColor={theme.secondaryBackgroundColor}
+                            paddingInline={"0.25rem"}
                             {...props}
                         >
                             {children}
