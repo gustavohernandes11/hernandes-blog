@@ -8,6 +8,7 @@ import { listSuggestedArticles } from "strapi-api/listSuggestedArticles";
 import { ArticleContent } from "components/ArticleContent";
 import Image from "next/image";
 import Link from "next/link";
+import { ArticlePageHeader } from "components/_mobile/ArticlePageHeader";
 
 const Post = ({ articleData, suggestedArticlesData }: any) => {
     const [article] = useState(articleData);
@@ -19,6 +20,8 @@ const Post = ({ articleData, suggestedArticlesData }: any) => {
                 keywords={article.metadata.keywords}
                 title={article.metadata.title}
             />
+            <ArticlePageHeader postTitle={article.title} />
+
             <p>{article.category.name}</p>
             <Title>{article.title}</Title>
             <ArticleContent>

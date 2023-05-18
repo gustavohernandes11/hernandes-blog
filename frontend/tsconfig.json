@@ -20,14 +20,7 @@
         "paths": {
             "test-utils": ["./utils/test-utils"]
         }
-        
     },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "src/components/MobileHeader/styles.js",
-        "pages/_document.jsx"
-    ],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.jsx"],
     "exclude": ["node_modules"]
 }

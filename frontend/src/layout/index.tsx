@@ -39,11 +39,12 @@ const Wrapper = styled.div`
 
     @media (max-width: ${({ theme }) => theme.screen.tablet}) {
         grid-template-columns: 1fr;
-        grid-template-rows: 3.75em 4fr 3.75em;
+        grid-template-rows: 3.75em 0px 4fr 3.75em;
         gap: 0px 0px;
         min-height: 100vh;
         grid-template-areas:
             "header"
+            "mobile-article-header"
             "content"
             "mobile-menu-bar";
     }
