@@ -21,7 +21,7 @@ export const Item = styled.div`
 
 export const Container = styled.header`
     ${({ isVisible, theme }: ContainerType) => css`
-        @media (max-width: ${({ theme }) => theme.screen.tablet}) {
+        @media (min-width: ${({ theme }) => theme.screen.mobile}) {
             display: none;
         }
         @media (max-width: ${({ theme }) => theme.screen.mobile}) {
