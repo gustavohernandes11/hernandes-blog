@@ -22,7 +22,7 @@ const Home: NextPage = ({ pageData }: any) => {
     return (
         <>
             <Meta
-                description="Blog de desenvolvimento e outras coisas mais"
+                description="Blog de desenvolvimento e outras coisas mais."
                 key="default"
                 keywords="tecnologia, engenharia, web, javascript, html, css"
                 title="undefined | Home"
