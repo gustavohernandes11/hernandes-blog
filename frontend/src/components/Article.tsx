@@ -34,14 +34,14 @@ export const Article = ({
     return (
         <Link href={`/posts/${slug}/`} legacyBehavior passHref={true}>
             <Wrapper>
+                <Acronym color={color}>{category}</Acronym>
                 <ArticleTitle>{title}</ArticleTitle>
-                <Acronym color={color}>{category.slice(0, 4)}</Acronym>
             </Wrapper>
         </Link>
     );
 };
 const Acronym = styled.abbr`
-    color: #a1a1a1;
+    color: #8a8a8a;
     font-weight: 500;
 `;
 const Wrapper = styled.article`
@@ -50,8 +50,6 @@ const Wrapper = styled.article`
     background-color: #1a1a1a;
     border-radius: 0.5rem;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 3rem;
 
     :hover {
         cursor: pointer;
