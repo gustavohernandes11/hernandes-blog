@@ -4,6 +4,7 @@ import { Article } from "components/Article";
 import { listArticles } from "strapi-api/listArticles";
 import { useState } from "react";
 import { Text } from "@chakra-ui/react";
+import { Meta } from "components/Meta";
 
 export type ElementArticleType = {
     category: any;
@@ -20,7 +21,12 @@ const Home: NextPage = ({ pageData }: any) => {
 
     return (
         <>
-            <title>undefined | Home</title>
+            <Meta
+                description="Blog de desenvolvimento e outras coisas mais"
+                key="default"
+                keywords="tecnologia, engenharia, web, javascript, html, css"
+                title="undefined | Home"
+            />
 
             <Text mb="1rem">Artigos</Text>
             <ArticleList>
