@@ -2,10 +2,10 @@ import { css } from "styled-components";
 
 export const mixin = {
     buttonStyle: css`
-        padding: 0.5rem;
+        padding: 1rem;
         background: ${({ theme }) => theme.surfaceColor};
         border: none;
-        border-radius: 0.5rem;
+        border-radius: 0.25rem;
 
         &:hover {
             cursor: pointer;
