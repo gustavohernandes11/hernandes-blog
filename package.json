@@ -15,6 +15,7 @@
     "dependencies": {
         "@styled-icons/fa-brands": "^10.47.0",
         "@styled-icons/fa-solid": "^10.47.0",
+        "@uidotdev/usehooks": "^2.3.1",
         "jest-styled-components": "^7.0.8",
         "next": "^13.0.3",
         "react": "^18.2.0",

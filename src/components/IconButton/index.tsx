@@ -4,15 +4,21 @@ type IconButtonProps = {
     children: React.ReactNode;
     backgroundColor?: string;
     primary?: boolean;
+    onClick: () => void;
 };
 
 export const IconButton = ({
     children,
     backgroundColor,
     primary,
+    onClick,
 }: IconButtonProps) => {
     return (
-        <Styled.Container backgroundColor={backgroundColor} primary={primary}>
+        <Styled.Container
+            onClick={onClick}
+            backgroundColor={backgroundColor}
+            primary={primary}
+        >
             {children}
         </Styled.Container>
     );

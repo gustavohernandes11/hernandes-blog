@@ -3,20 +3,26 @@ import { Header } from "./Header";
 import { Main } from "./Main";
 import { MenuBar } from "./MenuBar";
 import { Aside } from "./Aside";
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "styles/theme";
+import { useThemeContext } from "contexts/useThemeContext";
 
 export const Layout = ({ children }: any) => {
+    const [theme] = useThemeContext();
     return (
-        <StyledLayout>
-            <Header />
-            <Aside />
-            <Main>{children}</Main>
-            <MenuBar />
-        </StyledLayout>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <StyledLayout>
+                <Header />
+                <Aside />
+                <Main>{children}</Main>
+                <MenuBar />
+            </StyledLayout>
+        </ThemeProvider>
     );
 };
 
 const StyledLayout = styled.div`
-    ${({theme}) => css`
+    ${({ theme }) => css`
         display: grid;
         grid-template-rows: 3.75rem 1fr 3.75rem;
         grid-template-areas: "header" "main" "menubar";

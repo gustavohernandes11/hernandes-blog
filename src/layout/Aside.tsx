@@ -14,5 +14,9 @@ export const StyledAside = styled.aside`
         height: 100%,
         width: 100%;
         background-color: ${theme.color.secondaryBackground};
+
+        @media (max-width: ${theme.screen.tablet}) {
+            display: none;
+        }
     `}
 `;

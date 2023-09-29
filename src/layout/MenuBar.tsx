@@ -5,13 +5,13 @@ import { ArrowUp, Bars, Home } from "@styled-icons/fa-solid";
 export const MenuBar = () => {
     return (
         <StyledMenuBar>
-            <IconButton>
+            <IconButton onClick={() => {}}>
                 <Home size={16} />
             </IconButton>
-            <IconButton primary>
+            <IconButton onClick={() => {}} primary>
                 <Bars size={16} />
             </IconButton>
-            <IconButton>
+            <IconButton onClick={() => {}}>
                 <ArrowUp size={16} />
             </IconButton>
         </StyledMenuBar>
@@ -31,5 +31,9 @@ const StyledMenuBar = styled.div`
         height: 100%,
         width: 100%;
         background-color: ${theme.color.secondaryBackground};
+
+        @media (min-width: ${theme.screen.tablet}) {
+                display: none;
+        }
     `}
 `;

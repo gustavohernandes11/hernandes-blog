@@ -1,18 +1,18 @@
 import { IconButton } from "components/IconButton";
 import { Logo } from "components/Logo";
 import styled, { css } from "styled-components";
-import { ArrowLeft, Moon } from "@styled-icons/fa-solid";
+import { ArrowLeft, Moon, Sun } from "@styled-icons/fa-solid";
+import { useThemeContext } from "contexts/useThemeContext";
+import { ThemeButton } from "components/ThemeButton";
 
 export const Header = () => {
     return (
         <StyledHeader>
-            <IconButton>
+            <IconButton onClick={() => {}}>
                 <ArrowLeft size={16} />
             </IconButton>
             <Logo />
-            <IconButton>
-                <Moon size={16} />
-            </IconButton>
+            <ThemeButton />
         </StyledHeader>
     );
 };
@@ -32,5 +32,9 @@ export const StyledHeader = styled.header`
         height: 100%,
         width: 100%;
         background-color: ${theme.color.secondaryBackground};
+
+        @media (min-width: ${theme.screen.tablet}) {
+                display: none;
+        }
     `}
 `;

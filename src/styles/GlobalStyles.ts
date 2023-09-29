@@ -9,6 +9,12 @@ body {
        color: ${theme.color.text};
        background-color: ${theme.color.background};
    `}
+  }
+
+path {
+  ${({ theme }) => css`
+      color: ${theme.color.text};
+  `}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,13 +33,9 @@ h4 { font-size: 1.25rem }
 h5 { font-size: 1.125rem }
 h6 { font-size: 1.1rem }
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 
-th {
-  background-color: ${({ theme }) => theme.surfaceColor}
-}
+th { background-color: ${({ theme }) => theme.surfaceColor} }
 
 th, td {
   border: 1px solid #2e2e2e;
@@ -48,13 +50,13 @@ input {
   padding: 0;
   margin: 0;
 
-  /* @media (max-width: ${({ theme }) => theme.screen.tablet}) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     font-size: 93.75%;
   }
 
   @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     font-size: 87.50%;
-  } */
+  }
 }
 `;
 
