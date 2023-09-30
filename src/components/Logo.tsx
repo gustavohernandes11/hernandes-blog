@@ -1,7 +1,7 @@
 import Image from "next/image";
-import LightLogo from "../../../public/LightLogo.svg";
-import DarkLogo from "../../../public/DarkLogo.svg";
-import { useThemeContext } from "contexts/useThemeContext";
+import LightLogo from "../../public/LightLogo.svg";
+import DarkLogo from "../../public/DarkLogo.svg";
+import { useThemeContext } from "hooks/useThemeContext";
 
 export const Logo = () => {
     const [theme] = useThemeContext();

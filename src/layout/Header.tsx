@@ -2,7 +2,7 @@ import { IconButton } from "components/IconButton";
 import { Logo } from "components/Logo";
 import styled, { css } from "styled-components";
 import { ArrowLeft, Moon, Sun } from "@styled-icons/fa-solid";
-import { useThemeContext } from "contexts/useThemeContext";
+import { useThemeContext } from "hooks/useThemeContext";
 import { ThemeButton } from "components/ThemeButton";
 
 export const Header = () => {
@@ -31,6 +31,7 @@ export const StyledHeader = styled.header`
         padding: 0 1rem;
         height: 100%,
         width: 100%;
+        z-index: 10;
         background-color: ${theme.color.secondaryBackground};
 
         @media (min-width: ${theme.screen.tablet}) {

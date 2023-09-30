@@ -2,15 +2,18 @@ import type { AppProps } from "next/app";
 import GlobalStyle from "styles/GlobalStyles";
 import { Layout } from "layout";
 import { ThemeContextProvider } from "contexts/ThemeContext";
+import { MenuContextProvider } from "../src/contexts/MenuContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <ThemeContextProvider>
-            <Layout>
-                <GlobalStyle />
-                <Component {...pageProps} />
-            </Layout>
-        </ThemeContextProvider>
+        <MenuContextProvider>
+            <ThemeContextProvider>
+                <Layout>
+                    <GlobalStyle />
+                    <Component {...pageProps} />
+                </Layout>
+            </ThemeContextProvider>
+        </MenuContextProvider>
     );
 }
 
