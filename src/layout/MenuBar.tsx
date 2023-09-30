@@ -1,24 +1,13 @@
-import { IconButton } from "components/IconButton";
 import styled, { css } from "styled-components";
-import { Bars, Home, X } from "@styled-icons/fa-solid";
-import { useMenuContext } from "../hooks/useMenuContext";
 import { GoTopButton } from "components/GoTopButton";
-import Link from "next/link";
+import { GoHomeButton } from "components/GoHomeButton";
+import { MenuButton } from "components/MenuButton";
 
 export const MenuBar = () => {
-    const { isOpen, toggleMenu } = useMenuContext();
-    const getMenuIcon = () => (isOpen ? <X size={16} /> : <Bars size={16} />);
-
     return (
         <StyledMenuBar>
-            <Link href="/">
-                <IconButton>
-                    <Home size={16} />
-                </IconButton>
-            </Link>
-            <IconButton onClick={toggleMenu} primary>
-                {getMenuIcon()}
-            </IconButton>
+            <GoHomeButton />
+            <MenuButton />
             <GoTopButton />
         </StyledMenuBar>
     );

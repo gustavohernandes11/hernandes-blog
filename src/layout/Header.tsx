@@ -1,4 +1,3 @@
-import { IconButton } from "components/IconButton";
 import { Logo } from "components/Logo";
 import styled, { css } from "styled-components";
 import { ThemeButton } from "components/ThemeButton";

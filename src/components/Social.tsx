@@ -1,5 +1,5 @@
 import { Github, LinkedinIn } from "@styled-icons/fa-brands";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { IconButton } from "./IconButton";
 
 export const Social = () => {
