@@ -1,9 +1,10 @@
+import { Social } from "components/Social";
 import styled, { css } from "styled-components";
 
 export const DrawerFooter = () => {
     return (
         <StyledDrawerFooter>
-            <p>Social Bar goes here</p>
+            <Social />
             <p>© 2023, made with Next.js</p>
         </StyledDrawerFooter>
     );

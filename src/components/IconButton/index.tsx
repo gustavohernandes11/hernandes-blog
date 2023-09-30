@@ -4,7 +4,8 @@ type IconButtonProps = {
     children: React.ReactNode;
     backgroundColor?: string;
     primary?: boolean;
-    onClick: () => void;
+    href?: string;
+    onClick?: () => void;
 };
 
 export const IconButton = ({
