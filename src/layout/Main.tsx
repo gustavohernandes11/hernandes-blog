@@ -13,8 +13,9 @@ const StyledContainer = styled.main`
     grid-area: main;
     padding: 1rem;
     max-width: 100vw;
+    overflow-y: scroll;
 
     @media (min-width: ${({ theme }) => theme.screen.tablet}) {
-        padding: 8rem 4rem;
+        padding: 4rem;
     }
 `;

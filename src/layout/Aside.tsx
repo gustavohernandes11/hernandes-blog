@@ -1,17 +1,33 @@
+import { Copyright } from "components/Copyright";
+import { Logo } from "components/Logo";
+import { Navigation } from "components/Navigation";
+import { Social } from "components/Social";
 import styled, { css } from "styled-components";
 
 export const Aside = () => {
-    return <StyledAside></StyledAside>;
+    return (
+        <StyledAside>
+            <Logo scale={1.5} />
+            <Navigation />
+            <StyledAsideFooter>
+                <Social />
+                <Copyright />
+            </StyledAsideFooter>
+        </StyledAside>
+    );
 };
 
 export const StyledAside = styled.aside`
     ${({ theme }) => css`
-        display: flex;    
         position: sticky;
+        display: flex;
         top: 0;
         left: 0;
         grid-area: aside;
-        height: 100%,
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        max-height: 100vh;
         width: 100%;
         background-color: ${theme.color.secondaryBackground};
 
@@ -19,4 +35,11 @@ export const StyledAside = styled.aside`
             display: none;
         }
     `}
+`;
+
+export const StyledAsideFooter = styled.footer`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
