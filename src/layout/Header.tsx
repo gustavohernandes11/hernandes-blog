@@ -1,16 +1,13 @@
 import { IconButton } from "components/IconButton";
 import { Logo } from "components/Logo";
 import styled, { css } from "styled-components";
-import { ArrowLeft, Moon, Sun } from "@styled-icons/fa-solid";
-import { useThemeContext } from "hooks/useThemeContext";
 import { ThemeButton } from "components/ThemeButton";
+import { GoBackButton } from "components/GoBackButton";
 
 export const Header = () => {
     return (
         <StyledHeader>
-            <IconButton onClick={() => {}}>
-                <ArrowLeft size={16} />
-            </IconButton>
+            <GoBackButton />
             <Logo />
             <ThemeButton />
         </StyledHeader>

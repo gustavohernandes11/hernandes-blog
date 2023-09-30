@@ -1,30 +1,25 @@
 import { IconButton } from "components/IconButton";
 import styled, { css } from "styled-components";
-import { ArrowUp, Bars, Home, X } from "@styled-icons/fa-solid";
+import { Bars, Home, X } from "@styled-icons/fa-solid";
 import { useMenuContext } from "../hooks/useMenuContext";
-import { useRouter } from "next/router";
+import { GoTopButton } from "components/GoTopButton";
+import Link from "next/link";
 
 export const MenuBar = () => {
     const { isOpen, toggleMenu } = useMenuContext();
     const getMenuIcon = () => (isOpen ? <X size={16} /> : <Bars size={16} />);
-    const { back: goBack } = useRouter();
 
-    const goTop = () => {
-        if (window !== undefined) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    };
     return (
         <StyledMenuBar>
-            <IconButton onClick={goBack}>
-                <Home size={16} />
-            </IconButton>
+            <Link href="/">
+                <IconButton>
+                    <Home size={16} />
+                </IconButton>
+            </Link>
             <IconButton onClick={toggleMenu} primary>
                 {getMenuIcon()}
             </IconButton>
-            <IconButton onClick={goTop}>
-                <ArrowUp size={16} />
-            </IconButton>
+            <GoTopButton />
         </StyledMenuBar>
     );
 };

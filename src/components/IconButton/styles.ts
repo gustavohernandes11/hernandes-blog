@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.button<any>`
-    ${({ theme, backgroundColor, primary }) => css`
+    ${({ theme, backgroundColor, primary, disable }) => css`
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15,6 +15,13 @@ export const Container = styled.button<any>`
             background-color: ${theme.color.primary};
             path {
                 color: white;
+            }
+        `}
+        ${disable &&
+        css`
+            opacity: 0.25;
+            :hover {
+                cursor: unset;
             }
         `}
 

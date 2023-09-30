@@ -5,6 +5,7 @@ type IconButtonProps = {
     backgroundColor?: string;
     primary?: boolean;
     href?: string;
+    disable?: boolean;
     onClick?: () => void;
 };
 
@@ -13,12 +14,14 @@ export const IconButton = ({
     backgroundColor,
     primary,
     onClick,
+    disable,
 }: IconButtonProps) => {
     return (
         <Styled.Container
             onClick={onClick}
             backgroundColor={backgroundColor}
             primary={primary}
+            disable={disable}
         >
             {children}
         </Styled.Container>
