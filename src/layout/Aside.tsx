@@ -30,6 +30,7 @@ export const StyledAside = styled.aside`
         max-height: 100vh;
         width: 100%;
         background-color: ${theme.color.secondaryBackground};
+        border-right: 1px solid ${theme.color.surface};
 
         @media (max-width: ${theme.screen.tablet}) {
             display: none;
