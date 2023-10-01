@@ -33,9 +33,12 @@ h4 { font-size: 1.25rem }
 h5 { font-size: 1.125rem }
 h6 { font-size: 1.1rem }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none; 
+  color: ${({ theme }) => theme.color.secondary};
+}
 
-th { background-color: ${({ theme }) => theme.surfaceColor} }
+th { background-color: ${({ theme }) => theme.color.surface} }
 
 th, td {
   border: 1px solid #2e2e2e;

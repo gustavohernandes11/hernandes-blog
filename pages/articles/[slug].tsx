@@ -4,20 +4,18 @@ import { Section } from "components/Section";
 import { readFileSync, readdirSync } from "fs";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { MDXRemote } from "next-mdx-remote";
+import remarkGfm from "remark-gfm";
 import { useState } from "react";
 
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
-import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
-// type ArticlePageProps = {
-//     MdxSource: MDXRemoteSerializeResult;
-// };
 const Article = ({
     MdxSource,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const [source] = useState(MdxSource);
-    console.log("=> source: " + source);
     return (
         <>
             <Section>
@@ -41,12 +39,15 @@ export const getStaticProps: GetStaticProps = async (ctx: any) => {
     const fileDir = path.join(process.cwd(), "_articles", slug + ".mdx");
     const articleFile = readFileSync(fileDir, "utf-8");
     const MdxSource = await serialize(articleFile, {
-        parseFrontmatter: true,
         mdxOptions: {
-            remarkPlugins: [],
-            rehypePlugins: [],
-            format: "mdx",
+            rehypePlugins: [
+                [rehypeSlug],
+                [rehypeAutolinkHeadings, { behavior: "after" }],
+            ],
+            remarkPlugins: [remarkGfm],
+            remarkRehypeOptions: { allowDangerousHtml: true },
         },
+        parseFrontmatter: true,
     });
     return { props: { MdxSource } };
 };
