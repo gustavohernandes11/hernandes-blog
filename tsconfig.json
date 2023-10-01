@@ -21,6 +21,12 @@
             "test-utils": ["./utils/test-utils"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.jsx"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "pages/_document.jsx",
+        "_articles"
+    ],
     "exclude": ["node_modules"]
 }

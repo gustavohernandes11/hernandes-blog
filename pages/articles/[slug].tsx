@@ -1,46 +1,33 @@
 import { ArrowLeft } from "@styled-icons/fa-solid";
 import { Button } from "components/Button";
 import { Section } from "components/Section";
+import { readFileSync, readdirSync } from "fs";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { MDXRemote } from "next-mdx-remote";
+import { useState } from "react";
 
-const Article = () => {
+import { serialize } from "next-mdx-remote/serialize";
+import path from "path";
+import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+
+// type ArticlePageProps = {
+//     MdxSource: MDXRemoteSerializeResult;
+// };
+const Article = ({
+    MdxSource,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+    const [source] = useState(MdxSource);
+    console.log("=> source: " + source);
     return (
         <>
             <Section>
-                <p>12 de março de 2032</p>
-                <h1>
-                    [Heading 1]: Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Quo voluptatibus nemo, dolore, fuga dolor
-                </h1>
-                <p>Frontend</p>
+                <p>{(source?.frontmatter?.date as string) || "none"}</p>
+                <h1>{(source?.frontmatter?.title as string) || "none"}</h1>
+                <p>{(source?.frontmatter?.category as string) || "none"}</p>
             </Section>
-            <h2>Heading 2</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-                voluptatibus nemo, dolore, fuga dolor, harum repellendus
-                mollitia magnam eum hic atque illum molestias libero sed.
-                Explicabo omnis autem soluta labore?
-            </p>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-                voluptatibus nemo, dolore, fuga dolor, harum repellendus
-                mollitia magnam eum hic atque illum molestias libero sed.
-                Explicabo omnis autem soluta labore?
-            </p>
-            <h2>Heading 2</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-                voluptatibus nemo, dolore, fuga dolor, harum repellendus
-                mollitia magnam eum hic atque illum molestias libero sed.
-                Explicabo omnis autem soluta labore?
-            </p>
-            <h2>Heading 3</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-                voluptatibus nemo, dolore, fuga dolor, harum repellendus
-                mollitia magnam eum hic atque illum molestias libero sed.
-                Explicabo omnis autem soluta labore?
-            </p>
-            <Button icon={<ArrowLeft size={16} />} iconPosition="left">
+            <MDXRemote {...source} />
+
+            <Button href="/" icon={<ArrowLeft size={16} />} iconPosition="left">
                 Voltar para todos os artigos
             </Button>
         </>
@@ -48,3 +35,39 @@ const Article = () => {
 };
 
 export default Article;
+
+export const getStaticProps: GetStaticProps = async (ctx: any) => {
+    const { slug } = ctx.params!;
+    const fileDir = path.join(process.cwd(), "_articles", slug + ".mdx");
+    const articleFile = readFileSync(fileDir, "utf-8");
+    const MdxSource = await serialize(articleFile, {
+        parseFrontmatter: true,
+        mdxOptions: {
+            remarkPlugins: [],
+            rehypePlugins: [],
+            format: "mdx",
+        },
+    });
+    return { props: { MdxSource } };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const dirPath = path.join(process.cwd(), "_articles");
+    const filePaths = readdirSync(dirPath).filter(
+        (filePath) => path.extname(filePath).toLowerCase() === ".mdx"
+    );
+    let paths = [];
+
+    for (const filePath of filePaths) {
+        paths.push({
+            params: {
+                slug: filePath.replace("mdx", ""),
+            },
+        });
+    }
+
+    return {
+        paths,
+        fallback: true,
+    };
+};

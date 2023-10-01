@@ -17,6 +17,7 @@
         "@styled-icons/fa-solid": "^10.47.0",
         "jest-styled-components": "^7.0.8",
         "next": "^13.0.3",
+        "next-mdx-remote": "^4.4.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "styled-components": "^5.3.5"

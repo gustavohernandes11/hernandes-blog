@@ -1,42 +1,21 @@
-import { ArrowLeft, ArrowRight } from "@styled-icons/fa-solid";
+import { ArrowRight } from "@styled-icons/fa-solid";
 import { Article } from "components/Article";
 import { Button } from "components/Button";
 import { JustifyEnd } from "components/JustifyEnd";
-import { Section } from "components/Section";
 import { Title } from "components/Title";
-import { NextPage } from "next";
+import { serialize } from "next-mdx-remote/serialize";
+import { readFileSync, readdirSync } from "fs";
+import { ArticlePreview } from "types/ArticlePreview";
+import { useState } from "react";
+import path from "path";
 
-const Home: NextPage = () => {
-    const articles = [
-        {
-            title: "Lorem ipsum dolor sit amet",
-            description: "lorem ipsum dolor sit amet! ",
-            date: "12 de março de 2045",
-            category: "lorems",
-            slug: "lorem-ipsum-1",
-        },
-        {
-            title: "Lorem ipsum dolor sit amet uorem ipsum dolor sit amet",
-            description: "lorem ipsum dolor sit amet! ",
-            date: "12 de março de 2045",
-            category: "lorems",
-            slug: "lorem-ipsum-2",
-        },
-        {
-            title: "Lorem ipsum dolor sit amet aorem ipsum dolor amet aorem ipsum dolor sit ametLorem ipsum dolor sit amet",
-            description: "lorem ipsum dolor sit amet! ",
-            date: "12 de março de 2045",
-            category: "lorems",
-            slug: "lorem-ipsum-3",
-        },
-        {
-            title: "Lorem ipsum dolor amet aorem ipsum dolor sit amet",
-            description: "lorem ipsum dolor sit amet! ",
-            date: "12 de março de 2045",
-            category: "lorems",
-            slug: "lorem-ipsum-4",
-        },
-    ];
+type HomeProps = {
+    articlesPreview: ArticlePreview[];
+};
+
+const Home = ({ articlesPreview }: HomeProps) => {
+    const [articles] = useState(articlesPreview);
+
     return (
         <>
             <Title>Início</Title>
@@ -60,3 +39,26 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+    let articlesPreview: ArticlePreview[] = [];
+
+    const dirPath = path.join(process.cwd(), "_articles");
+    const filePaths = readdirSync(dirPath).filter(
+        (filePath) => path.extname(filePath).toLowerCase() === ".mdx"
+    );
+
+    for (const filePath of filePaths) {
+        let file = readFileSync(path.join(dirPath, filePath), "utf-8");
+        const serializedArticle = await serialize(file, {
+            parseFrontmatter: true,
+        });
+        console.log("pathname: " + file);
+        articlesPreview.push({
+            ...serializedArticle.frontmatter,
+            slug: filePath.replace(".mdx", ""),
+        } as ArticlePreview);
+    }
+
+    return { props: { articlesPreview } };
+};
