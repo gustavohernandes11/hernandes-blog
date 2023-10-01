@@ -9,7 +9,7 @@ const StyledSection = styled.section`
         padding: 1rem;
         margin: -1rem;
         margin-bottom: 1rem;
-        background-color: ${theme.color.secondaryBackground};
+        background-color: ${theme.color.surface};
 
         @media (min-width: ${theme.screen.tablet}) {
             padding: 4rem;

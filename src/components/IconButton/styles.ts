@@ -6,7 +6,7 @@ export const Container = styled.button<any>`
         align-items: center;
         justify-content: center;
         padding: 1rem;
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         border: none;
         background-color: ${() => backgroundColor ?? "transparent"};
 

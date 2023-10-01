@@ -29,6 +29,8 @@ export const StyledHeader = styled.header`
         width: 100%;
         z-index: 10;
         background-color: ${theme.color.secondaryBackground};
+        border-bottom: 1px solid ${theme.color.border};
+
 
         @media (min-width: ${theme.screen.tablet}) {
                 display: none;

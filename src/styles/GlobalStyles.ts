@@ -52,10 +52,12 @@ input {
 
   @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     font-size: 93.75%;
+    h1 { font-size: 2.5rem };
   }
-
+  
   @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     font-size: 87.50%;
+    h1 { font-size: 2rem };
   }
 }
 `;

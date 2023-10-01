@@ -19,6 +19,7 @@ export const lightTheme = {
         text: "#000000",
         primary: "#7652C2",
         secondary: "#361C9C",
+        border: "#D3D3D3",
     },
     ...commonTheme,
 };
@@ -31,6 +32,7 @@ export const darkTheme = {
         text: "#FFFFFF",
         primary: "#523CAB",
         secondary: "#E300F6",
+        border: "#313131",
     },
     ...commonTheme,
 };
