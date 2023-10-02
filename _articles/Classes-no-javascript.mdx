@@ -1,0 +1,196 @@
+---
+title: Classes no Javascript
+description: Classes reúnem informações e comportamento na mesma entidade de software
+date: 02 de outubro de 2023
+category: Javascript
+---
+
+Classes são **********templates********** para objetos. Uma forma de simplificar heranças no modelo de protótipo do javascript e deixam o código mais alinhado aos conceitos de linguagens orientadas a objetos, como Java e C#. Foram introduzidas no ECMAScript 2015. 
+
+## Sintaxe básica
+
+Use a palavra reservada class seguida do nome da classe. Uma classe deve ter um construtor, que molda o objeto da classe. Dentro da classe, é possível declarar métodos, como sayName().
+
+```jsx
+class Person {
+	constructor(name, lastName) {
+		this.name = name;
+		this.lastName = lastName;
+		
+	}
+	sayName() {
+		return "Hi! My name is " + this.name + ".";
+	}
+}
+```
+
+Vamos instanciar essa classe e de fato criar objetos:
+
+```jsx
+const maria = new Person("Maria", "Silva");
+const joao = new Person("Joao", "Andrade");
+
+console.log(joao, maria);
+// Person {
+// 	name: 'Joao',
+// 	lastName: 'Andrade',
+//   }
+//  Person {
+// 	name: 'Maria',
+// 	lastName: 'Silva',
+//   }
+
+console.log(joao.sayName()); 
+// Joao
+```
+
+## Herança
+
+Para herdar uma classe pai, devemos usar a palavra-chave extends. Usamos super() dentro do constructor() para chamar o construtor da classe pai e herdar os itens lá declarados. Se quiser verificar se um objeto é um instância de uma classe use instanceof. Abaixo, temos três classes; *Animalia*, representando o reino; *Mammalia*, a classe (dos animais); e *PantheraLeo*, uma espécie. Repare que os Leões - *PantheraLeo* - fazem parte dos Mamíferos - *Mammalia* -, que são parte do reino dos Animais (*Animalia*). Você pode passar uma característica comum dos Animais para baixo, como no caso do método move().
+
+```jsx
+class Animalia {
+	constructor() {
+		this.Kingdom = "Animalia";
+	}
+	move() {
+		return "I'm moving";
+	}
+}
+
+class Mammalia extends Animalia {
+	constructor() {
+		super();
+		this.Class = "Mammalia";
+	}
+}
+class PantheraLeo extends Mammalia {
+	constructor() {
+		super();
+		this.Specie = "PantheraLeo";
+	}
+}
+
+let leo = new PantheraLeo();
+
+console.log(leo);
+// PantheraLeo {
+//     Kingdom: 'Animalia',
+//     Class: 'Mammalia',
+//     Specie: 'PantheraLeo'
+//   }
+
+console.log(leo instanceof Animalia); // true
+console.log(leo instanceof Mammalia); // true
+console.log(leo instanceof PantheraLeo); // true
+console.log(leo.move()); // I'm moving
+```
+
+## Inserir propriedades dentro de uma classe.
+
+Classes não podem herdar objetos normais desta forma. Para forçar esse comportamento utilize [Object.setPrototypeOf()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf). No exemplo abaixo temos um objeto chamado *personInteractions*, com algumas funções de interações fictícias. Vamos estender a cadeia de protótipo de Person para absorver esse objeto:
+
+```jsx
+let personInteractions = {
+	introduceYourselfTo(personName) {
+		return `Hello! I'm ${this.name}, nice to meet you ${personName}!`;
+	},
+	introduceYourself() {
+		return `Hello! I'm ${this.name}!`;
+	},
+	sayBye() {
+		return `Bye!`;
+	},
+};
+
+class Person {
+	constructor(name) {
+		this.name = name;
+	}
+}
+
+Object.setPrototypeOf(Person.prototype, personInteractions);
+
+let andrew = new Person("Andrew");
+
+console.log(andrew.introduceYourselfTo("Maria")); // Hello! I'm Andrew, nice to meet you Maria!
+console.log(andrew.introduceYourself()); // Hello! I'm Andrew!
+console.log(andrew.sayBye()); // Bye!
+```
+
+## Simulando métodos abstratos
+
+Métodos abstratos não possuem implementação na classe base e devem ser declarados no momento de instanciar o objetos (de criá-lo). Podemos simular esse comportamento retornando um erro como o corpo do método:
+
+```jsx
+class Warrior {
+	constructor(id, healthPoints, damagePoints) {
+		this.id = id;
+		this.healthPoints = healthPoints;
+		this.damagePoints = damagePoints;
+	}
+
+	wayCry() {
+		throw new Error("Implement the battle cry for the warrior!");
+	}
+}
+
+const archer = new Warrior(1, 150, 50);
+console.log(archer);
+// Warrior { id: 1, healthPoints: 150, damagePoints: 50 }
+
+console.log(archer.wayCry()); // <-- Error
+// throw new Error("Implement the battle cry for the warrior!");
+// ^
+
+// Error: Implement the battle cry for the warrior!
+
+archer.wayCry = () => {
+	return "One shot! One kill!";
+};
+console.log(archer.wayCry());
+```
+
+Quando um novo objeto for criado, ele deve implementar seu próprio método. Uma gambiarra? Sim, porém como dito antes, o javascript não é orientado a objetos.
+
+## Métodos e itens privados
+
+Métodos privados não podem ser acessados fora da classe. São geralmente usados como auxiliares para funções públicas. Para declarar um método como privado use # como primeiro caractere de seu nome. Nesse primeiro caso o método **sayPhoneNumber** é público e pôde ser acessado por ***ana***. No segundo não.
+
+```jsx
+class Person {
+	constructor(name) {
+		this.name = name;
+		this.phoneNumber = 123;
+	}
+	sayName = () => "I'm " + this.name;
+	sayPhoneNumber = () => this.phoneNumber;
+}
+
+const ana = new Person("Ana");
+console.log(ana.sayPhoneNumber()); // 123
+```
+
+```jsx
+class Person {
+	constructor(name) {
+		this.name = name;
+		this.phoneNumber = 123;
+	}
+	sayName = () => "I'm " + this.name;
+	#sayPhoneNumber = () => this.phoneNumber;
+}
+
+const ana = new Person("Ana");
+console.log(ana.sayPhoneNumber()); // TypeError: ana.sayPhoneNumber is not a function
+```
+
+## Referência
+
+[Using classes - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_classes)
+
+[Herança em JavaScript - Aprendendo desenvolvimento web | MDN (mozilla.org)](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+
+[constructor - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+
+[airbnb/javascript: JavaScript Style Guide (github.com)](https://github.com/airbnb/javascript#classes--constructors)
