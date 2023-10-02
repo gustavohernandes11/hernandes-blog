@@ -2,9 +2,11 @@ import { ArrowUp } from "@styled-icons/fa-solid";
 import { IconButton } from "./IconButton";
 
 const goTop = () => {
-    if (window !== undefined) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    const content = document.getElementsByClassName("content");
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
+    content[0].scrollTop = 0;
 };
 
 export const GoTopButton = () => {
