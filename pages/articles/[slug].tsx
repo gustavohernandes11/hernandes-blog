@@ -75,7 +75,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     for (const filePath of filePaths) {
         paths.push({
             params: {
-                slug: filePath.replace("mdx", ""),
+                slug: filePath.replace(".mdx", ""),
             },
         });
     }

@@ -1,4 +1,4 @@
-export type ArticlePreview = {
+export type IArticlePreview = {
     title: string;
     description: string;
     date: string;

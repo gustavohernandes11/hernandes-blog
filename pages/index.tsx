@@ -5,12 +5,12 @@ import { JustifyEnd } from "components/JustifyEnd";
 import { Title } from "components/Title";
 import { serialize } from "next-mdx-remote/serialize";
 import { readFileSync, readdirSync } from "fs";
-import { ArticlePreview } from "types/ArticlePreview";
+import { IArticlePreview } from "types/IArticlePreview";
 import { useState } from "react";
 import path from "path";
 
 type HomeProps = {
-    articlesPreview: ArticlePreview[];
+    articlesPreview: IArticlePreview[];
 };
 
 const Home = ({ articlesPreview }: HomeProps) => {
@@ -41,7 +41,7 @@ const Home = ({ articlesPreview }: HomeProps) => {
 export default Home;
 
 export const getStaticProps = async () => {
-    let articlesPreview: ArticlePreview[] = [];
+    let articlesPreview: IArticlePreview[] = [];
 
     const dirPath = path.join(process.cwd(), "_articles");
     const filePaths = readdirSync(dirPath).filter(
@@ -57,7 +57,7 @@ export const getStaticProps = async () => {
         articlesPreview.push({
             ...serializedArticle.frontmatter,
             slug: filePath.replace(".mdx", ""),
-        } as ArticlePreview);
+        } as IArticlePreview);
     }
 
     return { props: { articlesPreview } };
