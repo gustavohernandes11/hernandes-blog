@@ -22,6 +22,7 @@ const Article = ({
                 <SyntaxHighlighter
                     children={String(children).replace(/\n$/, "")}
                     showLineNumbers
+                    lineNumberStyle={{ minWidth: 0 }}
                     style={atomDark}
                     language={match[1]}
                     {...props}

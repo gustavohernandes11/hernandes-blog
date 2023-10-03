@@ -16,10 +16,9 @@ export const Header = () => {
 export const StyledHeader = styled.header`
     ${({ theme }) => css`
         display: flex;    
-        position: sticky;
+        /* position: sticky;
         top: 0;
-        left: 0;
-        display: flex;
+        left: 0; */
         flex-direction: row;
         justify-content: space-between;
         align-items: center;

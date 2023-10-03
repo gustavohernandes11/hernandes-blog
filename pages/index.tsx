@@ -29,11 +29,6 @@ const Home = ({ articlesPreview }: HomeProps) => {
                     key={e.title}
                 />
             ))}
-            <JustifyEnd>
-                <Button icon={<ArrowRight size={16} />} iconPosition="right">
-                    Próxima página
-                </Button>
-            </JustifyEnd>
         </>
     );
 };

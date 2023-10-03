@@ -54,13 +54,31 @@ input {
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.screen.tablet}) {
-    /* font-size: 93.75%; */
     h1 { font-size: 2.5rem };
   }
   
   @media (max-width: ${({ theme }) => theme.screen.mobile}) {
+    font-size: 93.75%;
     /* font-size: 87.50%; */
     h1 { font-size: 2rem };
+  }
+}
+
+@media (min-width: ${({ theme }) => theme.screen.laptop}) {
+  ::-webkit-scrollbar {
+    width: 1rem;
+
+  }
+
+  ::-webkit-scrollbar-track {
+    border: 1px solid ${({ theme }) => theme.color.border};
+    background-color: ${({ theme }) => theme.color.secondaryBackground};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 1px solid ${({ theme }) => theme.color.border};
+    background: ${({ theme }) => theme.color.surface};
+    border-radius: 0.5rem;
   }
 }
 `;

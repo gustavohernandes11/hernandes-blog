@@ -6,7 +6,7 @@ interface MainType {
 }
 
 export const Main = ({ children }: MainType) => {
-    return <StyledContainer>{children}</StyledContainer>;
+    return <StyledContainer className="main">{children}</StyledContainer>;
 };
 
 const StyledContainer = styled.main`
@@ -14,6 +14,7 @@ const StyledContainer = styled.main`
     padding: 1rem;
     max-width: 100vw;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 
     @media (min-width: ${({ theme }) => theme.screen.tablet}) {
         padding: 4rem;

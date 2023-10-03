@@ -15,11 +15,11 @@ export const MenuBar = () => {
 
 const StyledMenuBar = styled.div`
     ${({ theme }) => css`
-        grid-area: menubar;
-        position: sticky;
-        bottom: 0;
-        left: 0;
         display: flex;
+        grid-area: menubar;
+        /* position: sticky;
+        bottom: 0;
+        left: 0; */
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
