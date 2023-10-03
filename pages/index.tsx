@@ -24,6 +24,7 @@ const Home = ({ articlesPreview }: HomeProps) => {
                     key={e.title}
                 />
             ))}
+            <p>Por enquanto é só...</p>
         </>
     );
 };

@@ -17,20 +17,20 @@ const StyledMenuBar = styled.div`
     ${({ theme }) => css`
         display: flex;
         grid-area: menubar;
-        /* position: sticky;
+        position: fixed;
         bottom: 0;
-        left: 0; */
+        left: 0;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        height: 100%,
+        height: 3.75rem;
         width: 100%;
         z-index: 10;
         background-color: ${theme.color.secondaryBackground};
         border-top: 1px solid ${theme.color.border};
 
         @media (min-width: ${theme.screen.tablet}) {
-                display: none;
+            display: none;
         }
     `}
 `;
