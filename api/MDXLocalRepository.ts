@@ -19,7 +19,7 @@ export class MDXLocalRepository
         IListArticlesSlugRepository
 {
     async listArticlesSlug(): Promise<string[]> {
-        const dirPath = path.join(process.cwd(), "_articles");
+        const dirPath = path.join(process.cwd(), "database");
         const filePaths = readdirSync(dirPath).filter(
             (filePath) => path.extname(filePath).toLowerCase() === ".mdx"
         );
@@ -27,7 +27,7 @@ export class MDXLocalRepository
         return slugs;
     }
     async getArticle(slug: string): Promise<IArticle> {
-        const fileDir = path.join(process.cwd(), "_articles", slug + ".mdx");
+        const fileDir = path.join(process.cwd(), "database", slug + ".mdx");
         const articleFile = readFileSync(fileDir, "utf-8");
         const MdxSource = await serialize(articleFile, {
             mdxOptions: {
@@ -44,7 +44,7 @@ export class MDXLocalRepository
     async listArticlesPreview(): Promise<IArticlePreview[]> {
         let articlesPreview: IArticlePreview[] = [];
 
-        const dirPath = path.join(process.cwd(), "_articles");
+        const dirPath = path.join(process.cwd(), "database");
         const filePaths = readdirSync(dirPath).filter(
             (filePath) => path.extname(filePath).toLowerCase() === ".mdx"
         );
