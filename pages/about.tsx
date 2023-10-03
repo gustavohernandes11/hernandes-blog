@@ -5,6 +5,11 @@ const About: NextPage = () => {
     return (
         <>
             <Title>Sobre</Title>
+            <p>
+                Pequeno "blog" para compartilhar algumas resenhas e
+                conhecimentos. Nenhum trecho aqui foi gerado através de
+                Inteligência Artificial.
+            </p>
         </>
     );
 };

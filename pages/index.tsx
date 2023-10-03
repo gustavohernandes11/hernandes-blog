@@ -1,13 +1,8 @@
-import { ArrowRight } from "@styled-icons/fa-solid";
 import { Article } from "components/Article";
-import { Button } from "components/Button";
-import { JustifyEnd } from "components/JustifyEnd";
 import { Title } from "components/Title";
-import { serialize } from "next-mdx-remote/serialize";
-import { readFileSync, readdirSync } from "fs";
-import { IArticlePreview } from "types/IArticlePreview";
+import { IArticlePreview } from "types/article-protocols";
 import { useState } from "react";
-import path from "path";
+import { MDXLocalRepository } from "../api/MDXLocalRepository";
 
 type HomeProps = {
     articlesPreview: IArticlePreview[];
@@ -36,24 +31,7 @@ const Home = ({ articlesPreview }: HomeProps) => {
 export default Home;
 
 export const getStaticProps = async () => {
-    let articlesPreview: IArticlePreview[] = [];
-
-    const dirPath = path.join(process.cwd(), "_articles");
-    const filePaths = readdirSync(dirPath).filter(
-        (filePath) => path.extname(filePath).toLowerCase() === ".mdx"
-    );
-
-    for (const filePath of filePaths) {
-        let file = readFileSync(path.join(dirPath, filePath), "utf-8");
-        const serializedArticle = await serialize(file, {
-            parseFrontmatter: true,
-        });
-        console.log("pathname: " + file);
-        articlesPreview.push({
-            ...serializedArticle.frontmatter,
-            slug: filePath.replace(".mdx", ""),
-        } as IArticlePreview);
-    }
-
+    const repository = new MDXLocalRepository();
+    const articlesPreview = await repository.listArticlesPreview();
     return { props: { articlesPreview } };
 };
