@@ -42,7 +42,7 @@ export const StyledAside = styled.aside`
         background-color: ${theme.color.secondaryBackground};
         border-right: 1px solid ${theme.color.border};
 
-        @media (max-width: ${theme.screen.tablet} + 1) {
+        @media (max-width: ${theme.screen.tablet}) {
             display: none;
         }
     `}
