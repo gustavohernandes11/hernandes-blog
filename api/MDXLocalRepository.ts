@@ -1,6 +1,9 @@
 import { readdirSync, readFileSync } from "fs";
-import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
+import { serialize } from "next-mdx-remote/serialize";
+import smartypants from "remark-smartypants";
+
+import remarkGfm from "remark-gfm";
 import {
     IArticle,
     IArticlePreview,
@@ -9,7 +12,6 @@ import {
     IListArticlesSlugRepository,
     ISearchArticlesRepository,
 } from "../src/types/article-protocols";
-import remarkGfm from "remark-gfm";
 
 export class MDXLocalRepository
     implements
@@ -31,7 +33,7 @@ export class MDXLocalRepository
         const articleFile = readFileSync(fileDir, "utf-8");
         const MdxSource = await serialize(articleFile, {
             mdxOptions: {
-                remarkPlugins: [remarkGfm],
+                remarkPlugins: [remarkGfm, smartypants],
                 remarkRehypeOptions: { allowDangerousHtml: true },
             },
             parseFrontmatter: true,
