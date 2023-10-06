@@ -7,9 +7,9 @@ category: "CSS"
 
 ## Introdução
 
-O CSS é uma linguagem de marcação assim como o HTML. Ela é uma das primeiras tecnologias que exploramos ao iniciar no desenvolvimento web, justamente por ser simples e ter um resultado visual imediato na tela. Entretanto, apesar de ser simples, a estrutura do CSS num projeto deve ser muito bem organizada. Dado que facilmente podemos se perder em meio a tantas classes, seletores e folhas de estilos que sobrescrevem o que não deveria, ou não apresentam efeito quando deveria.  
+O CSS é uma linguagem de marcação assim como o HTML. Ela é uma das primeiras tecnologias que exploramos ao iniciar no desenvolvimento web, justamente por ser simples e ter um resultado visual imediato na tela. Entretanto, apesar de ser simples, a estrutura do CSS num projeto deve ser muito bem organizada. Dado que facilmente podemos se perder em meio a tantas classes, seletores e folhas de estilos que sobrescrevem o que não deveria, ou não apresentam efeito quando deveriam.  
 
-Por esse motivo surgiram vários modelos de arquiteturas CSS, algumas que ditam regras a serem seguidas e outras apenas recomendações e guias.  Vou passar comentar sobre as três principais: 
+Por esse motivo surgiram vários modelos de arquiteturas CSS, algumas que ditam regras a serem seguidas e outras apenas recomendações e guias. Vou comentar sobre as três principais: 
 
 1. OOCSS (Object-Oriented CSS).
 2. SMACSS.
@@ -19,7 +19,7 @@ Só vamos se atentar que, nenhuma arquitetura suprime a boa comunicação e conv
 
 ## OOCSS - CSS Orientado a Objetos.
 
-Esse module foi proposto por Nicole Sullivan, em 2008. O seu objetivo era aplicar conceitos de POO já conhecidos, principalmente através das linguagens Java e C#.
+Essa metodologia foi proposta por Nicole Sullivan, em 2008. O seu objetivo era aplicar conceitos de POO já conhecidos, principalmente através das linguagens Java e C#.
 
 Desse modo podemos abstrair as pequenas partes de um site em objetos e estilizá-los independente de sua localização. Isso porque um dos conceitos de OOCSS é criar uma nova classe específica para cada novo tipo de elemento que você quer. 
 
@@ -58,9 +58,9 @@ Abaixo há um exemplo de separação entre estrutura e estilo.
 
 ### Container vs Conteúdo
 
-Em adição, Sullivan sugere a separação entre o *container* e conteúdo para evitar ao máximo a dependência de localização do objeto na árvore de renderização do HTML - o famoso DOM, Document Object Model -. Lembre-se que é uma prática manter um elemento com a mesma aparência, não importa onde estiver.
+Em adição, Sullivan sugere a separação entre o *container* e conteúdo para evitar ao máximo a dependência de localização do objeto na árvore de renderização do HTML - o famoso DOM, Document Object Model -. Lembre-se que é uma boa prática manter um elemento com a mesma aparência, não importa onde estiver.
 
-Por exemplo, ao invés de estilizar todos os *links* dentro de *footer*. 
+Por exemplo, ao invés de estilizar todos os *links* dentro de *footer*...
 
 ```css
 .footer a { /* styles */ }
@@ -75,13 +75,13 @@ Por exemplo, ao invés de estilizar todos os *links* dentro de *footer*.
 ### Alguns outros detalhes importantes
 
 - Evite usar IDs.
-- Evite citar *tags* HTML **dentro do arquivo CSS. Use classes.
-- Evite usar seletor descendente (como no explicado no último exemplo).
+- Evite citar *tags* HTML dentro do arquivo CSS. Use classes.
+- Evite usar seletor descendente (como explicado no último exemplo).
 - Apenas use *!important* em casos extremos.
 
 ## SMACSS
 
-Agora vamos falar de SMACSS (lê-se ****smacks).**** Foi criado por Jonathan Snook. O autor tem um livro sobre e um [site](https://smacss.com/) de documentação.
+Agora vamos falar de SMACSS (lê-se ****smacks).**** Foi criado por Jonathan Snook. O autor tem um livro sobre e uma [excelente documentação](https://smacss.com/).
 
 Conforme o guia, as regras CSS têm 5 categorias: *base*, *layout*, *module*, *state* e *theme*.
 
@@ -146,7 +146,7 @@ A parte mais funcional do site, específicos e reutilizáveis. Aqui vamos estili
 
 ### State (Estado)
 
-Nessa parte são os estilos relacionados a um “estado”, como estar selecionado, estar ativo, ou que contenha algo. Aqui há uma estreita relação com Javascript para aplicar ou retirar esses estilos dinamicamente.  Comumente são usados prefixos como “is-” e “has-” na nomenclatura de classes.
+Nessa parte são os estilos relacionados a um “estado”, como estar selecionado, estar ativo, ou qualquer outra condição. Aqui há uma estreita relação com Javascript para aplicar ou retirar esses estilos dinamicamente.  Comumente são usados prefixos como “is-” e “has-” na nomenclatura de classes.
 
 ```css
 .is-selected {
@@ -164,9 +164,9 @@ Nessa parte são os estilos relacionados a um “estado”, como estar seleciona
 
 Estilos que dependem da preferência do usuário. Essa parte é bem opcional, pois nem todos os projetos têm escolha de temas (***********dark/light***********), estilo de listagem (****************tabela/lista/grade****************), entre outros.
 
-Importante ressaltar que SMACSS não te diga regra alguma, é apenar um guia. 
+Importante ressaltar que SMACSS não te dita regra alguma, é apenar um guia. 
 
-Uma opção de estrutura de pastas pode ser a seguinte, como exemplo:
+Uma opção de estrutura de pastas pode ser a seguinte:
 
 ```
 styles
@@ -197,7 +197,7 @@ Um elemento deve fazer parte do bloco, pois não tem função fora deste. Os lin
 
 ### Modifier (Modificador)
 
-Uma variação ou extensão do bloco. Um link ativo é um modificador específico do bloco.
+Uma variação ou extensão do bloco. Um link ativo seria um modificador específico do Header.
 
 ## Nomenclatura
 
@@ -213,7 +213,7 @@ A nomenclatura é a parte mais marcante de BEM. Você vai saber que um projeto u
 
 ## Conclusão
 
-Estas são apenas 3 das estratégias de manter os códigos CSS organizados conforme aumenta sua complexidade. Agora que você viu uma geral sobre cada uma delas, escolha qual te agrada mais, explore a documentação e comece a pôr em prática. Bons estudos! 👋
+Estas são apenas 3 das estratégias de manter os códigos CSS organizados conforme aumente sua complexidade. Agora que você viu uma geral sobre cada uma delas, escolha qual te agrada mais, explore a documentação e comece a pôr em prática. Bons estudos! 👋
 
 ## Referência
 
