@@ -4,21 +4,20 @@ import { serialize } from "next-mdx-remote/serialize";
 import smartypants from "remark-smartypants";
 
 import remarkGfm from "remark-gfm";
+import { IArticle, IArticlePreview } from "./article-models";
 import {
-    IArticle,
-    IArticlePreview,
     IGetArticleRepository,
     IListArticlesPreviewRepository,
     IListArticlesSlugRepository,
     ISearchArticlesRepository,
-} from "../src/types/article-protocols";
+} from "./article-protocols";
 
 export class MDXLocalRepository
     implements
         IGetArticleRepository,
         IListArticlesPreviewRepository,
-        ISearchArticlesRepository,
-        IListArticlesSlugRepository
+        IListArticlesSlugRepository,
+        ISearchArticlesRepository
 {
     async listArticlesSlug(): Promise<string[]> {
         const dirPath = path.join(process.cwd(), "database");
