@@ -1,8 +1,15 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ArticleHeading } from "../components/ArticleHeading";
+import Image from "next/image";
+import { Flex } from "components/Flex";
 
 export const MDXComponents = {
+    img: (props: any) => (
+        <Flex justify="center">
+            <img {...props} />
+        </Flex>
+    ),
     h1: ({ children, ...props }: any) => (
         <ArticleHeading as="h1" {...props}>
             {children}

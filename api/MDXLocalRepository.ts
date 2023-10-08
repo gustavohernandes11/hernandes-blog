@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from "fs";
 import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import smartypants from "remark-smartypants";
+import imageSize from "rehype-img-size";
 
 import remarkGfm from "remark-gfm";
 import { IArticle, IArticlePreview } from "./article-models";
@@ -32,6 +33,7 @@ export class MDXLocalRepository
         const articleFile = readFileSync(fileDir, "utf-8");
         const MdxSource = await serialize(articleFile, {
             mdxOptions: {
+                rehypePlugins: [imageSize as any, { dir: "public" }],
                 remarkPlugins: [remarkGfm, smartypants],
                 remarkRehypeOptions: { allowDangerousHtml: true },
             },
