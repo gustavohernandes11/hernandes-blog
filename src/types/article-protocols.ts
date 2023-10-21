@@ -14,6 +14,8 @@ export type IArticle = {
     content: string;
 };
 
+export type IDbArticleRepository = IGetArticleRepository & IListArticlesPreviewRepository & ISearchArticlesRepository & IListArticlesSlugRepository
+
 export interface IListArticlesPreviewRepository {
     listArticlesPreview(): Promise<IArticlePreview[]>;
 }

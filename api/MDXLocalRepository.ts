@@ -7,18 +7,12 @@ import remarkGfm from "remark-gfm";
 import {
     IArticle,
     IArticlePreview,
-    IGetArticleRepository,
-    IListArticlesPreviewRepository,
-    IListArticlesSlugRepository,
-    ISearchArticlesRepository,
+    IDbArticleRepository,
 } from "../src/types/article-protocols";
 
 export class MDXLocalRepository
     implements
-        IGetArticleRepository,
-        IListArticlesPreviewRepository,
-        ISearchArticlesRepository,
-        IListArticlesSlugRepository
+    IDbArticleRepository
 {
     async listArticlesSlug(): Promise<string[]> {
         const dirPath = path.join(process.cwd(), "database");

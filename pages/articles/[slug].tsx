@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { MDXLocalRepository } from "../../api/MDXLocalRepository";
 import { MDXComponents } from "utils/mdx-components";
+import { IDbArticleRepository } from "types/article-protocols";
 
 const Article = ({
     articleData,
@@ -36,7 +37,7 @@ export default Article;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const { slug } = ctx.params!;
-    const repository = new MDXLocalRepository();
+    const repository: IDbArticleRepository = new MDXLocalRepository();
     const articleData = await repository.getArticle(slug as string);
     return { props: { articleData } };
 };

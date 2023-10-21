@@ -1,6 +1,6 @@
 import { Article } from "components/Article";
 import { Title } from "components/Title";
-import { IArticlePreview } from "types/article-protocols";
+import { IArticlePreview, IDbArticleRepository } from "types/article-protocols";
 import { useState } from "react";
 import { MDXLocalRepository } from "../api/MDXLocalRepository";
 
@@ -32,7 +32,7 @@ const Home = ({ articlesPreview }: HomeProps) => {
 export default Home;
 
 export const getStaticProps = async () => {
-    const repository = new MDXLocalRepository();
+    const repository: IDbArticleRepository = new MDXLocalRepository();
     const articlesPreview = await repository.listArticlesPreview();
     return { props: { articlesPreview } };
 };
