@@ -13,3 +13,17 @@ export type IArticle = {
     category: string;
     content: string;
 };
+
+export type IMeta = {
+    title: string;
+    description: string;
+    keywords: string;
+};
+export type IPagination = {
+    totalDocs: string;
+    limit: string;
+    totalPages: string;
+    page: string;
+    hasPrevPage: string;
+    hasNextPage: string;
+};

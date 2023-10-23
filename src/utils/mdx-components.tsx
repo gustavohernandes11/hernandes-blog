@@ -1,7 +1,6 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ArticleHeading } from "../components/ArticleHeading";
-import Image from "next/image";
 import { Flex } from "components/Flex";
 
 export const MDXComponents = {
@@ -40,19 +39,19 @@ export const MDXComponents = {
             {children}
         </ArticleHeading>
     ),
-    code({ node, inline, className, style, children, ...props }: any) {
+    code(props: any) {
+        const { children, className, node, ...rest } = props;
         const match = /language-(\w+)/.exec(className || "");
-        return !inline && match ? (
+        return match ? (
             <SyntaxHighlighter
+                {...rest}
                 children={String(children).replace(/\n$/, "")}
-                showLineNumbers
-                lineNumberStyle={{ minWidth: 0 }}
-                style={atomDark}
+                style={vscDarkPlus}
                 language={match[1]}
-                {...props}
+                PreTag="div"
             />
         ) : (
-            <code className={className} {...props}>
+            <code {...rest} className={className}>
                 {children}
             </code>
         );

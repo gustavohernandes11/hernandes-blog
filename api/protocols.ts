@@ -1,4 +1,9 @@
-import { IArticle, IArticlePreview } from "./article-models";
+import { IArticle, IArticlePreview } from "./models";
+
+export type IDbArticleRepository = IGetArticleRepository &
+    IListArticlesPreviewRepository &
+    ISearchArticlesRepository &
+    IListArticlesSlugRepository;
 
 export interface IListArticlesPreviewRepository {
     listArticlesPreview(): Promise<IArticlePreview[]>;
