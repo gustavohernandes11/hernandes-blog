@@ -1,5 +1,6 @@
 import { IArticle, IArticlePreview } from "./models";
 import { IDbArticleRepository } from "./protocols";
+import mockData from "./ResponsePayloadMock.json";
 
 export class PayloadRepository implements IDbArticleRepository {
     private readonly url = "https://payloadcms-l0q3.onrender.com/api";
@@ -38,7 +39,17 @@ export class PayloadRepository implements IDbArticleRepository {
 const buildMarkdownLines = (nestedObject: any[]): string => {
     let markdownLines = "";
     nestedObject.map((node) => {
-        node.children.map((children: any) => (markdownLines += children.text));
+        if (node.type === "upload") {
+            markdownLines += "\n";
+            markdownLines += `![${node.value.alt}](${node.value.url})`;
+        }
+        node.children?.map((children: any) => {
+            if (children.type === "link") {
+                markdownLines += `[${children.children[0].text}](${children.url})`;
+            } else {
+                markdownLines += children.text;
+            }
+        });
         markdownLines += "\n";
     });
     return markdownLines;

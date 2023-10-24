@@ -16,6 +16,11 @@ const StyledContainer = styled.main`
     overflow-y: scroll;
     scroll-behavior: smooth;
 
+    img {
+        width: 100%;
+        height: auto;
+    }
+
     @media (min-width: ${({ theme }) => theme.screen.tablet}) {
         padding: 4rem;
     }
