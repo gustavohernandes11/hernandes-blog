@@ -1,6 +1,5 @@
 import { IArticle, IArticlePreview } from "./models";
 import { IDbArticleRepository } from "./protocols";
-import mockData from "./ResponsePayloadMock.json";
 
 export class PayloadRepository implements IDbArticleRepository {
     private readonly url = "https://payloadcms-l0q3.onrender.com/api";
