@@ -61,6 +61,7 @@ export default class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,400;9..40,700&family=Ubuntu:wght@300;400;700&display=swap"
                         rel="stylesheet"
                     />
+                    <base target="_blank" />
                 </Head>
                 <body>
                     <Main />
