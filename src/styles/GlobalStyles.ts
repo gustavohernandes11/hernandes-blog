@@ -45,11 +45,6 @@ th, td {
   padding: 0.5rem;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 html,
 body,
 button,
