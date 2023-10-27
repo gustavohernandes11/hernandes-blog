@@ -16,5 +16,10 @@ const StyledSection = styled.section`
             margin: -4rem;
             margin-bottom: 4rem;
         }
+        @media (min-width: ${theme.screen.desktop}) {
+            padding: 8rem;
+            margin: -8rem;
+            margin-bottom: 8rem;
+        }
     `}
 `;

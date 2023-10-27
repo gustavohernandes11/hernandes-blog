@@ -24,4 +24,8 @@ const StyledContainer = styled.main`
     @media (min-width: ${({ theme }) => theme.screen.tablet}) {
         padding: 4rem;
     }
+
+    @media (min-width: ${({ theme }) => theme.screen.desktop}) {
+        padding: 8rem;
+    }
 `;
