@@ -44,7 +44,10 @@ const buildMarkdownLines = (nestedObject: any[]): string => {
         }
         node.children?.map((children: any) => {
             if (children.type === "link") {
-                markdownLines += `[${children.children[0].text}](${children.url})`;
+                if (children.newTab)
+                    markdownLines += `<a href="${children.url}" target="_blank">${children.children[0].text}</a>`;
+                else
+                    markdownLines += `[${children.children[0].text}](${children.url})`;
             } else {
                 markdownLines += children.text;
             }
