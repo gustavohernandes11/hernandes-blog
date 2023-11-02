@@ -4,6 +4,7 @@ import { useState } from "react";
 import { IDbArticleRepository } from "../api/protocols";
 import { IArticlePreview } from "../api/models";
 import { PayloadRepository } from "../api/PayloadRepository";
+import Head from "next/head";
 
 type HomeProps = {
     articlesPreview: IArticlePreview[];
@@ -14,6 +15,9 @@ const Home = ({ articlesPreview }: HomeProps) => {
 
     return (
         <>
+            <Head>
+                <title>Hernandes | Início</title>
+            </Head>
             <Title>Início</Title>
             {articles.map((e) => (
                 <Article

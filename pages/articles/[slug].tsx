@@ -11,6 +11,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import Markdown from "react-markdown";
+import Head from "next/head";
 
 const Article = ({
     articleData,
@@ -19,6 +20,9 @@ const Article = ({
 
     return (
         <>
+            <Head>
+                <title>Hernandes | {article?.title}</title>
+            </Head>
             <Section>
                 <p>{article?.date}</p>
                 <h1>{article?.title}</h1>
@@ -31,7 +35,12 @@ const Article = ({
                 components={MDXComponents}
             />
 
-            <Button href="/" icon={<ArrowLeft size={16} />} iconPosition="left">
+            <Button
+                aria-label="Go back to home page"
+                href="/"
+                icon={<ArrowLeft size={16} />}
+                iconPosition="left"
+            >
                 Voltar para todos os artigos
             </Button>
         </>

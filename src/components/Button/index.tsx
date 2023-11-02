@@ -1,6 +1,7 @@
 import { IconButton } from "components/IconButton";
 import * as Styled from "./styles";
 import Link from "next/link";
+import { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = {
     children: React.ReactNode;
@@ -18,12 +19,15 @@ export const Button = ({
     onClick,
     icon,
     iconPosition = "right",
-}: ButtonProps) => {
+    ...rest
+}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
     return (
         <>
             {href ? (
                 <Link href={href}>
                     <Styled.Button
+                        {...rest}
+                        role="button"
                         backgroundColor={backgroundColor}
                         icon={icon}
                         iconPosition={iconPosition}
@@ -40,6 +44,8 @@ export const Button = ({
                 </Link>
             ) : (
                 <Styled.Button
+                    {...rest}
+                    role="button"
                     backgroundColor={backgroundColor}
                     icon={icon}
                     iconPosition={iconPosition}
