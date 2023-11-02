@@ -78,4 +78,5 @@ const serializeArticle = (article: any): IArticle => ({
     category: article.category.name,
     date: formatDate(article.createdAt),
     content: buildMarkdownLines(article.content),
+    meta: article.meta,
 });

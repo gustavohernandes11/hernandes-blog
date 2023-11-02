@@ -17,6 +17,14 @@ const Home = ({ articlesPreview }: HomeProps) => {
         <>
             <Head>
                 <title>Hernandes | Início</title>
+                <meta
+                    name="description"
+                    content="Pra falar de tecnologia, engenharia e outras coisas mais"
+                />
+                <meta
+                    name="keywords"
+                    content="Programação, Engenharia, Produção, Software"
+                />
             </Head>
             <Title>Início</Title>
             {articles.map((e) => (

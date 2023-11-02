@@ -12,6 +12,7 @@ export type IArticle = {
     date: string;
     category: string;
     content: string;
+    meta: IMeta;
 };
 
 export type IMeta = {
