@@ -5,7 +5,7 @@ import { Section } from "components/Section";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { MDXComponents } from "utils/mdx-components";
 import { PayloadRepository } from "../../api/PayloadRepository";
-import { IDbArticleRepository } from "../../api/protocols";
+import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";

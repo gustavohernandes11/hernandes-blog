@@ -19,7 +19,7 @@ path {
 
 h1, h2, h3, h4, h5, h6 {
   ${({ theme }) => css`
-      color: ${theme.textColor};
+      color: ${theme.color.text};
       font-family: ${theme.font.primaryFamily};
       margin: 0;
       font-weight: bold;

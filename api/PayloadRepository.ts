@@ -1,8 +1,9 @@
-import { IArticle, IArticlePreview } from "./models";
-import { IDbArticleRepository } from "./protocols";
+import { IArticle } from "../src/types/IArticle";
+import { IArticlePreview } from "../src/types/IArticlePreview";
+import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
 
 export class PayloadRepository implements IDbArticleRepository {
-    private readonly url = "https://payloadcms-l0q3.onrender.com/api";
+    private readonly url = process.env.NEXT_PUBLIC_API_URL;
 
     async getArticle(slug: string): Promise<IArticle> {
         const response = await fetch(

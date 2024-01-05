@@ -3,10 +3,10 @@ import LightLogo from "../../public/LightLogo.svg";
 import DarkLogo from "../../public/DarkLogo.svg";
 import { useThemeContext } from "hooks/useThemeContext";
 
-type LogoProps = {
+type ILogoProps = {
     scale?: 1 | 1.25 | 1.5 | 1.75 | 2.0;
 };
-export const Logo = ({ scale = 1 }: LogoProps) => {
+export const Logo = ({ scale = 1 }: ILogoProps) => {
     const [theme] = useThemeContext();
     const getThemedLogo = () => (theme === "light" ? LightLogo : DarkLogo);
 

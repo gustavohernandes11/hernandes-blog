@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-interface MainType {
-    children?: React.ReactNode;
-}
-
-export const Main = ({ children }: MainType) => {
+export const Main = ({ children }: ILayoutProps) => {
     return <StyledContainer className="main">{children}</StyledContainer>;
 };
 

@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-export const Section = ({ children }: any) => {
-    return <StyledSection>{children}</StyledSection>;
-};
+export const Section = ({ children }: ILayoutProps) => (
+    <StyledSection>{children}</StyledSection>
+);
 
 const StyledSection = styled.section`
     ${({ theme }) => css`

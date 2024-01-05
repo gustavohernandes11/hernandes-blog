@@ -3,7 +3,7 @@ import * as Styled from "./styles";
 import Link from "next/link";
 import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = {
+type IButtonProps = {
     children: React.ReactNode;
     backgroundColor?: string;
     onClick?: () => void;
@@ -20,7 +20,7 @@ export const Button = ({
     icon,
     iconPosition = "right",
     ...rest
-}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: IButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
     return (
         <>
             {href ? (

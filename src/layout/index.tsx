@@ -9,7 +9,7 @@ import { darkTheme, lightTheme } from "styles/theme";
 import { useThemeContext } from "hooks/useThemeContext";
 import { useMenuContext } from "hooks/useMenuContext";
 
-export const Layout = ({ children }: any) => {
+export const Layout = ({ children }: ILayoutProps) => {
     const [theme] = useThemeContext();
     const { isOpen } = useMenuContext();
 

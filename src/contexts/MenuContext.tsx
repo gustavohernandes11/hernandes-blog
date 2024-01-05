@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 
 export const MenuContext = createContext<any>(null);
 
-export const MenuContextProvider = ({ children }: any) => {
+export const MenuContextProvider = ({ children }: ILayoutProps) => {
     const [isOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {

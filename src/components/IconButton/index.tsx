@@ -1,6 +1,6 @@
 import * as Styled from "./styles";
 
-type IconButtonProps = {
+type IIconButtonProps = {
     children: React.ReactNode;
     backgroundColor?: string;
     primary?: boolean;
@@ -15,7 +15,7 @@ export const IconButton = ({
     primary,
     onClick,
     disable,
-}: IconButtonProps) => {
+}: IIconButtonProps) => {
     return (
         <Styled.Container
             onClick={onClick}

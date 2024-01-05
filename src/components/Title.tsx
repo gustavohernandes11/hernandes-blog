@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components";
 
-export const Title = ({ children }: any) => {
+type ITitleProps = {
+    children: string;
+};
+export const Title = ({ children }: ITitleProps) => {
     return <StyledTitle>{children}</StyledTitle>;
 };
 

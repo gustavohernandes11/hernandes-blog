@@ -1,4 +1,5 @@
-import { IArticle, IArticlePreview } from "./models";
+import { IArticle } from "./IArticle";
+import { IArticlePreview } from "./IArticlePreview";
 
 export type IDbArticleRepository = IGetArticleRepository &
     IListArticlesPreviewRepository &

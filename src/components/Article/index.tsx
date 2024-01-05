@@ -1,13 +1,6 @@
 import Link from "next/link";
 import * as Styled from "./styles";
-
-type ArticleProps = {
-    title: string;
-    description: string;
-    date: string;
-    category: string;
-    slug: string;
-};
+import { IArticlePreview } from "types/IArticlePreview";
 
 export const Article = ({
     category,
@@ -15,7 +8,7 @@ export const Article = ({
     date,
     slug,
     description,
-}: ArticleProps) => {
+}: IArticlePreview) => {
     return (
         <Link href={`/articles/${slug}`}>
             <Styled.ArticleContainer>

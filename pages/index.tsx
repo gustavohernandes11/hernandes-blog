@@ -1,16 +1,16 @@
 import { Article } from "components/Article";
 import { Title } from "components/Title";
 import { useState } from "react";
-import { IDbArticleRepository } from "../api/protocols";
-import { IArticlePreview } from "../api/models";
+import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
+import { IArticlePreview } from "../src/types/IArticlePreview";
 import { PayloadRepository } from "../api/PayloadRepository";
 import Head from "next/head";
 
-type HomeProps = {
+type IHomePageProps = {
     articlesPreview: IArticlePreview[];
 };
 
-const Home = ({ articlesPreview }: HomeProps) => {
+const Home = ({ articlesPreview }: IHomePageProps) => {
     const [articles] = useState(articlesPreview);
 
     return (
