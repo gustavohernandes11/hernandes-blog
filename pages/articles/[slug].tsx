@@ -21,7 +21,9 @@ const Article = ({
     return (
         <>
             <Head>
-                <title> Hernandes | {article?.meta?.title}</title>
+                <title>
+                    Hernandes | {article?.meta?.title || article?.title}
+                </title>
                 <meta name="description" content={article?.meta?.description} />
                 <meta name="keywords" content={article?.meta?.keywords} />
             </Head>
