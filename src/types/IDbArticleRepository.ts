@@ -3,7 +3,6 @@ import { IArticlePreview } from "./IArticlePreview";
 
 export type IDbArticleRepository = IGetArticleRepository &
     IListArticlesPreviewRepository &
-    ISearchArticlesRepository &
     IListArticlesSlugRepository;
 
 export interface IListArticlesPreviewRepository {
