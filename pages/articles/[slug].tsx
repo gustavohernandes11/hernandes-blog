@@ -3,8 +3,8 @@ import { ArrowLeft } from "@styled-icons/fa-solid";
 import { Button } from "components/Button";
 import { Section } from "components/Section";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { MDXComponents } from "utils/mdx-components";
-import { PayloadRepository } from "../../api/PayloadRepository";
+import { MDXComponents } from "utils/mdxComponents";
+import { PayloadRepository } from "../../api/payloadCMS/PayloadRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
 import remarkGfm from "remark-gfm";

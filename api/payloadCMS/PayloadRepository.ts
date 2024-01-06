@@ -1,6 +1,8 @@
-import { IArticle } from "../src/types/IArticle";
-import { IArticlePreview } from "../src/types/IArticlePreview";
-import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
+import { IArticle } from "../../src/types/IArticle";
+import { IArticlePreview } from "../../src/types/IArticlePreview";
+import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
+import { buildMarkdownLines } from "./buildMarkdownLines";
+import { formatDate } from "../../src/utils/formatDate";
 
 export class PayloadRepository implements IDbArticleRepository {
     private readonly url = process.env.NEXT_PUBLIC_API_URL;
@@ -30,40 +32,7 @@ export class PayloadRepository implements IDbArticleRepository {
 
         return docs.map((article: any) => article.slug);
     }
-
-    async searchArticles(text: string): Promise<IArticlePreview[]> {
-        throw new Error("Method not implemented.");
-    }
 }
-
-const buildMarkdownLines = (nestedObject: any[]): string => {
-    let markdownLines = "";
-    nestedObject.map((node) => {
-        if (node.type === "upload") {
-            markdownLines += "\n";
-            markdownLines += `![${node.value.alt}](${node.value.url})`;
-        }
-        node.children?.map((children: any) => {
-            if (children.type === "link") {
-                if (children.newTab)
-                    markdownLines += `<a href="${children.url}" target="_blank">${children.children[0].text}</a>`;
-                else
-                    markdownLines += `[${children.children[0].text}](${children.url})`;
-            } else {
-                markdownLines += children.text;
-            }
-        });
-        markdownLines += "\n";
-    });
-    return markdownLines;
-};
-const formatDate = (utcString: string): string => {
-    return new Date(utcString).toLocaleString("pt-BR", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
-};
 
 const serializePreview = (article: any): IArticlePreview => ({
     title: article.title,

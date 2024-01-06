@@ -3,7 +3,7 @@ import { Title } from "components/Title";
 import { useState } from "react";
 import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
 import { IArticlePreview } from "../src/types/IArticlePreview";
-import { PayloadRepository } from "../api/PayloadRepository";
+import { PayloadRepository } from "../api/payloadCMS/PayloadRepository";
 import Head from "next/head";
 
 type IHomePageProps = {
