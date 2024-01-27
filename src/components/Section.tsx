@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { ILayoutProps } from "../types/ILayoutProps";
 
 export const Section = ({ children }: ILayoutProps) => (
     <StyledSection>{children}</StyledSection>

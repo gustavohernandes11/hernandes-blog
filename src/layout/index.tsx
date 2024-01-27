@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "styles/theme";
 import { useThemeContext } from "hooks/useThemeContext";
 import { useMenuContext } from "hooks/useMenuContext";
+import { ILayoutProps } from "../types/ILayoutProps";
 
 export const Layout = ({ children }: ILayoutProps) => {
     const [theme] = useThemeContext();

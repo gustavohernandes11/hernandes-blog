@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useEffect, useState } from "react";
+import { ILayoutProps } from "../types/ILayoutProps";
 
 export const ThemeContext = createContext<[any, any]>([null, null]);
 

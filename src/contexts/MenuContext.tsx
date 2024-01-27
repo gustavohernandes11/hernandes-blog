@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useState } from "react";
+import { ILayoutProps } from "../types/ILayoutProps";
 
 export const MenuContext = createContext<any>(null);
 

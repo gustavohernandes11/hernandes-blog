@@ -1,3 +1,3 @@
-type ILayoutProps = {
+export type ILayoutProps = {
     children: React.ReactNode;
 };

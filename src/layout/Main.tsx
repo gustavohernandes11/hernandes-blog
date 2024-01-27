@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ILayoutProps } from "../types/ILayoutProps";
 
 export const Main = ({ children }: ILayoutProps) => {
     return <StyledContainer className="main">{children}</StyledContainer>;
