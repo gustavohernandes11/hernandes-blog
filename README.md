@@ -2,7 +2,7 @@
   
 # BLOG
 
-Um simples blog criado com Next.js + Markdown. 
+Um simples blog criado com Next.js + PayloadCMS. 
 
 <img width="500" src="https://github.com/gustavohernandes11/blog/assets/66632840/a89861a8-502f-4b5c-9282-449addd96ecb" alt="Capa do projeto">
 
