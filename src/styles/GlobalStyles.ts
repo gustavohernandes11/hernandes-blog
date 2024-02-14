@@ -75,9 +75,9 @@ input {
   }
 
   ::-webkit-scrollbar-thumb {
-    border: 1px solid ${({ theme }) => theme.color.border};
+    border: 1px solid gray;
     background: ${({ theme }) => theme.color.surface};
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
   }
 }
 `;
