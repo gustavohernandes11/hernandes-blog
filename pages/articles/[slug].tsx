@@ -1,17 +1,13 @@
-import { useState } from "react";
 import { ArrowLeft } from "@styled-icons/fa-solid";
 import { Button } from "components/Button";
 import { Section } from "components/Section";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { MDXComponents } from "utils/mdxComponents";
+import { useState } from "react";
 import { PayloadRepository } from "../../api/payloadCMS/PayloadRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-
-import Markdown from "react-markdown";
 import Head from "next/head";
+import { serializeLexical } from "../../src/utils/serializeLexical";
 
 const Article = ({
     articleData,
@@ -32,12 +28,16 @@ const Article = ({
                 <h1>{article?.title}</h1>
                 <p>{article?.category}</p>
             </Section>
-            <Markdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-                children={article?.content}
-                components={MDXComponents}
-            />
+
+            <div>
+                {article.content &&
+                    !Array.isArray(article.content) &&
+                    typeof article.content === "object" &&
+                    "root" in article.content &&
+                    serializeLexical({
+                        nodes: article.content?.root?.children,
+                    })}
+            </div>
 
             <Button
                 aria-label="Go back to home page"
