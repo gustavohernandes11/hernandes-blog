@@ -13,9 +13,14 @@
         "coverage": "jest --coverage"
     },
     "dependencies": {
+        "@lexical/list": "^0.13.1",
+        "@lexical/rich-text": "^0.13.1",
+        "@payloadcms/richtext-lexical": "^0.6.1",
         "@styled-icons/fa-brands": "^10.47.0",
         "@styled-icons/fa-solid": "^10.47.0",
+        "escape-html": "^1.0.3",
         "jest-styled-components": "^7.0.8",
+        "lexical": "^0.13.1",
         "next": "^13.5.5-canary.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -31,6 +36,7 @@
         "@babel/core": "^7.18.9",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^13.3.0",
+        "@types/escape-html": "^1.0.4",
         "@types/jest": "^28.1.6",
         "@types/node": "18.0.6",
         "@types/react": "^18.0.15",
