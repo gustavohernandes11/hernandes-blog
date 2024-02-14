@@ -1,10 +1,9 @@
-import { IArticle } from "../../src/types/IArticle";
-import { IArticlePreview } from "../../src/types/IArticlePreview";
-import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
-import { buildMarkdownLines } from "./buildMarkdownLines";
-import { formatDate } from "../../src/utils/formatDate";
+import { IArticle } from "../src/types/IArticle";
+import { IArticlePreview } from "../src/types/IArticlePreview";
+import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
+import { formatDate } from "../src/utils/formatDate";
 
-export class PayloadRepository implements IDbArticleRepository {
+export class PayloadCMSRepository implements IDbArticleRepository {
     private readonly url = process.env.NEXT_PUBLIC_API_URL;
 
     async getArticle(slug: string): Promise<IArticle> {

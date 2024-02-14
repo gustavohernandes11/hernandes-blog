@@ -59,7 +59,6 @@ input {
   
   @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     font-size: 93.75%;
-    /* font-size: 87.50%; */
     h1 { font-size: 2rem };
   }
 }

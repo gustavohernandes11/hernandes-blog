@@ -3,7 +3,7 @@ import { Button } from "components/Button";
 import { Section } from "components/Section";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useState } from "react";
-import { PayloadRepository } from "../../api/payloadCMS/PayloadRepository";
+import { PayloadCMSRepository } from "../../api/PayloadCMSRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
 import { RenderContent } from "components/RenderContent";
@@ -47,13 +47,13 @@ export default Article;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const { slug } = ctx.params!;
-    const repository: IDbArticleRepository = new PayloadRepository();
+    const repository: IDbArticleRepository = new PayloadCMSRepository();
     const articleData = await repository.getArticle(slug as string);
     return { props: { articleData } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const repository = new PayloadRepository();
+    const repository = new PayloadCMSRepository();
     const slugs = await repository.listArticlesSlug();
 
     let paths = [];

@@ -1,5 +1,4 @@
-import styled, { ThemeProps, ThemedStyledProps } from "styled-components";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 type IFlexOptions = {
     children: any;

@@ -3,7 +3,7 @@ import { Title } from "components/Title";
 import { useState } from "react";
 import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
 import { IArticlePreview } from "../src/types/IArticlePreview";
-import { PayloadRepository } from "../api/payloadCMS/PayloadRepository";
+import { PayloadCMSRepository } from "../api/PayloadCMSRepository";
 import Head from "next/head";
 
 type IHomePageProps = {
@@ -27,15 +27,8 @@ const Home = ({ articlesPreview }: IHomePageProps) => {
                 />
             </Head>
             <Title>Início</Title>
-            {articles.map((e) => (
-                <Article
-                    title={e.title}
-                    category={e.category}
-                    description={e.description}
-                    date={e.date}
-                    slug={e.slug}
-                    key={e.title}
-                />
+            {articles.map((article) => (
+                <Article {...article} />
             ))}
         </>
     );
@@ -44,7 +37,7 @@ const Home = ({ articlesPreview }: IHomePageProps) => {
 export default Home;
 
 export const getStaticProps = async () => {
-    const repository: IDbArticleRepository = new PayloadRepository();
+    const repository: IDbArticleRepository = new PayloadCMSRepository();
     const articlesPreview = await repository.listArticlesPreview();
     return { props: { articlesPreview } };
 };

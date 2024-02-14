@@ -10,7 +10,7 @@ const NotFound = () => {
                 <title>Hernandes | NOT FOUND </title>
             </Head>
             <Title>Página não encontrada</Title>
-            <p>Tente novamente mais tarde.</p>
+            <p>Tente voltar para o início.</p>
             <Button href="/" icon={<ArrowLeft size={16} />} iconPosition="left">
                 Voltar para todos os artigos
             </Button>
