@@ -89,7 +89,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                 }
 
                 const serializedChildrenFn = (
-                    node: SerializedElementNode
+                    node: any
                 ): JSX.Element | null => {
                     if (node.children == null) {
                         return null;
