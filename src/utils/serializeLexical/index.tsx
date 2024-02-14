@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import type { SerializedListItemNode, SerializedListNode } from "@lexical/list";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import type {
     SerializedHeadingNode,
@@ -18,8 +18,11 @@ import type {
 } from "lexical";
 
 import escapeHTML from "escape-html";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
+import { ArticleHeading } from "components/ArticleHeading";
+import { Flex } from "components/Flex";
+import Image from "next/image";
 import {
     IS_BOLD,
     IS_CODE,
@@ -29,9 +32,6 @@ import {
     IS_SUPERSCRIPT,
     IS_UNDERLINE,
 } from "./nodeFormat";
-import { ArticleHeading } from "components/ArticleHeading";
-import Image from "next/image";
-import { Flex } from "components/Flex";
 
 interface Props {
     nodes: SerializedLexicalNode[];
@@ -129,8 +129,12 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                                     children={String(
                                         blockNode.fields.code
                                     ).replace(/\n$/, "")}
-                                    style={vscDarkPlus}
+                                    style={materialDark}
                                     showLineNumbers={true}
+                                    lineNumberStyle={{
+                                        minWidth: 0,
+                                        color: "rgb(0,0,0)",
+                                    }}
                                     language={blockNode.fields.language}
                                     PreTag="div"
                                 />
