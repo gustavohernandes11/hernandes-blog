@@ -6,8 +6,8 @@ import { useState } from "react";
 import { PayloadRepository } from "../../api/payloadCMS/PayloadRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
+import { RenderContent } from "components/RenderContent";
 import Head from "next/head";
-import { serializeLexical } from "../../src/utils/serializeLexical";
 
 const Article = ({
     articleData,
@@ -29,15 +29,7 @@ const Article = ({
                 <p>{article?.category}</p>
             </Section>
 
-            <div>
-                {article.content &&
-                    !Array.isArray(article.content) &&
-                    typeof article.content === "object" &&
-                    "root" in article.content &&
-                    serializeLexical({
-                        nodes: article.content?.root?.children,
-                    })}
-            </div>
+            <RenderContent content={article.content} />
 
             <Button
                 aria-label="Go back to home page"
