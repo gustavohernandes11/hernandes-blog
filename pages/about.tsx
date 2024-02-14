@@ -1,21 +1,33 @@
-import { Title } from "components/Title";
-import type { NextPage } from "next";
+import { RenderContent } from "components/RenderContent";
 import Head from "next/head";
+import { useState } from "react";
+import { IAbout } from "types/IAbout";
+import { PayloadCMSRepository } from "../api/PayloadCMSRepository";
+import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
 
-const About: NextPage = () => {
+type IAboutPageProps = {
+    aboutContent: IAbout;
+};
+
+const Home = ({ aboutContent }: IAboutPageProps) => {
+    const [about] = useState(aboutContent);
+
     return (
         <>
             <Head>
-                <title>Hernandes | Sobre</title>
+                <title>Hernandes | {about.meta.title || "Sobre"}</title>
+                <meta name="description" content={about.meta.description} />
+                <meta name="keywords" content={about.meta.keywords} />
             </Head>
-            <Title>Sobre</Title>
-            <p>
-                Pequeno "blog" para compartilhar algumas resenhas e
-                conhecimentos. Nenhum trecho aqui foi gerado através de
-                Inteligência Artificial.
-            </p>
+            <RenderContent content={about.content} />
         </>
     );
 };
 
-export default About;
+export default Home;
+
+export const getStaticProps = async () => {
+    const repository: IDbArticleRepository = new PayloadCMSRepository();
+    const aboutContent = await repository.getAbout();
+    return { props: { aboutContent } };
+};

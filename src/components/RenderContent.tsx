@@ -1,17 +1,8 @@
-import { SerializedLexicalNode } from "lexical";
+import { ILexicalContent } from "types/ILexicalContent";
 import { serializeLexical } from "utils/serializeLexical";
 
 type RenderContentProps = {
-    content: {
-        root: {
-            type: string;
-            format: string;
-            indent: number;
-            version: number;
-            children: SerializedLexicalNode[];
-            direction: string;
-        };
-    };
+    content: ILexicalContent;
 };
 
 export const RenderContent = ({ content }: RenderContentProps) => {

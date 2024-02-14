@@ -1,9 +1,15 @@
+import { IAbout } from "./IAbout";
 import { IArticle } from "./IArticle";
 import { IArticlePreview } from "./IArticlePreview";
 
 export type IDbArticleRepository = IGetArticleRepository &
     IListArticlesPreviewRepository &
-    IListArticlesSlugRepository;
+    IListArticlesSlugRepository &
+    IGetAbout;
+
+export interface IGetAbout {
+    getAbout(): Promise<IAbout>;
+}
 
 export interface IListArticlesPreviewRepository {
     listArticlesPreview(): Promise<IArticlePreview[]>;
