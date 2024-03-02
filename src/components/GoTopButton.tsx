@@ -1,7 +1,7 @@
 import { ArrowUp } from "@styled-icons/fa-solid";
 import { IconButton } from "./IconButton";
 
-const goTop = () => {
+export const goTop = () => {
     const main = document.getElementsByClassName("main");
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;

@@ -2,17 +2,22 @@ import { ArrowLeft } from "@styled-icons/fa-solid";
 import { Button } from "components/Button";
 import { Section } from "components/Section";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PayloadCMSRepository } from "../../api/PayloadCMSRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
 import { RenderContent } from "components/RenderContent";
 import Head from "next/head";
+import { goTop } from "components/GoTopButton";
 
 const Article = ({
     articleData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const [article] = useState(articleData);
+
+    useEffect(() => {
+        goTop();
+    }, []);
 
     return (
         <>
