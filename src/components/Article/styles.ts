@@ -51,7 +51,5 @@ export const ArticleTitle = styled.h1`
     `}
 `;
 export const ArticleDescription = styled.p`
-    ${({ theme }) => css`
-        margin-top: 0.5rem;
-    `}
+    margin-top: 0.5rem;
 `;

@@ -22,6 +22,7 @@ import { Fragment } from "react";
 
 import { ArticleHeading } from "components/ArticleHeading";
 import { Flex } from "components/Flex";
+import { Paragraph } from "components/Paragraph";
 import Image from "next/image";
 import {
     IS_BOLD,
@@ -155,7 +156,11 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                         );
                     }
                     case "paragraph": {
-                        return <p key={index}>{serializedChildren}</p>;
+                        return (
+                            <Paragraph key={index}>
+                                {serializedChildren}
+                            </Paragraph>
+                        );
                     }
                     case "heading": {
                         const node = _node as SerializedHeadingNode;
