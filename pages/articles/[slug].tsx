@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { PayloadCMSRepository } from "../../api/PayloadCMSRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
 
+import { goTop } from "components/GoTopButton";
 import { RenderContent } from "components/RenderContent";
 import Head from "next/head";
-import { goTop } from "components/GoTopButton";
 
 const Article = ({
     articleData,

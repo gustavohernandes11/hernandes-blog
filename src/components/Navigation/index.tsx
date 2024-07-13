@@ -1,6 +1,6 @@
+import { useMenuContext } from "hooks/useMenuContext";
 import Link from "next/link";
 import * as Styled from "./styles";
-import { useMenuContext } from "hooks/useMenuContext";
 
 export const Navigation = () => {
     const { setMenuOpen } = useMenuContext();

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import * as Styled from "./styles";
 import { IArticlePreview } from "types/IArticlePreview";
+import * as Styled from "./styles";
 
 export const Article = ({
     category,

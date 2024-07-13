@@ -1,7 +1,7 @@
-import Image from "next/image";
-import LightLogo from "../../public/LightLogo.svg";
-import DarkLogo from "../../public/DarkLogo.svg";
 import { useThemeContext } from "hooks/useThemeContext";
+import Image from "next/image";
+import DarkLogo from "../../public/DarkLogo.svg";
+import LightLogo from "../../public/LightLogo.svg";
 
 type ILogoProps = {
     scale?: 1 | 1.25 | 1.5 | 1.75 | 2.0;

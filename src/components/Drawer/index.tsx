@@ -1,6 +1,6 @@
 import { Navigation } from "components/Navigation";
-import * as Styled from "./styles";
 import { DrawerFooter } from "./DrawerFooter";
+import * as Styled from "./styles";
 
 export const Drawer = () => {
     return (

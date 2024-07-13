@@ -2,10 +2,10 @@ import { IAbout } from "./IAbout";
 import { IArticle } from "./IArticle";
 import { IArticlePreview } from "./IArticlePreview";
 
-export type IDbArticleRepository = IGetArticleRepository &
+export type IDbArticleRepository = IGetAbout &
     IListArticlesPreviewRepository &
-    IListArticlesSlugRepository &
-    IGetAbout;
+    IGetArticleRepository &
+    IListArticlesSlugRepository;
 
 export interface IGetAbout {
     getAbout(): Promise<IAbout>;
@@ -13,10 +13,6 @@ export interface IGetAbout {
 
 export interface IListArticlesPreviewRepository {
     listArticlesPreview(): Promise<IArticlePreview[]>;
-}
-
-export interface ISearchArticlesRepository {
-    searchArticles(text: string): Promise<IArticlePreview[]>;
 }
 
 export interface IGetArticleRepository {

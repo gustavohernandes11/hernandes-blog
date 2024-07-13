@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { IconButton } from "./IconButton";
 import { Moon, Sun } from "@styled-icons/fa-solid";
 import { ThemeContext } from "contexts/ThemeContext";
+import { useContext } from "react";
+import { IconButton } from "./IconButton";
 
 export const ThemeButton = () => {
     const [theme, toggleTheme] = useContext(ThemeContext);

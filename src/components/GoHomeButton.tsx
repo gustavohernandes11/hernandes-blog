@@ -1,7 +1,7 @@
 import { Home } from "@styled-icons/fa-solid";
+import { useMenuContext } from "hooks/useMenuContext";
 import Link from "next/link";
 import { IconButton } from "./IconButton";
-import { useMenuContext } from "hooks/useMenuContext";
 
 export const GoHomeButton = () => {
     const { setMenuOpen } = useMenuContext();

@@ -1,10 +1,10 @@
 import { Article } from "components/Article";
 import { Title } from "components/Title";
-import { useState } from "react";
-import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
-import { IArticlePreview } from "../src/types/IArticlePreview";
-import { PayloadCMSRepository } from "../api/PayloadCMSRepository";
 import Head from "next/head";
+import { useState } from "react";
+import { PayloadCMSRepository } from "../api/PayloadCMSRepository";
+import { IArticlePreview } from "../src/types/IArticlePreview";
+import { IDbArticleRepository } from "../src/types/IDbArticleRepository";
 
 type IHomePageProps = {
     articlesPreview: IArticlePreview[];
@@ -19,11 +19,11 @@ const Home = ({ articlesPreview }: IHomePageProps) => {
                 <title>Hernandes | Início</title>
                 <meta
                     name="description"
-                    content="Pra falar de tecnologia, engenharia e outras coisas mais"
+                    content="Para rascunhar textos sobre engenharia, desenvolvimento de software, e outros"
                 />
                 <meta
                     name="keywords"
-                    content="Programação, Engenharia, Produção, Software"
+                    content="Typescript, programação, algoritmos, software, engenharia, produção"
                 />
             </Head>
             <Title>Início</Title>

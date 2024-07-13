@@ -1,7 +1,7 @@
 import { IconButton } from "components/IconButton";
-import * as Styled from "./styles";
 import Link from "next/link";
 import { ButtonHTMLAttributes } from "react";
+import * as Styled from "./styles";
 
 type IButtonProps = {
     children: React.ReactNode;

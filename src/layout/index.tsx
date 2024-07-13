@@ -1,14 +1,13 @@
-import styled, { css } from "styled-components";
+import { useMenuContext } from "hooks/useMenuContext";
+import { useThemeContext } from "hooks/useThemeContext";
+import styled, { ThemeProvider, css } from "styled-components";
+import { darkTheme, lightTheme } from "styles/theme";
+import { Drawer } from "../components/Drawer";
+import { ILayoutProps } from "../types/ILayoutProps";
+import { Aside } from "./Aside";
 import { Header } from "./Header";
 import { Main } from "./Main";
 import { MenuBar } from "./MenuBar";
-import { Drawer } from "../components/Drawer";
-import { Aside } from "./Aside";
-import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "styles/theme";
-import { useThemeContext } from "hooks/useThemeContext";
-import { useMenuContext } from "hooks/useMenuContext";
-import { ILayoutProps } from "../types/ILayoutProps";
 
 export const Layout = ({ children }: ILayoutProps) => {
     const [theme] = useThemeContext();
@@ -21,7 +20,7 @@ export const Layout = ({ children }: ILayoutProps) => {
                 <Aside />
                 <Main>
                     {children}
-                    {isOpen && <Drawer />}
+                    {isOpen ? <Drawer /> : null}
                 </Main>
                 <MenuBar />
             </StyledLayout>
