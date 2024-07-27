@@ -3,9 +3,13 @@ import { GoTopButton } from "components/GoTopButton";
 import { MenuButton } from "components/MenuButton";
 import styled, { css } from "styled-components";
 
-export const MenuBar = () => {
+type MenuBarProps = {
+    visible: boolean;
+};
+
+export const MenuBar = ({ visible = true }: MenuBarProps) => {
     return (
-        <StyledMenuBar>
+        <StyledMenuBar visible={visible}>
             <GoHomeButton />
             <MenuButton />
             <GoTopButton />
@@ -13,14 +17,16 @@ export const MenuBar = () => {
     );
 };
 
-const StyledMenuBar = styled.div`
-    ${({ theme }) => css`
+const StyledMenuBar = styled.div<MenuBarProps>`
+    ${({ theme, visible }) => css`
         grid-area: menubar;
         bottom: 0;
         left: 0;
         position: fixed;
         display: flex;
         flex-direction: row;
+        transition: transform 0.3s ease-in-out;
+        transform: ${visible ? "translateY(0)" : "translateY(3.75rem)"};
         justify-content: space-around;
         align-items: center;
         height: 3.75rem;

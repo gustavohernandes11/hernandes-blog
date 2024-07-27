@@ -12,11 +12,11 @@ const commonTheme = {
 };
 export const lightTheme = {
     color: {
-        background: "#FFFFFF",
+        background: "#f1f1f1",
         secondaryBackground: "#E8E8E8",
         surface: "#F8F8F8",
         secondarySurface: "#F3F3F3",
-        text: "#000000",
+        text: "#222222",
         primary: "#7652C2",
         secondary: "#361C9C",
         border: "#D3D3D3",
@@ -25,11 +25,11 @@ export const lightTheme = {
 };
 export const darkTheme = {
     color: {
-        background: "#141414",
+        background: "#181818",
         secondaryBackground: "#252525",
         surface: "#313131",
         secondarySurface: "#1D1D1D",
-        text: "#FFFFFF",
+        text: "#f9f9f9",
         primary: "#523CAB",
         secondary: "#E300F6",
         border: "#313131",

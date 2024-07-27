@@ -1,19 +1,29 @@
+import { useShowFixedComponents } from "hooks/useShowFixedComponents";
 import styled from "styled-components";
 import { ILayoutProps } from "../types/ILayoutProps";
+import { Header } from "./Header";
+import { MenuBar } from "./MenuBar";
 
 export const Main = ({ children }: ILayoutProps) => {
-    return <StyledContainer className="main">{children}</StyledContainer>;
+    const { show } = useShowFixedComponents();
+
+    return (
+        <StyledContainer className="main">
+            <Header visible={show} />
+            {children}
+            <MenuBar visible={show} />
+        </StyledContainer>
+    );
 };
 
 const StyledContainer = styled.main`
     grid-area: main;
     padding: 1rem;
     max-width: 100vw;
-    overflow-y: scroll;
     scroll-behavior: smooth;
 
     img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
     }
 

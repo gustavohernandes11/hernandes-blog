@@ -21,24 +21,23 @@ export const ArticleContainer = styled.article`
     `}
 `;
 
-export const RowContainer = styled.div`
+export const ArticleCategory = styled.p`
     ${() => css`
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: start;
-        gap: 1rem;
-        margin-top: 0.5rem;
+        margin: 0;
         font-size: small;
+    `};
+`;
 
-        p {
-            margin: 0;
-        }
+export const ArticlePublishDate = styled.time`
+    ${() => css`
+        margin: 0;
+        font-size: small;
     `};
 `;
 
 export const ArticleTitle = styled.h1`
     ${({ theme }) => css`
+        margin-top: 1rem;
         font-size: 1.5rem;
 
         @media (max-width: ${theme.screen.tablet}) {

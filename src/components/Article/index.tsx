@@ -12,15 +12,12 @@ export const Article = ({
     return (
         <Link href={`/articles/${slug}`}>
             <Styled.ArticleContainer>
+                <Styled.ArticlePublishDate>{date}</Styled.ArticlePublishDate>
                 <Styled.ArticleTitle>{title}</Styled.ArticleTitle>
                 <Styled.ArticleDescription>
                     {description}
                 </Styled.ArticleDescription>
-                <Styled.RowContainer>
-                    <time>{date}</time>
-                    <p>·</p>
-                    <p>{category}</p>
-                </Styled.RowContainer>
+                <Styled.ArticleCategory>{category}</Styled.ArticleCategory>
             </Styled.ArticleContainer>
         </Link>
     );

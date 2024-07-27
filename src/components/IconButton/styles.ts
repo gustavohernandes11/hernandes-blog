@@ -14,7 +14,7 @@ export const Container = styled.button<any>`
         css`
             background-color: ${theme.color.primary};
             path {
-                color: white;
+                color: "#f1f1f1";
             }
         `}
         ${disable &&
