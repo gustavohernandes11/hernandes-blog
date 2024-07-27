@@ -22,6 +22,7 @@ const StyledLayout = styled.div`
     ${({ theme }) => css`
         padding-top: 3.75rem;
         padding-bottom: 3.75rem;
+        min-height: 100vh;
 
         @media (min-width: ${theme.screen.tablet}) {
             display: grid;

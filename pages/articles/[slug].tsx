@@ -1,14 +1,14 @@
 import { ArrowLeft } from "@styled-icons/fa-solid";
 import { Button } from "components/Button";
+import { goTop } from "components/GoTopButton";
+import { Paragraph } from "components/Paragraph";
+import { RenderContent } from "components/RenderContent";
 import { Section } from "components/Section";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { PayloadCMSRepository } from "../../api/PayloadCMSRepository";
 import { IDbArticleRepository } from "../../src/types/IDbArticleRepository";
-
-import { goTop } from "components/GoTopButton";
-import { RenderContent } from "components/RenderContent";
-import Head from "next/head";
 
 const Article = ({
     articleData,
@@ -29,9 +29,9 @@ const Article = ({
                 <meta name="keywords" content={article?.meta?.keywords} />
             </Head>
             <Section>
-                <p>{article?.date}</p>
+                <Paragraph secondary>{article?.date}</Paragraph>
                 <h1>{article?.title}</h1>
-                <p>{article?.category}</p>
+                <Paragraph secondary>{article?.category}</Paragraph>
             </Section>
 
             <RenderContent content={article.content} />
