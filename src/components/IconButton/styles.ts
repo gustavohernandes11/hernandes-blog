@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
+import { darkTheme } from "styles/theme";
 
 export const Container = styled.button<any>`
-    ${({ theme, backgroundColor, primary, disable }) => css`
+    ${({ theme, backgroundColor, primary, secondary, disable }) => css`
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 0.5rem;
         padding: 1rem;
-        border-radius: 1rem;
         border: none;
         background-color: ${() => backgroundColor ?? "transparent"};
 
@@ -14,7 +15,15 @@ export const Container = styled.button<any>`
         css`
             background-color: ${theme.color.primary};
             path {
-                color: "#f1f1f1";
+                color: ${darkTheme.color.text};
+            }
+        `}
+
+        ${secondary &&
+        css`
+            padding: 0.5rem;
+            path {
+                color: ${theme.color.secondaryText};
             }
         `}
         ${disable &&

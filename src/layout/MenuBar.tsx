@@ -1,6 +1,8 @@
+import { Drawer } from "components/Drawer";
 import { GoHomeButton } from "components/GoHomeButton";
 import { GoTopButton } from "components/GoTopButton";
 import { MenuButton } from "components/MenuButton";
+import { useMenuContext } from "hooks/useMenuContext";
 import styled, { css } from "styled-components";
 
 type MenuBarProps = {
@@ -8,8 +10,10 @@ type MenuBarProps = {
 };
 
 export const MenuBar = ({ visible = true }: MenuBarProps) => {
+    const { isOpen } = useMenuContext();
     return (
-        <StyledMenuBar visible={visible}>
+        <StyledMenuBar visible={visible || isOpen}>
+            {isOpen ? <Drawer /> : null}
             <GoHomeButton />
             <MenuButton />
             <GoTopButton />

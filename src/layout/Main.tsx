@@ -21,6 +21,7 @@ const StyledContainer = styled.main`
     padding: 1rem;
     max-width: 100vw;
     scroll-behavior: smooth;
+    overflow-y: auto;
 
     img {
         max-width: 100%;

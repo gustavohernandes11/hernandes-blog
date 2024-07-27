@@ -5,19 +5,18 @@ export const Container = styled.div`
         display: flex;
         position: fixed;
         flex-direction: column;
-        gap: 2rem;
-        top: 0;
+        gap: 1.5rem;
+        bottom: 3.75rem;
         left: 0;
-        padding: 3.75rem 0;
-        height: 100vh;
-        width: 100vw;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: ${theme.color.background};
+        padding: 1rem;
+        width: -webkit-fill-available;
+        background-color: ${theme.color.secondarySurface};
         overscroll-behavior: contain;
+        border: 1px solid ${theme.color.border};
 
         @media (min-width: ${theme.screen.tablet}) {
             display: none;
+            position: static;
         }
     `}
 `;

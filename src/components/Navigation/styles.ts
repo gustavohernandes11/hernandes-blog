@@ -4,7 +4,6 @@ export const Nav = styled.nav`
     ${({ theme }) => css`
         display: flex;
         flex-direction: column;
-        align-items: center;
         grid-area: nav;
         gap: 1rem;
         font-weight: 600;

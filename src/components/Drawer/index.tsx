@@ -1,12 +1,14 @@
+import { Copyright } from "components/Copyright";
 import { Navigation } from "components/Navigation";
-import { DrawerFooter } from "./DrawerFooter";
+import { Social } from "components/Social";
 import * as Styled from "./styles";
 
 export const Drawer = () => {
     return (
         <Styled.Container>
+            <Social />
             <Navigation />
-            <DrawerFooter />
+            <Copyright />
         </Styled.Container>
     );
 };

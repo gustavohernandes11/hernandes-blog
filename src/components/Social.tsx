@@ -6,7 +6,7 @@ export const Social = () => {
     return (
         <StyledSocial>
             <a target="_blank" href="https://github.com/gustavohernandes11">
-                <IconButton>
+                <IconButton secondary>
                     <Github size={26} />
                 </IconButton>
             </a>
@@ -14,7 +14,7 @@ export const Social = () => {
                 target="_blank"
                 href="https://www.linkedin.com/in/gustavo-hernandes11/"
             >
-                <IconButton>
+                <IconButton secondary>
                     <Linkedin size={26} />
                 </IconButton>
             </a>
@@ -25,4 +25,5 @@ export const Social = () => {
 export const StyledSocial = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: start;
 `;

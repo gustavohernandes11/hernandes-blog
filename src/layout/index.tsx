@@ -1,15 +1,12 @@
-import { useMenuContext } from "hooks/useMenuContext";
 import { useThemeContext } from "hooks/useThemeContext";
 import styled, { ThemeProvider, css } from "styled-components";
 import { darkTheme, lightTheme } from "styles/theme";
-import { Drawer } from "../components/Drawer";
 import { ILayoutProps } from "../types/ILayoutProps";
 import { Aside } from "./Aside";
 import { Main } from "./Main";
 
 export const Layout = ({ children }: ILayoutProps) => {
     const [theme] = useThemeContext();
-    const { isOpen } = useMenuContext();
 
     return (
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -17,7 +14,6 @@ export const Layout = ({ children }: ILayoutProps) => {
                 <Aside />
                 <Main>{children}</Main>
             </StyledLayout>
-            {isOpen ? <Drawer /> : null}
         </ThemeProvider>
     );
 };
@@ -26,7 +22,6 @@ const StyledLayout = styled.div`
     ${({ theme }) => css`
         padding-top: 3.75rem;
         padding-bottom: 3.75rem;
-        overscroll-behavior-y: contain;
 
         @media (min-width: ${theme.screen.tablet}) {
             display: grid;
