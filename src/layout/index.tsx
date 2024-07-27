@@ -15,11 +15,9 @@ export const Layout = ({ children }: ILayoutProps) => {
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <StyledLayout>
                 <Aside />
-                <Main>
-                    {children}
-                    {isOpen ? <Drawer /> : null}
-                </Main>
+                <Main>{children}</Main>
             </StyledLayout>
+            {isOpen ? <Drawer /> : null}
         </ThemeProvider>
     );
 };
@@ -28,6 +26,7 @@ const StyledLayout = styled.div`
     ${({ theme }) => css`
         padding-top: 3.75rem;
         padding-bottom: 3.75rem;
+        overscroll-behavior-y: contain;
 
         @media (min-width: ${theme.screen.tablet}) {
             display: grid;

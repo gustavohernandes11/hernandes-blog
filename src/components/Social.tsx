@@ -1,4 +1,4 @@
-import { Github, LinkedinIn } from "@styled-icons/fa-brands";
+import { Github, Linkedin } from "@styled-icons/fa-brands";
 import styled from "styled-components";
 import { IconButton } from "./IconButton";
 
@@ -7,7 +7,7 @@ export const Social = () => {
         <StyledSocial>
             <a target="_blank" href="https://github.com/gustavohernandes11">
                 <IconButton>
-                    <Github size={20} />
+                    <Github size={26} />
                 </IconButton>
             </a>
             <a
@@ -15,7 +15,7 @@ export const Social = () => {
                 href="https://www.linkedin.com/in/gustavo-hernandes11/"
             >
                 <IconButton>
-                    <LinkedinIn size={20} />
+                    <Linkedin size={26} />
                 </IconButton>
             </a>
         </StyledSocial>

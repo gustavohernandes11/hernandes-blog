@@ -2,17 +2,17 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
     ${({ theme }) => css`
-        display: grid;
+        display: flex;
         position: fixed;
+        flex-direction: column;
+        gap: 2rem;
         top: 0;
         left: 0;
-        margin: 3.75rem 0;
-        height: -webkit-fill-available;
-        width: -webkit-fill-available;
-        grid-template-rows: 1fr 3fr 1fr;
-        grid-template-areas: "." "nav" "drawer-footer";
+        padding: 3.75rem 0;
+        height: 100vh;
+        width: 100vw;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         background-color: ${theme.color.background};
         overscroll-behavior: contain;
 

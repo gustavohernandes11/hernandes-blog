@@ -6,7 +6,6 @@ export const useShowFixedComponents = () => {
 
     const controlNavbar = () => {
         if (typeof window === "undefined") return;
-
         const scrolledTo = window.scrollY + window.innerHeight;
         const isReachBottom = document.body.scrollHeight === scrolledTo;
         const isHomePage = window.location.pathname === "/";

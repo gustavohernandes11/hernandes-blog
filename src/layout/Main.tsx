@@ -1,5 +1,5 @@
-import { useShowFixedComponents } from "hooks/useShowFixedComponents";
 import styled from "styled-components";
+import { useShowFixedComponents } from "../hooks/useShowFixedComponents";
 import { ILayoutProps } from "../types/ILayoutProps";
 import { Header } from "./Header";
 import { MenuBar } from "./MenuBar";
