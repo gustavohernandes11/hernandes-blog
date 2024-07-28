@@ -53,6 +53,8 @@ const StyledAsideFooter = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
+    max-width: 14rem;
 `;
 
 const StyledAbsolute = styled.div`

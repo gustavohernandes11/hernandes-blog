@@ -7,7 +7,11 @@ type RenderContentProps = {
 
 export const RenderContent = ({ content }: RenderContentProps) => {
     return (
-        <div>
+        <div
+            style={{
+                fontSize: "1.2rem",
+            }}
+        >
             {content &&
                 !Array.isArray(content) &&
                 typeof content === "object" &&

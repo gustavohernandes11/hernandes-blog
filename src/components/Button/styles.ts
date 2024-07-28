@@ -9,6 +9,7 @@ export const Button = styled.button<any>`
         border: 1px solid transparent;
         background-color: ${backgroundColor ?? "transparent"};
         color: ${theme.color.text};
+        font-size: 1.2rem;
 
         :hover {
             cursor: pointer;

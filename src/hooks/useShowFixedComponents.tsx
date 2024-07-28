@@ -8,9 +8,9 @@ export const useShowFixedComponents = () => {
         if (typeof window === "undefined") return;
         const scrolledTo = window.scrollY + window.innerHeight;
         const isReachBottom = document.body.scrollHeight === scrolledTo;
-        const isHomePage = window.location.pathname === "/";
+        const isArticlePage = window.location.pathname.includes("articles");
 
-        if (isHomePage || window.scrollY < 120 || isReachBottom) {
+        if (!isArticlePage || window.scrollY < 120 || isReachBottom) {
             setShow(true);
             return;
         }

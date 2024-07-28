@@ -1,5 +1,5 @@
 import { Github, Linkedin } from "@styled-icons/fa-brands";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { IconButton } from "./IconButton";
 
 export const Social = () => {
@@ -23,7 +23,14 @@ export const Social = () => {
 };
 
 export const StyledSocial = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: start;
+    ${({ theme }) => css`
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+
+        @media (max-width: ${theme.screen.tablet}) {
+            // align first icon button disregarding its padding
+            margin-left: -0.5rem;
+        }
+    `}
 `;

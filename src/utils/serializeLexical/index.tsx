@@ -22,6 +22,7 @@ import { Fragment } from "react";
 
 import { ArticleHeading } from "components/ArticleHeading";
 import { Flex } from "components/Flex";
+import { InlineCode } from "components/InlineCode";
 import { Paragraph } from "components/Paragraph";
 import Image from "next/image";
 import {
@@ -73,7 +74,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                         );
                     }
                     if (node.format & IS_CODE) {
-                        text = <code>{text}</code>;
+                        text = <InlineCode>{text}</InlineCode>;
                     }
                     if (node.format & IS_SUBSCRIPT) {
                         text = <sub key={index}>{text}</sub>;
